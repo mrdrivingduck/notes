@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ##### 1. 对称加密算法 （Symmetric Encryption Algorithm）
 
-​	数据发信方将明文（原始数据）和加密密钥一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，才能使其恢复成可读明文。
+	数据发信方将明文（原始数据）和加密密钥一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，才能使其恢复成可读明文。
 
 * 密钥只有一个，发收信双方都使用这个密钥对数据进行加密和解密
 * 发送方和接收方在安全通信之前，需要提前商定密钥
@@ -68,11 +68,9 @@ public class SecurityUtil {
 
 	private static void GenerateKey() {
 		try {
-			KeyGenerator keyGenerator
-                = KeyGenerator.getInstance("AES");
+			KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
 			keyGenerator.init(keyLength); // size
-			SecretKey secretKey
-                = keyGenerator.generateKey();
+			SecretKey secretKey = keyGenerator.generateKey();
 		} catch (NoSuchAlgorithmException e1) {
 			// Catch Exception
 			e1.printStackTrace();
@@ -80,8 +78,7 @@ public class SecurityUtil {
 	}
 
 	private static void InitKey() {
-		generateKey
-            = new SecretKeySpec(key, 0, keySize, "AES");
+		generateKey = new SecretKeySpec(key, 0, keySize, "AES");
 	}
 
 	public static String Encode(String src) {
@@ -94,9 +91,7 @@ public class SecurityUtil {
 			}
 
 			cipher.init(Cipher.ENCRYPT_MODE, generateKey);
-			byte[] resultBytes
-                = cipher.doFinal(src.getBytes());
-
+			byte[] resultBytes = cipher.doFinal(src.getBytes());
 			return Hex.encodeHexString(resultBytes);
 
 		} catch (InvalidKeyException e) {
@@ -129,9 +124,7 @@ public class SecurityUtil {
 			}
 
 			cipher.init(Cipher.DECRYPT_MODE, generateKey);
-			byte[] result
-                = Hex.decodeHex(secret.toCharArray());
-
+			byte[] result = Hex.decodeHex(secret.toCharArray());
 			return new String(cipher.doFinal(result));
             
 		} catch (InvalidKeyException e) {
@@ -169,8 +162,7 @@ byte []key = new byte[BUFFER_SIZE];
  */
 for (int i = 0; i < keyLength / 8; i++) {
 	System.out.print(
-        Integer.toHexString((key[i] & 0xFF) + 0x100)
-        .substring(1)
+        Integer.toHexString((key[i] & 0xFF) + 0x100).substring(1)
     );
 }
 
@@ -186,7 +178,7 @@ for (int i = 0; i < keyLength / 8; i++) {
 
 ##### 2. 非对称加密算法（Asymmetric Cryptographic Algorithm）
 
-​	非对称加密算法需要两个密钥：
+	非对称加密算法需要两个密钥：
 
   * 公开密钥（public key）
 * 私有密钥（private key）

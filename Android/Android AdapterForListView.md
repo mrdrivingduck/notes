@@ -37,50 +37,46 @@ Nanjing, Jiangsu, China
   public int getCount() {
       return AllValues.size();
   }
-
+  
   @Override
   public Object getItem(int position) {
       return AllValues.get(position);
   }
-
+  
   @Override
   public long getItemId(int position) {
       return position;
   }
-
+  
   @Override
   public View getView(
       int position, 
       View convertView, 
       ViewGroup parent) {
-
+  
       if (convertView == null) {
           // Create an item
           
           // add a layout file
-          convertView = 
-              LayoutInflater
+          convertView = LayoutInflater
               .from(context)
               .inflate(R.layout.listview_menu, null);
           // set size
-          convertView
-              .setLayoutParams(
+          convertView.setLayoutParams(
               new AbsListView.LayoutParams(
-                  ViewGroup
-                  .LayoutParams
-                  .MATCH_PARENT,
-                  GetScreenSize
-                  .GetScreenHeight(context) / 8));
+                  ViewGroup.LayoutParams.MATCH_PARENT,
+                  GetScreenSize.GetScreenHeight(context) / 8
+              )
+          );
       }
-
+  
       // Find views by ID
-
+  
       // Get data for one item
-      Map<String, Object> map = 
-          AllValues.get(position);
+      Map<String, Object> map = AllValues.get(position);
       
       // Data deployment
-
+  
       return convertView;
   }
   ```
@@ -89,8 +85,7 @@ Nanjing, Jiangsu, China
 
 ```Java
 List <Map <String, Object> > AllValues = new ArrayList<>();
-MyAdapter myAdapter = 
-    new MyAdapter (getContext(), AllValues);
+MyAdapter myAdapter = new MyAdapter (getContext(), AllValues);
 listView.setAdapter (myAdapter);
 ```
 

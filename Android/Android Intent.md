@@ -17,8 +17,7 @@ Nanjing, Jiangsu, China
 ##### 2. 构造函数
 
 ```Java
-Intent intent = 
-	new Intent (Context packageContext, Class <?> cls);
+Intent intent = new Intent (Context packageContext, Class <?> cls);
 
 // packageContext : 上下文参数
 // 可以传入 Activity.this
@@ -29,8 +28,7 @@ Intent intent =
 // 使用反射机制 : LogInActivity.class
 
 // e.g.
-Intent intent = 
-    new Intent(LogInActivity.this, MainActivity.class);
+Intent intent = new Intent(LogInActivity.this, MainActivity.class);
 ```
 
 ---
@@ -84,14 +82,12 @@ startActivity (Intent intent, Bundle options);
 
 // 当跳转的界面返回时，需要返回结果
 startActivityForResult (Intent intent, int requestCode);
-startActivityForResult 
-	(Intent intent, int requestCode, Bundle options);
+startActivityForResult (Intent intent, int requestCode, Bundle options);
 
 // e.g.
 // MainActivity
 public void StartActivity () {
-    Intent intent = new Intent(
-        MainActivity.this, UpdateActivity.class);
+    Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
 	// intent.putExtra();
 	startActivityForResult (intent);
 }
@@ -140,28 +136,15 @@ setResult (resultCode, getIntent());
   ```Java
   class MainActivity extends FragmentActivity {
       @Override
-  	protected void onActivityResult(
-      	int requestCode, 
-          int resultCode, 
-          Intent data) {
-      
-          getFragment().OnActivityResult (
-          	requestCode, resultCode, data
-          );
+  	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          getFragment().OnActivityResult (requestCode, resultCode, data);
   	}
   }
-
+  
   class TestFragment extends Fragment {
       @Override
-  	protected void onActivityResult(
-      	int requestCode, 
-          int resultCode, 
-          Intent data) {
-      
-          super.OnActivityResult (
-              requestCode, 
-              resultCode, 
-              data);
+  	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          super.OnActivityResult (requestCode, resultCode, data);
           
           // Service
   	}
@@ -179,22 +162,14 @@ setResult (resultCode, getIntent());
   ```Java
   class MainActivity extends FragmentActivity {
       @Override
-  	protected void onActivityResult(
-      	int requestCode, 
-          int resultCode, 
-          Intent data) {
-      
+  	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
           // testFragment 将收到数据
-          testFragment.OnActivityResult (
-          	requestCode, resultCode, data
-          );
+          testFragment.OnActivityResult (requestCode, resultCode, data);
           // anotherFragment 将不会收到数据
-          anotherFragment.OnActivityResult (
-          	requestCode, resultCode, data
-          );
+          anotherFragment.OnActivityResult (requestCode, resultCode, data);
   	}
   }
-
+  
   class TestFragment extends Fragment {
       
       public void StartActivity () {
@@ -206,15 +181,9 @@ setResult (resultCode, getIntent());
       }
       
       @Override
-  	protected void onActivityResult(
-      	int requestCode, 
-          int resultCode, 
-          Intent data) {
-      
-          super.OnActivityResult (
-              requestCode, 
-              resultCode, 
-              data);
+  	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+          
+          super.OnActivityResult (requestCode, resultCode, data);
           
           // Service
   	}

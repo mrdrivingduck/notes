@@ -22,14 +22,12 @@ Nanjing, Jiangsu, China
 * 由于是触发显示，所以不能使用构造函数进行创建
 
 ```java
-AlertDialog.Builder builder = 
-    new AlertDialog.Builder(context);
+AlertDialog.Builder builder = new AlertDialog.Builder(context);
 // builder.set...
 AlertDialog dialog = builder.create();
 
 /*    Another way    */
-AlertDialog dialog = 
-    new AlertDialog.Builder(context).create();
+AlertDialog dialog = new AlertDialog.Builder(context).create();
 // dialog.set...
 ```
 
@@ -86,11 +84,9 @@ builder.setPositiveButton();
 - 修改按钮样式
 
   ```Java
-  dialog.getButton(AlertDialog.BUTTON_POSITIVE)
-  	.setTextColor(Color.BLUE);
+  dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
       
-  dialog.getButton(DialogInterface.BUTTON_NEGATIVE)
-      .setTextColor(Color.BLACK);
+  dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
   ```
 
 - 修改标题样式
@@ -98,20 +94,17 @@ builder.setPositiveButton();
   ```Java
   dialog.show();
   try {
-  	Field mAlert = 
-  		AlertDialog
-  		.class
+  	Field mAlert = AlertDialog
+          .class
   		.getDeclaredField("mAlert");
       mAlert.setAccessible(true);
       Object mAlertController = mAlert.get(dialog);
-      Field mMessage = 
-   		mAlertController
+      Field mMessage = mAlertController
    		.getClass()
    		.getDeclaredField("mMessageView");
       // OR "mTitleView"
       mMessage.setAccessible(true);
-      TextView mMessageView = 
-      	(TextView) mMessage.get(mAlertController);
+      TextView mMessageView = (TextView) mMessage.get(mAlertController);
       mMessageView.setTextColor(Color.BLUE);
   } catch (IllegalAccessException e) {
   	e.printStackTrace();
@@ -120,7 +113,6 @@ builder.setPositiveButton();
   }
   ```
 
-  
 
 ------
 
