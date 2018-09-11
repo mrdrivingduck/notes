@@ -4,7 +4,7 @@
 
 Created by : Mr Dk.
 
-2018 / 09 / 11 23:03
+2018 / 09 / 11 10:38
 
 Nanjing, Jiangsu, China
 
@@ -43,10 +43,10 @@ using namespace std;
 
 class Test
 {
-    private:
-    	static int value;
-    public:
-    	static int getValue()；
+private:
+    static int value;
+public:
+    static int getValue()；
 };
 
 // 类外初始化静态成员变量
@@ -85,16 +85,16 @@ using namespace std;
 
 class Test
 {
-	private:
-    	int a;
-    	int b;
-    public:
-    	Test (int a, int b)
-        {
-            this -> a = a;
-            this -> b = b;
-        }
-    	friend int distance(const Test &t1, const Test &t2);
+private:
+    int a;
+    int b;
+public:
+    Test (int a, int b)
+    {
+        this -> a = a;
+        this -> b = b;
+    }
+    friend int distance(const Test &t1, const Test &t2);
 };
 
 // 类外不需要使用 friend 关键字
