@@ -1,7 +1,5 @@
 ## C++ File I/O
 
----
-
 Created by : Mr Dk.
 
 2018 / 09 / 10 16:05

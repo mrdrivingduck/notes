@@ -1,7 +1,5 @@
 ## Java Web - Tomcat and Servlet : Thread safety
 
-------
-
 Created by : Mr Dk.
 
 2018 / 05 / 10 10:51

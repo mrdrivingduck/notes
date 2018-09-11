@@ -1,7 +1,5 @@
 ## C++ STL vector
 
----
-
 Created by : Mr Dk.
 
 2018 / 03 / 21 23:03
@@ -48,7 +46,7 @@ vector <int> Vector (N, number);
 
 ##### 4. 内存分配
 
-​	4.1 预留 N 个元素的内存 但不构造对象
+	4.1 预留 N 个元素的内存 但不构造对象
 
 ```C++
 // 访问预留的空间是非法的
@@ -58,7 +56,7 @@ Vector.reserve (N);
 Vector.push_back (1);
 ```
 
-​	4.2 分配 N 个元素的内存 并构造对象
+	4.2 分配 N 个元素的内存 并构造对象
 
 ```C++
 // 分配 N 个元素的内存
@@ -124,7 +122,7 @@ for (reverseIter = Vector.rbegin();
 
 ##### 7. 添加 / 删除元素
 
-​	7.1 在尾部插入
+	7.1 在尾部插入
 
 ```C++
 // 若超出内存范围
@@ -136,13 +134,13 @@ Vector.push_back (1);
 // 避免内存重新分配 效率更高
 ```
 
-​	7.2 在尾部删除
+	7.2 在尾部删除
 
 ```C++
 Vector.pop_back();
 ```
 
-​	7.2 在指定位置插入
+	7.2 在指定位置插入
 
 ```C++
 // 在 vectorIter 的位置前插入元素
@@ -155,7 +153,7 @@ Vector.insert (vectorIter, N, 1);
 Vector.insert (vectorIter, Iter_begin, Iter_end);
 ```
 
-​	7.3 在指定位置删除
+	7.3 在指定位置删除
 
 ```C++
 // 删除 vectorIter 指向的元素
@@ -165,7 +163,7 @@ Vector.erase (vectorIter);
 Vector.erase (Iter_begin, Iter_end);
 ```
 
-​	7.4 删除全部
+	7.4 删除全部
 
 ```C++
 Vector.clear();
@@ -175,13 +173,13 @@ Vector.clear();
 
 ##### 8. vector 赋值
 
-​	8.1 已重载 = 运算符
+	8.1 已重载 = 运算符
 
 ```C++
 vector <int> Vector1 = Vector2;
 ```
 
-​	8.2 assign 函数
+	8.2 assign 函数
 
 ```C++
 Vector1.assign (Vector2.begin(), Vector2.end());
@@ -247,7 +245,7 @@ sort_heap (Vector.begin(), Vector.end());
 
 ##### 12. 二维数组
 
-​	（一般用于表示图的邻接矩阵）
+	（一般用于表示图的邻接矩阵）
 
 ```C++
 vector <vector <int> > Graph;
