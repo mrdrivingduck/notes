@@ -73,11 +73,11 @@ public:
 * `virtual ~exception();`
   * Destructor
   * May throw exception
-  * Can be override
+  * Can be __override__
 * `virtual const char* what() const noexcept;`
   * Exception message
   * No exception will be thrown
-  * Can be override
+  * Can be __override__
 
 ---
 
@@ -94,7 +94,7 @@ using std::exception;
 class MyException : public exception
 {
 public:
-	const char* what() {return "My Exception";}
+    const char* what() {return "My Exception";}
 };
 
 void ThrowException()
