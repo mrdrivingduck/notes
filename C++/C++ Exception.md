@@ -81,7 +81,7 @@ public:
 
 ---
 
-##### 3. My Own Exception class
+##### 3. My Own Exception Class
 
 * Extend from `std::exception`
 
