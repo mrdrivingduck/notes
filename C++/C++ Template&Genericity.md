@@ -135,6 +135,7 @@ int MultiMap <K, S>::size(const K &k)
 
 int main()
 {
+    // Testing
     MultiMap <int, double> Mul;
     
     Mul.insert(1, 2.5);
