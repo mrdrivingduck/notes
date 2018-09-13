@@ -120,84 +120,131 @@ Nanjing, Jiangsu, China
 
 ```C++
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Test 
 {
 private:
     int value;
+    vector <double> vec;
 public:
     Test(int value) {this -> value = value;}
     Test(const Test &t) {this -> value = t.value;}
+    Test(int value, vector <double> vec)
+    {
+        this -> value = value;
+        this -> vec.assign(vec.begin(), vec.end());
+    }
     int getValue() {return value;}
     
-    // 重载 + ，返回一个新的对象
-    // Test t3 = t1 + t2;
-    // 重载 - 等同理
+    /*
+     * 重载 + ，返回一个新的对象
+     * Test t3 = t1 + t2;
+     * 重载 - 等同理
+     */
     Test operator+ (const Test &t)
     {
         return Test(value + t.value);
     }
     
-    // 重载 == ，返回一个逻辑值
-    // 重载 < > <= >= 等同理
+    /*
+     * 重载 == ，返回一个逻辑值
+     * 重载 < > <= >= 等同理
+     */
     bool operator== (const Test &t)
     {
         return value == t.value;
     }
     
-    // 重载 = ，返回对象本身，因此返回值带引用
-    // 重载 += -= 等同理
+    /*
+     * 重载 = ，返回对象本身，因此返回值带引用
+     * 重载 += -= 等同理
+     */
     Test & operator= (const Test &t)
     {
         value = t.value;
         return *this;
     }
     
-    // 重载 ++ ，返回对象本身，因此返回值带引用，无需其它参数
-    // 此运算符为 前置 ++
-    // ++t;
-    // 重载 -- 等同理
+    /*
+     * 重载 ++ ，返回对象本身，因此返回值带引用，无需其它参数
+     * 此运算符为 前置 ++
+     * ++t;
+     * 重载 -- 等同理
+     */
     Test & operator++ ()
     {
         value++;
         return *this;
     }
     
-    // 重载 ++ ，返回对象本事，因此返回值带引用
-    // 此运算符为 后置 ++
-    // t++;
-    // int 参数为虚设，目的是为了区分前后置，不会被使用，值为0
-    // 虚参数不必命名，否则编译器将有警告 - 参数未使用
-    // 重载 -- 等同理
+    /*
+     * 重载 ++ ，返回对象本事，因此返回值带引用
+     * 此运算符为 后置 ++
+     * t++;
+     * int 参数为虚设，目的是为了区分前后置，不会被使用，值为0
+     * 虚参数不必命名，否则编译器将有警告 - 参数未使用
+     * 重载 -- 等同理
+     */
     Test & operator++ (int)
     {
         value++;
         return *this;
     }
     
-    // 重载 << ，用于通过 cout 直接输出
-    // 只能通过 友元函数 的方式实现
+    /*
+     * 重载 << ，用于通过 cout 直接输出
+     * 只能通过 友元函数 的方式实现
+     */
     friend ostream & operator<< (ostream &out, const Test &t)
     {
         out << t.value;
         return out;
     }
     
-    // 重载 >> ，用于通过 cin 直接输入
-    // 只能通过 友元函数 的方式实现
-    // 参数中自定义对象不能带 const ，因为该对象不是常量，会被输入改变
-    // 应当加入输入格式错误的处理
+    /*
+     * 重载 >> ，用于通过 cin 直接输入
+     * 只能通过 友元函数 的方式实现
+     * 参数中自定义对象不能带 const ，因为该对象不是常量，会被输入改变
+     * 应当加入输入格式错误的处理
+     */
     friend istream & operator>> (istream &in, Test &t)
     {
         in >> t.value;
         return in;
     }
+    
+    /*
+     * 重载 [] ，用于下标访问
+     * 只能带有一个参数 - 下标
+     * 重载 () 等同理
+     */
+    double & operator[] (const int position)
+    {
+        return vec[position];
+    }
 };
 ```
 
 * 如果需要使用 `STL`，则最重要的是重载 `<` 
+
 * 且重载声明后一定要加 `const`
+
+  * ```C++
+    /* 
+     * Declaration
+     */
+    bool operator< (const Class &c1, const Class &c2) const;
+    
+    /* 
+     * Implementation
+     */
+    bool operator< (const Class &c1, const Class &c2) const
+    {
+        // TO DO ...
+    }
+    ```
 
 ---
 
