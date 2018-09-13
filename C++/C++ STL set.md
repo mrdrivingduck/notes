@@ -113,7 +113,17 @@ if (setIter == Set.end()) {
 // 若 key 已存在，则插入失败
 // 新值不会覆盖旧值
 // 调用拷贝构造函数
-Set.insert (key_type key);
+Set.insert (key);
+
+// 若需要获得插入状态
+// 返回的迭代器指向 set 中已存在的 key
+// 返回的 bool 表示插入是否成功
+pair <set <key_type>::iterator, bool> res = Set.insert(key);
+if (res.second == false)
+{
+    // Insert failure
+    // TO DO ...
+}
 ```
 
 ---
