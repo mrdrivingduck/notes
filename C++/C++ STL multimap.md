@@ -11,10 +11,10 @@ Nanjing, Jiangsu, China
 ##### 1. Feature
 
 ```C++
-template < class Key,									// multimap::key_type
-           class T,										// multimap::mapped_type
-           class Compare = less<Key>,					// multimap::key_compare
-           class Alloc = allocator<pair<const Key,T> >	// multimap::allocator_type
+template < class Key,                                   // multimap::key_type
+           class T,                                     // multimap::mapped_type
+           class Compare = less<Key>,                   // multimap::key_compare
+           class Alloc = allocator<pair<const Key,T> >  // multimap::allocator_type
            > class multimap;
 ```
 
@@ -172,7 +172,7 @@ using namespace std;	// using std::map;
 
 ##### 5. Reference
 
-`http://www.cplusplus.com/reference/map/multimap/`
+* [http://www.cplusplus.com/reference/map/multimap/](http://www.cplusplus.com/reference/map/multimap/)
 
 ---
 
