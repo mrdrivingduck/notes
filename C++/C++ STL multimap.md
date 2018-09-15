@@ -107,10 +107,10 @@ using namespace std;	// using std::map;
      * 删除
      */
     multimap <key_Type, value_Type>::iterator mapIter = MultiMap.find(key);
-    MultiMap.erase(mapIter);							// 删除单个元素
-    MultiMap.erase(key);								// 删除 key 的所有元素
-    MultiMap.erase(MultiMap.begin(), MultiMap.end());	// 删除范围内的元素
-    MultiMap.clear();									// 删除全部元素
+    MultiMap.erase(mapIter);                            // 删除单个元素
+    MultiMap.erase(key);                                // 删除 key 的所有元素
+    MultiMap.erase(MultiMap.begin(), MultiMap.end());   // 删除范围内的元素
+    MultiMap.clear();                                   // 删除全部元素
     
     /*
      * 交换
