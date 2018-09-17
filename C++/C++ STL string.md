@@ -27,46 +27,51 @@ using namespace std;    // using std::string;
 
 ##### 3. Constructor
 
+* Empty Constructor (Default Constructor)
+
 ```C++
-/*
- * Empty Constructor (Default Constructor)
- */
 string();
+```
 
-/*
- * Copy Constructor
- */
-string(const string& str);
+* Copy Constructor
 
-/*
- * Substring Constructor
- */
-string(const string& str, size_t pos, size_t len = npos);
-// pos : Beginning of character position
-// len : Length that wants to be copied
-// (string is too short) | (len == string::npos) -> copy until the end of string
+```C++
+string (const string& str);
+```
 
-/*
- * From C-String
- */
-string(const char* s);
+* Substring Constructor
+  * `pos` : Beginning of character position
+  * `len` : Length that wants to be copied
+  * (string is too short) | ( `len` == `string::npos` )  __->__  copy until the end of string
 
-/*
- * From C-String
- * Copy first n characters
- */
-string(const char* s, size_t n);
+```C++
+string (const string& str, size_t pos, size_t len = npos);
+```
 
-/*
- * Fill Constructor
- */
-string(size_t n, char c);
-// Fill the string with n copies of character c
+* From C-String
 
-/*
- * Range Constructor
- */
-template <class InputIterator> string(InputIterator first, InputIterator last);
+```C++
+string (const char* s);
+```
+
+* From C-String
+  * Copy first n characters
+
+```C++
+string (const char* s, size_t n);
+```
+
+* Fill Constructor
+  * Fill the string with n copies of character c
+
+```C++
+string (size_t n, char c);
+```
+
+* Range Constructor
+
+```C++
+template <class InputIterator> string (InputIterator first, InputIterator last);
 ```
 
 ---
@@ -89,80 +94,86 @@ static const size_t npos = -1;
 
 ##### 6. Iterators
 
-```C++
-#include <string>
-using std::string;
+* 返回指向字符串开头的迭代器
 
-int main()
-{
-    string str("Hello world");
-    
-    // 返回指向字符串开头的迭代器
-    string::iterator begin_iter = str.begin();
-    // 返回指向字符串结尾的下一个位置的迭代器
-    string::iterator end_iter = str.end();
-    // 返回指向字符串结尾的反向迭代器
-    string::reverse_iterator r_begin_iter = str.rbegin();
-    // 返回指向字符串开头的前一个位置的反向迭代器
-    string::reverse_iterator r_end_iter = str.rend();
-    
-    return 0;
-}
+```C++
+string::iterator begin_iter = str.begin();
+```
+
+* 返回指向字符串结尾的下一个位置的迭代器
+
+```C++
+string::iterator end_iter = str.end();
+```
+
+* 返回指向字符串结尾的反向迭代器
+
+```C++
+string::reverse_iterator r_begin_iter = str.rbegin();
+```
+
+* 返回指向字符串开头的前一个位置的反向迭代器
+
+```C++
+string::reverse_iterator r_end_iter = str.rend();
 ```
 
 ---
 
 ##### 7. Operators Overload
 
+* Operator `=`
+  * Return a COPY of object
+
 ```C++
-/*
- * Operator =
- *     Return a COPY of object
- */
 string& operator= (const string& str);  // str = str1;
 string& operator= (const char* s);      // str = "Hello world"
 string& operator= (char c);             // str = '.'
+```
 
-/*
- * Operator +
- *     Return a newly consturcted obj after concatenation
- */
+* Operator `+`
+  * Return a newly constructed object after concatenation
+
+```C++
 string operator+ (const string& lhs, const string& rhs);  // str = str1 + str2;
 string operator+ (const string& lhs, const char* rhs);    // str = str1 + "Hello";
 string operator+ (const char* lhs, const string& rhs);    // str = "Hello" + str2;
 string operator+ (const string& lhs, char rhs);           // str = str1 + '.';
 string operator+ (char lhs, const string& rhs);           // str = '.' + str2;
+```
 
-/*
- * Operator +=
- *     Return the same obj after appending value
- */
+* Operator `+=`
+  * Return the same object after appending value
+
+```C++
 string& operator+= (const string& str);  // str += str1;
 string& operator+= (const char* s);      // str += "Hello world";
 string& operator+= (char c);             // str += '.'
+```
 
-/*
- * Operator []
- *     Return a reference to the character at position in the string
- *     if (position == string length) -> '\0'
- * 
- * --> Same function : string::at()
- */
+* Operator `[]`
+  * Return a reference to the character at position in the string
+   * if (position == string length)  __->__  '\0'
+   * Same function : `string::at()`
+
+```C++
       char& operator[] (size_t pos);
 const char& operator[] (size_t pos) const;
       char& at (size_t pos);
 const char& at (size_t pos) const;
+```
 
-/*
- * Operator >>
- *     For input
- */
+* Operator >>
+  * For input
+
+```C++
 istream& operator>> (istream& is, string& str);
+```
 
-/*
- * Operator <<
- *     For output
- */
+* Operator <<
+  * For output
+
+```C++
 ostream& operator<< (ostream& os, const string& str);
 ```
 
@@ -170,58 +181,171 @@ ostream& operator<< (ostream& os, const string& str);
 
 ##### 8. Capacity
 
+* Return length of string
+
 ```C++
-/*
- * Return length of string
- */
 size_t size() const;
 size_t length() const;
+```
 
-/*
- * Return the maximum length of the string can reach
- */
+* Return the maximum length of the string can reach
+
+```C++
 size_t max_size() const;
+```
 
-/*
- * Return size of allocated storage
- */
+* Return size of allocated storage
+
+```C++
 size_t capacity() const;
+```
 
-/*
- * Resizes the string to a length of n characters
- *     If c is specified, the new elements are initialized as copies of c,
- *     otherwise, they are value-initialized characters (null characters).
- *     If n is smaller than current string,
- *     the current value is shortened to its first n character.
- */
+* Resizes the string to a length of n characters
+  * If `c` is specified, the new elements are initialized as copies of `c`
+  * Otherwise, they are value-initialized characters (null characters)
+  * If `n` is smaller than current string
+  * The current value is shortened to its first `n` character
+
+```C++
 void resize (size_t n);
 void resize (size_t n, char c);
+```
 
-/*
- * Request a change in capacity
- *     If n is greater than the current string capacity,
- *     the function causes the container to increase its capacity
- *     to n characters (or greater).
- *
- * Exception
- *     GUARANTEE : If an exception is thrown, there are no changes in the string.
- *     if n > max_size  ->  length_error exception
- *     if the function needs to allocate storage and fails  ->  bad_alloc exception
- */
+* Request a change in capacity
+  * If `n` is greater than the current string capacity
+  * The function causes the container to increase its capacity to `n` characters (or greater)
+  * Exception
+    * __GUARANTEE__ : If an exception is thrown, there are __NO__ changes in the string
+    * If `n` > `max_size`  __->__  `length_error` exception
+    * If the function needs to allocate storage and fails  __->__  `bad_alloc` exception
+
+```C++
 void reserve (size_t n = 0);
+```
 
-/*
- * Erases the contents of the string  ->  Empty string
- */
+* Erases the contents of the string  __->__  Empty string
+
+```C++
 void clear();
+```
 
-/*
- * Returns whether the string is empty
- */
+* Returns whether the string is empty
+
+```C++
 bool empty() const;
 ```
 
 ---
 
 ##### 9. Modifiers
+
+* Assigns a new value to the string
+  * Replacing its current contents
+  * Exception
+    - `s` is not long enough | `range` is not valid  __->__  _undefined behavior_
+    - `subpos` __>__ _str's length_  __->__  `out_of_range` exception
+    - Resulting string length __>__ `max_size`  __->__  `length_error` exception
+    - The function needs to allocate storage and fails  __->__  `bad_alloc` exception
+
+```C++
+string& assign (const string& str);                                // String
+string& assign (const string& str, size_t subpos, size_t sublen);  // Substring
+string& assign (const char* s);                                    // C-String
+string& assign (const char* s, size_t n);                          // Buffer
+string& assign (size_t n, char c);                                 // Fill
+template <class InputIterator>
+   string& assign (InputIterator first, InputIterator last);       // Range
+```
+
+* Appending additional characters at the end of its current value
+  * Exception
+    * `s` is not long enough | `range` is not valid  __->__  _undefined behavior_
+    * `subpos` __>__ _str's length_  __->__  `out_of_range` exception
+    * Resulting string length __>__ `max_size`  __->__  `length_error` exception
+    * The function needs to allocate storage and fails  __->__  `bad_alloc` exception
+
+```C++
+string& append (const string& str);                                // String
+string& append (const string& str, size_t subpos, size_t sublen);  // Substring
+string& append (const char* s);                                    // C-String
+string& append (const char* s, size_t n);                          // Buffer
+string& append (size_t n, char c);                                 // Fill
+template <class InputIterator> string&
+    append (InputIterator first, InputIterator last);              // Range
+```
+
+* Append character to the end of the string
+  * Increasing its length by __one__
+  * Exception
+    * Resulting string length __>__ `max_size`  __->__  `length_error` exception
+    * The function needs to allocate storage and fails  __->__  `bad_alloc` exception
+
+```C++
+void push_back(char c);
+```
+
+* Insert into string
+  * Insert into the string right __before__ the character indicated by `pos` or `p`
+  * Exception
+    * `s` is not long enough | `range` is not valid  __->__  _undefined behavior_
+    * `subpos` __>__ _str's length_  __->__  `out_of_range` exception
+    * Resulting string length __>__ `max_size`  __->__  `length_error` exception
+    * The function needs to allocate storage and fails  __->__  `bad_alloc` exception
+
+```C++
+string& insert (size_t pos, const string& str);          // String
+string& insert (size_t pos, const string& str, size_t subpos, size_t sublen = npos);
+                                                         // Substring
+string& insert (size_t pos, const char* s);              // C-String
+string& insert (size_t pos, const char* s, size_t n);    // Buffer
+string& insert (size_t pos, size_t n, char c);           // Fill
+iterator insert (const_iterator p, size_t n, char c);    // Fill
+iterator insert (const_iterator p, char c);              // Single Character
+template <class InputIterator>
+    iterator insert (iterator p, InputIterator first, InputIterator last);  // Range
+```
+
+* Erase characters from string
+  * Exception
+    * If `pos` __>__ _string length_  __->__  `out_of_range` exception
+    * If _range_ is invalid  __->__  _undefined behavior_
+
+```C++
+string& erase(size_t pos = 0, size_t len = npos);        // Sequence
+iterator erase (iterator p);                             // Character
+iterator erase (iterator first, iterator last);          // Range
+```
+
+* Replace portion of string
+  * Specify a range in old string by
+    * `pos` & `len`
+    * A pair of _iterators_
+  * Specify a new string to replace into the specific range
+  * Exception
+    * If `s` is not long enough | range is not valid  __->__  _undefined behavior_
+    * `pos` or `subpos` is greater than _string's length_  __->__  `out_of_range` exception
+    * If the resulting string length __>__ `max_size`  __->__  `length_error` exception
+    * If the function needs to allocate storage and fails  __->__  `bad_alloc` exception
+
+```C++
+// String
+string& replace (size_t pos, size_t len, const string& str);
+string& replace (const_iterator i1, const_iterator i2, const string& str);
+// Substring
+string& replace (size_t pos, size_t len,
+                 const string& str, size_t subpos, size_t sublen = npos);
+// C-String
+string& replace (size_t pos, size_t len, const char* s);
+string& replace (const_iterator i1, const_iterator i2, const char* s);
+// Buffer
+string& replace (size_t pos, size_t len, const char* s, size_t n);
+string& replace (const_iterator i1, const_iterator i2, const char* s, size_t n);
+// Fill
+string& replace (size_t pos, size_t len, size_t n, char c);
+string& replace (const_iterator i1, const_iterator i2, size_t n, char c);
+// Range
+template <class InputIterator>
+    string& replace (const_iterator i1, const_iterator i2,
+                     InputIterator first, InputIterator last);
+```
 
