@@ -79,12 +79,12 @@ public class SecurityUtil {
         } 
     }
 
-	private static void InitKey() {
-		generateKey = new SecretKeySpec(key, 0, keySize, "AES");
-	}
+    private static void InitKey() {
+        generateKey = new SecretKeySpec(key, 0, keySize, "AES");
+    }
 
-	public static String Encode(String src) {
-		try {
+    public static String Encode(String src) {
+        try {
             if (generateKey == null) {
                 InitKey();
             }
@@ -99,13 +99,13 @@ public class SecurityUtil {
         } catch (InvalidKeyException e) {
             // Catch Exception
             e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             // Catch Exception
             e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
+        } catch (NoSuchPaddingException e) {
             // Catch Exception
             e.printStackTrace();
-		} catch (IllegalBlockSizeException e) {
+        } catch (IllegalBlockSizeException e) {
             // Catch Exception
             e.printStackTrace();
         } catch (BadPaddingException e) {
@@ -117,7 +117,7 @@ public class SecurityUtil {
     }
 
     public static String Decode(String secret) {
-		try {
+        try {
             if (generateKey == null) {
                 InitKey();
             }
@@ -130,27 +130,27 @@ public class SecurityUtil {
             return new String(cipher.doFinal(result));
             
         } catch (InvalidKeyException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
         } catch (IllegalBlockSizeException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
         } catch (BadPaddingException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
         } catch (DecoderException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
         } catch (NoSuchPaddingException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
         }
 
         return null;
-	}
+    }
 }
 ```
 
