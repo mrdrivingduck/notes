@@ -10,7 +10,9 @@ Nanjing, Jiangsu, China
 
 ##### 1. 对称加密算法 （Symmetric Encryption Algorithm）
 
-	数据发信方将明文（原始数据）和加密密钥一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，才能使其恢复成可读明文。
+	数据发信方将明文（原始数据）和加密密钥一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。
+	收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，
+	才能使其恢复成可读明文。
 
 * 密钥只有一个，发收信双方都使用这个密钥对数据进行加密和解密
 * 发送方和接收方在安全通信之前，需要提前商定密钥
@@ -62,20 +64,20 @@ import org.apaches.commons.codec.binary.Hex;
 
 public class SecurityUtil {
 
-	private static Cipher cipher;
-	private static SecretKey generateKey;
-	private static int keyLength = 128;
+    private static Cipher cipher;
+    private static SecretKey generateKey;
+    private static int keyLength = 128;
 
-	private static void GenerateKey() {
-		try {
-			KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-			keyGenerator.init(keyLength); // size
-			SecretKey secretKey = keyGenerator.generateKey();
-		} catch (NoSuchAlgorithmException e1) {
-			// Catch Exception
-			e1.printStackTrace();
-		} 
-	}
+    private static void GenerateKey() {
+        try {
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+            keyGenerator.init(keyLength); // size
+            SecretKey secretKey = keyGenerator.generateKey();
+        } catch (NoSuchAlgorithmException e1) {
+            // Catch Exception
+            e1.printStackTrace();
+        } 
+    }
 
 	private static void InitKey() {
 		generateKey = new SecretKeySpec(key, 0, keySize, "AES");
@@ -83,71 +85,71 @@ public class SecurityUtil {
 
 	public static String Encode(String src) {
 		try {
-			if (generateKey == null) {
-				InitKey();
-			}
-			if (cipher == null) {
-				cipher = Cipher.getInstance("AES");
-			}
+            if (generateKey == null) {
+                InitKey();
+            }
+            if (cipher == null) {
+                cipher = Cipher.getInstance("AES");
+            }
 
-			cipher.init(Cipher.ENCRYPT_MODE, generateKey);
-			byte[] resultBytes = cipher.doFinal(src.getBytes());
-			return Hex.encodeHexString(resultBytes);
+            cipher.init(Cipher.ENCRYPT_MODE, generateKey);
+            byte[] resultBytes = cipher.doFinal(src.getBytes());
+            return Hex.encodeHexString(resultBytes);
 
-		} catch (InvalidKeyException e) {
-			// Catch Exception
-			e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            // Catch Exception
+            e.printStackTrace();
 		} catch (NoSuchAlgorithmException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
 		} catch (NoSuchPaddingException e) {
-			// Catch Exception
-			e.printStackTrace();
+            // Catch Exception
+            e.printStackTrace();
 		} catch (IllegalBlockSizeException e) {
-			// Catch Exception
-			e.printStackTrace();
-		} catch (BadPaddingException e) {
-			// Catch Exception
-			e.printStackTrace();
-		}
+            // Catch Exception
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            // Catch Exception
+            e.printStackTrace();
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	public static String Decode(String secret) {
+    public static String Decode(String secret) {
 		try {
-			if (generateKey == null) {
-				InitKey();
-			}
-			if (cipher == null) {
-				cipher = Cipher.getInstance("AES");
-			}
+            if (generateKey == null) {
+                InitKey();
+            }
+            if (cipher == null) {
+                cipher = Cipher.getInstance("AES");
+            }
 
-			cipher.init(Cipher.DECRYPT_MODE, generateKey);
-			byte[] result = Hex.decodeHex(secret.toCharArray());
-			return new String(cipher.doFinal(result));
+            cipher.init(Cipher.DECRYPT_MODE, generateKey);
+            byte[] result = Hex.decodeHex(secret.toCharArray());
+            return new String(cipher.doFinal(result));
             
-		} catch (InvalidKeyException e) {
+        } catch (InvalidKeyException e) {
 			// Catch Exception
 			e.printStackTrace();
-		} catch (IllegalBlockSizeException e) {
+        } catch (IllegalBlockSizeException e) {
 			// Catch Exception
 			e.printStackTrace();
-		} catch (BadPaddingException e) {
+        } catch (BadPaddingException e) {
 			// Catch Exception
 			e.printStackTrace();
-		} catch (DecoderException e) {
+        } catch (DecoderException e) {
 			// Catch Exception
 			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
 			// Catch Exception
 			e.printStackTrace();
-		} catch (NoSuchPaddingException e) {
+        } catch (NoSuchPaddingException e) {
 			// Catch Exception
 			e.printStackTrace();
-		}
+        }
 
-		return null;
+        return null;
 	}
 }
 ```
@@ -161,7 +163,7 @@ byte []key = new byte[BUFFER_SIZE];
  * 获取秘钥的 16 进制字符串形式
  */
 for (int i = 0; i < keyLength / 8; i++) {
-	System.out.print(
+    System.out.print(
         Integer.toHexString((key[i] & 0xFF) + 0x100).substring(1)
     );
 }
@@ -178,10 +180,9 @@ for (int i = 0; i < keyLength / 8; i++) {
 
 ##### 2. 非对称加密算法（Asymmetric Cryptographic Algorithm）
 
-	非对称加密算法需要两个密钥：
-
-  * 公开密钥（public key）
-* 私有密钥（private key）
+* 非对称加密算法需要两个密钥
+    * 公开密钥（public key）
+  * 私有密钥（private key）
  * 公开密钥与私有密钥是成对的
 * 如果用公开密钥对数据进行加密，只能用对应的私有密钥才能解密
 * 如果用私有密钥对数据进行加密，只能用对应的公开密钥才能解密
@@ -201,12 +202,12 @@ for (int i = 0; i < keyLength / 8; i++) {
 
 ###### 典型算法
 
-* RSA算法
+* _RSA_ 算法
 
 ###### 实现
 
-* 写法与 AES 算法类似
-* 略 （参考CSDN）
+* 写法与 _AES_ 算法类似
+* 略 （参考 _CSDN_）
 
 ---
 
@@ -241,13 +242,13 @@ for (int i = 0; i < keyLength / 8; i++) {
 
 终于发现在 _物联网安全导论_ 这门课中还是学到了一些东西的
 
-在我们的 cnsoft 项目 —— CARe —— 的网络通信部分中
+在我们的 _cnsoft_ 项目 —— _CARe_ —— 的网络通信部分中
 
 综合代码实现难度和安全性两方面的考虑
 
-我最终选择了对称加密算法 AES
+我最终选择了对称加密算法 _AES_
 
-最终我将该加密算法封装为一个 SecurityUtil 工具类
+最终我将该加密算法封装为一个 _SecurityUtil_ 工具类
 
 在网络通信前/后 直接调用静态方法进行加/解密
 
