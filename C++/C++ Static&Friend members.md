@@ -50,14 +50,15 @@ public:
 // 类外初始化静态成员变量
 int Test::value = 0;
 // 类外添加静态成员函数的实现
-int Test::getValue() {
+int Test::getValue()
+{
     return value;
 }
 // ATTENTION : 类外不需要写 static 关键字
 
 int main()
 {
-	// 直接使用类名和作用域解析运算符调用
+    // 直接使用类名和作用域解析运算符调用
     // 不需要实例化对象
     cout << Test::getValue() << endl;
     
