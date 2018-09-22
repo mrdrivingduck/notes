@@ -81,7 +81,7 @@ Class clazz = base.getClass();
 /**
  * 通过类全名（字符串）获得 Class 对象 - 最常用
  */
-Class clazz = Class.forName("test.Base");
+Class clazz = Class.forName("package.Base");
 ```
 
 ---
