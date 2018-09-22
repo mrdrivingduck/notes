@@ -41,42 +41,35 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
        
     public TestServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	public void init(ServletConfig config)
-        throws ServletException {
-		// TODO Auto-generated method stub
-	}
+    public void init(ServletConfig config) throws ServletException {
+        // TODO Auto-generated method stub
+    }
 
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
+    public void destroy() {
+        // TODO Auto-generated method stub
+    }
 
-	protected void service(
-        HttpServletRequest request, 
-        HttpServletResponse response) 
-        throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+    protected void service(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+	// TODO Auto-generated method stub
+    }
 
-	protected void doGet(
-        HttpServletRequest request, 
-        HttpServletResponse response) 
-        throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    throws ServletException, IOException {
+	// TODO Auto-generated method stub
+    }
     
-	protected void doPost(
-        HttpServletRequest request, 
-        HttpServletResponse response) 
-        throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    throws ServletException, IOException {
+	// TODO Auto-generated method stub
+    }
 }
 
 ~~~
