@@ -43,10 +43,10 @@ Nanjing, Jiangsu, China
 class Base {
     
     // Fields
-	private int a;
+    private int a;
     private String b;
     
-	// Getters & Setters for fields
+    // Getters & Setters for fields
     public void setA(int a) {
         this.a = a;
     }
