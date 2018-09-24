@@ -98,6 +98,8 @@ Class clazz = Class.forName("package.Base");
 
 ##### 5. 获取类信息
 
+* 只能获取到当前类的信息，不能获取到父类的信息
+
 * 获取 _Constructors_
 
   * ```java
@@ -201,6 +203,16 @@ Class clazz = Class.forName("package.Base");
     Field field = clazz.getDeclaredField("a");
     field.setAccessible(true);    // 用于访问 private 变量，但不建议使用
     int a = field.getInt(obj);
+    ```
+
+* 获取父类属性
+
+  * ```java
+    for (; !clazz.equals(Object.class); clazz = clazz.getSuperclass()) {
+        // ...
+        Field[] allFields = clazz.getDeclaredFields();
+        // ...
+    }
     ```
 
 * 调用函数
