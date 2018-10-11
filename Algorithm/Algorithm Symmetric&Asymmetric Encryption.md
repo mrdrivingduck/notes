@@ -59,7 +59,7 @@ import org.apaches.commons.codec.binary.Hex;
  * @author Mr Dk.
  * @since 2018.5.26
  * @version 2018.5.26
- * @implementation Algorithm of AES
+ * @implementation  of AES Algorithm
  */
 
 public class SecurityUtil {
@@ -182,7 +182,7 @@ for (int i = 0; i < keyLength / 8; i++) {
 
 * 非对称加密算法需要两个密钥
     * 公开密钥（public key）
-  * 私有密钥（private key）
+      * 私有密钥（private key）
  * 公开密钥与私有密钥是成对的
 * 如果用公开密钥对数据进行加密，只能用对应的私有密钥才能解密
 * 如果用私有密钥对数据进行加密，只能用对应的公开密钥才能解密
