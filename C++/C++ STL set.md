@@ -12,9 +12,9 @@ Nanjing, Jiangsu, China
 
 ```C++
 template < 
-		class T,
-        class Compare = less<T>,
-        class Alloc = allocator<T>
+    class T,
+    class Compare = less<T>,
+    class Alloc = allocator<T>
 > class set;
 ```
 
