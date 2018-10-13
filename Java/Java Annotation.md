@@ -72,7 +72,7 @@ import java.lang.annotation.Target;
 /*
 
 public @interface SomeAnnotation {
-	// Some value...
+    // Some value...
 }
 
 */
