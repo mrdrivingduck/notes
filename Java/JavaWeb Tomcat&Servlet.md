@@ -108,7 +108,7 @@ public class TestServlet extends HttpServlet {
 * 控制 Servlet 的线程安全性：
   1. 避免在 Servlet 类中定义变量并使用 （多线程共享该变量）
   2. 避免使用非线程安全的集合
-  3. 使用_Synchronized_进行互斥访问
+  3. 使用 _Synchronized_ 进行互斥访问
 
 ---
 
