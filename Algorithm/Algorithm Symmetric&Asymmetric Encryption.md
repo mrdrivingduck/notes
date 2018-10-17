@@ -31,10 +31,10 @@ Nanjing, Jiangsu, China
 
 #### 典型算法
 
-* DES算法
-* 3DES算法
-* RC5算法
-* AES算法
+* _DES_ 算法
+* _3DES_ 算法
+* _RC5_ 算法
+* _AES_ 算法
 
 #### 实现 （AES 算法）
 
