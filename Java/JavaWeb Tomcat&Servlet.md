@@ -45,30 +45,30 @@ public class TestServlet extends HttpServlet {
        
     public TestServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        // TO DO ...
     }
 
     public void init(ServletConfig config) throws ServletException {
-        // TODO Auto-generated method stub
+        // TO DO ...
     }
 
     public void destroy() {
-        // TODO Auto-generated method stub
+        // TO DO ...
     }
 
     protected void service(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-	// TODO Auto-generated method stub
+	// TO DO ...
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws ServletException, IOException {
-	// TODO Auto-generated method stub
+	// TO DO ...
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws ServletException, IOException {
-	// TODO Auto-generated method stub
+	// TO DO ...
     }
 }
 
