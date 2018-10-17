@@ -59,7 +59,7 @@ import org.apaches.commons.codec.binary.Hex;
  * @author Mr Dk.
  * @since 2018.5.26
  * @version 2018.5.26
- * @implementation  of AES Algorithm
+ * implementation of AES Algorithm
  */
 
 public class SecurityUtil {
