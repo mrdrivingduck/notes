@@ -116,17 +116,17 @@ public class TestServlet extends HttpServlet {
 
 * Tomcat 会维护一个线程池
 * Tomcat 线程池参数
-  * maxThreads：Tomcat 能创建的用于处理请求的最大线程数
-  * maxSpareTHreads：最大空闲线程数
+  * `maxThreads` ：Tomcat 能创建的用于处理请求的最大线程数
+  * `maxSpareTHreads` ：最大空闲线程数
     处于活跃状态的、正在等待的空闲线程的最大数量
     若超过这个数量，则回收部分活跃空闲线程
-  * minSpareTHreads：最小空闲线程数
+  * `minSpareTHreads` ：最小空闲线程数
     处于活跃状态的、正在等待的空闲线程的最小数量
     若低于这个数量，则创建部分活跃空闲线程等待被调度
-  * acceptCount：最大等待队列长度
+  * `acceptCount` ：最大等待队列长度
     若并发请求超过了线程池的处理能力
     则放入等待队列中等待被处理
-  * maxIdleTime：最大空闲时间
+  * `maxIdleTime` ：最大空闲时间
     若超过最大空闲时间，且线程数大于最小空闲线程数
     则线程将被回收，以节省资源
 * Tomcat 处理请求
