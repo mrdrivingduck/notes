@@ -1,4 +1,4 @@
-# Tech Log - New Start
+# Notes - New Start
 
 Created by : Mr Dk.
 
