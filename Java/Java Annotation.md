@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-#### 1. About
+### 1. About
 
 __Annotation（注解）__ 是 _Java_ 提供的为程序中的元素关联 _元数据 （metadata）_ 的一种方法，在 _JDK 5.0_ 及以后被支持。程序可利用 __反射机制__ 来访问注解，并根据不同的注解，完成不同的功能。注解可以标记在 __包、类、成员变量、成员方法、方法参数以及局部变量__ 上。注解能够使代码更加精简、灵活。
 
@@ -21,7 +21,7 @@ __Annotation（注解）__ 是 _Java_ 提供的为程序中的元素关联 _元�
     * 代码分析
     * 编译检查
 
-#### 2. Type
+### 2. Type
 
 * _Java_ 内置注解
   * `@Override` - 添加在重写父类的方法上，可用于检测重写的函数名是否与父类一致
@@ -47,7 +47,7 @@ __Annotation（注解）__ 是 _Java_ 提供的为程序中的元素关联 _元�
     * __注解__ - 使被标记元素之间的差异性独立于代码层之上。必要时，只需修改注解而不需修改代码
     * __注解解释器__ - 利用反射机制拿到注解信息，并根据不同的注解，完成对应的功能
 
-#### 3. Declaration
+### 3. Declaration
 
 * Attention : Annotation can be declared __public__ only in its own file
 
@@ -93,7 +93,7 @@ public class MyClass {
 }
 ```
 
-#### 4. Using Annotation In Code
+### 4. Using Annotation In Code
 
 * The `RetentionPolicy` of annotation must be declared as `RUNTIME`
 * Consider an __annotation__ just as a __class__
