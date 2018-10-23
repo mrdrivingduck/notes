@@ -44,7 +44,7 @@ Nanjing, Jiangsu, China
   * 编辑系统环境变量 `Path`
     * 加入 `%JAVA_HOME%\bin` 和 `%JAVA_HOME%\jre\bin`
   * 编辑系统环境变量 `CLASSPATH`
-    * 加入 `.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar`
+    * 加入 `.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar`
   * 确定 保存
   * 进入 _Windows cmd_
     * 输入 `java -version` - 查看 _JDK_ 是否配置成功
