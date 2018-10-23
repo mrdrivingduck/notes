@@ -19,7 +19,7 @@ Nanjing, Jiangsu, China
 
 #### 1. Download JDK
 
-* 在 _oracle_ 官网上下载 _JDK_
+* 在 _Oracle_ 官网上[下载 _JDK_](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * 选择对应操作系统的 _JDK_ - _Windows | Linux | Mac OS_
 * 选择适用 _PC_ 架构的 _JDK_ - _x86 | x64_
 
