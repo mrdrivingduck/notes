@@ -137,7 +137,8 @@ public class Test {
 * `Apache HTTP Components 4.5.2` 的文档指出，`HttpClient` 是线程安全的
 
 ```
-HttpClient implementations are expected to be thread safe. It is recommended that the same instance of this class is reused for multiple request executions.
+HttpClient implementations are expected to be thread safe.
+It is recommended that the same instance of this class is reused for multiple request executions.
 ```
 
 * 思路
