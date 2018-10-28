@@ -57,17 +57,17 @@ public class TestServlet extends HttpServlet {
     }
 
     protected void service(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+        throws ServletException, IOException {
 	// TO DO ...
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException {
+        throws ServletException, IOException {
 	// TO DO ...
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException {
+        throws ServletException, IOException {
 	// TO DO ...
     }
 }
@@ -108,7 +108,7 @@ public class TestServlet extends HttpServlet {
 * 控制 _Servlet_ 的线程安全性：
   1. 避免在 _Servlet_ 类中定义变量并使用 （多线程共享该变量）
   2. 避免使用非线程安全的集合
-  3. 使用 _Synchronized_ 进行互斥访问
+  3. 使用 `Synchronized` 进行互斥访问
 
 ---
 
