@@ -1,4 +1,4 @@
-## C++ STL string
+# C++ STL string
 
 Created by : Mr Dk.
 
@@ -170,7 +170,8 @@ static const size_t npos = -1;
          * If the string is empty  __->__  _undefined behavior_
 
   * ```C++
-            char& operator[] (size_t pos);
+           char& operator[] (size_t pos);
+       ```
       const char& operator[] (size_t pos) const;
             char& at (size_t pos);
       const char& at (size_t pos) const;

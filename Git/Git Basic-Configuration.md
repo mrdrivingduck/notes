@@ -1,4 +1,4 @@
-## Git - Basic Configuration
+# Git - Basic Configuration
 
 Created by : Mr Dk.
 

@@ -1,4 +1,4 @@
-## Java Web - Tomcat and Servlet : Thread safety
+# Java Web - Tomcat and Servlet : Thread safety
 
 Created by : Mr Dk.
 

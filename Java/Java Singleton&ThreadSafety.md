@@ -1,4 +1,4 @@
-## Java - 单例模式及其线程安全
+# Java - 单例模式及其线程安全
 
 Created by : Mr Dk.
 

@@ -1,4 +1,4 @@
-## C++ - Polymorphism with unknown type
+# C++ - Polymorphism with unknown type
 
 Created by : Mr Dk.
 

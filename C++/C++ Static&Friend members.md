@@ -1,4 +1,4 @@
-## C++ Static & Friend members of class
+# C++ Static & Friend members of class
 
 Created by : Mr Dk.
 
