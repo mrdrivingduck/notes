@@ -86,6 +86,8 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 * 与当前工程有关的信息全部都在 `pom.xml` 中，包括各子路径的作用等
 
+* 右键工程，点击 `Maven/Update Project` 可重新构建工程并下载依赖
+
 ---
 
 ### Summary
