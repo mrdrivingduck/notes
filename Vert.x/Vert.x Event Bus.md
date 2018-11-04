@@ -153,7 +153,7 @@ msgConsumer.handler(message -> {
 
 可手动设定发送失败信息
 
-### Message Pattern
+### Messaging Pattern
 
 #### Publish / Subscribe
 
