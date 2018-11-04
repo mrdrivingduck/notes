@@ -177,6 +177,10 @@ vertx.cancelTimer(timerID);
 
 * 周期性定时器中不适合做耗时操作，否则易引发 `stack up` 问题
 
+### Automatic Clean-up
+
+在 _Verticles_ 内部注册的定时器、handlers_ 等，会在 _unenployed_ 时自动解除注册
+
 ---
 
 ### Summary
