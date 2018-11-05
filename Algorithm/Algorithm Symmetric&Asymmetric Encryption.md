@@ -213,20 +213,18 @@ for (int i = 0; i < keyLength / 8; i++) {
 
 ### 3. 今天遇到的问题
 
+#### JavaWeb 中遇到的问题
+
 * 在算法实现中，需要用到 Apache Commons Codec 框架中的 Hex 类
 
-* Apache Commons Codec (TM) software -
+* Apache Commons Codec&trade; software provides implementations of common encoders and decoders such as Base64, Hex, Phonetic and URLs. 
 
-  provides implementations of common encoders and decoders -
-
-  such as Base64, Hex, Phonetic and URLs. 
-
-* 需要下载 Commons-Codec-1.x.jar
+* 需要下载 `Commons-Codec-1.x.jar`
 
 #### Tomcat 上遇到的问题
 
-* 将 jar 包导入工程后，运行时产生 java.ClassNotFoundException
-* 解决：将 jar 包 复制到 Tomcat 目录的 /lib 目录下
+* 将 jar 包导入工程后，运行时产生 `java.ClassNotFoundException`
+* 解决：将 jar 包 复制到 Tomcat 目录的 `/lib` 目录下
 
 #### Android 中遇到的问题
 
