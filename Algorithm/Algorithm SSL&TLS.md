@@ -41,7 +41,7 @@ _ITEF（互联网工程任务组，Internet Engineering Task Force）_ 将 _SSL_
 * Symmetric Encryption
 * SSL/TLS Certificate
 
-![ssl/tls](../img/SSL.png)
+![ssl/tls](../img/ssl.png)
 
 协议执行过程：
 
