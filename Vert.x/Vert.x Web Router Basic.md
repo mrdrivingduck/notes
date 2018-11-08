@@ -57,6 +57,7 @@ _handler_ 默认使用 __事件循环线程__ 对请求进行处理
 
 * 如果需要做一些阻塞线程的操作 - 不要忘了原则：__Don't block the event-loop!__
   * 使用 `blockingHandler` 代替 `handler` 即可
+  * `blockHandler` 会使用 `worker pool` 中的工作线程进行处理
 
 关于多个 _handler_ 的调用顺序 - 
 
