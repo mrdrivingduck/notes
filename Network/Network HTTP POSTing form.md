@@ -1,40 +1,83 @@
-# Git - 版本回退
+# HTTP - POST 提交表单的两种方式
 
 Created by : Mr Dk.
 
-2018 / 10 / 29 09:28
+2018 / 11 / 08 10:16
 
 Nanjing, Jiangsu, China
 
 ---
 
-### Local
+### URLEncoded
 
-使用命令 `reset` 加上 _版本号_ 的方式，可以实现本地仓库的版本进退：
+是 _HTML_ 中默认的表单提交方式（`<form>` 中的 `enctype`）
 
-```bash
-$ git reset --hard [commit_id]
+提交的数据按照 `key1=val1&key2=val2` 的方式进行编码 
+
+```
+POST http://www.example.com HTTP/1.1
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3
 ```
 
-如果需要回退邻近版本，也可以使用：
+在 _Apache HTTP Components&trade;_ 的编程方式
 
-```bash
-$ git reset --hard HEAD      # 当前版本
-$ git reset --hard HEAD^     # 上一个版本
-$ git reset --hard HEAD^^    # 上上个版本
-                             # ...
+```java
+// 参数准备 key-value
+List<BasicNameValuePair> paramPairs = new ArrayList<>();
+paramPairs.add(new BasicNameValuePair("name", "zjt"));
+paramPairs.add(new BasicNameValuePair("passwd", "123"));
+UrlEncodedFormEntity postEntity = new UrlEncodedFormEntity(paramPairs);
+// HttpPost 初始化
+CloseableHttpClient httpClient = HttpClients.createDefault();
+HttpPost httpPost = new HttpPost(uri);
+postEntity.setContentType("application/x-www-form-urlencoded");
+postEntity.setContentEncoding("utf-8");
+httpPost.setEntity(postEntity);
+// 执行
+CloseableHttpResponse response = httpClient.execute(httpPost);
 ```
 
-* 版本回退之前，使用 `git log` 可以查看提交历史，得到 `commit_id`
-* 版本前进之前，使用 `git reflog` 可以查看命令历史，得到未来版本的 `commit_id`
+### Multipart
 
-### Remote
+`<from>` 中的 `enctype` 为 `multipart/form-data`
 
-本地分支回退后，版本将落后于远程分支，必须使用 __强制__ 覆盖远程分支
+将会产生一个 _boundary_ 用于分割字段
 
-```bash
-$ git push -f [origin master]
+可用于上传文件
+
 ```
+POST http://www.example.com HTTP/1.1
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
+
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="file"; filename="chrome.png"
+Content-Type: image/png
+
+PNG ... content of chrome.png ...
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA--
+```
+
+---
+
+### Summary
+
+阅读 _Vert.x_ 框架文档时，发现框架支持这两种 _POST_ 方式
+
+之前开发 _Kismet_ 的 _Java_ 客户端时
+
+也需要使用 _POST_ 方式访问 _Kismet_ 的 _RESTful API_
+
+当时由于不了解 `application/x-www-form-urlencoded`
+
+被坑了好久。。。。。。
+
+今天写了笔记 希望下次不要被坑了
 
 ---
 

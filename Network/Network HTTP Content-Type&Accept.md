@@ -1,40 +1,24 @@
-# Git - 版本回退
+# HTTP - Content-Type & Accept
 
 Created by : Mr Dk.
 
-2018 / 10 / 29 09:28
+2018 / 11 / 08 10:42
 
 Nanjing, Jiangsu, China
 
 ---
 
-### Local
+### Content-Type
 
-使用命令 `reset` 加上 _版本号_ 的方式，可以实现本地仓库的版本进退：
+位于 __正文头部__ - 可能出现在 __请求报文__ 和 __应答报文__ 中
 
-```bash
-$ git reset --hard [commit_id]
-```
+指示报文正文（body）的文档类型 - 可能是请求报文的 body，也可能是应答报文的 body
 
-如果需要回退邻近版本，也可以使用：
+### Accept
 
-```bash
-$ git reset --hard HEAD      # 当前版本
-$ git reset --hard HEAD^     # 上一个版本
-$ git reset --hard HEAD^^    # 上上个版本
-                             # ...
-```
+位于 __请求头部__ - 只可能出现在 __请求报文__ 中
 
-* 版本回退之前，使用 `git log` 可以查看提交历史，得到 `commit_id`
-* 版本前进之前，使用 `git reflog` 可以查看命令历史，得到未来版本的 `commit_id`
-
-### Remote
-
-本地分支回退后，版本将落后于远程分支，必须使用 __强制__ 覆盖远程分支
-
-```bash
-$ git push -f [origin master]
-```
+指示客户端能够接受的数据格式
 
 ---
 
