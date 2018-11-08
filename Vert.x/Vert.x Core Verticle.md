@@ -1,4 +1,4 @@
-# Vert.x - Verticle
+# Vert.x Core - Verticle
 
 Created by : Mr Dk.
 

@@ -1,4 +1,4 @@
-# Vert.x - Several Core Concepts
+# Vert.x Core - Several Core Concepts
 
 Created by : Mr Dk.
 

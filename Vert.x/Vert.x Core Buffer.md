@@ -1,4 +1,4 @@
-# Vert.x - Buffer
+# Vert.x Core - Buffer
 
 Created by : Mr Dk.
 

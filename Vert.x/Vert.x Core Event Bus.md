@@ -1,4 +1,4 @@
-# Vert.x - Event Bus
+# Vert.x Core - Event Bus
 
 Created by : Mr Dk.
 

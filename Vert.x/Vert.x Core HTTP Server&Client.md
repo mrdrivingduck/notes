@@ -1,4 +1,4 @@
-# Vert.x - HTTP Server & Client
+# Vert.x Core - HTTP Server & Client
 
 Created by : Mr Dk.
 

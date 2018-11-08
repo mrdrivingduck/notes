@@ -1,4 +1,4 @@
-# Vert.x - TCP Server & Client
+# Vert.x Core - TCP Server & Client
 
 Created by : Mr Dk.
 
