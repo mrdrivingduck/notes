@@ -315,7 +315,7 @@ Client can be created with a configuration file
 
     // Server Settings
     "heartbeatFrequencyMS" :    1000 // long
-    "minHeartbeatFrequencyMS" : 500 // long
+    "minHeartbeatFrequencyMS" : 500  // long
 }
 ```
 
