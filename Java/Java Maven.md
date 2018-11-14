@@ -88,6 +88,56 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 * 右键工程，点击 `Maven/Update Project` 可重新构建工程并下载依赖
 
+### Command
+
+在 `cmd` 中或在 `eclipse` 中直接运行命令
+
+* `mvn compile` - 将 _Java_ 源文件编译为 `.class` 文件
+* `mvn test` - 测试，并生成测试报告
+* `mvn clean` - 将以前编译的 `.class` 文件删除
+* `mvn package` - 打包
+* `mvn install` - 打包并放入 `maven` 本地仓库中
+* ...
+
+在 `eclipse` 中的操作步骤：
+
+* 选择 `Run As`
+* 选择 `Maven build `
+* 在其中的 `Goals` 中填入对应的命令 - 如 `compile`、`install` 等
+
+在 `Visual Studil Code` 中的 `Maven for Java` 插件的帮助下可直接运行命令：
+
+![maven-cmd](../img/maven-cmd.png)
+
+`mvn compile` 命令：
+
+![maven-compile](../img/maven-compile.png)
+
+`mvn clean` 命令：
+
+![maven-clean](../img/maven-clean.png)
+
+编译前，需要在 `pom.xml` 文件中指定编译所需的 _JDK_ 版本和编码格式
+
+以及指定 `maven-compiler-plugins` 的版本 `<version></version>`
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <encoding>UTF-8</encoding>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
 ---
 
 ### Summary
