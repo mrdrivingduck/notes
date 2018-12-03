@@ -1,4 +1,4 @@
-# Algorithm - WEP
+# Wireless - WEP
 
 Created by : Mr Dk.
 
