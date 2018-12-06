@@ -29,8 +29,10 @@ _WPA2_ 是完整的 _IEEE 802.11i_ 标准认证形式
 
 在工作过程上与 _WPA_ 基本相同，改进的地方如下：
 
-* 用于加密的 _RC4_ 算法被 _AES_ 算法取代
-* 用于消息完整性认证的 _MIC_ 算法被公认彻底安全的 _CCMP_ 消息认证码取代
+引入了 _CCMP (Counter Mode Cipher Block Chaining Message Authentication Code Protocol)_ 协议
+
+* 使用该协议的 _CTR mode_ 保证数据机密性（_AES_ 算法）
+* 使用该协议的 _CBC-MAC_ 消息认证码保证数据的完整性及其验证
 
 ### WPA3
 
