@@ -1,8 +1,8 @@
-# Device - Traceroute
+# Network - Traceroute
 
 Created by : Mr Dk.
 
-2018 / 12 / 26 11:17
+2018 / 12 / 26 11:24
 
 Nanjing, Jiangsu, China
 
@@ -17,6 +17,14 @@ _Traceroute_ 是用来检测从 __发出数据包的主机__ 到 __目标主机_
 可以定位从发送主机到目标主机之间的所有路由器
 
 主要原理，操纵数据包中的 `TTL` 字段进行步步试探
+
+![traceroute-windows](../img/traceroute-windows.png)
+
+_MS Windows_ 下的 _tracert_
+
+* 当前主机的 _IP_ 地址为 `[153.3.101.244]`，尝试对 _Baidu_ 进行 _traceroute_
+* 默认参数最大 _TTL_ 为 _30_
+* 默认参数对每个 _TTL_ 发出 _3_ 个探测包
 
 ### TTL
 
