@@ -2,7 +2,7 @@
 
 Created by : Mr Dk.
 
-2018 / 12 / 29 14:52
+2018 / 12 / 29 14:55
 
 Nanjing, Jiangsu, China
 
@@ -21,6 +21,19 @@ Nanjing, Jiangsu, China
 * `logging` 可以配置多个 `handler`，以输出不同信息
 * `logging` 支持从文件中读取配置
 * ......
+
+_Python 3.7_ [官方文档](https://docs.python.org/3.7/library/logging.html)：
+
+>This module defines functions and classes which implement a flexible event logging system for applications and libraries.
+>
+>The key benefit of having the logging API provided by a standard library module is that all Python modules can participate in logging, so your application log can include your own messages integrated with messages from third-party modules.
+>
+>The basic classes defined by the module, together with their functions, are listed below.
+>
+>- Loggers expose the interface that application code directly uses.
+>- Handlers send the log records (created by loggers) to the appropriate destination.
+>- Filters provide a finer grained facility for determining which log records to output.
+>- Formatters specify the layout of log records in the final output.
 
 ### Usage
 

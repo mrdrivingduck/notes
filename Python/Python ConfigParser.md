@@ -12,9 +12,9 @@ Nanjing, Jiangsu, China
 
 _ConfigParser_ 是 _Python_ 内置的配置文件转换模块
 
-[官网文档](https://docs.python.org/3.7/library/configparser.html)的描述：
+_Python 3.7_ [官网文档](https://docs.python.org/3.7/library/configparser.html)的描述：
 
-> This module provides the [`ConfigParser`](https://docs.python.org/3.7/library/configparser.html#configparser.ConfigParser) class which implements a basic configuration language which provides a structure similar to what’s found in Microsoft Windows INI files.  You can use this to write Python programs which can be customized by end users easily.
+> This module provides the `ConfigParser` class which implements a basic configuration language which provides a structure similar to what’s found in Microsoft Windows INI files.  You can use this to write Python programs which can be customized by end users easily.
 
 ### Configuration Files
 
