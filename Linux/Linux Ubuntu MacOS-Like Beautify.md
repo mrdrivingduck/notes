@@ -17,7 +17,7 @@ $ sudo apt-get install gnome-tweak-tool
 * 安装完成后，在 `显示应用程序` 中应有 `优化 (Tweaks)` 这一程序
 
 ```bash
-$ sudo sudo apt-get install gnome-shell-extensions
+$ sudo apt-get install gnome-shell-extensions
 ```
 
 * 安装完成后，允许 `优化` 程序的 `扩展` 选项中的 `User themes` 选项
