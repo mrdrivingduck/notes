@@ -2,7 +2,7 @@
 
 Created by : Mr Dk.
 
-2019 / 01 / 15 15:28
+2019 / 01 / 19 15:28
 
 Nanjing, Jiangsu, China
 
@@ -12,48 +12,43 @@ Nanjing, Jiangsu, China
 
 ![general-frame](../img/802.11-general-frame.png)
 
-* _MAC Frame Header_ + _Frame Body_ + _FCS_
+* _MPDU_ - _MAC_ 层协议数据单元
+
+  | Fields           | Description                      | Length (Bytes) |
+  | ---------------- | -------------------------------- | -------------- |
+  | Frame Control    | ...                              | `2`            |
+  | Duration ID      | _Network Allocation Vector, NAV_ | `2`            |
+  | Address1         | /                                | `6`            |
+  | Address2         | /                                | `6`            |
+  | Address3         | /                                | `6`            |
+  | Sequence Control | 用于帧重组以及丢弃               | `2`            |
+  | Address4         | /                                | `6`            |
+  | Frame Body       | /                                | /              |
+  | FCS              | _CRC_                            | `4`            |
 
 #### Frame Control
 
 ![frame-control](../img/802.11-general-framecontrol.png)
 
-其中的 `type` 和 `subtype` 用于指定具体的帧类型
-
-* _Control Frame_
-* _Management Frame_
-* _Data Frame_
-
-#### Duration/ID
-
-#### Address
-
-* Address1 - _Destination Address_
-* Address2 - _Source Address_
-* Address3 - _Basic Service Set ID (BSSID)_
-
-#### Sequence-Control
-
-* 重组帧
-* 丢弃重复的帧
-
-#### Frame Body
-
-* 携带上层数据（_Payload_）
-
-#### FCS
-
-* 循环冗余码（_Cyclic Redundancy Check, CRC_）
-* 保护 _Frame Header_ + _Frame Body_
-* 若 _FCS_ 运算出错，则立即丢弃该帧，不应答
+| Fields           | Description                                    | Length (bits) |
+| ---------------- | ---------------------------------------------- | ------------- |
+| Protocol Version | _MAC_ version                                  | `2`           |
+| Type             | `Management` / `Control` / `Data` / `Reserved` | `2`           |
+| SubType          | ...                                            | `4`           |
+| To DS            | Distributed System                             | `1`           |
+| From DS          | Distributed System                             | `1`           |
+| More Fragment    | /                                              | `1`           |
+| Retry            | /                                              | `1`           |
+| Power Management | /                                              | `1`           |
+| More Data        | /                                              | `1`           |
+| Protected Frame  | Frame body 是否被 _WEP_ 算法加密               | `1`           |
+| Order            | /                                              | `1`           |
 
 ---
 
 ### Data Frame
 
 ![dataframe](../img/802.11-data.png)
-
-_STA_ 在收到数据帧时，首先检查 _BSSID_，若 _BSSID_ 与 _STA_ 相同时，才会向上层协议栈解析
 
 #### IBSS Frame
 
@@ -81,6 +76,13 @@ _STA_ 在收到数据帧时，首先检查 _BSSID_，若 _BSSID_ 与 _STA_ 相�
 ---
 
 ### Control Frame
+
+| Sub-Type | Frame Type |
+| -------- | ---------- |
+| `1101`   | RTS        |
+| `0011`   | CTS        |
+| `1011`   | ACK        |
+| `0101`   | PS-Poll    |
 
 #### RTS Frame
 
@@ -116,17 +118,17 @@ _Frame Body_ 中包含固定字段（_Fixed Fields_）和长度不定的 _Inform
 
 | Sub-Type | Frame Type              |
 | -------- | ----------------------- |
-| 0000     | Association Request     |
-| 0001     | Association Response    |
-| 0010     | Re-association Request  |
-| 0011     | Re-association Response |
-| 0100     | Probe Request           |
-| 0101     | Probe Response          |
-| 1000     | Beacon                  |
-| 1001     | ATIM                    |
-| 1010     | Disassociation          |
-| 1011     | Authentication          |
-| 1100     | Deauthentication        |
+| `0000`   | Association Request     |
+| `0001`   | Association Response    |
+| `0010`   | Re-association Request  |
+| `0011`   | Re-association Response |
+| `0100`   | Probe Request           |
+| `0101`   | Probe Response          |
+| `1000`   | Beacon                  |
+| `1001`   | ATIM                    |
+| `1010`   | Disassociation          |
+| `1011`   | Authentication          |
+| `1100`   | Deauthentication        |
 
 #### Authentication Frame
 
@@ -172,6 +174,16 @@ _Frame Body_ 中包含固定字段（_Fixed Fields_）和长度不定的 _Inform
 
 ---
 
+### References
+
+https://blog.csdn.net/u012503786/article/details/78783874
+
+https://blog.csdn.net/sinat_22991367/article/details/73005140
+
+https://blog.csdn.net/chengwenyao18/article/details/7176090
+
+---
+
 ### Summary
 
 在 _IEEE_ 官网下载了 _802.11_ 标准文档
@@ -185,8 +197,6 @@ _Frame Body_ 中包含固定字段（_Fixed Fields_）和长度不定的 _Inform
 算是快速入门了解一下
 
 可以马上应用到 _Scapy_ 的 _Packet Manipulation_ 中
-
-图片来自 _[CSDN](https://blog.csdn.net/u012503786/article/details/78783874)_，侵删
 
 ---
 
