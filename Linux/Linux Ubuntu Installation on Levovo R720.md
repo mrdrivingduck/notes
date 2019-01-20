@@ -58,7 +58,7 @@ _Lenovo R720_ 的无线网卡被硬件关闭了
 
 ```bash
 $ sudo touch /etc/modprobe.d/ideapad.conf
-$ sudo gedit ideapad.conf 
+$ sudo gedit /etc/modprobe.d/ideapad.conf 
 ```
 
 ```
