@@ -2,7 +2,7 @@
 
 Created by : Mr Dk.
 
-2019 / 01 / 20 13:55
+2019 / 01 / 20 15:44
 
 Nanjing, Jiangsu, China
 
@@ -21,9 +21,8 @@ Nanjing, Jiangsu, China
     * _Address 3_
     * _Sequence Control_
     * _Address 4_
-  * _Frame Body_ - ( _Control Frame_ 没有 _Frame Body_ )
-  * _FCS_
-* _Frame Body_ + _FCS_ = __MAC Payload__
+  * _Frame Body_ - ( _Control Frame_ 没有 _Frame Body_ ) &rarr; __MAC payload__
+  * _FCS_ - checksum for _Header_ & _Frame Body_
 
 | Fields           | Description                      | Length (Bytes) |
 | ---------------- | -------------------------------- | -------------- |
