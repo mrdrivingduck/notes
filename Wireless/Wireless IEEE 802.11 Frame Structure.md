@@ -79,10 +79,10 @@ Nanjing, Jiangsu, China
 
 | Sub-Type | Frame Type |
 | -------- | ---------- |
-| `1101`   | RTS        |
-| `0011`   | CTS        |
-| `1011`   | ACK        |
-| `0101`   | PS-Poll    |
+| `1011`   | RTS        |
+| `1100`   | CTS        |
+| `1101`   | ACK        |
+| `1010`   | PS-Poll    |
 
 #### RTS Frame
 
