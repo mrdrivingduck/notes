@@ -2,7 +2,7 @@
 
 Created by : Mr Dk.
 
-2019 / 01 / 19 15:28
+2019 / 01 / 20 11:29
 
 Nanjing, Jiangsu, China
 
@@ -50,6 +50,25 @@ Nanjing, Jiangsu, China
 
 ![dataframe](../img/802.11-data.png)
 
+| Sub-Type | Frame Type                  | Number |
+| -------- | --------------------------- | ------ |
+| `0000`   | Data                        | `0`    |
+| `0001`   | Data + CF-Ack               | `1`    |
+| `0010`   | Data + CF-Poll              | `2`    |
+| `0011`   | Data + CF-Ack + CF-Poll     | `3`    |
+| `0100`   | Null                        | `4`    |
+| `0101`   | CF-Ack                      | `5`    |
+| `0110`   | CF-Poll                     | `6`    |
+| `0111`   | CF-Ack + CF-Poll            | `7`    |
+| `1000`   | QoS Data                    | `8`    |
+| `1001`   | QoS Data + CF-Ack           | `9`    |
+| `1010`   | QoS Data + CF-Poll          | `10`   |
+| `1011`   | QoS Data + CF-Ack + CF-Poll | `11`   |
+| `1100`   | QoS Null                    | `12`   |
+| `1101`   | ~~Reserved~~                | `13`   |
+| `1110`   | QoS CF-Poll                 | `14`   |
+| `1111`   | QoS CF-Ack CF-Poll          | `15`   |
+
 #### IBSS Frame
 
 ![data-ibss](../img/802.11-data-ibss.png)
@@ -77,12 +96,18 @@ Nanjing, Jiangsu, China
 
 ### Control Frame
 
-| Sub-Type | Frame Type |
-| -------- | ---------- |
-| `1011`   | RTS        |
-| `1100`   | CTS        |
-| `1101`   | ACK        |
-| `1010`   | PS-Poll    |
+| Sub-Type      | Frame Type      | Number  |
+| ------------- | --------------- | ------- |
+| `0000 - 0110` | ~~Reserved~~    | `0 - 6` |
+| `0111`        | 控制包裹        | `7`     |
+| `1000`        | 块确认请求      | `8`     |
+| `1001`        | 块确认          | `9`     |
+| `1010`        | PS-Poll         | `10`    |
+| `1011`        | RTS             | `11`    |
+| `1100`        | CTS             | `12`    |
+| `1101`        | ACK             | `13`    |
+| `1110`        | CF-End          | `14`    |
+| `1111`        | CF-End + CF-Ack | `15`    |
 
 #### RTS Frame
 
@@ -116,19 +141,23 @@ _Frame Body_ 中包含固定字段（_Fixed Fields_）和长度不定的 _Inform
 
 根据 _Frame Control_ 中的 _Sub-Type_，可以分为许多中子类型：
 
-| Sub-Type | Frame Type              |
-| -------- | ----------------------- |
-| `0000`   | Association Request     |
-| `0001`   | Association Response    |
-| `0010`   | Re-association Request  |
-| `0011`   | Re-association Response |
-| `0100`   | Probe Request           |
-| `0101`   | Probe Response          |
-| `1000`   | Beacon                  |
-| `1001`   | ATIM                    |
-| `1010`   | Disassociation          |
-| `1011`   | Authentication          |
-| `1100`   | Deauthentication        |
+| Sub-Type      | Frame Type              | Number  |
+| ------------- | ----------------------- | ------- |
+| `0000`        | Association Request     | `0`     |
+| `0001`        | Association Response    | `1`     |
+| `0010`        | Re-association Request  | `2`     |
+| `0011`        | Re-association Response | `3`     |
+| `0100`        | Probe Request           | `4`     |
+| `0101`        | Probe Response          | `5`     |
+| `0110 - 0111` | ~~Reserved~~            | `6 - 7` |
+| `1000`        | Beacon                  | `8`     |
+| `1001`        | ATIM                    | `9`     |
+| `1010`        | Disassociation          | `10`    |
+| `1011`        | Authentication          | `11`    |
+| `1100`        | Deauthentication        | `12`    |
+| `1101`        | 功能帧                  | `13`    |
+| `1110`        | 无需确认的功能帧        | `14`    |
+| `1111`        | ~~Reserved~~            | `15`    |
 
 #### Authentication Frame
 
