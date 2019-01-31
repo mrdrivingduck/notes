@@ -41,7 +41,7 @@ CloseableHttpResponse response = httpClient.execute(httpPost);
 
 ### Multipart
 
-`<from>` 中的 `enctype` 为 `multipart/form-data`
+`<form>` 中的 `enctype` 为 `multipart/form-data`
 
 将会产生一个 _boundary_ 用于分割字段
 
