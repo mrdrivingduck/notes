@@ -31,7 +31,7 @@ _kismet_ 由 _Mike Kershaw (dragorn)_ 使用 _C++_ 开发
 __最新一次发布（时隔四年）__：_Kismet-2018-08-beta1_
 
 * 大量代码重构
-* 全新的 _REST_ _JSON_ 数据访问机制
+* 全新的 RESTful JSON 数据访问机制
 * 除了 _802.11_ 以外，开始支持蓝牙、_RTL 433 传感器_（待验证）
 * 全新的 _Web-UI_
 * 多线程数据包解码
