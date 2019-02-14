@@ -16,7 +16,7 @@ LaTeX, WiKipedia:
 
 一种我很认可的理解方式：https://blog.csdn.net/shujuelin/article/details/79340373
 
->  LaTeX 和 Web Page 的工作方式很类似，都由源文件（`.tex` 或 `.html`）经由引擎（TeX 或 Browser）渲染产生最终效果（`.PDF` 文件或页面）。
+>  LaTeX 和 Web Page 的工作方式很类似，都由源文件（`.tex` 或 `.html`）经由引擎（TeX 或 Browser）渲染产生最终效果（`.pdf` 文件或页面）。
 >
 > 在 Web 中，规范的写法是在 `.html` 文件中写入页面结构和内容，由 `.css` 文件控制页面生成的样式；在 LaTeX 中，在 `.tex` 中写入文档的结构和内容，由 `.cls`、`.sty` 文件控制样式。从而做到内容与样式分离。
 
