@@ -12,8 +12,8 @@ Nanjing, Jiangsu, China
 
 * 采用领域内习惯性的记述形式
 * 必要性：
-  * `C++` 中预定义的运算符只能处理 __基本数据类型__
-* 使自定义的类可以使用通用的 `C++` 运算符
+  * C++ 中预定义的运算符只能处理 __基本数据类型__
+* 使自定义的类可以使用通用的 C++ 运算符
   * 运算类 -  `+` `-`  等
   * 比较类 - `<` `==` 等
   * 赋值类 - `=`
@@ -29,7 +29,7 @@ Nanjing, Jiangsu, China
   * 将 __运算对象__ 转化为 __运算符函数的实参__
   * 编译系统对重载运算符的选择，遵循函数重载的选择原则
 * 不能重载的运算符：`.` `*` `::` `?: ` `sizeof`
-* 只能重载 `C++` 已有的运算符
+* 只能重载 C++ 已有的运算符
 * 不能改变运算符的 __优先级__ 和 __结合性__
 * 不能改变操作数个数 _（维持相同的语法规则）_
 * 重载后的运算符参数中至少要包含一个用户自定义的类型
@@ -41,69 +41,69 @@ Nanjing, Jiangsu, China
 
 * 重载为 __类成员函数__
 
-  * ```C++
-    #include <iostream>
-    using namespace std;
-    
-    class Test 
-    {
-    private:
-        int value;
-    public:
-        // Constructor
-        Test(int value) {this -> value = value;}
-        // 重载为类成员函数
-        // 只需一个外部参数即可 另一个参数为对象本身
-        // 最好带有 const，以便集成 STL
-        bool operator< (const Test &t) const;
-    };
-    
-    bool Test::operator< (const Test &t) const
-    {
-        return value < t.value;
-    }
-    
-    int main()
-    {
-        Test t1(7);
-        Test t2(6);
-        cout << (t1 < t2) << endl;
-    
-        return 0;
-    }
-    ```
+  ```c++
+  #include <iostream>
+  using namespace std;
+  
+  class Test 
+  {
+  private:
+      int value;
+  public:
+      // Constructor
+      Test(int value) {this -> value = value;}
+      // 重载为类成员函数
+      // 只需一个外部参数即可 另一个参数为对象本身
+      // 最好带有 const，以便集成 STL
+      bool operator< (const Test &t) const;
+  };
+  
+  bool Test::operator< (const Test &t) const
+  {
+      return value < t.value;
+  }
+  
+  int main()
+  {
+      Test t1(7);
+      Test t2(6);
+      cout << (t1 < t2) << endl;
+  
+      return 0;
+  }
+  ```
 
 * 重载为 __友元函数__
 
-  * ```C++
-    #include <iostream>
-    using namespace std;
-    
-    class Test 
-    {
-    private:
-        int value;
-    public:
-        // Constructor
-        Test(int value) {this -> value = value;}
-        // 重载为友元函数
-        // 由于函数不属于类，参数个数发生变化
-        friend bool operator< (const Test &t1, const Test &t2);
-    };
-    
-    bool operator< (const Test &t1, const Test &t2) {
-        return t1.value < t2.value;
-    }
-    
-    int main()
-    {
-        Test t1(5);
-        Test t2(6);
-        cout << (t1 < t2) << endl;
-    
-        return 0;
-    }
-    ```
+  ```c++
+  #include <iostream>
+  using namespace std;
+  
+  class Test 
+  {
+  private:
+      int value;
+  public:
+      // Constructor
+      Test(int value) {this -> value = value;}
+      // 重载为友元函数
+      // 由于函数不属于类，参数个数发生变化
+      friend bool operator< (const Test &t1, const Test &t2);
+  };
+  
+  bool operator< (const Test &t1, const Test &t2) {
+      return t1.value < t2.value;
+  }
+  
+  int main()
+  {
+      Test t1(5);
+      Test t2(6);
+      cout << (t1 < t2) << endl;
+  
+      return 0;
+  }
+  ```
 
 * `C++` 中规定，`=` `[]` `()` `->` 四个运算符只能被重载为 __类成员函数__
 
@@ -231,26 +231,26 @@ public:
 
 * 且重载声明后一定要加 `const`
 
-  * ```C++
-    /* 
-     * Declaration
-     */
-    bool operator< (const Class &c1, const Class &c2) const;
-    
-    /* 
-     * Implementation
-     */
-    bool operator< (const Class &c1, const Class &c2) const
-    {
-        // TO DO ...
-    }
-    ```
+  ```C++
+  /* 
+   * Declaration
+   */
+  bool operator< (const Class &c1, const Class &c2) const;
+  
+  /* 
+   * Implementation
+   */
+  bool operator< (const Class &c1, const Class &c2) const
+  {
+      // TO DO ...
+  }
+  ```
 
 ---
 
 ### 5. 总结
 
-_运算符重载_ 在 `C++` 中是一项相当重要的技术
+_运算符重载_ 在 C++ 中是一项相当重要的技术
 
 在实现完成后 可以使编码更加简洁且易于理解
 
