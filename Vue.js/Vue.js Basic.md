@@ -2,104 +2,148 @@
 
 Created by : Mr Dk.
 
-2019 / 02 / 21 18:12
+2019 / 02 / 22 12:33
 
 Nanjing, Jiangsu, China
 
 ---
 
-### About
-
-Vue (读音 /vjuː/，类似于 __view__) 是一套用于构建用户界面的 JavaScript __渐进式框架__
-
-> 与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
-
-官方网站 - https://cn.vuejs.org/
-
----
-
-### Installation
-
-#### Independent Version
-
-从 Vue.js 的[官网](https://cn.vuejs.org/)直接下载 `vue.min.js`，并用 `<script>` 引入
-
-#### CDN
-
-```html
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-```
-
-#### NPM
-
-在国内可以进一步使用速度更快的淘宝镜像 cnpm
-
-```bash
-$ npm install cnpm -g
-$ cnpm install vue
-```
-
-Vue.js 提供了官方的命令行工具，用于快速搭建大型单页应用
-
-```bash
-$ cnpm install --global vue-cli
-$ vue init webpack my-project
-
-# ...
-# Enter for default
-# ...
-
-$ cd my-project
-$ cnpm install
-$ cnpm run dev
-```
-
----
-
-### Core
+### Declarative Rendering
 
 Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统
 
->Vue.js 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。所有 Vue.js 的模板都是合法的 HTML ，所以能被遵循规范的浏览器和 HTML 解析器解析。
->
->在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。
+```vue
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Declarative Rendering</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <p>{{ message }}</p>
+  <p>{{ details() }}</p>
+</div>
 
-文件扩展名为 `.vue` 的文件称为 __single-file components（单文件组件）__：
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  }
+  methods: {
+    details: function() {
+      return this.message + "嘿嘿嘿";
+    }
+  }
+})
+</script>
+</body>
+</html>
+```
 
-![vue-template](../img/vue-template.png)
+每个 Vue.js 应用都需要通过实例化 Vue 来实现：
 
-每个 `.vue` 文件包含三个顶级语言块：
+* `el` 参数是 DOM 中的 id，意味着该实例与对应 id 的标签绑定，只会在该标签的 DOM 子树中起作用
+* `data` 用于定义所有的数据属性
+* `method` 用于定义函数
+* `{{  }}` 用于输出属性或函数返回值
 
-* `<template></template>`
-  * 包含 HTML 结构
-* `<script></script>`
-  * 包含 JavaScript 脚本
-* `<style></style>`
-  * 包含样式
+当一个 Vue 实例被创建时
 
-> 一个重要的事情值得注意， __关注点分离不等于文件类型分离。__ 在现代 UI 开发中，我们已经发现相比于把代码库分离成三个大的层次并将其相互交织起来，把它们划分为松散耦合的组件再将其组合起来更合理一些。在一个组件里，其模板、逻辑和样式是内部耦合的，并且把他们搭配在一起实际上使得组件更加内聚且更可维护。
->
-> 即便你不喜欢单文件组件，你仍然可以把 JavaScript、CSS 分离成独立的文件然后做到热重载和预编译。
+它向 Vue 的响应式系统中加入了其 `data` 对象中能找到的所有的属性
+
+当这些属性的值发生改变时
+
+html 视图将也会产生相应的变化
+
+---
+
+### Start from One Page Application
+
+以上代码通常出现在教程中
+
+而使用 Vue.js 命令行生成的项目结构不太一样
+
+![vue-project](../img/vue-project.png)
+
+| Directory/File  | Description                  |
+| --------------- | ---------------------------- |
+| `build\`        | 项目构建（webpack）相关代码  |
+| `config\`       | 配置目录                     |
+| `node_modules\` | npm 加载的项目依赖           |
+| `src\`          | 源代码目录                   |
+| `static\`       | 静态资源目录（图片、字体等） |
+| `test\`         | 测试目录                     |
+| `index.html`    | 首页入口文件                 |
+| `package.json`  | 项目配置文件                 |
+
+其中，源代码目录 `src\` 如下：
+
+![vue-src](../img/vue-src.png)
+
+| Directory/File | Description                            |
+| -------------- | -------------------------------------- |
+| `assets\`      | 放置 LOGO 等图片                       |
+| `components\`  | 组件                                   |
+| `router\`      | 路由                                   |
+| `App.vue`      | 项目入口文件，也可以直接将组件写在这里 |
+| `main.js`      | 项目核心文件                           |
+
+总体来看：
+
+* 最外层的 `index.html` 定义了页面，将其中的某一 `<div>` 划分为由 Vue.js 渲染
+* `main.js` 实例化了 Vue 对象
+  * 通过 `el` 绑定到了 `index.html` 对应 `<div>` 的 DOM 中
+  * 使用 `router` 将 URL 与 `components\` 中的组件映射
+  * 在实例中注册局部组件 `App`
+* 在 `App.vue` 中实现 `index.html` 中 `<div>` 组件的具体内容
+
+---
+
+### Reactive
+
+一旦数据与 HTML DOM 绑定
+
+如果数据的值被改变，那么 HTML 将会立刻改变
+
+在 `.vue` 文件（组件）中，将组件名 `name`、数据 `data`、方法 `methods` 暴露出来：
+
+```vue
+<template>
+  <div id="app">
+    <p>{{ site }}</p>
+    <p>{{ test() }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App', 
+  data: function () {
+    return {
+      site: '666'
+    }
+  },
+  methods: {
+    test: function () {
+      return '888'
+    }
+  }
+}
+</script>
+```
+
+__ATTENTION: 数据需要用函数的形式返回__ - https://github.com/vuejs/vue/issues/1032
 
 ---
 
 ### Summary
 
-个人理解：
+Vue.js 的运作机制 搞...搞清了吗 :sweat:
 
-由于 `.vue` 文件不能直接被浏览器执行
-
-需要使用 npm 安装 Vue.js 后
-
-通过 Vue.js 运行在 Node.js 上的 dependencies 
-
-将 `.vue` 文件中的声明式渲染
-
-翻译为对应的 `.html`、`.css`、`.js` 文件以便在浏览器上运行
-
-这个翻译的过程由 Vue.js 框架完成
-
-所谓的 __渐进式__ 也由 Vue.js 框架实现
+可能需要边学边理解了
 
 ---
 
