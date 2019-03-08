@@ -46,13 +46,13 @@ Each PLC vendor offers a specific IDE
 
 The programming languages for PLCs were standardized in __IEC 61131-3__:
 
-| Programming Language            | Form        |      |
-| ------------------------------- | ----------- | ---- |
-| Ladder Diagram (LD)             | Graphical   |      |
-| Function Block Diagram (FBD)    | Graphical   |      |
-| Structured Text (ST)            | Textual     |      |
-| Instruction List (IL)           | ~~Textual~~ |      |
-| Sequential Function Chart (SFC) | Graphical   |      |
+| Programming Language            | Form        |
+| ------------------------------- | ----------- |
+| Ladder Diagram (LD)             | Graphical   |
+| Function Block Diagram (FBD)    | Graphical   |
+| Structured Text (ST)            | Textual     |
+| Instruction List (IL)           | ~~Textual~~ |
+| Sequential Function Chart (SFC) | Graphical   |
 
 Take FBD as an example:
 
