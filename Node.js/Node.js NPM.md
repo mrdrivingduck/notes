@@ -128,6 +128,23 @@ $ npm install <package_name> --save-dev
 
 ---
 
+### Source
+
+#### Setting
+
+```bash
+$ npm config set registry https://registry.npm.taobao.org
+```
+
+#### Check
+
+```bash
+$ npm config get registry
+$ npm info express
+```
+
+---
+
 ### Reference
 
 NPM 官方网站- [https://www.npmjs.com/](https://www.npmjs.com/)
