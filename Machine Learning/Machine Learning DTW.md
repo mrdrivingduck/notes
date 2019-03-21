@@ -62,8 +62,6 @@ DTW (Dynamic Time Warping) 动态时间规整算法
 
 ### Implementation
 
-dtw - https://github.com/pierre-rouanet/dtw -- Python
-
 fastdtw - https://github.com/slaypni/fastdtw -- Python
 
 ---
