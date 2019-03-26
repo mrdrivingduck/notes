@@ -104,6 +104,16 @@ watch: {
 >
 > 那确实不错
 
+监听 `dataObj` 对象的 `property` 属性：
+
+```javascript
+watch: {
+    'dataObj.property': function(newVal, oldVal) {
+        // TO DO ...
+    }
+}
+```
+
 ---
 
 ### Summary
