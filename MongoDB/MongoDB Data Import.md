@@ -23,5 +23,9 @@ Nanjing, Jiangsu, China
 $ mongorestore -d <db_name> /dir/...
 ```
 
+```bash
+$ mongoimport --db <db_name> --collection <cl_name> --file data.json
+```
+
 ---
 
