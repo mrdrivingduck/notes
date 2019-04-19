@@ -1,8 +1,8 @@
-# Git - Branch
+# Git - Branch & Merge
 
 Created by : Mr Dk.
 
-2019 / 03 / 30 14:21
+2019 / 04 / 19 17:49
 
 Nanjing, Jiangsu, China
 
@@ -90,15 +90,23 @@ Git 的官方网站给出了一个便于理解的实际应用场景：
 
 因此这种合并方式称为 __Fast Forward__，即只需要将 `master` 分支指针右移：
 
+```bash
+$ git merge hotfix
+Updating f42c576..3a0874c
+Fast-forward
+ index.html | 2 ++
+ 1 file changed, 2 insertions(+)
+```
+
 ![git-fast-forward](../img/git-fast-forward.png)
 
 `hotfix` 分支指针已经完成了使命，可以被删除了
 
 目前生产环境服务器使用的是 `C4` 状态的版本
 
-然后就可以重新转到 `iss53` 分支上，继续新功能的开发~
+然后就可以重新转到 `iss53` 分支上，继续新功能的开发：
 
-......
+![git-branch-go-on](../img/git-branch-go-on.png)
 
 当新功能开发完成后，`iss53` 需要和 `master` 合并时
 
@@ -107,6 +115,13 @@ Git 的官方网站给出了一个便于理解的实际应用场景：
 Git 会找到它们的共同祖先，进行三方合并计算：
 
 ![git-before-merge](../img/git-before-merge.png)
+
+```bash
+$ git merge iss53
+Merge made by the 'recursive' strategy.
+index.html |    1 +
+1 file changed, 1 insertion(+)
+```
 
 Git 会将合并后的结果生成为一个新的状态
 
@@ -128,14 +143,68 @@ $ git branch -d <branch_name>
 
 那么 Git 对 `C6` 状态的生成一定会是矛盾的：
 
-* 到底该使用 `C4` 版本的状态还是 `C5` 版本的状态呢？
+```bash
+$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+```bash
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+    both modified:      index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+到底该使用 `C4` 版本的状态还是 `C5` 版本的状态呢？
 
 因此这时需要人为裁决：
 
 * 二选一
 * 亲自整合冲突
 
-命令一大堆，不想记了
+显示 __both modified__ 的文件就是发生冲突的文件
+
+Git 会自动在文件中将冲突位置标识
+
+Vim 我是真的懒得用，用 Visual Studio Code 打开文件就会有显示：
+
+```text
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+ please contact us at support@github.com
+</div>
+>>>>>>> iss53:index.html
+```
+
+* `<<<<<<<` 指示的是 `HEAD` 版本
+* `>>>>>>>` 指示的是 `iss53` 版本
+* `=======` 指示的是分割线，区分两个版本
+
+在 Visual Studio Code 中可以直接点击按钮二选一，或同时合并
+
+也可以人为进行编辑
+
+* 先编辑成想要合并后的样子
+* 然后将 `<<<<<<<`、`>>>>>>>`、`=======` 全部删掉（不然会有语法错误 :sweat_smile:）
+
+修改完成后，保存
+
+然后通过 `git add` 将该文件送入 stage：
+
+```bash
+$ git add index.html
+```
 
 尽可能不要修改同一个文件才是正解叭
 
@@ -156,6 +225,16 @@ $ git branch -d <branch_name>
 现在需要和别人协作了
 
 还是学一下 branch 的原理和机制吧
+
+当多个人同时在一个 branch 上协作时
+
+也会在合并时自动创建一个临时分支
+
+总体来看走的机制还是同一套
+
+一直以为很复杂的 Merge 今天也整明白了
+
+不得不说，发明 Git 的 Linus Benedict Torvalds 真的是个天才！
 
 ---
 
