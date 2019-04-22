@@ -1,4 +1,4 @@
-# Git - Branch & Merge
+# Git - Branch & Merge Theory
 
 Created by : Mr Dk.
 
