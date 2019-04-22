@@ -8,16 +8,18 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
-已有数据库的导出文件，存放在同一目录下：
+__mongorestore__ tool - 导入已有数据库的导出备份：
 
 * 元数据为 `xxx.metadata.json`
 * 数据为 `xxx.bson`
 
+__mongoimport__ tool - 导入单独的 Collection 的 JSON 导出文件
+
 ---
 
-### Import
+## Import
 
 ```bash
 $ mongorestore -d <db_name> /dir/...
