@@ -51,6 +51,14 @@ $ git branch -vv
 
 查看本地分支及其对应的远程分支
 
+### git branch --set-upstream-to=<branch_name>
+
+```bash
+$ git branch --set-upstream-to=origin/dev
+```
+
+将本地分支关联到远程分支
+
 ### Effect
 
 ![git-branch-cmd](../img/git-branch-cmd.png)

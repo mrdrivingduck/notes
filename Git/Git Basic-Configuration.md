@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 1. Get an account on Version Control website
+## 1. Get an account on Version Control website
 
 * _GitHub_ （最主流）
 * _GitLab_ （免费 _private_ 仓库）
@@ -16,7 +16,7 @@ Nanjing, Jiangsu, China
 * _Gitee_ （国内 速度较快）
 * ...
 
-### 2. Generate SSH-key locally
+## 2. Generate SSH-key locally
 
 Get into Command-Line
 
@@ -30,7 +30,7 @@ $ ssh-keygen -t rsa -C "your_email@youremail.com"
   * 可以在设定的保存密钥路径中找到公钥 _id_rsa.pub_
   * 默认位于 `.../.ssh/` 路径下
 
-### 3. Add Public Key to your account
+## 3. Add Public Key to your account
 
 * 查看 `id_rsa.pub`
 * 将 __除了邮箱以外的部分__ 复制，粘贴到版本控制网站个人账号的 _SSH 公钥_ 中
@@ -46,7 +46,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6oNrhO0KoK9IcvXCg30oaDKLI95ucOFloikfjMXU1
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6oNrhO0KoK9IcvXCg30oaDKLI95ucOFloikfjMXU1S3cfmkOuUgtZ+e+UYaQQQjsGnyqynf4LqVE459Sit0qDEyiEUtLbYdaoIAC95puK4fZDJbM8/f1RnnMuzzVAmhr6viSfFGZ+Ck4tyMYSDQXE+Da3B5JeQe0T9yGqtoMPcXFWixrWqG/vKX9lN8tFhKMAZB5/1n/NBZUMkpqPfUjcvTfLzDeUCn2ZtsXA6G0TtcILM06NMMCZIzd0yyaZkIVAp4zNSGoOLLISiLjAxNZb1DyBs+KzFSrPVxb30KZZrCKT0LTp0Tw52FKnGCpxaUs8AkCQ7Nz9Rla07NIg5xRJ
 ```
 
-### 4. Git local configuration
+## 4. Git local configuration
 
 * After creating a repository on the website and `clone` it to local
 

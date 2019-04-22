@@ -8,15 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
-#### 检查当前文件状态（已暂存与未暂存的修改）
+### 检查当前文件状态（已暂存与未暂存的修改）
 
 ```bash
 $ git status
 ```
 
-#### 跟踪新文件 / 暂存已修改文件
+### 跟踪新文件 / 暂存已修改文件
 
 ```bash
 $ git add README.md
@@ -24,13 +24,13 @@ $ git add .
 $ git add -A
 ```
 
-#### 查看提交历史
+### 查看提交历史
 
 ```bash
 $ git log
 ```
 
-### Commit - 提交更新
+## Commit - 提交更新
 
 每次 _commit_ 一般会带有注释，表示本次提交完成的工作，如下面的 `"Updated ..."`
 
@@ -44,7 +44,7 @@ $ git commit -m "Updated ..."
 $ git commit --amend
 ```
 
-### 撤销 Commit
+## 撤销 Commit
 
 使用 `git reset` 命令，附带不同的参数：
 
@@ -69,7 +69,7 @@ $ git commit --amend
 
 ---
 
-### Summary
+## Summary
 
 今天用到了 顺手记录一下
 
