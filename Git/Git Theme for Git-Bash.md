@@ -169,7 +169,7 @@ BrightWhite=215,218,224
 
 所以大三的时候一度想读 __人机交互 (HCI)__ 的研究生 并在以后做一名 __UED__？
 
-* _UED (User Experience Design) 用户体验设计师_
+* _UED (User Experience Designer) 用户体验设计师_
 
 但个人感觉需要对设计学、美学、心理学要有一定的天赋和灵感才行
 
