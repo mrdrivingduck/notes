@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 对于 Vue.js 中的 `watch` 属性的一些高级用法
 
@@ -28,7 +28,7 @@ watch: {
 
 ---
 
-### Handler
+## Handler
 
 `watch` 的 `handler` 属性，在默认情况下可以简写
 
@@ -42,7 +42,7 @@ watch: {
 
 ---
 
-### Immediate
+## Immediate
 
 `watch` 的特点是，在最初绑定时是不会执行的
 
@@ -65,7 +65,7 @@ watch: {
 
 ---
 
-### Deep
+## Deep
 
 深度监听 - 如果监听的是一个对象
 
@@ -116,7 +116,7 @@ watch: {
 
 ---
 
-### Summary
+## Summary
 
 随着开发的层次渐进
 

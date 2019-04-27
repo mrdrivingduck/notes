@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Background
+## Background
 
 建立一个标签页
 
@@ -26,7 +26,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Design
+## Design
 
 每个标签页对应一个组件
 
@@ -53,7 +53,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Implementation
+## Implementation
 
 首先在程序入口注册组件，并实例化 Vue：
 
@@ -112,7 +112,7 @@ export default {
 
 ---
 
-### Keep Alive
+## Keep Alive
 
 每次切换组件时，Vue 都会创建新的组件实例并重新渲染
 
@@ -135,7 +135,7 @@ __使用 `<keep-alive></keep-alive>` 将动态组件包裹起来__
 
 ---
 
-### Summary
+## Summary
 
 感觉动态组件还是很实用的
 

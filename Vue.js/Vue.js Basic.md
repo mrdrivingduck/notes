@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Declarative Rendering
+## Declarative Rendering
 
 Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统
 
@@ -60,7 +60,7 @@ html 视图将也会产生相应的变化
 
 ---
 
-### Start from One Page Application
+## Start from One Page Application
 
 以上代码通常出现在教程中
 
@@ -102,7 +102,7 @@ html 视图将也会产生相应的变化
 
 ---
 
-### Reactive
+## Reactive
 
 一旦数据与 HTML DOM 绑定
 
@@ -139,7 +139,7 @@ __ATTENTION: 数据需要用函数的形式返回__ - https://github.com/vuejs/v
 
 ---
 
-### Summary
+## Summary
 
 Vue.js 的运作机制 搞...搞清了吗 :sweat:
 

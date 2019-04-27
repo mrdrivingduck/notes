@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 > Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM.
 
 ---
 
-### Conditionals
+## Conditionals
 
 `v-if` - Determine the presence of an element
 
@@ -49,7 +49,7 @@ export default {
 
 ---
 
-### Loops
+## Loops
 
 `v-for` - Can be used for displaying a list of items using the data from an Array
 
@@ -88,7 +88,7 @@ export default {
 
 ---
 
-### Event Listener
+## Event Listener
 
 `v-on` - Attach event listeners that invoke methods on our Vue instances
 
@@ -130,7 +130,7 @@ export default {
 
 * 所有的 DOM 操作都有 Vue 来处理，代码只需要关注逻辑层面即可
 
-#### Descriptor
+### Descriptor
 
 e.g. - `v-on:click.stop`
 
@@ -173,7 +173,7 @@ export default {
 
 ---
 
-### Two-way Binding
+## Two-way Binding
 
 `v-model` - Make two-way binding between form input and app state a breeze
 
@@ -220,7 +220,7 @@ export default {
 
 ---
 
-### Summary
+## Summary
 
 学习了一些 Vue.js 中的指令
 

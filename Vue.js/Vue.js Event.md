@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Trigger
+## Trigger
 
 调用内置的 `$emit` 方法，传入事件名称，触发一个事件
 
@@ -32,7 +32,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Naming
+## Naming
 
 与 `prop` 不同，触发的事件名必须和监听器的名称完全相同才行
 
@@ -43,7 +43,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Summary
+## Summary
 
 一些高级的用法以后再研究吧
 

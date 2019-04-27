@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 注册组件时，通过 `props` 属性将参数传到子组件中
 
@@ -48,7 +48,7 @@ export default {
 
 ---
 
-### Naming
+## Naming
 
 __HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase.__
 
@@ -72,9 +72,9 @@ Vue.component('blog-post', {
 
 ---
 
-### Data Passing
+## Data Passing
 
-#### Static
+### Static
 
 传递的是常量
 
@@ -88,7 +88,7 @@ Vue.component('blog-post', {
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
-#### Dynamic
+### Dynamic
 
 传递的是变量
 
@@ -120,7 +120,7 @@ post: {
 
 ---
 
-### One-way Data Flow
+## One-way Data Flow
 
 `prop` 使得父子 `prop` 之间形成了一个 __单向下行绑定__
 
@@ -142,7 +142,7 @@ post: {
 
 ---
 
-### Type Checks
+## Type Checks
 
 可以为组件的 `prop` 指定验证要求
 
@@ -212,7 +212,7 @@ Vue.component('blog-post', {
 
 ---
 
-### Non-Prop Attributes
+## Non-Prop Attributes
 
 传向一个子组件，但子组件没有相应 `prop` 定义的属性
 
@@ -223,7 +223,7 @@ Vue.component('blog-post', {
 * 从外部提供给组件的值会替换掉组件内部设置好的值
 * `class` 和 `style` 会智能一些 - 两个值会被合并
 
-#### Disabling Attribute Inheritance
+### Disabling Attribute Inheritance
 
 在组件中设置 `inheritAttrs` 属性：
 
@@ -236,7 +236,7 @@ Vue.component('my-component', {
 
 ---
 
-### Summary
+## Summary
 
 `prop` 是组件之间耦合的接口
 

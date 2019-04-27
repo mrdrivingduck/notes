@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 __文档对象模型（Document Object Model, DOM）__
 
@@ -26,7 +26,7 @@ W3C DOM 标准分为三部分：
 
 ---
 
-### HTML DOM
+## HTML DOM
 
 HTML DOM 是：
 
@@ -39,7 +39,7 @@ HTML DOM 是关于如何 __获取、修改、添加或删除__ HTML 元素的标
 
 ---
 
-### HTML DOM Nodes
+## HTML DOM Nodes
 
 在 HTML DOM 中，所有事物都是结点
 
@@ -53,7 +53,7 @@ HTML DOM 将 HTML 文档视为 __树结构__：
 
 ---
 
-### DOM Methods
+## DOM Methods
 
 通过 JavaScript 对 DOM Tree 进行增、删、改、查等
 
@@ -74,9 +74,9 @@ HTML DOM 将 HTML 文档视为 __树结构__：
 
 ---
 
-### DOM Attributes
+## DOM Attributes
 
-#### nodeType
+### nodeType
 
 * Read-only
 
@@ -88,7 +88,7 @@ HTML DOM 将 HTML 文档视为 __树结构__：
 | 注释      | 8     |
 | 文档      | 9     |
 
-#### nodeName
+### nodeName
 
 * Read-only
 * HTML 元素的大写字母标签名
@@ -100,7 +100,7 @@ HTML DOM 将 HTML 文档视为 __树结构__：
 | 文本      | `#text`              |
 | 文档      | `#document`          |
 
-#### nodeValue
+### nodeValue
 
 | Node Type | Value                 |
 | --------- | --------------------- |
@@ -108,7 +108,7 @@ HTML DOM 将 HTML 文档视为 __树结构__：
 | 属性      | 属性值                |
 | 文本      | 文本本身              |
 
-#### innerHTML
+### innerHTML
 
 ```html
 <p id="index">Hello World!</p>
@@ -129,9 +129,9 @@ __ATTENTION:__
 
 ---
 
-### DOM Modifications
+## DOM Modifications
 
-#### Insert Nodes
+### Insert Nodes
 
 ```html
 <div id="d1">
@@ -149,7 +149,7 @@ element.appendChild(para);
 </script>
 ```
 
-#### Modify Content
+### Modify Content
 
 ```html
 <html>
@@ -165,7 +165,7 @@ document.getElementById("p1").innerHTML="New text!";
 </html>
 ```
 
-#### Delete Nodes
+### Delete Nodes
 
 如果需要删除 HTML 元素，必须清楚该元素的父元素
 
@@ -173,9 +173,9 @@ document.getElementById("p1").innerHTML="New text!";
 
 ---
 
-### Event
+## Event
 
-#### 响应事件
+### 响应事件
 
 ```html
 <h1 onclick="this.innerHTML='hello!'">Change Inner</h1>
@@ -191,7 +191,7 @@ function changetext(id)
 <h1 onclick="changetext(this)">Change Inner</h1>
 ```
 
-#### 分配事件
+### 分配事件
 
 ```html
 <button onclick="displayDate()">Try</button>
@@ -203,13 +203,13 @@ document.getElementById("button").onclick=function(){displayDate()};
 </script>
 ```
 
-#### Event Type
+### Event Type
 
 `onclick`、`onload`、`onunload`、`onchange`、`onmouseover`、`onmouseout`、......
 
 ---
 
-### Search
+## Search
 
 利用三个属性在文档结构中进行导航：
 
@@ -223,7 +223,7 @@ document.getElementById("button").onclick=function(){displayDate()};
 
 ---
 
-### Summary
+## Summary
 
 开始学习前端 开始学习 Vue.js
 

@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 __组件__ 是可复用的 Vue 实例
 
@@ -24,9 +24,9 @@ __组件__ 是可复用的 Vue 实例
 
 ---
 
-### Registration
+## Registration
 
-#### Global Registration
+### Global Registration
 
 Vue 实例的 `component()` 方法
 
@@ -88,7 +88,7 @@ new Vue({
 })
 ```
 
-#### Local Registration
+### Local Registration
 
 Vue 实例中的 `components` 属性
 
@@ -147,13 +147,13 @@ export default {
 
 ---
 
-### Automatic Global Registration of Base Components
+## Automatic Global Registration of Base Components
 
 下次用到了再研究
 
 ---
 
-### Summary
+## Summary
 
 明白了 Vue.js 为何要这样设计
 

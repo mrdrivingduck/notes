@@ -8,19 +8,19 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Vue Router - 将组件映射到路由，然后告诉 Vue Router 在哪里渲染它们
 
 ---
 
-### Installation
+## Installation
 
-#### CDN/Download
+### CDN/Download
 
 在 `<script></script>` 标签中直接加载
 
-#### NPM
+### NPM
 
 ```bash
 $ npm install vue-router
@@ -37,7 +37,7 @@ Vue.use(Router)
 
 ---
 
-### Relationship
+## Relationship
 
 ![vue-router-src](../img/vue-router-src.png)
 
@@ -92,7 +92,7 @@ Vue.use(Router)
 
 ---
 
-### Template
+## Template
 
 `<router-view></router-view>` 用于标识渲染位置
 
@@ -115,7 +115,7 @@ Vue.use(Router)
 
 ---
 
-### Attributes of `router-link`
+## Attributes of `router-link`
 
 `to` - 目标路由的链接，可带参数，点击后会将值传递到 `router.push()`
 
@@ -129,7 +129,7 @@ Vue.use(Router)
 
 ---
 
-### Summary
+## Summary
 
 把 Vue Router 看完
 

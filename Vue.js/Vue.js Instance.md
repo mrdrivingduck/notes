@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 每一个 Vue 应用都是通过 `Vue` 函数创建一个新的 Vue 实例开始的
 
@@ -31,7 +31,7 @@ var vm = new Vue({
 
 ---
 
-### Data and Methods
+## Data and Methods
 
 当一个 Vue 实例被创建后
 
@@ -44,7 +44,7 @@ var vm = new Vue({
 
 ---
 
-### Lifecycle Hooks
+## Lifecycle Hooks
 
 每个 Vue 实例在被创建后
 
@@ -72,13 +72,13 @@ new Vue({
 
 ---
 
-### Lifecycle
+## Lifecycle
 
 ![vue-lifecycle](../img/vue-lifecycle.png)
 
 ---
 
-### Summary
+## Summary
 
 🙂
 

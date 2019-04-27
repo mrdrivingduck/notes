@@ -8,15 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
-最近开发开始步入正规
+最近开发开始步入正轨
 
 总结一下关于 Vue.js 组件的开发知识
 
 ---
 
-### Registration
+## Registration
 
 关于组件的注册主要有两种：
 
@@ -48,9 +48,9 @@ export default {
 
 ---
 
-### Communication between Components
+## Communication between Components
 
-#### 从父组件到子组件的通信
+### 从父组件到子组件的通信
 
 由 prop 这个东西实现，具体使用过程：
 
@@ -89,7 +89,7 @@ prop 使得父子组件之间形成了一个 __单向下行绑定__
    }
    ```
 
-#### 从子组件到父组件的通信
+### 从子组件到父组件的通信
 
 实现过程：
 
@@ -99,7 +99,7 @@ prop 使得父子组件之间形成了一个 __单向下行绑定__
 
 ---
 
-### Watch
+## Watch
 
 用于观察和响应 Vue 实例上的数据变动
 
@@ -123,7 +123,7 @@ watch: {
 
 ---
 
-### Summary
+## Summary
 
 最近的开发是从最核心的小组件开始
 

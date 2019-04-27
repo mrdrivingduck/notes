@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Vue (读音 /vjuː/，类似于 __view__) 是一套用于构建用户界面的 JavaScript __渐进式框架__
 
@@ -18,19 +18,19 @@ Vue (读音 /vjuː/，类似于 __view__) 是一套用于构建用户界面的 J
 
 ---
 
-### Installation
+## Installation
 
-#### Independent Version
+### Independent Version
 
 从 Vue.js 的[官网](https://cn.vuejs.org/)直接下载 `vue.min.js`，并用 `<script>` 引入
 
-#### CDN
+### CDN
 
 ```html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 ```
 
-#### NPM
+### NPM
 
 在国内可以进一步使用速度更快的淘宝镜像 cnpm
 
@@ -56,7 +56,7 @@ $ cnpm run dev
 
 ---
 
-### Core
+## Core
 
 Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统
 
@@ -83,7 +83,7 @@ Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数�
 
 ---
 
-### Summary
+## Summary
 
 个人理解：
 

@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 JavaScript 中深浅拷贝的问题
 
 ---
 
-### Shallow Copy
+## Shallow Copy
 
 浅拷贝
 
@@ -48,7 +48,7 @@ var obj2 = obj1
 
 ---
 
-### Deep Copy
+## Deep Copy
 
 深拷贝
 
@@ -73,7 +73,7 @@ var obj2 = obj1
 
 ---
 
-### Summary
+## Summary
 
 昨天在开发 Vue.js 时出现的问题
 
