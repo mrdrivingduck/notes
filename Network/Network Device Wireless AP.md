@@ -8,18 +8,18 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 无线网络接入点（Access Point, AP），俗称 _热点（Hotspot）_
 
-### Function
+## Function
 
 * 服务模式
   * 使若干个无线设备能够接入有线网络
 * 客户模式
   * 与其它 _AP_ 进行连接，延展网络的覆盖范围
 
-### Type
+## Type
 
 * 纯接入点设备 - _AP_
   * 只负责无线设备的接入
@@ -27,7 +27,7 @@ Nanjing, Jiangsu, China
 * 路由交换接入一体设备 - _无线路由器_
   * 一般是无线局域网的 __核心__
 
-### Architecture
+## Architecture
 
 可将 _AP_ 视为一个无线交换机
 
@@ -39,7 +39,7 @@ _AP_ 为有线传输介质和无线传输介质交换数据
 
 ![ap](../img/ap.png)
 
-### Wireless Router 无线路由器
+## Wireless Router 无线路由器
 
 无线路由器可以理解为带有路由、交换、接入三种功能的一体化设备
 
@@ -53,7 +53,7 @@ _AP_ 为有线传输介质和无线传输介质交换数据
 
 ---
 
-### Summary
+## Summary
 
 在了解了集线器、交换机、路由器、_AP_ 等几款网络设备的原理后
 

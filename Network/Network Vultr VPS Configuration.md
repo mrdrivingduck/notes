@@ -8,28 +8,28 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Register
+## Register
 
 略
 
-### Deploy New Instance
+## Deploy New Instance
 
 选择 _Vultr Cloud Compute (VC2)_ 类型
 
-### Server Location
+## Server Location
 
 * 为了连接延迟较低，尽可能选择亚洲的服务器
 * 日本的 _IP_ 地址被封的可能性比较大，所以选用新加坡的
 
 ![server-location](../img/vultr-server-location.png)
 
-### Server Type
+## Server Type
 
 为了熟悉起见我选择了 _Ubuntu 18.04 x64_
 
 ![server-type](../img/vultr-server-type.png)
 
-### Server Size
+## Server Size
 
 用于科学上网，不用特别高的配置
 
@@ -37,7 +37,7 @@ Ningbo, Zhejiang, China
 
 ![server-size](../img/vultr-server-size.png)
 
-### Others
+## Others
 
 其余配置一切默认
 
@@ -45,15 +45,15 @@ Ningbo, Zhejiang, China
 
 ![server-deploy](../img/vultr-server-deploy.png)
 
-### Connection
+## Connection
 
 部署完成后，通过如下配置使用 _SSH_ 连接到 _VPS_
 
 ![server-running](../img/vultr-server-running.png)
 
-### Shadowsocks
+## Shadowsocks
 
-#### Installation
+### Installation
 
 ```bash
 $ apt update
@@ -62,7 +62,7 @@ $ pip install --upgrade setuptools
 $ pip install shadowsocks
 ```
 
-#### Configuration
+### Configuration
 
 ```bash
 $ mkdir /etc/shadowsocks
@@ -80,7 +80,7 @@ $ vim /etc/shadowsocks/config.json
 }
 ```
 
-#### Modification
+### Modification
 
 ```bash
 $ vim /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py
@@ -91,13 +91,13 @@ $ vim /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py
 * 这是 _Ubuntu 18.04_ 中才有的毛病
 * 替换位置在第 `52` 行和第 `111` 行
 
-#### Start Up
+### Start Up
 
 ```bash
 $ ssserver -c /etc/shadowsocks/config.json -d start
 ```
 
-#### Stop
+### Stop
 
 ```bash
 $ ssserver -c /etc/shadowsocks/config.json -d stop
@@ -105,7 +105,7 @@ $ ssserver -c /etc/shadowsocks/config.json -d stop
 
 ---
 
-### Summary
+## Summary
 
 记录一下
 

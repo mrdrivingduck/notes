@@ -8,12 +8,12 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 * 请求报文（request message） - _Web_ 客户端 &rarr; _Web_ 服务器
 * 应答报文（response message） - _Web_ 服务器 &rarr; _Web_ 客户端
 
-### Structure of message
+## Structure of message
 
 * 请求报文
   * 请求行（request line）
@@ -32,7 +32,7 @@ Nanjing, Jiangsu, China
   * 空白行（blank line）
   * 正文（body）
 
-### Structure of header
+## Structure of header
 
 四种类型 - 
 
@@ -53,7 +53,7 @@ Nanjing, Jiangsu, China
 * 应答头部
 * 正文头部
 
-#### 通用头部
+### 通用头部
 
 给出关于报文的通用信息
 
@@ -65,7 +65,7 @@ Nanjing, Jiangsu, China
 | MIME-version  | MIME 版本          |
 | Upgrade       | 优先使用的通信协议 |
 
-#### 请求头部
+### 请求头部
 
 只会在 __请求报文__ 中出现，指明客户端配置与客户优先使用的文档格式
 
@@ -86,7 +86,7 @@ Nanjing, Jiangsu, China
 | Referrer            | 被链接文档的 URL                     |
 | User-agent          | 客户程序                             |
 
-#### 应答头部
+### 应答头部
 
 只出现在 __应答报文__ 中，指明服务器的配置与关于请求的特殊信息
 
@@ -98,7 +98,7 @@ Nanjing, Jiangsu, China
 | Retry-after  | 指明的日期之后，服务器才能够使用 |
 | Server       | 服务器名与版本号                 |
 
-#### 正文头部
+### 正文头部
 
 说明关于文档正文的信息
 
@@ -117,7 +117,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Summary
+## Summary
 
 在进行 _HTTP_ 编程时需要用到个别字段
 

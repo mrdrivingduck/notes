@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### URLEncoded
+## URLEncoded
 
 是 _HTML_ 中默认的表单提交方式（`<form>` 中的 `enctype`）
 
@@ -39,7 +39,7 @@ httpPost.setEntity(postEntity);
 CloseableHttpResponse response = httpClient.execute(httpPost);
 ```
 
-### Multipart
+## Multipart
 
 `<form>` 中的 `enctype` 为 `multipart/form-data`
 
@@ -65,7 +65,7 @@ PNG ... content of chrome.png ...
 
 ---
 
-### Summary
+## Summary
 
 阅读 _Vert.x_ 框架文档时，发现框架支持这两种 _POST_ 方式
 

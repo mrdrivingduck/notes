@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 _SSL (Secure Sockets Layer)_ 及其继任者 _TLS (Transport Layer Security)_ 是一种安全协议
 
 由 _Netscape_ 公司开发，目的是为互联网通信提供安全及数据完整性保障
 
-### Features
+## Features
 
 * 工作在网络协议栈的 __传输层__ 之上
 * 与高层的 __应用层__ 协议无耦合，应用层协议能透明地运行在 _TLS_ 协议上
@@ -27,7 +27,7 @@ _SSL (Secure Sockets Layer)_ 及其继任者 _TLS (Transport Layer Security)_ �
 
   * ...
 
-### History
+## History
 
 _SSL_ 由 _Taher Elgamal_ 编写基础算法，历史版本 _1.0_、_2.0_、_3.0_
 
@@ -35,7 +35,7 @@ _SSL_ 由 _Taher Elgamal_ 编写基础算法，历史版本 _1.0_、_2.0_、_3.0
 
 _ITEF（互联网工程任务组，Internet Engineering Task Force）_ 将 _SSL_ 标准化，称其为 _TLS_
 
-### Theory
+## Theory
 
 * Asymmetric Encryption
 * Symmetric Encryption
@@ -51,13 +51,13 @@ _ITEF（互联网工程任务组，Internet Engineering Task Force）_ 将 _SSL_
 4. 服务器用私钥解密对称会话密钥，返回一个用对称会话密钥加密的确认信息到客户端，开始加密对话
 5. 客户端和服务器使用会话密钥全程加密对话
 
-### Implementation
+## Implementation
 
 Not yet.
 
 ---
 
-### Summary
+## Summary
 
 搞清楚了 _数字证书_ 的机制以后
 

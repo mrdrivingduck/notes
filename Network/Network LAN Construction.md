@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Infrastructure
+## Infrastructure
 
 一台 __无线路由器__ 作为局域网的网关与核心
 
@@ -20,7 +20,7 @@ Nanjing, Jiangsu, China
 
 ![lan-core](../img/lan-core.png)
 
-### 第一种接入方式
+## 第一种接入方式
 
 另一台无线路由器
 
@@ -33,13 +33,13 @@ Nanjing, Jiangsu, China
 
 ![lan-ap1](../img/lan-ap1.png)
 
-### 第二种接入方式
+## 第二种接入方式
 
 接入方式与上一种相同
 
 * 开启路由器内置的 _AP_ 模式 - _LAN_ 口桥接
 
-### 第三种接入方式
+## 第三种接入方式
 
 将核心路由器的 _LAN_ 口与无线路由器的 _WAN_ 口相连
 
@@ -48,7 +48,7 @@ Nanjing, Jiangsu, China
 
 ![lan-ap2](../img/lan-ap2.png)
 
-### 数据包嗅探位置
+## 数据包嗅探位置
 
 ![lan-sniffer](../img/lan-sniffer.png)
 
@@ -65,7 +65,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Summary
+## Summary
 
 迷 :cold_sweat: :cold_sweat: :cold_sweat:
 

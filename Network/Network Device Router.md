@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 数据包从来源端到目的端所经过的路径被称为 __路由__
 
@@ -18,7 +18,7 @@ Nanjing, Jiangsu, China
 
 ![router](../img/router.png)
 
-### Function
+## Function
 
 * 建立并维护路由表
   * 保存路由器每个端口对应的结点地址
@@ -28,7 +28,7 @@ Nanjing, Jiangsu, China
 * 提供网络间的分组转发功能
   * 根据路由表，选择合适的端口转发数据
 
-### Gateway
+## Gateway
 
 路由器又称为 __网关__
 
@@ -40,7 +40,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Summary
+## Summary
 
 本文提及的路由器
 
