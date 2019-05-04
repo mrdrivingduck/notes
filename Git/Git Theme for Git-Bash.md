@@ -77,7 +77,7 @@ AllowBlinking=yes
   "type": "dark",
   "colors": {
     "editor.background": "#282c34",
-    "editor.foreground":"#abb2bf"
+    "editor.foreground": "#abb2bf"
   }
 }
 ```
