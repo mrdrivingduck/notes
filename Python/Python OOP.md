@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 ```python
 class Mysocket(object):
@@ -19,7 +19,7 @@ class Mysocket(object):
 
 ---
 
-### Constructor
+## Constructor
 
 在对象创建完成后，可动态为其绑定属性
 
@@ -47,7 +47,7 @@ print(sock.port)
 
 ---
 
-### Access Control
+## Access Control
 
 * _Private_
   * 对于属性或方法，若它们以双下划线 `__` 开头，则不能在类外被访问
@@ -81,7 +81,7 @@ print(sock._Mysocket__port)    # But do not do that
 
 ---
 
-### Multi-file Organization
+## Multi-file Organization
 
 若需要使用另一个 `.py` 文件中的某个类，比如 `mysocket.py` 中的 `Mysocket` 类：
 
@@ -94,7 +94,7 @@ sock = Mysocket("192.168.1.100", 8080)
 
 ---
 
-### Inheritance & Polymorphism
+## Inheritance & Polymorphism
 
 总体原理与 `C++`、`Java` 类似
 
@@ -112,7 +112,7 @@ __特殊点：鸭子类型__
 
 ---
 
-### Object Information
+## Object Information
 
 `type()` 函数用于判断对象类型
 
@@ -139,7 +139,7 @@ print(type(fn) == types.FunctionType)
 
 ---
 
-### Class Attribute
+## Class Attribute
 
 在类中，实例属性属于一个实例（对象）
 
@@ -156,7 +156,7 @@ print(Student.introduction)
 
 ---
 
-### Slots
+## Slots
 
 动态语言的灵活性：
 
@@ -181,7 +181,7 @@ sock.port = 8080
 
 ---
 
-### Getter & Setter
+## Getter & Setter
 
 在绑定属性后，相当于直接把属性暴露出去随意修改
 
@@ -220,7 +220,7 @@ print(sock.port)
 
 ---
 
-### Class Customization
+## Class Customization
 
 在 _Python_ 中，形似 `__xxx__` 的变量或函数名是由特殊用途的
 
@@ -255,7 +255,7 @@ print(sock.port)
 
 ---
 
-### Summary
+## Summary
 
 这部分真特么多
 

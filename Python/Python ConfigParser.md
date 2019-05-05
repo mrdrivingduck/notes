@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _ConfigParser_ 是 _Python_ 内置的配置文件转换模块
 
@@ -16,7 +16,9 @@ _Python 3.7_ [官网文档](https://docs.python.org/3.7/library/configparser.htm
 
 > This module provides the `ConfigParser` class which implements a basic configuration language which provides a structure similar to what’s found in Microsoft Windows INI files.  You can use this to write Python programs which can be customized by end users easily.
 
-### Configuration Files
+---
+
+## Configuration Files
 
 ```ini
 [DEFAULT]
@@ -35,7 +37,9 @@ ForwardX11 = no
 
 包含 `section`、`key`、`value` 三个层次
 
-### Writing
+---
+
+## Writing
 
 ```python
 import configparser
@@ -54,7 +58,9 @@ with open("example.ini", "w") as configfile:
 * 实际上相当于是一个 `dict`
 * 可以用类似数组下标的方式初始化、赋值
 
-### Reading
+---
+
+## Reading
 
 ```python
 import configparser
@@ -73,7 +79,9 @@ conf.items("mysql")
 conf.get("mysql", "port")
 ```
 
-### Interpolation
+---
+
+## Interpolation
 
 `%(xxx)s`
 
@@ -95,7 +103,7 @@ my_pictures: ${my_dir}/Pictures
 
 ---
 
-### Summary
+## Summary
 
 前两天看了一下今年三月份写的 _cnsoft_ 程序
 

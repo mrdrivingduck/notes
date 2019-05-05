@@ -8,15 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _Python_ 内置了读写文件的函数，用法与 _C_ 兼容
 
 ---
 
-### Reading
+## Reading
 
-#### Open File
+### Open File
 
 ```python
 f = open("filename", "r")      # Normal mode
@@ -36,7 +36,7 @@ with open("filename", "r") as f:
     print(str)
 ```
 
-#### Reading from File
+### Reading from File
 
 ```python
 all_content = f.read()
@@ -53,16 +53,16 @@ for line in f.readlines():
 
 ---
 
-### Writing
+## Writing
 
-#### Open File
+### Open File
 
 ```python
 f = open("filename", "w")      # Normal mode
 fb = open("filename", "wb")    # Binary mode
 ```
 
-#### Writing to File
+### Writing to File
 
 可以反复调用 `write()` 函数来写入文件
 
@@ -79,7 +79,7 @@ with open("filename", "w") as f:
 
 ---
 
-### Summary
+## Summary
 
 文件的打开和关闭方式和 _C_ 差不多
 

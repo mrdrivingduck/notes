@@ -8,9 +8,9 @@ Hangzhou, Zhejiang, China
 
 ---
 
-### Execution
+## Execution
 
-#### Interaction Mode
+### Interaction Mode
 
 ```bash
 $ python
@@ -27,7 +27,7 @@ $ C:\>
 
 自动打印每一行 _Python_ 代码的结果
 
-#### CMD Mode
+### CMD Mode
 
 ```bash
 $ python test.py
@@ -39,9 +39,9 @@ $ python test.py
 
 ---
 
-### I/O
+## I/O
 
-#### Output
+### Output
 
 ```python
 print("hello")
@@ -51,7 +51,7 @@ print("hello", "666", "zjt")
 
 `print()` 可接受多个参数，在遇到 `,` 时会自动输出空格 ` `
 
-#### Input
+### Input
 
 ```python
 name = input()
@@ -62,7 +62,7 @@ name = input("Please enter your name: ")
 
 ---
 
-### Code
+## Code
 
 `#` 开头的行用于注释，会被解释器忽略
 
@@ -73,7 +73,7 @@ name = input("Please enter your name: ")
 
 ---
 
-### Summary
+## Summary
 
 形势所迫 不得不开始正式学 _Python_ 了
 

@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Usage
+## Usage
 
 使用 _Python_ 的 `threading` 模块
 
@@ -35,7 +35,9 @@ t.join()
 print("Thread %s ended" % threading.current_thread().name)
 ```
 
-### Lock
+---
+
+## Lock
 
 使用 `threading.Lock()` 定义一个锁
 
@@ -56,7 +58,9 @@ def work():
         lock.release()
 ```
 
-### ThreadLocal
+---
+
+## ThreadLocal
 
 可以看做是一个全局变量
 
@@ -86,7 +90,7 @@ t2.join()
 
 ---
 
-### Summary
+## Summary
 
 和 _Java_ 的多线程不太一样吧
 

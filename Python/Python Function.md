@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Invoke
+## Invoke
 
 * 若传入的参数数量和参数类型不对，会报出 `TypeError` 的错误
 * 内置常用函数：`abs()`、`min()`、`max()`
@@ -16,7 +16,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Define
+## Define
 
 * 使用 `def` 语句定义函数
 * 随后写出函数名
@@ -35,7 +35,7 @@ def my_abs(x):
         return -x
 ```
 
-#### Empty Statement
+### Empty Statement
 
 使用 `pass` 语句 - 可用于占位，使程序先可以运行起来
 
@@ -49,7 +49,7 @@ if salary >= 100000:
     pass
 ```
 
-#### Parameter Check
+### Parameter Check
 
 使用内置函数 `isinstance()` 实现类型检查
 
@@ -63,7 +63,7 @@ def my_abs(x):
         return -x
 ```
 
-#### Multiple Return
+### Multiple Return
 
 返回值可以是一个 _tuple_：
 
@@ -80,9 +80,9 @@ a, b = mul_param(1, 2)
 
 ---
 
-### Parameters
+## Parameters
 
-#### Default Parameters
+### Default Parameters
 
 ```python
 def test(x, a = 2, b = 3, c = 4):
@@ -96,7 +96,7 @@ def test(x, a = 2, b = 3, c = 4):
   * 若调用函数时改变了该变量的内容，则下次调用时默认参数将被改变
   * 因此，__默认参数必须指向不变对象！！！__
 
-#### Random Length Parameters
+### Random Length Parameters
 
 在参数声明前添加 `*` 号
 
@@ -114,7 +114,7 @@ print(sum_rand(*l))
 * 在函数内部，`numbers` 实际上收到的是 _tuple_
 * 在外部调用时，使用 `*` 可将 _list_ 或 _tuple_ 转换为可变参数
 
-#### Key Word Parameters
+### Key Word Parameters
 
 在参数声明前添加 `**` 号
 
@@ -129,7 +129,7 @@ kwd_param("Tim", 22, school="NUAA", emotion="single")
 * 在函数内部，`kw` 实际上收到的是 _dict_
 * 在外部调用时，使用 `**` 可将 _dict_ 转换为可变参数
 
-#### Named Key Word Parameters
+### Named Key Word Parameters
 
 在普通的位置参数和关键字参数之间用 `*` 隔开
 
@@ -145,13 +145,13 @@ test("Tim", 21, "Nanjing", "student")  # ERROR
 * 命名关键字可以有缺省值
 * 如果函数定义中已有一个可变参数，则后面跟着的命名关键字参数不再需要 `*` 分隔符
 
-#### Parameters Order
+### Parameters Order
 
 参数定义的顺序必须是：__必选参数、默认参数、可变参数、命名关键字参数和关键字参数__
 
 ---
 
-### Summary
+## Summary
 
 有几个没见过的高级用法还是需要好好想一想 :sweat_smile:
 

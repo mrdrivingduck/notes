@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Why
+## Why
 
 为什么要使用日志功能？ - `logging` 与 `print()` 之间的比较
 
@@ -35,7 +35,9 @@ _Python 3.7_ [官方文档](https://docs.python.org/3.7/library/logging.html)：
 >- Filters provide a finer grained facility for determining which log records to output.
 >- Formatters specify the layout of log records in the final output.
 
-### Usage
+---
+
+## Usage
 
 引用内置模块 `logging`，直接使用 `basicConfig()` 进行配置后即可使用
 
@@ -76,13 +78,13 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(hdr)
 ```
 
-### Configuration File
+## Configuration File
 
 待补充
 
 ---
 
-### Summary
+## Summary
 
 `logging` 这个东西确实很有用
 

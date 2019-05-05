@@ -8,25 +8,25 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Integer
+## Integer
 
 _Python_ 可以处理任意大小、任意符号的整数
 
 * 用 __十六进制__ 表示整数 - 使用 `0x` 前缀和 `0-9`，`a-f` 
 * 没有大小限制
 
-### Floating Number
+## Floating Number
 
 * 可以使用数学写法
 * 也可以使用科学计数法（用 `e` 代替 `10`，`1.23e-5`）
 
-### String
+## String
 
 由 `''` 或 `""` 包围起来的任意文本
 
 字符串内部换行：`'''...'''`
 
-#### Encoding
+### Encoding
 
 美国的 _ASCII_，中国的 _GB2312_，日本的 _Shift_JIS_ ......
 
@@ -42,7 +42,7 @@ __Unicode__ 将所有语言统一编到一套编码里，通常使用两个字�
 
 `ord()` 函数获取字符的整数表示，`chr()` 函数将编码转换为字符
 
-#### Parsing
+### Parsing
 
 将内存中的 _Unicode_ 字符串转换为字节流 - 用带 `b` 前缀的 `''` 或 `""` 表示
 
@@ -65,14 +65,14 @@ x = b'ABC'
 x = b'ZJT'.decode("ascii")
 ```
 
-#### Length
+### Length
 
 使用 `len()` 函数计算长度
 
 * 若 `len()` 中的是字符串，则计算字符个数
 * 若 `len()` 中的是字节流，则计算字节个数
 
-#### Formating
+### Formating
 
 与 _C_ 语言类似
 
@@ -97,17 +97,17 @@ pattern = "Hi {0}, your score improves {1:.2f}%"
 print(pattern.format("Tim", 12.5688))
 ```
 
-### Boolean
+## Boolean
 
 值：`True` 和 `False` （注意大小写）
 
 计算：`and`、`or`、`not`
 
-### Null Value
+## Null Value
 
 `None` （注意大小写）
 
-### Variable
+## Variable
 
 _Python_ 中，`=` 用于赋值：
 
@@ -120,7 +120,7 @@ _Python_ 中，`=` 用于赋值：
 * 在内存中创建了一个值为 `ABC` 的字符串
 * 在内存中创建了一个 `x` 变量，并指向该字符串
 
-### Constant
+## Constant
 
 通常用全部大写的变量名表示常量（习惯用法）
 
@@ -128,7 +128,7 @@ _Python_ 中，`=` 用于赋值：
 
 常量的值实际上是可以被改变的（但没有必要）
 
-### Division
+## Division
 
 精确除法 - `/`
 
@@ -146,7 +146,7 @@ _Python_ 中，`=` 用于赋值：
 
 ---
 
-### Summary
+## Summary
 
 好像有点理解为什么都说 _Python_ 简单了
 

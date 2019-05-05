@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _StringIO_ & _BytesIO_
 
 类似 _Java_ 中的 `StringBuilder` ？？？
 
-### StringIO
+## StringIO
 
 需要导入内置 `io` 模块
 
@@ -46,7 +46,7 @@ while True:
     print(s.strip())
 ```
 
-### BytesIO
+## BytesIO
 
 `StringIO` 只能操作字符串，如果需要操作二进制数据，需要使用 `BytesIO`
 
@@ -63,7 +63,7 @@ print(in.read())
 
 ---
 
-### Summary
+## Summary
 
 感慨 _Python_ 的内置封装真多
 

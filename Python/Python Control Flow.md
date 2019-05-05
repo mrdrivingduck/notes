@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Conditional
+## Conditional
 
 ```python
 salary = 10000
@@ -26,9 +26,9 @@ else:
 
 ---
 
-### Loops
+## Loops
 
-#### For Loops
+### For Loops
 
 ```python
 sum = 0
@@ -46,7 +46,7 @@ _Python_ 提供 `range()` 函数用于生成一个整数序列：
 * 如 `range(16)` 可以生成 `0` 到小于 `16`（`15`）的整数序列
 * 整数序列可以通过 `list()` 函数转换为 _list_，并写在循环条件中
 
-#### While Loops
+### While Loops
 
 ```python
 sum = 0
@@ -57,17 +57,17 @@ print(sum)
 
 * 条件满足时继续循环，条件不满足是退出循环
 
-#### Break
+### Break
 
 使用 `break` 跳出循环
 
-#### Continue
+### Continue
 
 使用 `continue` 跳过当前循环，直接进行下一次循环
 
 ---
 
-### Summary
+## Summary
 
 睡前争分夺秒学一点 :smile:
 

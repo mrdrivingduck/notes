@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Higher-order Function
+## Higher-order Function
 
 在 _Python_ 中，函数本身也可以赋值给变量
 
@@ -25,7 +25,9 @@ Nanjing, Jiangsu, China
 * 函数参数能够接收变量
 * 一个函数能够接收另一个函数作为参数，这种函数就被称为高阶函数
 
-### Decorator
+---
+
+## Decorator
 
 函数也是一个对象，每个函数对象都有一个 `__name__`，存储函数的名字
 
@@ -53,7 +55,7 @@ date()
 
 ---
 
-### Summary
+## Summary
 
 暂时简单地记录一下
 
