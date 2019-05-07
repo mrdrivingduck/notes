@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Wikipedia - 
 
@@ -18,7 +18,7 @@ Wikipedia -
 
 ---
 
-### Sniffing 802.11 Frames
+## Sniffing 802.11 Frames
 
 Sniffing should be done under _Linux_ - 
 
@@ -43,23 +43,31 @@ $ sudo wireshark
 
 Select the corresponding adapter and start sniffing
 
+Changing channel - 
+
+```bash
+$ sudo iwconfig wlx0087345038d3 channel 11
+```
+
 ---
 
-### Filtering Rules
+## Filtering Rules
 
-#### MAC Address Filtering
+### MAC Address Filtering
 
 ```
-wlan contains 00:11:22:33:44:55 
+wlan contains 00:11:22:33:44:55
+wlan.sa == 00:11:22:33:44:55
+wlan.da == 00:11:22:33:44:55
 ```
 
-#### Frame Type Filtering
+### Frame Type Filtering
 
 ```
 wlan.fc.type == 0/1/2
 ```
 
-#### Frame Sub-Type Filtering
+### Frame Sub-Type Filtering
 
 ```
 wlan.fc.type_subtype == 0x00
@@ -67,7 +75,7 @@ wlan.fc.type_subtype == 0x00
 
 ---
 
-### Summary
+## Summary
 
 如果是单纯的抓包分析
 

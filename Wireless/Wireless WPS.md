@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 _WPS_ stands for _Wi-Fi Protected Setup_
 
@@ -16,14 +16,18 @@ It is a wireless network security standard
 
 Created by _Wi-Fi Alliance_ and introduced in _2006_
 
-### Goal
+---
+
+## Goal
 
 _WPS_ tries to make connections between a router and wireless devices faster and easier
 
 * _WPS_ works only for wireless networks that use a password encrypted with _WPA / WPA2_ personal
 * _WEP_ is not supported
 
-### Mode
+---
+
+## Mode
 
 If you want to connect a wireless device to a wireless network, you need to know -
 
@@ -41,7 +45,9 @@ What can _WPS_ do?
 
 First two ways are rapid, the last two ways do not provide any benefits regarding the time it takes to connect devices to your wireless network.
 
-### Problem
+
+
+## Problem
 
 The _PIN_ is __insecure__ and __easy to hack__
 
@@ -52,7 +58,7 @@ The _PIN_ is __insecure__ and __easy to hack__
 
 ---
 
-### Summary
+## Summary
 
 _WPS_ 是一个可选的较为矛盾的标准
 

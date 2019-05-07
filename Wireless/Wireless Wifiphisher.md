@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 A __Rogue Access Point__ framework. - [link](https://github.com/wifiphisher/wifiphisher)
 
@@ -26,7 +26,7 @@ _wifiphisher_ 是一款安全工具，由希腊安全研究员 _George Chatzisof
 
 ---
 
-### Requirements
+## Requirements
 
 * _Kali Linux_ - 官方支持发布版，所有新功能都在该平台上测试
 * _Wireless network adapter_ - 支持 _AP_ & _Monitor_ mode
@@ -34,9 +34,9 @@ _wifiphisher_ 是一款安全工具，由希腊安全研究员 _George Chatzisof
 
 ---
 
-### Usages
+## Usages
 
-#### 1. Start wireless network adapter
+### 1. Start wireless network adapter
 
 ```bash
 $ ifconfig wlan0 up
@@ -44,7 +44,7 @@ $ ifconfig wlan0 up
 
 ![start](../img/wifiphisher-start.png)
 
-#### 2. Turn wireless network adapter into MONITOR mode
+### 2. Turn wireless network adapter into MONITOR mode
 
 ```bash
 $ airmon-ng start wlan0
@@ -52,7 +52,7 @@ $ airmon-ng start wlan0
 
 ![monitor](../img/wifiphisher-monitor.png)
 
-#### 3. Start wifiphisher and select target
+### 3. Start wifiphisher and select target
 
 ```bash
 $ wifiphisher
@@ -60,7 +60,7 @@ $ wifiphisher
 
 ![select](../img/wifiphisher-select.png)
 
-#### 4. Select attacking scenarios
+### 4. Select attacking scenarios
 
 * _Firmware Upgrade Page_
 * _Network Manager Connect_
@@ -71,7 +71,7 @@ $ wifiphisher
 
 ![page2](../img/wifiphisher-scn-2.png)
 
-#### 5. Start attacking !
+### 5. Start attacking !
 
 * 建立一个 _Evil Twin_ 热点
 * 建立 _WEB_ 服务，配置 _DHCP_ 服务器
@@ -79,9 +79,9 @@ $ wifiphisher
 
 ---
 
-### Attacking scenarios
+## Attacking scenarios
 
-#### Firmware Upgrade Page
+### Firmware Upgrade Page
 
 伪造一个路由器固件升级界面，诱使连接上伪造 _AP_ 的受害者输入路由器密码
 
@@ -89,7 +89,7 @@ $ wifiphisher
 
 ![firmware](../img/wifiphisher-firmware.png)
 
-#### Network Manager Connect
+### Network Manager Connect
 
 伪造一个网络连接失败的界面，并弹出一个重新输入网络密码的窗口，诱使受害者输入密码
 
@@ -97,11 +97,11 @@ $ wifiphisher
 
 ![networkmanager](../img/wifiphisher-networkmanager.png)
 
-#### Browser Plugin Update
+### Browser Plugin Update
 
 伪造浏览器插件升级，让受害者下载恶意的可执行文件 - 没有尝试
 
-#### OAuth Login Page
+### OAuth Login Page
 
 伪造利用社交网络账号登录的免费热点，诱使受害者输入社交网络的账号密码
 
@@ -111,7 +111,7 @@ $ wifiphisher
 
 ---
 
-### Advanced
+## Advanced
 
 可自己定义更多的 _phishing scenarios_
 
@@ -133,7 +133,7 @@ $ wifiphisher
 
 ---
 
-### Summary
+## Summary
 
 这是去年十月份刚进实验室时
 

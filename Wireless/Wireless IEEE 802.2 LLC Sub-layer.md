@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _IEEE_ 于 _1980 年 2 月_ 成立 局域网和城域网的标准化委员会
 
@@ -32,7 +32,7 @@ _IEEE 802_ 标准定义的服务的协议位于 _OSI_ 参考模型的最低两�
 
 ---
 
-### Detail
+## Detail
 
 ![802.2-llc](../img/802.2-llc.png)
 
@@ -52,7 +52,7 @@ _LLC_ 的头部包含：
 
 ---
 
-### Summary
+## Summary
 
 一直关注的都是 _MAC_ 子层
 

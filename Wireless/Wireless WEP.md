@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 __有线等效加密__（_Wired Equivalent Privacy_，__WEP__）
 
@@ -21,9 +21,11 @@ __有线等效加密__（_Wired Equivalent Privacy_，__WEP__）
 * 使用 _RC4_ 加密技术保证 __机密性__
 * 使用 _CRC-32_ 校验技术保证 __完整性__
 
-### Theory
+---
 
-#### Encryption
+## Theory
+
+### Encryption
 
 使用一个 24-bit 的初始化向量 _IV_
 
@@ -37,7 +39,7 @@ __有线等效加密__（_Wired Equivalent Privacy_，__WEP__）
 
 ![wep-encryption](../img/wep-encryption.png)
 
-#### Decryption
+### Decryption
 
 得到 _IV_ 与密文
 
@@ -53,7 +55,7 @@ __有线等效加密__（_Wired Equivalent Privacy_，__WEP__）
 
 ---
 
-### Summary
+## Summary
 
 这是一个最简单的无线网络安全算法
 

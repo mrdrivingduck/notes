@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 _WPA_ 全名为 _Wi-Fi Protected Access_，即 “_Wi-Fi_ 访问保护”
 
@@ -16,7 +16,9 @@ _WPA_ 全名为 _Wi-Fi Protected Access_，即 “_Wi-Fi_ 访问保护”
 
 实现了 __部分__ _IEEE 802.11i_ 标准
 
-### Version
+---
+
+## Version
 
 * _WPA-Enterprise_ - 企业版
 
@@ -37,9 +39,11 @@ _WPA_ 全名为 _Wi-Fi Protected Access_，即 “_Wi-Fi_ 访问保护”
   * 使用预先设定好的密钥 _PSK (pre-shared key)_
   * 同一无线路由器下所有终端都使用该密钥
 
-### Theory
+---
 
-#### Encryption
+## Theory
+
+### Encryption
 
 _WPA_ 协议使用 _128_ 位密钥和 _48_ 位的初始化向量（_IV_），以及 _RC4_ 算法进行加密
 
@@ -49,14 +53,16 @@ _WPA_ 协议使用 _128_ 位密钥和 _48_ 位的初始化向量（_IV_），以
   * 使用序列计数器 _Sequence Counter_ 用于防御重放攻击 _Replay Attacks_ - 数据包顺序不匹配时自动拒收
   * 使用 _64_ 位的信息完整性代码 _Message Integrity Check, MIC_ 防止假包或数据包篡改
 
-#### Integrity
+### Integrity
 
 除了认证和加密外，_WPA_ 对所载数据的完整性检查也提供了巨大的改进
 
 * _WEP_ 使用 _CRC_ 循环冗余校验，容易在不知道 _WEP_ 密钥的情况下被篡改数据和 _CRC_
 * _WPA_ 中使用了 _MIC_，配合帧计数器，以避免重放攻击
 
-### Status
+---
+
+## Status
 
 支持 _WEP_ 协议的设备硬件可以直接支持 _WPA_
 
@@ -71,7 +77,7 @@ _WPA_ 协议使用 _128_ 位密钥和 _48_ 位的初始化向量（_IV_），以
 
 ---
 
-### Summary
+## Summary
 
 安全性比 _WEP_ 略强一些
 

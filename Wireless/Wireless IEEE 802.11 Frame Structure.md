@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### General Format
+## General Format
 
 ![general-frame](../img/802.11-general-frame.png)
 
@@ -36,7 +36,7 @@ Nanjing, Jiangsu, China
 | Frame Body       | /                                | /              |
 | FCS              | _CRC_                            | `4`            |
 
-#### Frame Control
+### Frame Control
 
 ![frame-control](../img/802.11-general-framecontrol.png)
 
@@ -56,7 +56,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Data Frame
+## Data Frame
 
 ![dataframe](../img/802.11-data.png)
 
@@ -79,11 +79,11 @@ Nanjing, Jiangsu, China
 | `1110`     | QoS CF-Poll                 | `14`     |
 | `1111`     | QoS CF-Ack CF-Poll          | `15`     |
 
-#### IBSS Frame
+### IBSS Frame
 
 ![data-ibss](../img/802.11-data-ibss.png)
 
-#### From AP Frame
+### From AP Frame
 
 ![data-from-ap](../img/802.11-data-from-ap.png)
 
@@ -92,11 +92,11 @@ Nanjing, Jiangsu, China
 * _802.11_ 标准将应答发送到 _Transmitter Address_ （发送端 _AP_）
 * 上层协议会将应答发送给 _Source Address_
 
-#### To AP Frame
+### To AP Frame
 
 ![data-to-ap](../img/802.11-data-to-ap.png)
 
-#### WDS Frame
+### WDS Frame
 
 当 _AP_ 被部署为无线桥接时，_Address4_ 会被用到
 
@@ -104,7 +104,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Control Frame
+## Control Frame
 
 | Sub-Type          | Frame Type      | Number      |
 | ----------------- | --------------- | ----------- |
@@ -119,31 +119,31 @@ Nanjing, Jiangsu, China
 | `1110`            | CF-End          | `14`        |
 | `1111`            | CF-End + CF-Ack | `15`        |
 
-#### RTS Frame
+### RTS Frame
 
 ![control-rts](../img/802.11-control-rts.png)
 
 * 在 _CSMA/CA_ 中用于取得传输介质的控制权
 
-#### CTS Frame
+### CTS Frame
 
 ![control-cts](../img/802.11-control-cts.png)
 
 * “允许发送”
 
-#### ACK Frame
+### ACK Frame
 
 ![control-ack](../img/802.11-control-ack.png)
 
 * “应答”
 
-#### PS-Poll Frame
+### PS-Poll Frame
 
 ![control-ps-poll](../img/802.11-control-ps-poll.png)
 
 ---
 
-### Management Frame
+## Management Frame
 
 ![management-general](../img/802.11-management-general.png)
 
@@ -169,51 +169,51 @@ _Frame Body_ 中包含固定字段（_Fixed Fields_）和长度不定的 _Inform
 | `1110`            | 无需确认的功能帧        | `14`        |
 | ~~`1111`~~        | ~~Reserved~~            | ~~`15`~~    |
 
-#### Authentication Frame
+### Authentication Frame
 
 ![management-authen-request](../img/802.11-management-authen-request.png)
 
-#### Association Request Frame
+### Association Request Frame
 
 ![management-asso-request](../img/802.11-management-asso-request.png)
 
 * 经过 _Authentication_ 后进行，试图加入网络
 
-#### Re-association Request Frame
+### Re-association Request Frame
 
 ![management-reasso-request](../img/802.11-management-reasso-request.png)
 
-#### (Re-)Association Response Frame
+### (Re-)Association Response Frame
 
 ![management-asso-response](../img/802.11-management-asso-response.png)
 
-#### Disassociation & De-authentication Frame
+### Disassociation & De-authentication Frame
 
 ![management-deauth](../img/802.11-management-deauthen.png)
 
-#### Beacon Frame
+### Beacon Frame
 
 ![management-beacon](../img/802.11-management-beacon.png)
 
 * 定期发送 _Beacon_ 帧以宣告某个网络的存在
 
-#### Probe Request Frame
+### Probe Request Frame
 
 ![management-probe-request](../img/802.11-management-probe-request.png)
 
 * 收到该帧的 _STA_ 会判断对方能否加入网络
 
-#### Probe Response Frame
+### Probe Response Frame
 
 ![management-response](../img/802.11-management-probe-response.png)
 
-#### ATIM Frame
+### ATIM Frame
 
 ![management-atim](../img/802.11-management-atim.png)
 
 ---
 
-### References
+## References
 
 https://blog.csdn.net/u012503786/article/details/78783874
 
@@ -225,7 +225,7 @@ https://www.cnblogs.com/hzl6255/p/4084173.html
 
 ---
 
-### Summary
+## Summary
 
 在 _IEEE_ 官网下载了 _802.11_ 标准文档
 

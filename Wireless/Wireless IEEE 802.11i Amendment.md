@@ -8,13 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 目前所有使用不同版本的 _WPA_ 保护的 _Wi-Fi_ 都是安全的
 
 所有安全技术都依赖于 _IEEE 802.11i_ 修正案中定义的 __四次握手__ （_4-way handshake_）
 
-### Background
+---
+
+## Background
 
 在研究人员发现 _WEP_ 协议已经基本不起作用后
 
@@ -38,7 +40,9 @@ _802.11i D9.0_ 为该修正案的最终版本 - _WPA2_
 
 - [x] 四次握手、组密钥握手、_CCMP_ 协议已被正式地证明为是安全的
 
-### Authentication and Association
+---
+
+## Authentication and Association
 
 一个客户端想要连接到一个 _Wi-Fi_ 网络中时，需要与 _AP_ 进行双向的 __认证__、__关联__
 
@@ -48,9 +52,9 @@ _802.11i D9.0_ 为该修正案的最终版本 - _WPA2_
 
 _AP_ 会回应给客户端，通知客户端关联成功或失败
 
-### The 4-way Handshake
+## The 4-way Handshake
 
-#### Key Generation
+### Key Generation
 
 四次握手基于 _Pairwise Master Key (PMK)_ 进行双向认证
 
@@ -86,7 +90,7 @@ _TK_ 配合 __数据机密性协议__ 保护之后的数据帧
 
 * 如果使用了 _WPA2_ 协议，四次握手中也会传输 _Group Temporal Key (GTK)_
 
-#### EAPOL
+### EAPOL
 
 四次握手中的每一条信息都使用 _EAPOL_ 帧
 
@@ -101,7 +105,7 @@ _TK_ 配合 __数据机密性协议__ 保护之后的数据帧
 * _Key Data_ 存放 _GTK_ 本身，并被 _KEK_ 加密
 * _Message Integrity Check (MIC)_ 存放整个帧的 _KCK_ 认证
 
-#### The Handshake
+### The Handshake
 
 ![krack-handshake](../img/krack-handshake.png)
 
@@ -123,7 +127,9 @@ _TK_ 配合 __数据机密性协议__ 保护之后的数据帧
 
 这四次握手的消息使用已有的 _PTK_ 配合消息机密性协议进行加密
 
-### Confidentiality and Integrity Protocols
+---
+
+## Confidentiality and Integrity Protocols
 
 _802.11i_ 修正案定义了两个 __数据机密性协议__：
 
@@ -132,7 +138,7 @@ _802.11i_ 修正案定义了两个 __数据机密性协议__：
 
 _2012_ 年，_802.11ad_ 修正案加入了 _Galios/Counter Mode Protocol (GCMP)_
 
-#### TKIP
+### TKIP
 
 当使用 _TKIP_ 时，_PTK_ 中的 _TK_ 被进一步拆分为：
 
@@ -155,7 +161,7 @@ _2012_ 年，_802.11ad_ 修正案加入了 _Galios/Counter Mode Protocol (GCMP)_
 * 该算法可以被反推
 * 如果知道明文和 _MIC_ 值，就可以反推出 _MIC key_
 
-#### CCMP
+### CCMP
 
 _CCMP_ 协议基于工作在 _CCM (Counter mode with CBC-MAC)_ 模式下的 _AES_ 加密
 
@@ -172,7 +178,7 @@ _CCMP_ 协议基于工作在 _CCM (Counter mode with CBC-MAC)_ 模式下的 _AES
 * 保证了 _IV_ 不会被重复使用
 * _TK_ 被直接用于双向通信
 
-#### GCMP
+### GCMP
 
 _GCMP_ 协议基于 _AES-GCM_
 
@@ -191,7 +197,9 @@ _GCMP_ 协议基于 _AES-GCM_
 * _TK_ 被直接用于双向通信
 * 如果 _nonce_ 被重复使用的话，就可能通过 _GHASH_ 函数复现 _authentication key_
 
-### The Group Key Handshake
+---
+
+## The Group Key Handshake
 
 _Authenticator_ 周期性地刷新 _GTK_
 
@@ -223,7 +231,7 @@ _Authenticator_ 周期性地刷新 _GTK_
 
 ---
 
-### Summary
+## Summary
 
 这是 _KRACK_ 攻击的 _CCS_ 论文的 _Background_ 部分
 

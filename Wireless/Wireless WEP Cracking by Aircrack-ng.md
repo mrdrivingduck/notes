@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Tools
+## Tools
 
 _Aircrack-ng_ on _Kali Linux x64_
 
@@ -20,7 +20,9 @@ _Aircrack-ng_ 是一个分析 _IEEE 802.11_ 标准网络的安全软件
 * 数据包嗅探
 * _WEP_、_WPA_、_WPA2_ 破解
 
-### Procedure
+---
+
+## Procedure
 
 #### 将路由器配置为 _WEP_ 加密模式
 
@@ -28,7 +30,7 @@ _Aircrack-ng_ 是一个分析 _IEEE 802.11_ 标准网络的安全软件
 
 为了简单起见，将密钥设置为 `12345`
 
-#### 插入无线网卡并查看是否被 _OS_ 识别
+### 插入无线网卡并查看是否被 _OS_ 识别
 
 ```bash
 $ ifconfig
@@ -38,7 +40,7 @@ $ ifconfig
 
 可以看到插入的 _USB_ 网卡已被识别，并被命名为 `wlan0`
 
-#### 将网卡设置为监控模式
+### 将网卡设置为监控模式
 
 ```bash
 $ airmon-ng start wlan0
@@ -46,7 +48,7 @@ $ airmon-ng start wlan0
 
 ![wep-crk-mon](../img/wep-crk-mon.png)
 
-#### 查看网卡是否已进入监控模式
+### 查看网卡是否已进入监控模式
 
 ```bash
 $ ifconfig
@@ -56,7 +58,7 @@ $ ifconfig
 
 可以看到 `wlan0` 网卡进入监控模式后被命名为 `wlan0mon`
 
-#### 使用网卡监控空间内的无线网络通信状态
+### 使用网卡监控空间内的无线网络通信状态
 
 ```bash
 $ airodump-ng wlan0mon
@@ -66,7 +68,7 @@ $ airodump-ng wlan0mon
 
 从所有的设备中选择要破解的目标
 
-#### 抓取攻击目标的数据包
+### 抓取攻击目标的数据包
 
 ```bash
 $ airodump-ng -w test -c 11 --bssid 00:6B:8E:5E:7E:E8 wlan0mon
@@ -85,7 +87,7 @@ $ airodump-ng -w test -c 11 --bssid 00:6B:8E:5E:7E:E8 wlan0mon
 
 有两个客户端连接到了该 _AP_ 上 - 分别是我的 `iPhone X` & `Surface Pro`
 
-#### 获取大量数据包
+### 获取大量数据包
 
 获取的数据包越多，获取到的 _IV_ 值就越多，破解的概率就越大
 
@@ -106,7 +108,7 @@ $ aireplay-ng -0 10 -a 00:6B:8E:5E:7E:E8 -c B8:C1:11:02:B7:05 wlan0mon
 
 我使用的方法是，用 `Surface Pro` 开启百度云盘下载一个很大的文件，从而发出大量数据包
 
-#### 利用抓取到的数据包进行破解
+### 利用抓取到的数据包进行破解
 
 ```bash
 $ aircrack-ng -a 1 test-01.cap
@@ -125,7 +127,7 @@ $ aircrack-ng -a 1 test-01.cap
 
 ---
 
-### Summary
+## Summary
 
 亲身体验了一次当黑客的感觉
 

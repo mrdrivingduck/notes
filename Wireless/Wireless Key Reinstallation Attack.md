@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _KRACK_ - _Key Reinstallation Attack_
 
@@ -20,7 +20,9 @@ https://www.krackattacks.com/
 
 ![krack-logo](../img/krack-logo.png)
 
-### KRACK
+---
+
+## KRACK
 
 攻击者作为 __中间人__
 
@@ -45,7 +47,7 @@ https://www.krackattacks.com/
 
 ---
 
-### Summary
+## Summary
 
 更多细节准备阅读论文
 
