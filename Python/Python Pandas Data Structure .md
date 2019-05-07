@@ -89,7 +89,7 @@ dict 的 key 作为 index，value 作为 data
 
 #### ndarray-like
 
-和 `ndarray` 类似，Series 可以根据下表索引任意读取、截取
+和 `ndarray` 类似，Series 可以根据下标索引任意读取、截取
 
 可以通过 `Series.array()` 获取 Extension Array
 
