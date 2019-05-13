@@ -8,13 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 1. About
+## About
 
 使用 `synchronized` 关键字，可以对目标进行 __加锁__，从而实现 __线程同步__
 
-### 2. Usage
+---
 
-#### 2.1 For code block
+## Usage
+
+### For code block
 
 * 对 __当前对象__ 加锁
 
@@ -35,7 +37,7 @@ synchronized(obj) {
 * 当多个线程访问 __同一个对象__ 的 `synchronized` 代码块时，同一时刻只有一个线程得到执行
 * 当一个线程正在访问某对象的 `synchronized` 代码块时，别的线程可以访问该对象的非 `synchronized` 代码块而不受阻塞
 
-#### 2.2 For function
+### For function
 
 * 对 __当前对象__ 加锁
 
@@ -60,7 +62,7 @@ __Attention__：
 * 定义 `Interface` 函数时不能使用 `synchronized` 关键字
 * 构造函数不能使用 `synchronized` 关键字，但可以用 `synchronized` 修饰代码块进行同步
 
-#### 2.3 For static function
+### For static function
 
 * 对当前类的 __所有对象__ 加锁
 * 相当于对 __类__ 加锁 - 类的所有对象都用这一把锁
@@ -72,7 +74,7 @@ public synchronized static void Function() {
 }
 ```
 
-#### 2.3 For class
+### For class
 
 * 对 __类__ 加锁 - 类的所有对象都用这一把锁
 
@@ -86,7 +88,9 @@ class Test {
 }
 ```
 
-### 3. Summary
+---
+
+## Summary
 
 * 若 `synchronized` 关键字作用于 __类__ 或 __静态函数__，则取得 __类锁__，即类的所有对象共用同一把锁
 * 其余情况，使用 `synchronized` 关键字取得的是 __对象锁__，每个对象都有一把锁

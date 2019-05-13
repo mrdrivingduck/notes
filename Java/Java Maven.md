@@ -8,11 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _Apache Maven&trade;_ 是一个项目管理和综合工具。提供一个 __项目对象模型文件（POM）__ 的概念来管理项目的构建、相关性和文档。还能够自动下载项目依赖库。
 
-### Installation & Configuration
+---
+
+## Installation & Configuration
 
 _Eclipse_ 的最新发布版中已经内嵌了 _Maven_，不需要另外安装
 
@@ -41,7 +43,9 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 </settings>
 ```
 
-### Project
+---
+
+## Project
 
 在 _Eclipse_ 中新建一个 _Maven project_，里面有很多个工程模板，根据需求选择（一般选择 `quickstart` 即可）
 
@@ -88,7 +92,9 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 * 右键工程，点击 `Maven/Update Project` 可重新构建工程并下载依赖
 
-### Command
+---
+
+## Command
 
 在 `cmd` 中或在 `eclipse` 中直接运行命令
 
@@ -140,7 +146,7 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 ---
 
-### Summary
+## Summary
 
 其实以前经常碰到 _Maven_
 

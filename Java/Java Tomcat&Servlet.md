@@ -8,14 +8,14 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 1. 问题的提出
+## 问题的提出
 
 * 将 _Servlet_ 部署至 _Tomcat_ 服务器上
 * 当多个用户并发地访问该 _Servlet_ 时，_Tomcat_ 该如何处理？
 
 ---
 
-### 2. Servlet 的生命周期
+## Servlet 的生命周期
 
 * _Servlet_ 运行在 _Servlet_ 容器中
 * _Tomcat_ 就是一种 _Servlet_ 容器
@@ -97,7 +97,7 @@ public class TestServlet extends HttpServlet {
 
 ---
 
-### 3. Servlet 的线程安全
+## Servlet 的线程安全
 
 * 由 _Servlet_ 的生命周期可以看出
   * 多个 _service_ 线程共用同一个 _Servlet_ 实例
@@ -112,7 +112,7 @@ public class TestServlet extends HttpServlet {
 
 ---
 
-### 4. Tomcat 线程管理
+## Tomcat 线程管理
 
 * _Tomcat_ 会维护一个线程池
 * _Tomcat_ 线程池参数

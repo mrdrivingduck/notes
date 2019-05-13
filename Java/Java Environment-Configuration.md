@@ -8,22 +8,22 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 * _JDK (Java Development kit | Java SE | J2SE)_ - _Java_ 编译、调试工具 
 * _JRE (Java Runtime Environment)_ - _Java_ 运行环境
 
 ---
 
-### Steps
+## Steps
 
-#### 1. Download JDK
+### 1. Download JDK
 
 * 在 _Oracle_ 官网上[下载 _JDK_](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * 选择对应操作系统的 _JDK_ - _Windows | Linux | Mac OS_
 * 选择适用 _PC_ 架构的 _JDK_ - _x86 | x64_
 
-#### 2. Install JDK & JRE
+### 2. Install JDK & JRE
 
 * _Windows_
   * 运行安装程序 安装 _JDK_
@@ -33,7 +33,7 @@ Nanjing, Jiangsu, China
 * _Mac OS_
   * 没用过不知道 :sweat_smile:
 
-#### 3. Environment variables configuration
+### 3. Environment variables configuration
 
 * _Windows_
 
@@ -78,9 +78,9 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Testing
+## Testing
 
-#### 1. 用文本编辑工具创建一个 `.java` 文件
+### 1. 用文本编辑工具创建一个 `.java` 文件
 
 * _Windows_
   * 记事本 / 写字板
@@ -98,7 +98,7 @@ public class Test {
 }
 ```
 
-#### 2. 进入命令行进行测试
+### 2. 进入命令行进行测试
 
 * _Windows_
   * `win` + `R` 弹出运行框

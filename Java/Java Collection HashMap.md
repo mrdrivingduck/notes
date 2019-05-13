@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Collection Interface
+## Collection Interface
 
 _Java_ 中的集合类分为两组：
 
@@ -27,7 +27,9 @@ _Java_ 中的集合类分为两组：
   * `java.util.concurrent.ConcurrentMap`
   * `java.util.concurrent.ConcurrentNavigableMap`
 
-### Collection Implementaions
+---
+
+## Collection Implementaions
 
 | Interface | Hash Table | Resizable Array | Balanced Tree | Linked List  | Hash Table + Linked List |
 | --------- | ---------- | --------------- | ------------- | ------------ | ------------------------ |
@@ -36,7 +38,9 @@ _Java_ 中的集合类分为两组：
 | `Deque`   |            | `ArrayDeque`    |               | `LinkedList` |                          |
 | `Map`     | `HashMap`  |                 | `TreeMap`     |              | `LinkedHashMap`          |
 
-### Map
+---
+
+## Map
 
 ```
 Interface Map<K, V>
@@ -56,7 +60,9 @@ _Map_ 的顺序取决于 `iterator` 返回元素的顺序
 * _TreeMap_ 对顺序有特殊规定
 * _HashMap_ 对顺序没有特殊规定
 
-### HashMap
+---
+
+## HashMap
 
 基于 _HashTable_ 的 _Map_ 接口实现
 
@@ -93,8 +99,6 @@ _Map_ 的顺序取决于 `iterator` 返回元素的顺序
 如果集合的结构发生了变化（除非用 `Iterator` 自身的 `remove()` 函数）
 
 迭代器将会抛出 `ConcurrentModificationException`
-
----
 
 ### Constructor
 
@@ -169,7 +173,7 @@ void clear();
 
 ---
 
-### Summary
+## Summary
 
 自以为很了解这些数据结构了
 

@@ -8,17 +8,21 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 在 _Java_ 中获取当前时间戳的几种方式
 
-### 1. `java.lang.System`
+---
+
+## 1. `java.lang.System`
 
 ```java
 long timestamp = System.currentTimeMillis();
 ```
 
-### 2. `java.util.Date`
+---
+
+## 2. `java.util.Date`
 
 ```java
 long timestamp = new Date().getTime();
@@ -41,7 +45,9 @@ public Date() {
 
 所以说，还不如使用第一种方式
 
-### 3. `java.util.Calendar`
+---
+
+## 3. `java.util.Calendar`
 
 ```java
 long timestamp = Calendar.getInstance().getTimeInMillis();
@@ -51,7 +57,7 @@ long timestamp = Calendar.getInstance().getTimeInMillis();
 
 ---
 
-### Summary
+## Summary
 
 不知道为啥
 

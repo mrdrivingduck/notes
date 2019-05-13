@@ -8,13 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 * 一种常用的 __软件设计模式__
 * 核心结构只包含一个被称为 __单例__ 的特殊类
 * 模式保证整个系统中单例类 __只有一个实例化对象__
 
-### Points & Ideas
+---
+
+## Points & Ideas
 
 * 该类只能有一个实例化对象
   * 只提供 __私有构造函数__ （类外部无法用 `new` 实例化对象）
@@ -23,7 +25,7 @@ Nanjing, Jiangsu, China
 * 该类必须能向整个系统提供这个实例化对象
   * 该类提供一个 __静态公有__ 的函数用于获取类内的实例化对象
 
-#### 一种可能的实现：
+### 一种可能的实现：
 
 ```java
 public class Single {
@@ -47,7 +49,9 @@ public class Test {
 }
 ```
 
-### Build Method
+---
+
+## Building Method
 
 * 懒汉模式
 
@@ -109,13 +113,15 @@ public class Test {
         类被 JVM 执行垃圾回收
     ```
 
-### Situation
+---
+
+## Situation
 
 多线程（Multithread）场景
 
 * 单例模式被多个线程使用时是否会出现问题？
 
-#### Situation1 - Database 
+### Situation1 - Database 
 
 希望使用同一个数据库连接 `java.sql.Connection conn`，进行多次的 `SQL` 查询
 
@@ -124,7 +130,7 @@ public class Test {
 * 之前 _cnsoft_ 项目中的写法可能有问题！
 * 下次开发有关应用时再详细研究
 
-#### Situation2 - HTTP Client
+### Situation2 - HTTP Client
 
 即将准备开发一个 _client_，不断向 `localhost` 上的 _Kismet server_ 上通过 `HTTP` 请求获取数据
 
