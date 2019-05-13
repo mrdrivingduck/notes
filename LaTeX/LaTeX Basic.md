@@ -8,7 +8,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### About
+## About
 
 LaTeX, WiKipedia:
 
@@ -22,7 +22,7 @@ LaTeX, WiKipedia:
 
 ---
 
-### Installation & Configuration
+## Installation & Configuration
 
 1. 根据 OS 选择一个 TeX 的发行版进行安装
    * 在 `Windows` 平台上，选择了好友推荐的 `MiKTeX`，直接在官网下载安装即可
@@ -37,9 +37,9 @@ LaTeX, WiKipedia:
 
 ---
 
-### Support for Chinese
+## Support for Chinese
 
-#### CTeX
+### CTeX
 
 在文档中加入 `\usepackage[UTF8]{ctex}` 即可，包管理工具自动下载依赖包
 
@@ -51,7 +51,7 @@ LaTeX, WiKipedia:
 \end{document}
 ```
 
-#### CJK
+### CJK
 
 在文档中加入 `\usepackage{CJK}`，包管理工具也会自动下载依赖包
 
@@ -67,7 +67,7 @@ LaTeX, WiKipedia:
 
 ---
 
-### Build
+## Build
 
 `ctrl` + `shift` + `P`：选择 `LaTeX Workshop: Build LaTeX project` 命令，生成 `.pdf` 文件
 
@@ -75,7 +75,7 @@ LaTeX, WiKipedia:
 
 ---
 
-### Summary
+## Summary
 
 想到之后写论文肯定会用到
 

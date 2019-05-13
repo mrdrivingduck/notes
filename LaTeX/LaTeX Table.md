@@ -8,13 +8,13 @@ Ningbo, Zhejiang, China
 
 ---
 
-### About
+## About
 
 学习了使用 _LaTeX_ 绘制表格
 
 ---
 
-### Table with no Lines
+## Table with no Lines
 
 * `{tabular}{xxx}` 表示表格列数，有几个 `x` 就有几列
 * `x` 可以取 `l`、`c`、`r`，分别代表左对齐、居中、右对齐
@@ -29,7 +29,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Table with Lines
+## Table with Lines
 
 * `{tabular}{|c|c|c|}` 可以定义竖线
 * `\hline` 可以定义横线
@@ -48,7 +48,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Complete Table
+## Complete Table
 
 * 在 `{table}[]` 后使用参数
     * `!` - 忽略美观因素，尽可能按照参数指定的方式排版；无法排版时，使用下一个参数
@@ -76,7 +76,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Summary
+## Summary
 
 累了 其它复杂表格
 

@@ -8,13 +8,13 @@ Ningbo, Zhejiang, China
 
 ---
 
-### About
+## About
 
 学习了使用 _LaTeX_ 进行论文结构的撰写
 
 ---
 
-### Title
+## Title
 
 ``` latex
 \documentclass{article}
@@ -34,7 +34,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Abstract
+## Abstract
 
 ``` latex
 \documentclass{article}
@@ -50,7 +50,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Section
+## Section
 
 ``` latex
 \documentclass{article}
@@ -74,7 +74,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Summary
+## Summary
 
 这只是入门级的用法
 
