@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 制作 _U_ 盘安装镜像时，使用 `Win32 Disk Imager` 制作
 
@@ -18,12 +18,12 @@ Nanjing, Jiangsu, China
 
 用 `Win32 Disk Imager` 制作的 _U_ 盘镜像可以被识别
 
-### Disk Partition
+## Disk Partition
 
 * `Ext4 文件系统` - 主分区，挂载根目录 `/`
 * `交换分区` - _SWAP_ 分区
 
-### Software Source
+## Software Source
 
 2018 年最新的 _Kali 2.0_ 国内可用软件源记录：
 
@@ -49,7 +49,7 @@ deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
 
 ---
 
-### Summary
+## Summary
 
 __装系统：千古奇坑__ 我自闭了 😑
 

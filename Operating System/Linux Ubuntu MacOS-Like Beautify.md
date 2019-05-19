@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 1. Install some necessary tools
+## Install some necessary tools
 
 ```bash
 $ sudo apt-get install gnome-tweak-tool
@@ -22,7 +22,7 @@ $ sudo apt-get install gnome-shell-extensions
 
 * 安装完成后，允许 `优化` 程序的 `扩展` 选项中的 `User themes` 选项
 
-### 2. Download resources
+## Download resources
 
 * 在 `https://www.opendesktop.org/` 上下载资源
   * _GTK_（系统）主题 __(GTK Themes)__
@@ -35,11 +35,9 @@ $ sudo apt-get install gnome-shell-extensions
   * 将解压后的文件夹放入 `/usr/share/icons` 目录下
 * 在 `优化` 程序的 `外观` 中应用设置
 
-### 3. Enjoy
-
 ---
 
-### Summarize
+## Summary
 
 * 太 tm 花里胡哨了 :thumbsup:
 * _Ubuntu_ 原版界面不是太好看 :expressionless:

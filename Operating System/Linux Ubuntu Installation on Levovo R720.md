@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### GPU Problem
+## GPU Problem
 
 系统安装完毕后 重启
 
@@ -42,7 +42,7 @@ $ sudo ubuntu-drivers autoinstall
 
 ---
 
-### Wireless Interface Problem
+## Wireless Interface Problem
 
 在 _Terminal_ 中输入：
 
@@ -75,7 +75,7 @@ $ sudo modprobe -r ideapad_laptop
 
 ---
 
-### Summary
+## Summary
 
 坑真多 不过现在终于成功装上了双系统 :smile:
 

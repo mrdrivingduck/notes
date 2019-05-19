@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Use
+## Use
 
 `tail` 命令本身用于查看文件内容
 
@@ -18,7 +18,7 @@ Nanjing, Jiangsu, China
 
 只要 `filename` 更新就可以看到最新的文件内容
 
-### Differences
+## Differences
 
 `tail -f filename` 
 
@@ -40,7 +40,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Summary
+## Summary
 
 暑假实习的时候就用到过
 

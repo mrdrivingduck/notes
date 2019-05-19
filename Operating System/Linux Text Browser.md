@@ -1,4 +1,4 @@
-# Linux - 文字界面网页浏览器
+# Linux - Text Browser
 
 Created by : Mr Dk.
 
@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 起因
+## 起因
 
 在 _GitHub_ 上 release 了一个工程，并把工程的 _.jar_ 文件上传了
 
@@ -16,7 +16,7 @@ Nanjing, Jiangsu, China
 
 但是由于网络环境问题，死活下载不动，虽然它只有 __7KB__
 
-### 想法
+## 想法
 
 我在 _vultr_ 上有一台运行在新加坡的 _vps_
 
@@ -34,7 +34,7 @@ Nanjing, Jiangsu, China
 
 所以我该怎么进入到那个网页并下载？
 
-### 对策
+## 对策
 
 经过上网搜索
 

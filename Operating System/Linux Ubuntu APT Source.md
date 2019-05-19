@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Workflow
+## Workflow
 
 _Ubuntu 18.04_ 默认的软件源在国外，网速较慢
 
@@ -56,7 +56,7 @@ $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
-### Attention
+## Attention
 
 `bionic` 是 _Ubuntu 18.04_ 的版本代号
 
@@ -66,7 +66,7 @@ $ sudo apt-get upgrade
 
 ---
 
-### Summary
+## Summary
 
 经常要用 记录一下
 

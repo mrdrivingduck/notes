@@ -1,4 +1,4 @@
-# Linux - 端口占用
+# Linux - Port
 
 Created by : Mr Dk.
 
@@ -8,19 +8,19 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 查看端口占用情况
+## 查看端口占用情况
 
 ```bash
 $ lsof -i
 ```
 
-### 查看某一端口的占用情况
+## 查看某一端口的占用情况
 
 ```bash
 $ lsof -i:8090
 ```
 
-### 结束占用端口的进程
+## 结束占用端口的进程
 
 ```bash
 $ killall 进程名
