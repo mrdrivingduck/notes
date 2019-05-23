@@ -2,7 +2,7 @@
 
 Created by : Mr Dk.
 
-2019 / 05 / 23 11:40
+2019 / 05 / 23 11:41
 
 Nanjing, Jiangsu, China
 
@@ -64,6 +64,12 @@ JIT 编译器默认被使用
 JVM 对于 JIT 编译后的机器码会直接调用，而不再解释相关的 bytecode
 
 JIT 也需要额外的处理时间和内存占用
+
+---
+
+## Reference
+
+<https://aboullaite.me/understanding-jit-compiler-just-in-time-compiler/>
 
 ---
 
