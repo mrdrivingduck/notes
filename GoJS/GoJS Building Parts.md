@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 __Node__ 或者 __Link__ 可以由多个 __GraphObjects__ 组成
 
@@ -18,7 +18,7 @@ GoJS 提供了两种构造零件的方式
 
 ---
 
-### Building with Code
+## Building with Code
 
 通过传统的 JavaScript 代码构造零件
 
@@ -28,7 +28,7 @@ GoJS 提供了两种构造零件的方式
 
 ---
 
-### Building with `GraphObject.make`
+## Building with `GraphObject.make`
 
 静态函数，不需要在构造零件时使用一大堆局部变量
 
@@ -54,7 +54,7 @@ GoJS 提供了两种构造零件的方式
 
 ---
 
-### The Use of `### `
+## The Use of `$ `
 
 The use of __$__ as an abbreviation for __go.GraphObject.make__ is so handy that we will assume its use from now on. Having the call to __go.GraphObject.make__ be minimized into a single character helps remove clutter from the code and lets the indentation match the nesting of GraphObject in the visual tree that is being constructed. 
 
@@ -64,7 +64,7 @@ Some other JavaScript libraries automatically define "$" to be a handy-to-type f
 
 ---
 
-### Summary
+## Summary
 
 好 J8 复杂
 

@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 对最近正在使用的 GoJS 库进行一定的总结
 
 ---
 
-### Concept
+## Concept
 
 GoJS 的边界由 Diagram（图表）指定
 
@@ -32,14 +32,14 @@ GoJS 的边界由 Diagram（图表）指定
 
 ---
 
-### Template
+## Template
 
 模板主要用于图表显示的行为，分为：
 
 1. 结点模板
 2. 连线模板
 
-#### Node Template
+### Node Template
 
 主要描绘每个 Node 的显示行为
 
@@ -49,7 +49,7 @@ GoJS 的边界由 Diagram（图表）指定
 * 对于各元素的每个属性（property）都可以进行相应的定制
 * 可以将元素的 property 与一些数据进行单向或双向绑定 - `go.Binding()`
 
-#### Link Template
+### Link Template
 
 主要描绘每条 Link 的显示行为
 
@@ -59,30 +59,29 @@ GoJS 的边界由 Diagram（图表）指定
 
 ---
 
-### Model
+## Model
 
 模型主要用于图表内部数据的存储，也分为：
 
 1. 结点模型
 2. 连线模型
 
-#### Node Model
+### Node Model
 
 * 位于 `nodeDataArray` 中
-* 
 
-#### Link Model
+### Link Model
 
 * 位于 `linkDataArray` 中
 * 存储了连线的各项属性，包括源结点的源端口以及目标结点的目标端口
 
-#### Save/Load Model
+### Save/Load Model
 
 可以使用 `Model.toJson()` 将模型数据转化为 JSON 格式进行持久化
 
 反之，使用 `Model.fromJson()` 可以将持久化的模型数据在 GoJS 图表中恢复
 
-#### Model Modification
+### Model Modification
 
 如果需要对模型数据进行改动
 
@@ -99,7 +98,7 @@ __不可直接对 `nodeDataArray` 和 `linkDataArray` 进行改动！__
 
 ---
 
-### Event
+## Event
 
 可以设定一些事件进行监听，触发一些回调函数
 
@@ -109,7 +108,7 @@ __不可直接对 `nodeDataArray` 和 `linkDataArray` 进行改动！__
 
 ---
 
-### Summary
+## Summary
 
 一路都是看 GoJS 的官方文档和示例走过来的
 

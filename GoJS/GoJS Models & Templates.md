@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 You can build a diagram of nodes and links programmatically
 
@@ -63,19 +63,19 @@ diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 
 ---
 
-### Using a Model and Templates
+## Using a Model and Templates
 
-#### Concepts
+### Concepts
 
 * A model is basically just __a collection of data__ that holds the essential information for each node and each link
 * A template is basically just __a Part that can be copied__; you would have different templates for Nodes and for Links
 
-#### Templates
+### Templates
 
 * A Diagram already has very simple __default templates__ for Nodes and Links
 * If you want to customize the appearance of the nodes in your diagram, you can replace the default node template by setting `Diagram.nodeTemplate`
 
-#### Models
+### Models
 
 * Models interpret and maintain references between the data
 * Each node data is expected to have a unique key value so that references to node data can be resolved reliably
@@ -83,7 +83,7 @@ diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 
 ---
 
-### Model Data
+## Model Data
 
 The node data and the link data in models can be any JavaScript object
 
@@ -98,7 +98,7 @@ A node data object normally has its node's unique key value in the "key" propert
 
 ---
 
-### Data Binding
+## Data Binding
 
 > A data binding is a declarative statement that the value of the property of one object
 > should be used to set the value of a property of another object.
@@ -132,7 +132,7 @@ but may be copied to create parts that are added to a diagram
 
 ---
 
-### Kinds of Models
+## Kinds of Models
 
 > A model is a way of interpreting a collection of data objects as an abstract graph
 > with various kinds of relationships determined by data properties and the assumptions that the model makes.
@@ -142,7 +142,7 @@ The simplest kind of model, __Model__, can only hold "parts" without any relatio
 * No links or groups
 * Act as the base class for other kinds of models.
 
-#### GraphLinksModel
+### GraphLinksModel
 
 Supports link relationships using a separate link data object for each Link
 
@@ -156,7 +156,7 @@ Supports identifying logically and physically different connection objects, know
 
 Supports the group-membership relationship
 
-#### TreeModel
+### TreeModel
 
 Supports link relationships that form a tree-structured graph
 
@@ -165,7 +165,7 @@ Supports link relationships that form a tree-structured graph
 
 ---
 
-### Modifying Models
+## Modifying Models
 
 Add or remove nodes programmatically
 
@@ -183,7 +183,7 @@ __When initializing a JavaScript Object as a new node data object, such calls ar
 
 ---
 
-### Saving and Loading Models
+## Saving and Loading Models
 
 Write and read models as text in JSON format
 

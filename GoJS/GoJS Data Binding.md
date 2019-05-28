@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Data binding is a way to extract a value from a source object and set a property on a target object
 
@@ -17,7 +17,7 @@ Data binding is a way to extract a value from a source object and set a property
 
 ---
 
-### Binding string and number properties
+## Binding string and number properties
 
 All you need to do is add to the target __GraphObject__ a new Binding that names the __target property__ on the visual object and the __source property__ on the data object
 
@@ -28,13 +28,13 @@ All you need to do is add to the target __GraphObject__ a new Binding that names
 
 ---
 
-### Binding object properties such as `Part.location`
+## Binding object properties such as `Part.location`
 
 Data bind properties that have values that are objects
 
 ---
 
-### Conversion functions
+## Conversion functions
 
 Provide a conversion function that converts the actual data property value to the needed value type or format
 
@@ -44,7 +44,7 @@ Provide a conversion function that converts the actual data property value to th
 
 ---
 
-### Changing data values
+## Changing data values
 
 Call `Model.setDataProperty` to modify data property
 
@@ -53,7 +53,7 @@ may cause inconsistencies or undefined behavior.__
 
 ---
 
-### Changing graph structure
+## Changing graph structure
 
 For node data - 
 
@@ -74,7 +74,7 @@ For link data -
 
 ---
 
-### Binding to __GraphObject__ sources
+## Binding to __GraphObject__ sources
 
 The binding source object need not be a plain JavaScript data object held in the diagram's model. The source object may instead be a named __GraphObject__ in the same __Part__.
 
@@ -103,11 +103,11 @@ diagram.model.nodeDataArray = [
 
 ---
 
-### Binding to the shared __Model.modelData__ source
+## Binding to the shared __Model.modelData__ source
 
 ---
 
-### Two-way data binding
+## Two-way data binding
 
 Transfer values from __GraphObject__ back to the model data, to keep the model data up-to-date with the diagram
 
@@ -118,7 +118,7 @@ Two-way Binding - `Binding.makeTwoWay`
 
 ---
 
-### Reason for Two-Way Bindings
+## Reason for Two-Way Bindings
 
 Make sure that any changes to that property will be copied to the corresponding model data
 

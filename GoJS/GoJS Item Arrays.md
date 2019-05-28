@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Display a variable number of elements in a node by data binding to a JavaScript Array
 
@@ -23,7 +23,7 @@ nodeDataArray: [
 
 ---
 
-### Item Templates
+## Item Templates
 
 ```javascript
 diagram.nodeTemplate =
@@ -67,7 +67,7 @@ nodeDataArray: [
 
 ---
 
-### Different Panel Types
+## Different Panel Types
 
 If the panel type is `Panel.Spot`, `Panel.Auto`, or `Panel.Link`, the __first child__ element of the __Panel__ is assumed to be the "main" object and is kept as the first child in addition to all of the nested panels created for the values in the `Panel.itemArray`
 
@@ -75,7 +75,7 @@ When using a Panel of type `Panel.Table` as the container, it is commonplace to 
 
 ---
 
-### Index
+## Index
 
 Sometimes one wants to get the row for a particular item
 
@@ -96,6 +96,15 @@ Create `Bindings` where the source is that "row" property:
 new go.Binding("targetProperty", "row", function (i) {
     return ...;
 }).ofObject()
+```
+
+---
+
+## Modification
+
+```javascript
+void Model.insertArrayItem(arr: Array<any>, idx: number, val: any);
+void Model.removeArrayItem(arr: Array<any>, idx?: number);
 ```
 
 ---

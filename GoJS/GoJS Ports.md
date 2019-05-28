@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Different logical and graphical places at which links should connect
 
@@ -18,7 +18,7 @@ Different logical and graphical places at which links should connect
 
 ---
 
-### Single Ports
+## Single Ports
 
 You want to consider links logically related to the node as a whole but you don't want links
 connecting to the whole node
@@ -29,7 +29,7 @@ Set `GraphObject.portId` to the empty string
 
 ---
 
-### General Ports
+## General Ports
 
 In order for a link data object to distinguish which port the link should connect to
 
@@ -46,7 +46,7 @@ Normally a __GraphLinksModel__ assumes that there is no need to recognize port i
 
 ---
 
-### Drawing new Links
+## Drawing new Links
 
 Set either or both `GraphObject.fromLinkable` and `GraphObject.toLinkable` properties to true allows users to __interactively__ draw new links between ports
 

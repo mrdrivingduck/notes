@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 `Panel.Table` arranges objects in rows and columns
 
 ---
 
-### Simple Table Panels
+## Simple Table Panels
 
 Each object in a Table Panel is put into the cell indexed by the value of __GraphObject.row__ and __GraphObject.column__
 
@@ -26,7 +26,7 @@ Each object in a Table Panel is put into the cell indexed by the value of __Grap
 
 ---
 
-### Sizing of Rows or Columns
+## Sizing of Rows or Columns
 
 The height of each row
 
@@ -46,7 +46,7 @@ Limit to certain ranges - Call `RowColumnDefinition.minimum` or `RowColumnDefini
 
 ---
 
-### Stretch and Alignment
+## Stretch and Alignment
 
 `GraphObject.stretch` specifies whether the width and/or height should take up all of the space given to it by the Panel
 
@@ -65,13 +65,13 @@ Alignment -
 
 ---
 
-### Spinning Rows or Columns
+## Spinning Rows or Columns
 
 Set the `GraphObject.rowSpan` or `GraphObject.columnSpan` properties to specify how many cell in a Table Panel it can cover
 
 ---
 
-### Separators and Row/Column Padding
+## Separators and Row/Column Padding
 
 Support the optional drawing of lines between rows or columns
 
@@ -89,7 +89,7 @@ Any separator properties set on a particular `RowColumnDefinition` will take pre
 
 ---
 
-### TableRows and TableColumns
+## TableRows and TableColumns
 
 To avoid having to specify the row for each object
 

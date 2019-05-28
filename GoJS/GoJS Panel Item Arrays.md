@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 How does one display a variable number of elements in a node by data binding to a JavaScript Array?
 
@@ -17,7 +17,7 @@ How does one display a variable number of elements in a node by data binding to 
 
 ---
 
-### Item Templates
+## Item Templates
 
 Customize the elements created for each array item by specifying the `Panel.itemTemplate`
 
@@ -25,7 +25,7 @@ As with node data, you can have as many properties on your item data as your app
 
 ---
 
-### Different Panel Types
+## Different Panel Types
 
 * Panel.Vertical
 * Panel.Horizontal
@@ -38,7 +38,7 @@ Sometimes one wants to get the row for a particular item, or one wants to have a
 
 ---
 
-### Arrays in Models
+## Arrays in Models
 
 ---
 

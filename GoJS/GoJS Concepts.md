@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 > __GoJS__ is a JavaScript library that lets you easily create interactive diagrams in modern web browsers. __GoJS__ supports __graphical templates__ and __data-binding__ of graphical object properties to model data. You only need to save and restore the model, consisting of simple JavaScript objects holding whatever properties your app needs. Many predefined tools and commands implement the standard behaviors that most diagrams need. Customization of appearance and behavior is mostly a matter of setting properties.
 
 ---
 
-### Concepts
+## Concepts
 
 __Diagrams__ consist of __Parts__:
 
@@ -51,7 +51,7 @@ __CommandHandler__ interprets keyboard events
 
 ---
 
-### Visual Tree
+## Visual Tree
 
 The __Diagram__ contains all of the __Layers__
 
@@ -61,13 +61,13 @@ A __Parts__ contains nested panels of __text, shapes and images__
 
 ---
 
-### Usage
+## Usage
 
 > __GoJS__ does not depend on any JavaScript library or framework, so you should be able to use it in any environment. However it does require that the environment support __modern HTML (HTML5) and JavaScript__.
 
 ---
 
-### Summary
+## Summary
 
 今天学习了一下这个 JS 库
 

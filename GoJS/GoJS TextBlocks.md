@@ -8,19 +8,19 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 __TextBlocks__ inherits from __GraphObject__, is used to display text
 
 ---
 
-### Text
+## Text
 
 `TextBlock.text` is the only way to show a text string
 
 ---
 
-### Fonts and Colors
+## Fonts and Colors
 
 `TextBlock.font` specifies the size and stylistic appearance of the text
 
@@ -37,7 +37,7 @@ __TextBlocks__ inherits from __GraphObject__, is used to display text
 
 ---
 
-### Sizing and Clipping
+## Sizing and Clipping
 
 The natural size of a TextBlock is just big enough to render the text string with the given font
 
@@ -46,7 +46,7 @@ The natural size of a TextBlock is just big enough to render the text string wit
 
 ---
 
-### Max Lines and Overflow
+## Max Lines and Overflow
 
 `GraphObject.desiredSize` constrains the TextBlock's available size
 
@@ -58,7 +58,7 @@ The natural size of a TextBlock is just big enough to render the text string wit
 
 ---
 
-### Wrapping
+## Wrapping
 
 `TextBlock.wrap`
 
@@ -66,7 +66,7 @@ The natural size of a TextBlock is just big enough to render the text string wit
 
 ---
 
-### Text Alignment
+## Text Alignment
 
 `TextBlock.textAlign` specifies where to draw the characters horizontally.
 
@@ -79,13 +79,13 @@ The natural size of a TextBlock is just big enough to render the text string wit
 
 ---
 
-### Flipping
+## Flipping
 
 `TextBlock.flip` flips the text horizontally and vertically
 
 ---
 
-### Editing
+## Editing
 
 `TextBlock.editable` support the in-place editing of text by user
 

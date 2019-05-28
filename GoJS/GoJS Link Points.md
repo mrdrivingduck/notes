@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 There is flexibility in controlling exactly how and where a link connects to a node
 
@@ -17,7 +17,7 @@ There is flexibility in controlling exactly how and where a link connects to a n
 
 ---
 
-### Non-rectangular Nodes
+## Non-rectangular Nodes
 
 When a __Node__ does not have a rectangular shape
 
@@ -25,7 +25,7 @@ When a __Node__ does not have a rectangular shape
 
 ---
 
-### ToSpot and FromSpot
+## ToSpot and FromSpot
 
 Easily require links to end at a particular point within the bounds of the node
 
@@ -38,17 +38,17 @@ Easily require links to end at a particular point within the bounds of the node
 
 ---
 
-### Undirected Spots
+## Undirected Spots
 
 ---
 
-### Spots for Individual Links
+## Spots for Individual Links
 
 Setting `Link.fromSpot` and `Link.toSpot` properties
 
 ---
 
-### Some Layouts set Link Spots
+## Some Layouts set Link Spots
 
 Some of the predefined __Layouts__ automatically set `Link.fromSpot` and `Link.toSpot` when the nature of the layout implies a natural direction
 

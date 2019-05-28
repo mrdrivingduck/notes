@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 It is common to add annotations or decorations on a link, particularly text
 
 ---
 
-### Simple Link Labels
+## Simple Link Labels
 
 Add a __GraphObject__ to a __Link__
 
@@ -23,7 +23,7 @@ Add a __GraphObject__ to a __Link__
 
 ---
 
-### Link label segmentIndex and segmentFraction
+## Link label segmentIndex and segmentFraction
 
 `GraphObject.segmentIndex` specifies which segment of the link route the obj should be on
 
@@ -31,7 +31,7 @@ Add a __GraphObject__ to a __Link__
 
 ---
 
-### Link label segmentOffset and alignmentFocus
+## Link label segmentOffset and alignmentFocus
 
 `GraphObject.segmentOffset` controls where to position the obj relative to the point on a link segment
 
@@ -39,7 +39,7 @@ Add a __GraphObject__ to a __Link__
 
 ---
 
-### Link label segmentOrientation
+## Link label segmentOrientation
 
 `GraphObject.segmentOrientation` controls the angle of the label obj relative to the angle of the link segment
 
@@ -49,7 +49,7 @@ Add a __GraphObject__ to a __Link__
 
 ---
 
-### Link labels near the ends
+## Link labels near the ends
 
 Set the `GraphObject.segmentOffset` to Point `(NaN, NaN)`
 
@@ -57,7 +57,7 @@ Set the `GraphObject.segmentOffset` to Point `(NaN, NaN)`
 
 ---
 
-### Arrowheads
+## Arrowheads
 
 Arrowheads are just labels - __Shapes__ that are initialized in a convenient manner
 

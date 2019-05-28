@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Use the __Link__ to implement a visual relationship between nodes
 
 ---
 
-### Creating Links
+## Creating Links
 
 Links are created by the presence of link data objects
 
@@ -29,13 +29,13 @@ Create new links programmatically by modifying the model
 
 ---
 
-### Non-directional Links
+## Non-directional Links
 
 Those without arrowheads to indicate a visual direction
 
 ---
 
-### Arrowheads
+## Arrowheads
 
 Many links do want to indicate directionality by using arrowheads
 
@@ -45,7 +45,7 @@ Just add a Shape and set its `Shape.toArrow` property
 
 ---
 
-### Routing
+## Routing
 
 Customize the path that each __Link__ takes, you need to set properties on the link
 
@@ -56,7 +56,7 @@ Customize the path that each __Link__ takes, you need to set properties on the l
 
 ---
 
-### End Segment Lengths
+## End Segment Lengths
 
 Determine the length of the very first segment or the very last segment
 
@@ -66,7 +66,7 @@ Determine the length of the very first segment or the very last segment
 
 ---
 
-### Curve, Curviness, Corner
+## Curve, Curviness, Corner
 
 Once the `Link.routing` determines the route (i.e., the sequence of points) that the link takes, other properties control the details of how the link shape gets its path geometry - 
 
@@ -82,7 +82,7 @@ Once the `Link.routing` determines the route (i.e., the sequence of points) that
 
 ---
 
-### Easier Clicking on Links
+## Easier Clicking on Links
 
 Set the `Shape.strokeWidth` to a larger value, such as 8, but  may not want that appearance
 
@@ -96,11 +96,11 @@ The transparent shape can also be used for highlighting purposes
 
 ---
 
-### Short Lengths
+## Short Lengths
 
 ---
 
-### Disconnected Links
+## Disconnected Links
 
 __GoJS__ does support the creation and manipulation of links that have either or both of
 the `Link.fromNode` and `Link.toNode` properties with null values

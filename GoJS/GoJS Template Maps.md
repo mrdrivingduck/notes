@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Want to have nodes with drastically __different__ appearances or behaviors in a
 __single__ diagram at the __same__ time.
@@ -24,7 +24,7 @@ The value of `Diagram.nodeTemplate` is just the value of `thatDiagram.nodeTempla
 
 ---
 
-### E.g.
+## E.g.
 
 ```javascript
 var templmap = new go.Map();
@@ -44,7 +44,7 @@ diagram.model.nodeDataArray = [
 
 ---
 
-### Item Templates
+## Item Templates
 
 For Panels with a value for `Panel.itemArray`, there is also the `Panel.itemTemplateMap`.
 

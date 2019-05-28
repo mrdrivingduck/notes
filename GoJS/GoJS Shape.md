@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 Use the __Shape__ class to paint a geometrical figure
 
@@ -19,7 +19,7 @@ Shapes, like __TextBlock__ and __Picture__, are "atomic" objects
 
 ---
 
-### Figures
+## Figures
 
 `Shape.figure` is set to commonly named kinds of shapes
 
@@ -27,7 +27,7 @@ Shapes, like __TextBlock__ and __Picture__, are "atomic" objects
 
 ---
 
-### Filling and Strokes
+## Filling and Strokes
 
 `Shape.stroke` specifies the brush used to draw the shape's __outline__
 
@@ -37,7 +37,7 @@ Shapes, like __TextBlock__ and __Picture__, are "atomic" objects
 
 ---
 
-### Geometry
+## Geometry
 
 Every __Shape__ gets its "shape" from the __Geometry__ that it uses
 
@@ -47,7 +47,7 @@ Setting `Shape.figure` uses a named predefined geometry that can be parameterize
 
 ---
 
-### Angle and Scale
+## Angle and Scale
 
 `GraphObject.angle` & `GraphObject.scale`
 
@@ -57,7 +57,7 @@ Setting `Shape.figure` uses a named predefined geometry that can be parameterize
 
 ---
 
-### Custom Figures
+## Custom Figures
 
 ---
 
