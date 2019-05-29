@@ -139,6 +139,14 @@ $ sudo systemctl restart v2ray
 
 （可能需要重启客户端服务后）即可 surfing the Internet scientifically
 
+### macOS
+
+从 https://github.com/Cenmrev/V2RayX 中下载 _V2RayX_
+
+运行 V2RayX 后，在 `Configure…` 中配置好 VMess Server 的信息
+
+运行 `PAC Mode`
+
 ### iOS
 
 用 iPhone Safari 打开 <http://ice8.net/>
