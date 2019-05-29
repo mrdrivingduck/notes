@@ -10,9 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-Display a variable number of elements in a node by data binding to a JavaScript Array
-
-Bind `Panel.itemArray` and JavaScript Array `items`:
+在 model data 中，不仅可以挂载数值，还可以将一个数组绑定到 `Panel.itemArray` 上：
 
 ```javascript
 nodeDataArray: [
@@ -24,6 +22,8 @@ nodeDataArray: [
 ---
 
 ## Item Templates
+
+为绑定到 `Panel.itemArray` 上的每一个元素设计样式模板 - `itemTemplate` 属性
 
 ```javascript
 diagram.nodeTemplate =
@@ -42,6 +42,8 @@ diagram.nodeTemplate =
     )
   );
 ```
+
+在 `itemTemplate` 属性中，可以直接使用数组中对应的属性名：
 
 ```javascript
 nodeDataArray: [
@@ -77,6 +79,8 @@ When using a Panel of type `Panel.Table` as the container, it is commonplace to 
 
 ## Index
 
+获取数组中的某个元素 - 索引
+
 Sometimes one wants to get the row for a particular item
 
 or one wants to have a property value depend on the row index
@@ -102,10 +106,22 @@ new go.Binding("targetProperty", "row", function (i) {
 
 ## Modification
 
+如果要在 Model 动态修改 item array，需要调用 GoJS 的 API
+
+增 / 删 - 提供 item array 和 index 即可：
+
 ```javascript
 void Model.insertArrayItem(arr: Array<any>, idx: number, val: any);
 void Model.removeArrayItem(arr: Array<any>, idx?: number);
 ```
+
+修改某一项：
+
+```javascript
+void setDataProperty(data: ObjectData, propname: string, val: any);
+```
+
+可以通过 index 直接引用 item array 中的某项作为 ObjectData，更新某一 prop 的值
 
 ---
 
