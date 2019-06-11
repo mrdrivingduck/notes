@@ -1,4 +1,4 @@
-# Network - Vultr Port Scanning
+# Network - Port Scanning
 
 Created by : Mr Dk.
 
