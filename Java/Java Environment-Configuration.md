@@ -31,7 +31,7 @@ Nanjing, Jiangsu, China
 * _Linux_
   * 直接将下载的免安装压缩包解压即可
 * _Mac OS_
-  * 没用过不知道 :sweat_smile:
+  * 下载 `.dmg` 格式的安装包
 
 ### 3. Environment variables configuration
 
@@ -74,7 +74,7 @@ Nanjing, Jiangsu, China
 
 * _Mac OS_
 
-  * 没用过不知道 :sweat_smile:
+  * 似乎不需要配置环境变量？？？
 
 ---
 
@@ -106,7 +106,7 @@ public class Test {
 * _Linux_
   * `Ctrl` + `Alt` + `T` 进入 _Terminal_
 * _Mac OS_
-  * 通过 __某种操作__ 进入 _Terminal_...
+  * 进入 _Terminal_
 
 ```bash
 # 进入保存 .java 文件的目录

@@ -171,6 +171,28 @@ $ ssh MyServerName
 
 ---
 
+## Issue
+
+在 macOS 14 Mojave 的 Terminal 上使用 SSH 时
+
+出现问题：
+
+```bash
+$ ssh root@user
+packet_write_wait: Connection to 104.168.166.54 port 22: Broken pipe
+```
+
+解决的方法是，在配置文件中为所有的用户添加一条属性：
+
+```
+Host *
+    IPQoS=throughput
+```
+
+然后就可以成功 SSH 到远程服务器了
+
+---
+
 ## Summary
 
 昨天与 _chaoweilanmao_ 折腾了一天
