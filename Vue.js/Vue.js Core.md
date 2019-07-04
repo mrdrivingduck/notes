@@ -32,26 +32,19 @@ Vue (读音 /vjuː/，类似于 __view__) 是一套用于构建用户界面的 J
 
 ### NPM
 
-在国内可以进一步使用速度更快的淘宝镜像 cnpm
-
-```bash
-$ npm install cnpm -g
-$ cnpm install vue
-```
-
 Vue.js 提供了官方的命令行工具，用于快速搭建大型单页应用
 
 ```bash
-$ cnpm install --global vue-cli
-$ vue init webpack my-project
+$ npm install -g @vue/cli
+$ vue create my-project
 
 # ...
 # Enter for default
 # ...
 
 $ cd my-project
-$ cnpm install
-$ cnpm run dev
+
+# ...
 ```
 
 ---
