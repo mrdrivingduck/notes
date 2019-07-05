@@ -1,4 +1,4 @@
-# Fuzzer - syzkaller
+# Fuzzer - syzkaller Architecture
 
 Created by : Mr Dk.
 
