@@ -105,7 +105,14 @@ $ make oldconfig
 $ make CC="$GCC/bin/gcc" -j64
 ```
 
-在编译结束后（不知道用了多久...中途出去吃了个火锅 😅）
+在编译中如果出现错误
+
+* 要么是编译器版本不适合
+* 要么是少了一些对应的库
+  * 上网搜一下对应错误是因为缺了哪个库导致的
+  * 然后 `apt` 补一下对应的库咯
+
+在编译结束后（不知道用了多久...中途出去吃了个火锅 😅，回来已经编完了）
 
 在内核源码目录下，生成了：
 
@@ -286,7 +293,31 @@ $ make
 
 ```bash
 $ mkdir workdir
-$ ./bin/syz-manager -config=my.cfg
+$ sudo ./bin/syz-manager -config=my.cfg
+2019/07/06 10:54:37 loading corpus...
+2019/07/06 10:54:37 serving http on http://127.0.0.1:56741
+2019/07/06 10:54:37 serving rpc on tcp://[::]:36699
+2019/07/06 10:54:37 booting test machines...
+2019/07/06 10:54:37 wait for the connection from test machine...
+2019/07/06 10:54:51 machine check:
+2019/07/06 10:54:51 syscalls                : 1390/2733
+2019/07/06 10:54:51 code coverage           : enabled
+2019/07/06 10:54:51 comparison tracing      : CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2019/07/06 10:54:51 extra coverage          : extra coverage is not supported by the kernel
+2019/07/06 10:54:51 setuid sandbox          : enabled
+2019/07/06 10:54:51 namespace sandbox       : /proc/self/ns/user does not exist
+2019/07/06 10:54:51 Android sandbox         : enabled
+2019/07/06 10:54:51 fault injection         : CONFIG_FAULT_INJECTION is not enabled
+2019/07/06 10:54:51 leak checking           : CONFIG_DEBUG_KMEMLEAK is not enabled
+2019/07/06 10:54:51 net packet injection    : /dev/net/tun does not exist
+2019/07/06 10:54:51 net device setup        : enabled
+2019/07/06 10:54:51 corpus                  : 513 (0 deleted)
+2019/07/06 10:54:57 VMs 4, executed 1139, cover 19545, crashes 0, repro 0
+2019/07/06 10:55:07 VMs 4, executed 3134, cover 24729, crashes 0, repro 0
+2019/07/06 10:55:17 VMs 4, executed 6689, cover 25739, crashes 0, repro 0
+2019/07/06 10:55:27 VMs 4, executed 12912, cover 26182, crashes 0, repro 0
+2019/07/06 10:55:37 VMs 4, executed 22786, cover 26258, crashes 0, repro 0
+2019/07/06 10:55:47 VMs 4, executed 30311, cover 26298, crashes 0, repro 0
 ```
 
 Fuzzing 开始了，访问上述 HTTP 地址可以实时查看 fuzzing 状态
