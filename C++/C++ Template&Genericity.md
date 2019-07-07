@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 1. About Template - 模板
+## 1. About Template - 模板
 
 * 目的：__重用代码__
 * _e.g. A Container Class - 容器类_
@@ -20,14 +20,14 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 2. 常用模板类
+## 2. 常用模板类
 
 * _STL_ 中的 `vector` `map` 等
 * `vector <int>` `vector <double>` `vector <string>` 共用模板类 `std::vector`
 
 ---
 
-##### 3. 使用方式
+## 3. 使用方式
 
 * 在类声明代码块前声明 `template <class T>` 或 `template <typename T>`
 
@@ -53,7 +53,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 4. 应用实例
+## 4. 应用实例
 
 * 使用 _STL_ 封装一个 __MultiMap__
   * 一个 _key_ 可以对应多个 _value_

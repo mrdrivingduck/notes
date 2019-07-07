@@ -8,14 +8,14 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 1. 功能
+## 功能
 
 * ListView 适配器
 
 
 * 为 ListView 中的每一项制定布局和格式
 
-##### 2. Override 方法
+## Override 方法
 
 * 创建一个 MyAdapter 类，继承自 BaseAdapter 类
 
@@ -28,7 +28,7 @@ Nanjing, Jiangsu, China
   private List <Map <String, Object> > AllValues;
   ```
 
-  ​
+  
 
 * Override 4个函数
 
@@ -81,7 +81,7 @@ Nanjing, Jiangsu, China
   }
   ```
 
-##### 3. 在 Activity 中的使用
+## 在 Activity 中的使用
 
 ```Java
 List <Map <String, Object> > AllValues = new ArrayList<>();

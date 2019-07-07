@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ------
 
-##### 1. 介绍
+## 介绍
 
 * Android 中的基本控件 —— 警告框
 * 动态触发显示
@@ -17,7 +17,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 2. 创建方式
+## 创建方式
 
 * 由于是触发显示，所以不能使用构造函数进行创建
 
@@ -33,7 +33,7 @@ AlertDialog dialog = new AlertDialog.Builder(context).create();
 
 ---
 
-##### 3. 显示方式
+## 显示方式
 
 ```Java
 dialog.show();
@@ -44,7 +44,7 @@ if (dialog.isShowing()) {
 
 ---
 
-##### 4. 设置内部信息
+## 设置内部信息
 
 ```java
 // 设置标题
@@ -77,7 +77,7 @@ builder.setPositiveButton();
 
 ---
 
-##### 5. 修改标题、内容、按钮颜色，字体大小等
+## 修改标题、内容、按钮颜色，字体大小等
 
 - 参考 CSDN
 

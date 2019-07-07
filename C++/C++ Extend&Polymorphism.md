@@ -8,7 +8,7 @@ Hangzhou, Zhejiang, China
 
 ---
 
-#### 1. 构造函数 - Constructor
+## 1. 构造函数 - Constructor
 
  * 构造函数与类同名
  * 构造函数没有返回值类型
@@ -17,7 +17,7 @@ Hangzhou, Zhejiang, China
  * 构造函数没有参数，则成为 _缺省构造函数_ ，替换系统自动产生的构造函数
  * __Overload__
 
-#### 2. 拷贝构造函数 - Copy Constructor
+## 2. 拷贝构造函数 - Copy Constructor
 
 * 一种特殊的构造函数
 
@@ -89,7 +89,7 @@ Hangzhou, Zhejiang, China
 
 ---
 
-#### 3. 析构函数 
+## 3. 析构函数 
 
 * 与类同名，前面多一个 `~`
 * 对象终止时被自动调用（隐式调用）
@@ -99,7 +99,7 @@ Hangzhou, Zhejiang, China
 
 ---
 
-#### 4. 继承 - Extend
+## 4. 继承 - Extend
 
 * A new class（派生类） based on an existing class（基类）
 
@@ -197,7 +197,7 @@ Hangzhou, Zhejiang, China
 
 ---
 
-#### 5. 多态 - Polymorphism 
+## 5. 多态 - Polymorphism 
 
 * 联编：确定程序中调用和代码之间的关系
 

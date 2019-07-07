@@ -8,25 +8,25 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 1. 输入/输出流
+## 1. 输入/输出流
 
 * `ifstream` - 输入流
 
-  * ```C++
-    template < class charT, class traits = char_traits<charT> >
-    class basic_ifstream;
-    ```
+  ```C++
+  template < class charT, class traits = char_traits<charT> >
+  class basic_ifstream;
+  ```
 
 * `ofstream` - 输出流
 
-  * ```C++
-    template < class charT, class traits = char_traits<charT> >
-    class basic_ofstream;
-    ```
+  ```C++
+  template < class charT, class traits = char_traits<charT> >
+  class basic_ofstream;
+  ```
 
 * `fstream` - 输入/输出流
 
-##### 2. 文件打开方式
+## 2. 文件打开方式
 
 * `ios::in` - 读取文件
 * `ios::out` - 写入文件
@@ -37,48 +37,46 @@ Nanjing, Jiangsu, China
 * `ios::nocreate` - 若文件不存在，则不创建文件
 * `ios::noreplace` - 若文件存在，则打开失败
 
-##### 3. 文件打开/关闭
+## 3. 文件打开/关闭
 
 * 打开
 
   * `ifstream` 默认打开方式 - `ios::in`
-
-  * `ofstream` 默认打开方式 - `ios::out`
-
+* `ofstream` 默认打开方式 - `ios::out`
   * `fstream` 默认打开方式 - `ios::in | ios::out`
 
-  * ```c++
-    #include <fstream>
-    using namespace std;
-    
-    // Two step
-    ifstream fin;
-    fin.open("read.txt", ios::in);
-    // One step
-    ofstream fout("write.txt", ios::out | ios::app);
-    
-    if(!fin.is_open())
-    {
-        exit(0);
-    }
-    if (fout.fail())
-    {
-        exit(0);
-    }
-    
-    // ...
-    ```
-
+  ```c++
+#include <fstream>
+  using namespace std;
+  
+  // Two step
+  ifstream fin;
+  fin.open("read.txt", ios::in);
+  // One step
+  ofstream fout("write.txt", ios::out | ios::app);
+  
+  if(!fin.is_open())
+  {
+      exit(0);
+  }
+  if (fout.fail())
+  {
+      exit(0);
+  }
+  
+  // ...
+  ```
+  
 * 关闭
 
-  * ```C++
-    // ...
-    
-    fin.close();
-    fout.close();
-    ```
+  ```C++
+  // ...
+  
+  fin.close();
+  fout.close();
+  ```
 
-##### 4. 字符流文件读写
+## 4. 字符流文件读写
 
 * 除非指定以 __二进制方式（字节流）__打开文件，否则默认以 __文本方式（字符流）__打开文件
 * 使用 `<<` 和 `>>` 来读写
@@ -97,7 +95,7 @@ fout << "hello" << endl;
 // File closed
 ```
 
-##### 5. 格式化输出
+## 5. 格式化输出
 
 ```C++
 #include <iomanip>	// NECESSARY !!!
@@ -143,7 +141,7 @@ fout.unsetf(ios::left);
 | `ios::unitbuf`    | 每次输出后刷新所有的流                             |
 | `ios::stdio`      | 每次输出后清除 _stdout stderr_                     |
 
-##### 6. 二进制文件读写
+## 6. 二进制文件读写
 
 * 文件打开方式必须包含 `ios::binary`
 * 使用 `read` 和 `write` 函数进行读写

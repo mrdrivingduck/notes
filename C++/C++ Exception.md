@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### 1. Exception Mechanism
+## 1. Exception Mechanism
 
 * Place the code in which may cause exception in a __try__ block
 * If exception happens, use __throw__ to raise a specific exception
@@ -45,7 +45,7 @@ int main()
 
 ---
 
-### 2. Exception Class
+## 2. Exception Class
 
 * Basic class : `std::exception`
 
@@ -81,7 +81,7 @@ public:
 
 ---
 
-### 3. My Own Exception Class
+## 3. My Own Exception Class
 
 * Extend from `std::exception`
 

@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 1. 原型 特性
+## 1. 原型 特性
 
 ```c++
 template < class Key,
@@ -34,7 +34,7 @@ template < class Key,
 
 ---
 
-##### 2. 引用头文件
+## 2. 引用头文件
 
 ```C++
 #include <map>
@@ -43,7 +43,7 @@ using namespace std;	// OR : std::map
 
 ---
 
-##### 3. 构造函数
+## 3. 构造函数
 
 ```c++
 map <key_Type, value_Type> Map;
@@ -51,7 +51,7 @@ map <key_Type, value_Type> Map;
 
 ---
 
-##### 4. 基本属性
+## 4. 基本属性
 
 ```c++
 // 返回 map 中的元素个数
@@ -63,7 +63,7 @@ bool empty = Map.empty();
 
 ---
 
-##### 5. 迭代器的声明和使用 （遍历）
+## 5. 迭代器的声明和使用 （遍历）
 
 ```C++
 // 声明一个正向迭代器
@@ -96,7 +96,7 @@ for (mapIter = Map.begin();
 
 ---
 
-##### 6. 查找
+## 6. 查找
 
 ```c++
 mapIter = Map.find (key);
@@ -115,7 +115,7 @@ if (mapIter == Map.end()) {
 
 ---
 
-##### 7. 插入
+## 7. 插入
 
 ```C++
 // 若 key 已存在，则插入失败，新值不会覆盖旧值
@@ -137,7 +137,7 @@ if (Inserted.second == true) {
 
 ---
 
-##### 8. 删除
+## 8. 删除
 
 ```C++
 // 删除迭代器指向的 node
@@ -155,7 +155,7 @@ Map.clear();
 
 ---
 
-##### 9. 自定义对象作为 key 时需要注意
+## 9. 自定义对象作为 key 时需要注意
 
 ```C++
 // 由于 map 本身是有序的
@@ -180,7 +180,7 @@ class Class {
 
 ---
 
-### 总结
+## 总结
 
 很便捷、高效的数据结构
 

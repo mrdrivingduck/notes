@@ -8,13 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-##### 1. 功能 
+## 功能 
 
 * Activity之间的跳转与数据传递
 
 ---
 
-##### 2. 构造函数
+## 构造函数
 
 ```Java
 Intent intent = new Intent (Context packageContext, Class <?> cls);
@@ -33,7 +33,7 @@ Intent intent = new Intent(LogInActivity.this, MainActivity.class);
 
 ---
 
-##### 3. 数据传递
+## 数据传递
 
 ```java
 intent.putExtra (String key, Type value);
@@ -47,7 +47,7 @@ intent.getTypeExtra(String key, Type defaultValue);
 
 ---
 
-##### 4. 自定义数据类型的传递
+## 自定义数据类型的传递
 
 ```Java
 // 首先对于自定义的类，必须实现 Serializable 接口
@@ -73,7 +73,7 @@ user = (User) getIntent().getSerializableExtra("USER");
 
 ---
 
-##### 5. 跳转界面的两种方式
+## 跳转界面的两种方式
 
 ```Java
 // 当跳转的界面返回时，不需要返回结果
@@ -107,7 +107,7 @@ setResult (resultCode, getIntent());
 
 ---
 
-##### 6. 关于 FragmentActivity 和 Fragment 的 Intent
+## 关于 FragmentActivity 和 Fragment 的 Intent
 
 * FragmentActivity 和 子Fragment 都可以通过 Intent 启动 Activity
 
@@ -190,4 +190,4 @@ setResult (resultCode, getIntent());
   }
   ```
 
-  ​
+  
