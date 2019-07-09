@@ -146,24 +146,24 @@ $ ./bin/syz-manager -config my.cfg
 
 ```json
 {
-	"target": "linux/amd64",
-	"http": "myhost.com:56741",
-	"workdir": "/syzkaller/workdir",
-	"kernel_obj": "/linux/",
-	"image": "/linux_image/wheezy.img",
-	"sshkey": "/linux_image/ssh/id_rsa",
-	"syzkaller": "/syzkaller",
-	"disable_syscalls": ["keyctl", "add_key", "request_key"],
-	"suppressions": ["some known bug"],
-	"procs": 4,
-	"type": "qemu",
-	"vm": {
-		"count": 16,
-		"cpu": 2,
-		"mem": 2048,
-		"kernel": "/linux/arch/x86/boot/bzImage",
-		"initrd": "linux/initrd"
-	}
+    "target": "linux/amd64",
+    "http": "myhost.com:56741",
+    "workdir": "/syzkaller/workdir",
+    "kernel_obj": "/linux/",
+    "image": "/linux_image/wheezy.img",
+    "sshkey": "/linux_image/ssh/id_rsa",
+    "syzkaller": "/syzkaller",
+    "disable_syscalls": ["keyctl", "add_key", "request_key"],
+    "suppressions": ["some known bug"],
+    "procs": 4,
+    "type": "qemu",
+    "vm": {
+        "count": 16,
+        "cpu": 2,
+        "mem": 2048,
+        "kernel": "/linux/arch/x86/boot/bzImage",
+        "initrd": "linux/initrd"
+    }
 }
 ```
 
