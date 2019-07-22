@@ -14,7 +14,7 @@ _RC4（Rivest Cipher 4）_ 是一种流加密算法
 
 * 密钥长度可变
 * 对称加密
-* 曾在 _SSL / TLS_、_WEP_、_WPA_ 等算法中被使用
+* 曾在 _SSL / TLS_ 、 _WEP_ 、 _WPA_ 等算法中被使用
 
 ### Theory
 

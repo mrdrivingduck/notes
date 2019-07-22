@@ -27,56 +27,58 @@ using namespace std;    // using std::string;
 
 ## 3. Constructor
 
-* Empty Constructor (Default Constructor)
+### Empty Constructor (Default Constructor)
 
-  ```c++
-  string();
-  ```
-
-* Copy Constructor
-
-  ```c++
-  string (const string& str);
-  ```
-
-* Substring Constructor
-  * `pos` : Beginning of character position
-
-  * `len` : Length that wants to be copied
-
-  * (string is too short) | ( `len` == `string::npos` )  __->__  copy until the end of string
-
-  
-  ```c++
-  string (const string& str, size_t pos, size_t len = npos);
+```c++
+string();
 ```
-  
-* From C-String
+
+### Copy Constructor
+
+```c++
+string (const string& str);
+```
+
+### Substring Constructor
+
+* `pos` : Beginning of character position
+
+* `len` : Length that wants to be copied
+
+* (string is too short) | ( `len` == `string::npos` )  __->__  copy until the end of string
+
+
+```c++
+string (const string& str, size_t pos, size_t len = npos);
+```
+
+
+### From C-String
+
+```c++
+string (const char* s);
+```
+
+### From C-String, Copy first n characters
+
+```c++
+string (const char* s, size_t n);
+```
+
+### Fill Constructor
+
+* Fill the string with n copies of character c
+
 
   ```c++
-  string (const char* s);
+string (size_t n, char c);
   ```
 
-* From C-String, Copy first n characters
+### Range Constructor
 
-  ```c++
-  string (const char* s, size_t n);
-  ```
-
-* Fill Constructor
-
-  * Fill the string with n copies of character c
-
-
-  ```c++
-  string (size_t n, char c);
-  ```
-
-* Range Constructor
-
-  ```c++
-  template <class InputIterator> string (InputIterator first, InputIterator last);
-  ```
+```c++
+template <class InputIterator> string (InputIterator first, InputIterator last);
+```
 
 ---
 
@@ -129,9 +131,8 @@ static const size_t npos = -1;
 * Operator `=`
 
   * Return a COPY of object
-
-
-  ```c++
+  
+  ```C++
   string& operator= (const string& str);  // str = str1;
   string& operator= (const char* s);      // str = "Hello world"
   string& operator= (char c);             // str = '.'
@@ -140,8 +141,7 @@ static const size_t npos = -1;
 * Operator `+`
 
   * Return a newly constructed object after concatenation
-
-
+  
   ```c++
   string operator+ (const string& lhs, const string& rhs);  // str = str1 + str2;
   string operator+ (const string& lhs, const char* rhs);    // str = str1 + "Hello";
@@ -153,8 +153,7 @@ static const size_t npos = -1;
 * Operator `+=`
 
   * Return the same object after appending value
-
-
+  
   ```c++
   string& operator+= (const string& str);  // str += str1;
   string& operator+= (const char* s);      // str += "Hello world";
@@ -241,7 +240,6 @@ static const size_t npos = -1;
   void resize (size_t n);
   void resize (size_t n, char c);
   ```
-```
   
 * Request a change in capacity
   * If `n` is greater than the current string capacity
@@ -253,11 +251,9 @@ static const size_t npos = -1;
     * If `n` > `max_size`  __->__  `length_error` exception
     * If the function needs to allocate storage and fails  __->__  `bad_alloc` exception
 
-  
   ```c++
   void reserve (size_t n = 0);
-```
-
+  ```
 * Erases the contents of the string  __->__  Empty string
 
   ```c++
@@ -285,15 +281,13 @@ static const size_t npos = -1;
 
   
   ```c++
-  string& assign (const string& str);                                // String
-  string& assign (const string& str, size_t subpos, size_t sublen);  // Substring
-  string& assign (const char* s);                                    // C-String
-  string& assign (const char* s, size_t n);                          // Buffer
-  string& assign (size_t n, char c);                                 // Fill
-  template <class InputIterator>
-     string& assign (InputIterator first, InputIterator last);       // Range
+  string& assign (const string& str); // String
+  string& assign (const string& str, size_t subpos, size_t sublen); // Substring
+  string& assign (const char* s); // C-String
+  string& assign (const char* s, size_t n); // Buffer
+  string& assign (size_t n, char c); // Fill
+  template <class InputIterator> string& assign (InputIterator first, InputIterator last); // Range
   ```
-```
   
 * Appending additional characters at the end of its current value
   * Exception
@@ -304,15 +298,14 @@ static const size_t npos = -1;
 
   
   ```c++
-  string& append (const string& str);                                // String
-  string& append (const string& str, size_t subpos, size_t sublen);  // Substring
-  string& append (const char* s);                                    // C-String
-  string& append (const char* s, size_t n);                          // Buffer
-  string& append (size_t n, char c);                                 // Fill
-  template <class InputIterator> string&
-      append (InputIterator first, InputIterator last);              // Range
-```
-
+  string& append (const string& str); // String
+  string& append (const string& str, size_t subpos, size_t sublen); // Substring
+  string& append (const char* s); // C-String
+  string& append (const char* s, size_t n); // Buffer
+  string& append (size_t n, char c); // Fill
+  template <class InputIterator> string& append (InputIterator first, InputIterator last); // Range
+  ```
+  
 * Insert into string
   * Insert into the string right __before__ the character indicated by `pos` or `p`
 
@@ -324,18 +317,15 @@ static const size_t npos = -1;
 
   
   ```c++
-  string& insert (size_t pos, const string& str);          // String
-  string& insert (size_t pos, const string& str, size_t subpos, size_t sublen = npos);
-                                                           // Substring
-  string& insert (size_t pos, const char* s);              // C-String
-  string& insert (size_t pos, const char* s, size_t n);    // Buffer
-  string& insert (size_t pos, size_t n, char c);           // Fill
-  iterator insert (const_iterator p, size_t n, char c);    // Fill
-  iterator insert (const_iterator p, char c);              // Single Character
-  template <class InputIterator>
-      iterator insert (iterator p, InputIterator first, InputIterator last);  // Range
+  string& insert (size_t pos, const string& str); // String
+  string& insert (size_t pos, const string& str, size_t subpos, size_t sublen = npos); // Substring
+  string& insert (size_t pos, const char* s); // C-String
+  string& insert (size_t pos, const char* s, size_t n); // Buffer
+  string& insert (size_t pos, size_t n, char c); // Fill
+  iterator insert (const_iterator p, size_t n, char c); // Fill
+  iterator insert (const_iterator p, char c); // Single Character
+  template <class InputIterator> iterator insert (iterator p, InputIterator first, InputIterator last); // Range
   ```
-```
   
 * Erase characters from string
   * Exception
@@ -344,10 +334,10 @@ static const size_t npos = -1;
 
   
   ```c++
-  string& erase(size_t pos = 0, size_t len = npos);        // Sequence
-  iterator erase (iterator p);                             // Character
-  iterator erase (iterator first, iterator last);          // Range
-```
+  string& erase(size_t pos = 0, size_t len = npos); // Sequence
+  iterator erase (iterator p);  // Character
+  iterator erase (iterator first, iterator last); // Range
+  ```
 
 * Replace portion of string
   * Specify a range in old string by
@@ -368,8 +358,7 @@ static const size_t npos = -1;
   string& replace (size_t pos, size_t len, const string& str);
   string& replace (const_iterator i1, const_iterator i2, const string& str);
   // Substring
-  string& replace (size_t pos, size_t len,
-                   const string& str, size_t subpos, size_t sublen = npos);
+  string& replace (size_t pos, size_t len, const string& str, size_t subpos, size_t sublen = npos);
   // C-String
   string& replace (size_t pos, size_t len, const char* s);
   string& replace (const_iterator i1, const_iterator i2, const char* s);
@@ -380,18 +369,15 @@ static const size_t npos = -1;
   string& replace (size_t pos, size_t len, size_t n, char c);
   string& replace (const_iterator i1, const_iterator i2, size_t n, char c);
   // Range
-  template <class InputIterator>
-      string& replace (const_iterator i1, const_iterator i2,
-                       InputIterator first, InputIterator last);
+  template <class InputIterator> string& replace (const_iterator i1, const_iterator i2, InputIterator first, InputIterator last);
   ```
-```
   
 * Swap string values
 
   ```c++
   void swap (string& str);            // Member function -> str1.swap(str2);
   void swap (string& x, string& y);   // Not a member function -> swap(str1, str2);
-```
+  ```
 
 * Append character to the end of the string
   * Increasing its length by __one__
@@ -404,7 +390,6 @@ static const size_t npos = -1;
   ```c++
   void push_back (char c);
   ```
-```
   
 * Delete the last character of the string
   * Reducing its length by __one__
@@ -416,7 +401,7 @@ static const size_t npos = -1;
   
   ```c++
   void pop_back();
-```
+  ```
 
 ---
 
@@ -425,8 +410,7 @@ static const size_t npos = -1;
 * Get _C_ String
 
   * With `\0` in the end
-
-
+  
   ```c++
   const char* c_str() const noexcept;
   const char* data() const noexcept;
@@ -445,7 +429,6 @@ static const size_t npos = -1;
   ```c++
   size_t copy (char* s, size_t len, size_t pos = 0) const;
   ```
-```
   
 * Compare strings
 
@@ -461,21 +444,19 @@ static const size_t npos = -1;
 
     * If `s` is not long enough  __->__  _undefined behavior_
     * If `pos` or `subpos`  __>__ _string's length_  __->__  `out_of_range` exception
-
-
+  
   ```c++
   // String
   int compare (const string& str) const noexcept;
   // Substrings
   int compare (size_t pos, size_t len, const string& str) const;
-  int compare (size_t pos, size_t len,
-               const string& str, size_t subpos, size_t sublen) const;
+  int compare (size_t pos, size_t len, const string& str, size_t subpos, size_t sublen) const;
   // C-String
   int compare (const char* s) const;
   int compare (size_t pos, size_t len, const char* s) const;
   // Buffer
   int compare (size_t pos, size_t len, const char* s, size_t n) const;
-```
+  ```
 
 * Generate substring
   * Exception
@@ -486,9 +467,9 @@ static const size_t npos = -1;
   ```c++
   string substr (size_t pos = 0, size_t len = npos) const;
   ```
-```
   
 * Find content in string
+  
   * __Match the entire string__
 * Exception
   
@@ -498,18 +479,18 @@ static const size_t npos = -1;
   * If there is no match, return `string::npos`
 
   ```c++
-// Find the first occurrence
-  size_t find (const string& str, size_t pos = 0) const noexcept;      // String
-size_t find (const char* s, size_t pos = 0) const;                   // C-String
-  size_t find (const char* s, size_t pos, size_type n) const;          // Buffer
-  size_t find (char c, size_t pos = 0) const noexcept;                 // Character
+  // Find the first occurrence
+  size_t find (const string& str, size_t pos = 0) const noexcept;     // String
+  size_t find (const char* s, size_t pos = 0) const;                 // C-String
+  size_t find (const char* s, size_t pos, size_type n) const;         // Buffer
+  size_t find (char c, size_t pos = 0) const noexcept;               // Character
   
   // Find the last occurrence
-  size_t rfind (const string& str, size_t pos = npos) const noexcept;  // String
-  size_t rfind (const char* s, size_t pos = npos) const;               // C-String
-  size_t rfind (const char* s, size_t pos, size_t n) const;            // Buffer
-  size_t rfind (char c, size_t pos = npos) const noexcept;             // Character
-```
+  size_t rfind (const string& str, size_t pos = npos) const noexcept; // String
+  size_t rfind (const char* s, size_t pos = npos) const;             // C-String
+  size_t rfind (const char* s, size_t pos, size_t n) const;           // Buffer
+  size_t rfind (char c, size_t pos = npos) const noexcept;           // Character
+  ```
 
 * Find character in string
   
@@ -522,9 +503,9 @@ size_t find (const char* s, size_t pos = 0) const;                   // C-String
   * If there is no match, return `string::npos`
 
   ```c++
-// The first character matched
+  // The first character matched
   size_t find_first_of (const string& str, size_t pos = 0) const noexcept;  // String
-size_t find_first_of (const char* s, size_t pos = 0) const;               // C-String
+  size_t find_first_of (const char* s, size_t pos = 0) const;               // C-String
   size_t find_first_of (const char* s, size_t pos, size_t n) const;         // Buffer
   size_t find_first_of (char c, size_t pos = 0) const noexcept;             // Character
   

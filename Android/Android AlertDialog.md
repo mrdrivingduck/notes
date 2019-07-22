@@ -19,7 +19,7 @@ Nanjing, Jiangsu, China
 
 ## 创建方式
 
-* 由于是触发显示，所以不能使用构造函数进行创建
+由于是触发显示，所以不能使用构造函数进行创建
 
 ```java
 AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -79,7 +79,7 @@ builder.setPositiveButton();
 
 ## 修改标题、内容、按钮颜色，字体大小等
 
-- 参考 CSDN
+参考 CSDN
 
 - 修改按钮样式
 

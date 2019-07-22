@@ -141,7 +141,7 @@ __ATTENTION: 数据需要用函数的形式返回__ - https://github.com/vuejs/v
 
 ## Summary
 
-Vue.js 的运作机制 搞...搞清了吗 :sweat:
+Vue.js 的运作机制 搞...搞清了吗 😓
 
 可能需要边学边理解了
 
