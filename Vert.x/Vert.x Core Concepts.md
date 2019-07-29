@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About - From _Vert.x_ official
+## About - From _Vert.x_ official
 
 Eclipse __Vert.x__ is a tool-kit for building __reactive__ applications on the __JVM__.
 
@@ -20,11 +20,11 @@ Eclipse __Vert.x__ is a tool-kit for building __reactive__ applications on the _
 * Vert.x is *modular* - when you need more bits just add the bits you need and nothing more.
 * ......
 
-### Core Concept
+## Core Concept
 
 理解这几个核心概念有助于理解 _Vert.x_ 框架
 
-#### 1. Event Driven（事件驱动）
+### 1. Event Driven（事件驱动）
 
 一种程序设计模式，诞生于交互式程序中——
 
@@ -51,7 +51,7 @@ Eclipse __Vert.x__ is a tool-kit for building __reactive__ applications on the _
 * 事件驱动编程
   * 调用者与被调用者互相不知道对方，两者只和中间的消息队列耦合
 
-#### 2. React Pattern（反应器模式）
+### 2. React Pattern（反应器模式）
 
 The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
 
@@ -72,9 +72,9 @@ Architecture
 * __Dispatcher__ - Dispatches resources from the _demultiplexer_ to the associated _request handler_
 * __Request Handler__ - To do works
 
-### Features of _Vert.x_
+## Features of _Vert.x_
 
-#### 1. 事件驱动、异步、非阻塞 I/O
+### 1. 事件驱动、异步、非阻塞 I/O
 
 __异步编程__ 与传统的 __多线程编程__ 有何区别：
 
@@ -84,7 +84,7 @@ __异步编程__ 与传统的 __多线程编程__ 有何区别：
 * 多线程编程，需要写代码解决线程安全问题
 * 事件驱动异步编程能够让程序尽可能得到执行
 
-#### 2. Multi-Reactor Pattern
+### 2. Multi-Reactor Pattern
 
 In a standard reactor implementation there is a __single event loop thread__ which runs around in a loop delivering all events to all handlers as they arrive.
 
@@ -96,7 +96,7 @@ Vert.x works differently here. Instead of a single event loop, each `Vertx` inst
 
 ---
 
-### Summary
+## Summary
 
 对以上概念还是没有特别理解
 

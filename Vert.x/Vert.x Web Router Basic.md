@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Router - One of the core concepts of Vert.x-Web
+## Router - One of the core concepts of Vert.x-Web
 
 `Router` - 一个核心对象，维护 0 个或多个 `Route`
 
@@ -20,7 +20,7 @@ Nanjing, Jiangsu, China
 * 若 _HTTP_ 请求的 _URL_ 符合 `Route` 的过滤条件，`request` 将被送入该 `Route` 的第一个 _handler_
 * 处理完毕可以选择进入下一个符合条件的 _handler_ 继续处理，或是直接结束请求
 
-### A Basic Example
+## A Basic Example
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -45,7 +45,7 @@ server.requestHandler(router::accept).listen(9001, "localhost");
 * `HttpServerResponse`
 * 其余有用的参数
 
-### Next Handler & Order
+## Next Handler & Order
 
 _Vert.x_ 将 _HTTP_ 请求路由到第一个符合条件的 `Route`，调用它的第一个 _handler_ 并传入 `RoutingContext`
 
@@ -98,7 +98,7 @@ server.requestHandler(router::accept).listen(9001, "localhost");
 
 ---
 
-### Summary
+## Summary
 
 _Vert.x Web_ 中提供 _Router_
 

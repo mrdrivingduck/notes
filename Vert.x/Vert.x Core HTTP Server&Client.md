@@ -8,9 +8,9 @@ Nanjing, Jiangsu, China
 
 ---
 
-### HTTP Server
+## HTTP Server
 
-#### Creating & Configuration
+### Creating & Configuration
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -23,7 +23,7 @@ HttpServer server = vertx.createHttpServer(options);
 
 * `SSL/TLS` 以及 `HTTP/2` 暂略
 
-#### Handling requests
+### Handling requests
 
 * `server.requestHandler(request -> {});` 在 __请求头__ 收到时被触发
 * `request.handler(buffer -> {});` 在 __一块请求体__ 收到时被触发
@@ -58,7 +58,7 @@ server.requestHandler(request -> {
 });
 ```
 
-#### Handling HTML Forms
+### Handling HTML Forms
 
 _HTML_ 表单的两种提交方式：( _content-type_ 位于 __请求头（header）__ 中 )
 
@@ -101,7 +101,7 @@ server.requestHandler(request -> {
 });
 ```
 
-#### Sending back responses
+### Sending back responses
 
 * Get `HttpServerResponse` from `HttpServerRequest`
 
@@ -138,7 +138,7 @@ server.requestHandler(request -> {
 });
 ```
 
-#### Start Listening
+### Start Listening
 
 ```java
 server.listen(8080, "localhost", res -> {
@@ -150,9 +150,9 @@ server.listen(8080, "localhost", res -> {
 });
 ```
 
-### HTTP Client
+## HTTP Client
 
-#### Creating & Configuration
+### Creating & Configuration
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -164,7 +164,7 @@ HttpClient client = vertx.createHttpClient(options);
 // HttpClient client = vertx.createHttpClient();
 ```
 
-#### Making requests
+### Making requests
 
 Simple request with no request body - `GET`
 
@@ -216,7 +216,7 @@ HttpClientRequest request = client.post("/uri", response -> {
 }).putHeader("Content-Length", "1024").end("I love u");
 ```
 
-#### Handling response
+### Handling response
 
 ```java
 HttpClientRequest request = client.post("/uri", response -> {
@@ -245,7 +245,7 @@ HttpClientRequest request = client.post("/uri", response -> {
 });
 ```
 
-#### Redirect
+### Redirect
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -269,7 +269,7 @@ client.redirectHandler(response -> {
 });
 ```
 
-#### HTTP 1.1 : 100-Continue
+### HTTP 1.1 : 100-Continue
 
 According to the HTTP 1.1 specification a client can set a header `Expect: 100-Continue` and send the request header before sending the rest of the request body.
 
@@ -307,23 +307,23 @@ This will be called if the server sends back a `Status: 100 (Continue)` response
   });
   ```
 
-#### Usage
+### Usage
 
 The `HttpClient` can be used in a _Verticle_ or embedded.
 
 When used in a _Verticle_, the _Verticle_ __should use its own client instance__.
 
-### HTTPS
+## HTTPS
 
 暂略
 
-### Automatic clean-up in Verticles
+## Automatic clean-up in Verticles
 
 _Verticles_ 解除部署时，内部创建的 `HttpServer` 和 `HttpClient` 会被自动关闭
 
 ---
 
-### Summary
+## Summary
 
 _Vert.x_ 的 _HTTP_ 部分功能强大
 

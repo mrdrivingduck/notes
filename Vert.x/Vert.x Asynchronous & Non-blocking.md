@@ -8,41 +8,35 @@ Longyou, Zhejiang, China
 
 ---
 
-### Asynchronous & Synconronous
+## Asynchronous & Synconronous
 
 同步 _I/O_ 模型和异步 _I/O_ 模型
 
 在 _POSIX_ 定义中，导致进程阻塞直到 _I/O_ 完成的操作是同步 _I/O_，反之则是异步 _I/O_
 
----
-
-### Blocking & Non-blocking
+## Blocking & Non-blocking
 
 阻塞：整个进程等待 _I/O_ 完成；在此过程中进程不能做别的事情
 
----
-
-### Theory
+## Theory
 
 _I/O_ 过程分为两个阶段
 
 1. 数据准备阶段（网络、磁盘、外设等） - 传输过程
 2. 数据从内核空间复制到用户空间 - `read()` 调用等过程
 
-####  Synchronous I/O
+###  Synchronous I/O
 
 * 同步阻塞 - 第 `1` 步完成后才返回
 * 同步非阻塞 - 第 `1` 步开始后即返回，但需要轮询第 `1` 步是否完成
 
 但是第 `2` 步都需要当前进程完成，如 _Linux Socket_
 
-#### Asynchronous I/O
+### Asynchronous I/O
 
 在第 `1` 步开始后返回，在第 `2` 步完成后才提醒用户
 
----
-
-### Example
+## Example
 
 >老张喜欢喝茶和看电视。
 >
@@ -58,7 +52,7 @@ _I/O_ 过程分为两个阶段
 
 ---
 
-### Summary
+## Summary
 
 __异步、非阻塞__ 是 _Vert.x_ 最有价值的部分
 

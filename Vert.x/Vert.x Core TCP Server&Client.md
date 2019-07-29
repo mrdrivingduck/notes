@@ -8,9 +8,9 @@ Nanjing, Jiangsu, China
 
 ---
 
-### TCP Server
+## TCP Server
 
-#### Creating & Configuration
+### Creating & Configuration
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -24,7 +24,7 @@ NetServer server = vertx.createNetServer(options);
 
 * `logging` 功能由 _Netty_ 提供，不由 _Vert.x_ 提供
 
-#### Handling incoming connections
+### Handling incoming connections
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -49,7 +49,7 @@ server.connectHandler(socket -> {               // Handle connections
 * 获得 _socket_、关闭 _socket_、读、写 - 全部都是 __异步__ 操作
 * `connectHandler` 必须在服务器开始监听前设置
 
-#### Starting to work
+### Starting to work
 
 ```java
 // server.listen(8081, "localhost");
@@ -62,7 +62,7 @@ server.listen(8081, "localhost", res -> {
 });
 ```
 
-#### Closing server
+### Closing server
 
 ```java
 server.close(res -> {
@@ -76,7 +76,7 @@ server.close(res -> {
 
 * 如果 `NetServer` 或 `NetClient` 是在 _Verticles_ 中创建的，那么在 _Verticles_ 解除部署时会自动 _clean-up_
 
-#### Multicore server
+### Multicore server
 
 * TCP Server 的 _handlers_ 总是在一个 _event loop thread_ 上执行 - _CPU_ 最多只有一个 _core_ 被使用
 * 如何利用多核 _CPU_ ？
@@ -109,9 +109,9 @@ __为什么多个服务器实例可以监听同一个端口不会发生冲突？
 * 到来的连接将会 __轮流分发__ 到任何一个 `connectHandler` 中
 * 每一个 `connectHandler` 依旧被单线程执行，但接受连接扩展到了多核心上 - __并发 &rarr; 并行__
 
-### TCP Client
+## TCP Client
 
-#### Creating & Configuration
+### Creating & Configuration
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -127,7 +127,7 @@ NetClient client = vertx.createNetClient(options);
 * 目前 _Vert.x_ 不支持 __连接中途中断__ 后的重新连接
 * 重新连接的尝试次数与间隔 __只对初始连接有效__
 
-#### Making connections
+### Making connections
 
 ```java
 Vertx vertx = Vertx.vertx();
@@ -145,13 +145,13 @@ client.connect(8080, "localhost", res -> {
 });
 ```
 
-### Enable SSL/TLS for server & client
+## Enable SSL/TLS for server & client
 
 暂略，等有需求时再详细研究
 
 ---
 
-### Summary
+## Summary
 
 __传输层__ _Socket_ 的简单异步封装
 

@@ -8,11 +8,11 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _Buffer_ - a sequence of zero or more bytes that can read from or written to and which expands automatically as necessary to accommodate any bytes written to it. You can perhaps think of a buffer as smart byte array.
 
-### Creating
+## Creating
 
 提供几个静态的函数：`Buffer.buffer`
 
@@ -42,7 +42,7 @@ _Buffer_ - a sequence of zero or more bytes that can read from or written to and
   Buffer buf = Buffer.buffer(1024);
   ```
 
-### Writing to Buffer
+## Writing to Buffer
 
 _buffer_ 会自动增长以容纳字节 - 永远不会报 `IndexOutOfBoundException`
 
@@ -73,16 +73,16 @@ _buffer_ 会自动增长以容纳字节 - 永远不会报 `IndexOutOfBoundExcept
     buf.setString(1000, "I love u");
     ```
 
-### Reading from Buffer
+## Reading from Buffer
 
 * 使用 `getXXX` 函数族
 * 该函数族的第一个参数为 `int index`，指示想要开始读取 _buffer_ 的位置
 
-### Working with unsigned numbers
+## Working with unsigned numbers
 
 _Vert.x_ 支持无符号的 `getUnsignedXXX`、`setUnsignedXXX`、`appendUnsignedXXX`
 
-### Others
+## Others
 
 `length()` - 得到 _buffer_ 的长度
 
@@ -90,13 +90,13 @@ _Vert.x_ 支持无符号的 `getUnsignedXXX`、`setUnsignedXXX`、`appendUnsigne
 
 `sclice()` - 得到 _buffer_ 的片段 __不拷贝底层数据__
 
-### Buffer Re-use
+## Buffer Re-use
 
 "After writing a buffer to a socket or other similar place, they cannot be re-used."
 
 ---
 
-### Summary
+## Summary
 
 在实现 `MessageCodec` 时需要用到 _buffer_
 

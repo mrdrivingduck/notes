@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _Event Bus（事件总线）_ 是 _Vert.x_ 的神经系统
 
@@ -18,15 +18,15 @@ _Event Bus（事件总线）_ 是 _Vert.x_ 的神经系统
 * 通信无视实现语言
 * 支持多 _nodes_ 的分布式对等消息系统
 
-### Theory
+## Theory
 
-#### Addressing
+### Addressing
 
 * _Messages_ 被送往指定的地址
 * 地址的形式是一个简单的 _String_
 * _Vert.x_ 不关心地址的具体形式，但最好在开发时人为制定一种模式
 
-#### Handlers
+### Handlers
 
 * _handlers_ 被注册在一个地址上
 * 消息在 _handlers_ 中被接收到
@@ -60,7 +60,7 @@ msgConsumer.handler(message -> {
 });
 ```
 
-#### Message Codec
+### Message Codec
 
 对 __自定义对象__ 进行编码/解码
 
@@ -131,7 +131,7 @@ msgConsumer.handler(message -> {
     // eb.unregisterDefaultCodec(Entity.class);
     ```
 
-#### Message
+### Message
 
 在 _handlers_ 中被接收
 
@@ -153,9 +153,9 @@ msgConsumer.handler(message -> {
 
 可手动设定发送失败信息
 
-### Messaging Pattern
+## Messaging Pattern
 
-#### Publish / Subscribe
+### Publish / Subscribe
 
 消息被发布到某一个地址，__所有__ 注册到该地址的 _handlers_ 都会接收到消息
 
@@ -176,7 +176,7 @@ eb.consumer("ADDRESS", message -> {
 eb.publish("ADDRESS", "2345");
 ```
 
-#### Request / Response
+### Request / Response
 
 是一种 __point-to-point__ 的模式
 
@@ -221,7 +221,7 @@ eb.send("ADDRESS", "Hello", req -> {
 
 ---
 
-### Summary
+## Summary
 
 主要弄清楚两种信息发送模式的区别
 

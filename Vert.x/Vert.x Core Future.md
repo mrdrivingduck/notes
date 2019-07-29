@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 _Future_ 在 _Vert.x_ 中用于 __异步协同__
 
@@ -21,7 +21,7 @@ _Future_ 在 _Vert.x_ 中用于 __异步协同__
 * 对几个 __并行__ 的异步事件的执行结果进行汇总协同
 * 对有链式前驱关系的 __串行__ 异步事件的结果进行协同
 
-### Concurrent composition
+## Concurrent composition
 
 Running several asynchronous operations in parallel.
 
@@ -55,7 +55,7 @@ Running several asynchronous operations in parallel.
     * 协同成功 - 当且仅当所有的 `Future` 返回成功
     * 协同失败 - 所有的 `Future` 都已完成且至少有一个 `Future` 失败
 
-#### e.g.
+e.g.
 
 初始化并取得 `Future<?>` 实例
 
@@ -103,7 +103,7 @@ CompositeFuture.all(Arrays.asList(httpServerFuture, netServerFuture)).setHandler
 });
 ```
 
-### Sequential composition
+## Sequential composition
 
 Chain asynchronous operations.
 
@@ -129,7 +129,7 @@ Chain asynchronous operations.
     * 最后一个 `Future<?>` 结束后，调用链结束
 * 为结束状态的 `Future<?>` 设置 `Handler`，在链式操作结束后被调用
 
-#### e.g.
+e.g.
 
 初始化结束状态 `Future<?>`
 
@@ -192,7 +192,7 @@ endFuture.setHandler(v -> {
 
 ---
 
-### Summary
+## Summary
 
 这篇 _note_ 写了三个多小时。。。
 

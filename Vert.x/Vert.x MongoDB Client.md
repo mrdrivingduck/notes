@@ -8,11 +8,11 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 A Vert.x client allowing applications to interact with a MongoDB instance, whether that’s saving, retrieving, searching, or deleting documents.
 
-### Features
+## Features
 
 - Completely non-blocking
 - Custom codec to support fast serialization to/from Vert.x JSON
@@ -20,7 +20,7 @@ A Vert.x client allowing applications to interact with a MongoDB instance, wheth
 
 Based on _MongoDB Async Driver_
 
-### Attention
+## Attention
 
 The client is __Asynchronous__, so the client must be waiting until the connection established.
 
@@ -28,7 +28,7 @@ Or, the `main` method is finishing before calling to the database finishes.
 
 _One possible solution :_ Instantiate `MongoClient` in a _Verticle_
 
-### Operation - save
+## Operation - save
 
 To save a document from a `JsonObject`
 
@@ -57,7 +57,7 @@ mongoClient.save("books", document, res -> {
 });
 ```
 
-### Operation - insert
+## Operation - insert
 
 To insert a document from a `JsonObject`
 
@@ -66,7 +66,7 @@ To insert a document from a `JsonObject`
 * Else (the document has `_id` field)
   * If a document with that `_id` already exists &rarr; __Fail__
 
-### Operation - update
+## Operation - update
 
 to update documents
 
@@ -114,7 +114,7 @@ mongoClient.updateCollectionWithOptions("books", query, update, options, res -> 
 });
 ```
 
-### Operation - replace
+## Operation - replace
 
 To replace a document - __replace the entire document with the one provided__
 
@@ -135,7 +135,7 @@ mongoClient.replaceDocuments("books", query, update, res -> {
 });
 ```
 
-### Operation - find
+## Operation - find
 
 To find documents
 
@@ -167,9 +167,9 @@ mongoClient.find("books", query, res -> {
 });
 ```
 
-#### Find in batches - 暂略
+### Find in batches - 暂略
 
-### Operation - remove
+## Operation - remove
 
 To remove documents
 
@@ -193,7 +193,7 @@ mongoClient.removeDocuments("books", query, res -> {
 });
 ```
 
-### Operation - count
+## Operation - count
 
 To count documents
 
@@ -216,7 +216,7 @@ mongoClient.count("books", query, res -> {
 });
 ```
 
-### Operation - Collections
+## Operation - Collections
 
 Get a list of all collections
 
@@ -254,7 +254,7 @@ mongoClient.dropCollection("mynewcollectionr", res -> {
 });
 ```
 
-### Configuration
+## Configuration
 
 Client can be created with a configuration file
 
@@ -321,7 +321,7 @@ Client can be created with a configuration file
 
 ---
 
-### Summary
+## Summary
 
 一开始对 _MongoDB_ 本身不是特别了解
 

@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 `Router` 向多个挂载的 `Route` 转发接收到的 _HTTP_ 请求
 
@@ -16,7 +16,7 @@ Nanjing, Jiangsu, China
 
 用于过滤不同的 _HTTP_ 请求，触发不同业务逻辑的 _handler_
 
-### Routing by exact path
+## Routing by exact path
 
 指定 _URL_ 的过滤
 
@@ -32,7 +32,7 @@ route.handler(routingContext -> {
 });
 ```
 
-### Routing by paths that begin with sth.
+## Routing by paths that begin with sth.
 
 ```java
 Route route = router.route("/test/next/*");
@@ -42,7 +42,7 @@ route.handler(routingContext -> {
 })
 ```
 
-### Capturing path parameters
+## Capturing path parameters
 
 ```java
 Route route = router.route(HttpMethod.POST, "/test/param/:user/:passwd/");
@@ -56,7 +56,7 @@ route.handler(routingContext -> {
 });
 ```
 
-### Routing with regular expressions
+## Routing with regular expressions
 
 ```java
 Route route = router.route().pathRegex(".*foo");
@@ -67,7 +67,7 @@ route.handler(routingContext -> {
 });
 ```
 
-### Capturing path parameters with regular expressions
+## Capturing path parameters with regular expressions
 
 ```java
 Route route = router.routeWithRegex(".*123")
@@ -85,7 +85,7 @@ Route route = router.routeWithRegex(".*123")
  */
 ```
 
-### Using named capture groups
+## Using named capture groups
 
 ```java
 Route route = router.routeWithRegex(".*123")
@@ -96,7 +96,7 @@ Route route = router.routeWithRegex(".*123")
     });
 ```
 
-### Routing by HTTP method
+## Routing by HTTP method
 
 ```java
 Route route = router.route().method(HttpMethod.POST);
@@ -137,7 +137,7 @@ route.handler(routingContext -> {
 });
 ```
 
-### Routing by Content-Type of request
+## Routing by Content-Type of request
 
 ```java
 router.route()
@@ -152,7 +152,7 @@ router.route()
   * `text/*`
   * `*/json`
 
-### Routing by Accept types of client
+## Routing by Accept types of client
 
 `Accept` 字段位于 _HTTP_ 的 __请求头部__，指明客户端可以接受的 _MIME_ 类型
 
@@ -178,7 +178,7 @@ router.route()
     });
 ```
 
-### Enable & Disable
+## Enable & Disable
 
 The __match__ can be enabled or disabled
 
@@ -189,7 +189,7 @@ route.disable();
 
 ---
 
-### Summary
+## Summary
 
 _Vert.x Web_ 提供的路由过滤方式足够多了
 
