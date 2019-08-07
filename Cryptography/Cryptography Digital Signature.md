@@ -1,4 +1,4 @@
-# Algorithm - Digital Signature 数字签名
+# Cryptography - Digital Signature 数字签名
 
 Created by : Mr Dk.
 
@@ -8,15 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Target
+## Target
 
 * 保证信息传输的完整性
 * 发送者的身份认证
 * 防止交易中的抵赖
 
-### 前提概念：[非对称加密算法](https://github.com/mrdrivingduck/notes/blob/master/Algorithm/Algorithm%20Symmetric%26Asymmetric%20Encryption.md)
+## 前提概念：[非对称加密算法](https://github.com/mrdrivingduck/notes/blob/master/Algorithm/Algorithm%20Symmetric%26Asymmetric%20Encryption.md)
 
-### 前提概念：Digest 数字摘要
+## 前提概念：Digest 数字摘要
 
 一种 __单向、不可逆__ 的加密算法
 
@@ -45,14 +45,14 @@ Nanjing, Jiangsu, China
   * 输出长度为 256 bit (32 Bytes)
 * ...
 
-### 数字签名
+## 数字签名
 
 定义了两个互补的运算操作：
 
 * 数字签名 - 一个加密的过程
 * 数字签名验证 - 一个解密的过程
 
-### 签名过程
+## 签名过程
 
 * 发送方使用 _hash_ 函数对报文文本生成 __数字摘要__
 * 发送方使用自己的 __私钥__ 对数字摘要进行加密 - _数字签名_
@@ -65,7 +65,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Summary
+## Summary
 
 了解 _数字证书_ 知识的前提
 

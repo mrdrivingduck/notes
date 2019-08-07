@@ -1,4 +1,4 @@
-# Algorithm - RC4
+# Cryptography - RC4
 
 Created by : Mr Dk.
 
@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Concept
+## Concept
 
 _RC4（Rivest Cipher 4）_ 是一种流加密算法
 
@@ -16,9 +16,9 @@ _RC4（Rivest Cipher 4）_ 是一种流加密算法
 * 对称加密
 * 曾在 _SSL / TLS_ 、 _WEP_ 、 _WPA_ 等算法中被使用
 
-### Theory
+## Theory
 
-#### 初始化算法 KSA（Key-Scheduling Algorithm）
+### 初始化算法 KSA（Key-Scheduling Algorithm）
 
 初始化一个固定长度的 _S-box_
 
@@ -26,7 +26,7 @@ _RC4（Rivest Cipher 4）_ 是一种流加密算法
 
 根据任意长度（1-255）的密钥打乱 _S-box_
 
-#### 伪随机子密码生成算法 PRGA（Pseudo-Random Generation Algorithm）
+### 伪随机子密码生成算法 PRGA（Pseudo-Random Generation Algorithm）
 
 每收到一个字节，就通过算法定位 _S-box_ 中的一个元素
 
@@ -39,7 +39,7 @@ _RC4（Rivest Cipher 4）_ 是一种流加密算法
 
 ---
 
-### Summary
+## Summary
 
 对密码学不是太懂
 

@@ -1,4 +1,4 @@
-# Algorithm - Digital Certificate 数字证书
+# Cryptography - Digital Certificate 数字证书
 
 Created by : Mr Dk.
 
@@ -8,15 +8,15 @@ Nanjing, Jiangsu, China
 
 ---
 
-### Precondition
+## Precondition
 
 * Asymmetric & Symmetric encryption algorithm
 * Digital signature
 * Digital Digest (Finger Print)
 
-### An evolution of a communication
+## An evolution of a communication
 
-#### Round 1
+### Round 1
 
 _client_ &rarr; _server_ : Hello.
 
@@ -35,7 +35,7 @@ _client_ &rarr; _server_ : "......"
 * 由于只有服务器持有自己的 _私钥_
 * 那么客户端只要用服务器的 _公钥_ 解密，那么就可以保证通信对方是服务器
 
-#### Round 2
+### Round 2
 
 _client_ &rarr; _server_ : Hello.
 
@@ -51,7 +51,7 @@ _server_ &rarr; _client_ : { money = $$$ }[ _RSA_ 私钥加密 ]
 
 解决问题：
 
-* 黑客由于没有服务器的 _私钥_，因此无法冒充服务器
+* 黑客由于没有服务器的 _私钥_ ，因此无法冒充服务器
 
 存在问题：
 
@@ -64,7 +64,7 @@ _server_ &rarr; _client_ : { money = $$$ }[ _RSA_ 私钥加密 ]
 * 引入对称加密机制
   * 在可靠的单向通信中商定一个对称加密算法及其密钥
 
-#### Round 3
+### Round 3
 
 _client_ &rarr; _server_ : Hello.
 
@@ -89,7 +89,7 @@ _server_ &rarr; _client_ : { money = $$$ }[ 对称加密算法加密 ]
 * 由于 _对称加密算法和密钥_ 由公钥加密，由于黑客没有私钥，因此无法破解
 * 保证只有服务器知道用于此次会话中对称加密算法的密钥
 
-通过 __非对称加密算法__ （如 _RSA_）的掩护
+通过 __非对称加密算法__ （如 _RSA_ ）的掩护
 
 服务器和客户端安全地商量了一个 __对称加密算法__ 及其 __密钥__，保证了之后通信过程的安全
 
@@ -114,7 +114,7 @@ _server_ &rarr; _client_ : { money = $$$ }[ 对称加密算法加密 ]
   * 指纹及使用算法（摘要）
 * 假设前提：数字证书可保证数字证书中的 _公钥_ 确实是证书所有者的
 
-#### 完整过程
+### 完整过程
 
 * 客户端向服务器发送一个通信请求
 * 服务器向客户端发送自己的数字证书，其中包含服务器 _公钥_
@@ -122,7 +122,7 @@ _server_ &rarr; _client_ : { money = $$$ }[ 对称加密算法加密 ]
   * 由于只有服务器有 _私钥_ 用于解密，确保了这一过程的安全性
 * 服务器与客户端使用对称加密算法通信
 
-### Components of Certificate
+## Components of Certificate
 
 * _Issuer_ （证书发布机构）
   * 证书的创建者，不是使用者
@@ -139,7 +139,7 @@ _server_ &rarr; _client_ : { money = $$$ }[ 对称加密算法加密 ]
   * 指纹被签名算法和 _CA_ 机构私钥加密后，与证书放在一起
   * 保证证书的 __完整性__ 与 __非篡改性__
 
-### Procedure
+## Procedure
 
 _CA_ 机构除了向别人发布证书外，也有自己的证书
 
@@ -169,7 +169,7 @@ _CA_ 机构除了向别人发布证书外，也有自己的证书
 
 ---
 
-### Summary
+## Summary
 
 整套数字证书机制如何保证安全性？
 
