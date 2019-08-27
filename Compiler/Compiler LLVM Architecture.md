@@ -226,7 +226,7 @@ for (BasicBlock::iterator I = BB->begin(), E = BB->end(); I != E; ++I)
 在 LLVM 架构下
 
 * 前端负责语法分析、语法检验、错误诊断，将代码转换为 AST，再转换为 LLVM IR
-* IR 被 Optimization passes 优化
+* IR 被 optimization passes 优化
 * 后端负责目标平台机器码的生成
 
 LLVM IR 是优化器能获得的完全且唯一的接口
@@ -291,7 +291,7 @@ LLVM PassManager 不知道每个 pass 中的具体细节
 独立优化器的思想
 
 * LLVM 提供很多库，但不知道如何使用它们
-* 库的使用者 (e.g. Clang) 决定如何使用这些库，已达到最好的效果
+* 库的使用者 (e.g. Clang) 决定如何使用这些库，以达到最好的效果
 
 ---
 
