@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 > npm 为你和你的团队打开了连接整个 JavaScript 天才世界的一扇大门。它是世界上最大的软件注册表，每星期大约有 30 亿次的下载量，包含超过 600000 个 _包（package）_ （即，代码模块）。来自各大洲的开源软件开发者使用 npm 互相分享和借鉴。包的结构使您能够轻松跟踪依赖项和版本。
 
@@ -23,7 +23,7 @@ npm 包含三个独立的部分：
 
 ---
 
-### Manage NPM
+## Manage NPM
 
 查看 npm 当前版本：
 
@@ -39,7 +39,7 @@ $ npm install npm@latest -g
 
 ---
 
-### Install Packages
+## Install Packages
 
 * 本地安装
   * 自己的模块依赖于某个包，并通过 Node.js 的 `require` 加载时使用
@@ -51,7 +51,7 @@ $ npm install npm@latest -g
 
 ---
 
-### Update Packages
+## Update Packages
 
 * 本地包更新
   * 在 `package.json` 文件所在的目录执行 `npm update`
@@ -63,7 +63,7 @@ $ npm install npm@latest -g
 
 ---
 
-### Uninstall Packages
+## Uninstall Packages
 
 * 卸载本地包
   * `npm uninstall <package_name>`
@@ -73,7 +73,7 @@ $ npm install npm@latest -g
 
 ---
 
-### package.json
+## package.json
 
 The best way to manage locally installed npm packages is to create a `package.json` file.
 
@@ -82,7 +82,7 @@ The best way to manage locally installed npm packages is to create a `package.js
 * `"name"`
 * `"version"`
 
-#### How to create?
+### How to create?
 
 * 创建一个个人的 `package.json`
 
@@ -110,7 +110,7 @@ __NOTE:__
 
 >If there is no description field in the `package.json`, npm uses the first line of the `README.md` or README instead. The description helps people find your package when searching npm, so it's definitely useful to make a custom description in the `package.json` to make your package easier to find.
 
-#### Dependencies
+### Dependencies
 
 To add an entry to your `package.json`'s `dependencies`:
 
@@ -128,7 +128,7 @@ $ npm install <package_name> --save-dev
 
 ---
 
-### Source
+## Source
 
 #### Setting
 
@@ -145,7 +145,7 @@ $ npm info express
 
 ---
 
-### Reference
+## Reference
 
 NPM 官方网站- [https://www.npmjs.com/](https://www.npmjs.com/)
 
@@ -153,7 +153,7 @@ NPM 中文文档 - [https://www.npmjs.cn/](https://www.npmjs.cn/)
 
 ---
 
-### Summary
+## Summary
 
 学 Vue.js 之前的预备知识
 

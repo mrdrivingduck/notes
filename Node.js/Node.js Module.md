@@ -8,7 +8,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### About
+## About
 
 随着代码来越来越多
 
@@ -27,7 +27,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### Usage
+## Usage
 
 在模块中将函数暴露出去：
 
@@ -44,7 +44,7 @@ func();
 
 ---
 
-### Theory of Module
+## Theory of Module
 
 __Closure__ - 将模块中的函数包装
 
@@ -58,7 +58,7 @@ __Closure__ - 将模块中的函数包装
 
 ---
 
-### Inner Object
+## Inner Object
 
 #### `global`
 
@@ -73,7 +73,7 @@ JavaScript 的全局对象：
 
 ---
 
-### Inner Module
+## Inner Module
 
 #### `fs`
 
@@ -106,7 +106,7 @@ Node.js 中的 __流__ 是一个对象
 
 ---
 
-### Summary
+## Summary
 
 所以 总体上感觉 Node.js 就是 Python + Vert.x 的杂糅版
 

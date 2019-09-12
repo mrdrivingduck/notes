@@ -8,7 +8,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-### About
+## About
 
 __Node.js&reg;__ is a JavaScript runtime built on [Chrome's V8 JavaScript engine](https://developers.google.com/v8/).
 
@@ -21,7 +21,7 @@ $ npm -v
 
 感觉分别类似于 `python` 和 `pip`
 
-### Environment
+## Environment
 
 可以进入交互式环境，按行运行 JavaScript 代码：
 
@@ -41,7 +41,7 @@ $ node test.js
 
 ---
 
-### Summary
+## Summary
 
 所以说感觉各类技术都学一学
 
