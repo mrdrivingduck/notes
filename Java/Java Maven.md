@@ -26,20 +26,22 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 首先找到 _Maven_ 的 _setting file_ - `${user.home}/.m2/settings.xml` （如果没有需要手动创建）
 
+> 在 Linux 中：`maven/conf/setting.xml` (似乎 Windows 也 OK？？？ 😧)
+
 在配置文件中加入内容，添加国内的阿里云镜像：
 
 ```xml
 <settings>
-    
-    <mirrors>
-        <mirror>  
-	        <id>nexus-aliyun</id>  
-	        <name>Nexus aliyun</name>  
-	        <url>http://maven.aliyun.com/nexus/content/groups/public</url>    
-	        <mirrorOf>central</mirrorOf>  
-        </mirror> 
-    </mirrors>
-    
+  <mirrors>
+        
+    <mirror>  
+      <id>nexus-aliyun</id>  
+      <name>Nexus aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+      <mirrorOf>central</mirrorOf>  
+    </mirror> 
+        
+  </mirrors>
 </settings>
 ```
 
@@ -47,7 +49,7 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 ## Project
 
-在 _Eclipse_ 中新建一个 _Maven project_，里面有很多个工程模板，根据需求选择（一般选择 `quickstart` 即可）
+在 _Eclipse_ 中新建一个 Maven project，里面有很多个工程模板，根据需求选择（一般选择 `quickstart` 即可）
 
 * 填写 `groupId`、`artifactId`、`version`
 
@@ -65,22 +67,22 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
   ```xml
   <project>
-      <dependencies>
+    <dependencies>
     
-          <dependency>
-              <groupId>junit</groupId>
-              <artifactId>junit</artifactId>
-              <version>3.8.1</version>
-              <scope>test</scope>
-          </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>3.8.1</version>
+        <scope>test</scope>
+      </dependency>
       
-          <dependency>
-              <groupId>io.vertx</groupId>
-              <artifactId>vertx-core</artifactId>
-              <version>3.5.4</version>
-          </dependency>
+      <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-core</artifactId>
+        <version>3.5.4</version>
+      </dependency>
       
-      </dependencies>
+    </dependencies>
   </project>
   ```
 
@@ -96,7 +98,7 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 ## Command
 
-在 `cmd` 中或在 `eclipse` 中直接运行命令
+在 cmd 中直接运行命令
 
 * `mvn compile` - 将 _Java_ 源文件编译为 `.class` 文件
 * `mvn test` - 测试，并生成测试报告
@@ -105,13 +107,13 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 * `mvn install` - 打包并放入 `maven` 本地仓库中
 * ...
 
-在 `eclipse` 中的操作步骤：
+在 eclipse 中的操作步骤：
 
 * 选择 `Run As`
 * 选择 `Maven build `
 * 在其中的 `Goals` 中填入对应的命令 - 如 `compile`、`install` 等
 
-在 `Visual Studil Code` 中的 `Maven for Java` 插件的帮助下可直接运行命令：
+在 Visual Studio Code 中的 `Maven for Java` 插件的帮助下可直接运行命令：
 
 ![maven-cmd](../img/maven-cmd.png)
 
@@ -129,18 +131,18 @@ _Maven_ 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.mav
 
 ```xml
 <build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.6.0</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-                <encoding>UTF-8</encoding>
-            </configuration>
-        </plugin>
-    </plugins>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.6.0</version>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+        <encoding>UTF-8</encoding>
+      </configuration>
+    </plugin>
+  </plugins>
 </build>
 ```
 
