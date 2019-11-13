@@ -32,7 +32,7 @@ Ningbo, Zhejiang, China
 
 ## 国内端口扫描
 
-扫描网站 - [http://coolaf.com/tool/port](https://www.vultrcn.com/goto/?url=aHR0cDovL2Nvb2xhZi5jb20vdG9vbC9wb3J0)
+扫描网站 - [http://coolaf.com/tool/port](http://coolaf.com/tool/port)
 
 输入服务器的 _IP_ 地址和 _SSH_ 端口（`22`）
 
@@ -44,7 +44,7 @@ Ningbo, Zhejiang, China
 
 ## 境外端口扫描
 
-扫描网站 - [https://www.yougetsignal.com/tools/open-ports](https://www.vultrcn.com/goto/?url=aHR0cHM6Ly93d3cueW91Z2V0c2lnbmFsLmNvbS90b29scy9vcGVuLXBvcnRzLw==)
+扫描网站 - [https://www.yougetsignal.com/tools/open-ports](https://www.yougetsignal.com/tools/open-ports)
 
 输入服务器的 _IP_ 地址和 _SSH_ 端口
 

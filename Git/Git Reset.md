@@ -72,7 +72,7 @@ Git 主要通过操作上述三棵树的状态来进行版本控制
 * 将暂存区 `Index` 中的变更提交到 `HEAD`
 * 树之间可以进行状态转移、切换
 
-![git-reset-workflow](../img/git-reset-workflow.png)
+<img src="../img/git-reset-workflow.png" alt="git-reset-workflow" style="zoom: 80%;" />
 
 ### 一次正常的提交过程
 
@@ -80,19 +80,19 @@ Git 主要通过操作上述三棵树的状态来进行版本控制
 
 在上一次的 `git commit` 提交完成之后：
 
-![git-last-commit](../img/git-last-commit.png)
+<img src="../img/git-last-commit.png" alt="git-last-commit" style="zoom:80%;" />
 
 接下来，对工作目录中的 `file.txt` 进行了相应的改动，改动后的版本为 `V2`：
 
-![git-edit-file](../img/git-edit-file.png)
+<img src="../img/git-edit-file.png" alt="git-edit-file" style="zoom:80%;" />
 
 接下来，使用 `git add file.txt` 将 `V2` 版本保存到暂存区：
 
-![git-add-file](../img/git-add-file.png)
+<img src="../img/git-add-file.png" alt="git-add-file" style="zoom:80%;" />
 
 最后，使用 `git commit` 将 `V2` 版本从暂存区中提交，`HEAD` 指针前进：
 
-![git-commit](../img/git-commit.png)
+<img src="../img/git-commit.png" alt="git-commit" style="zoom:80%;" />
 
 只要三棵树的状态一致，就认为目录是干净的
 
@@ -116,7 +116,7 @@ Git 主要通过操作上述三棵树的状态来进行版本控制
 
 `git reset --soft` 在这一步结束后停止：
 
-![git-reset-soft](../img/git-reset-soft.png)
+<img src="../img/git-reset-soft.png" alt="git-reset-soft" style="zoom:80%;" />
 
 在这一步中，可以对 `Index` 进行更新，并重新 `git commit`
 
@@ -134,7 +134,7 @@ Git 主要通过操作上述三棵树的状态来进行版本控制
 
 `git reset [--mixed]` 在这一步结束后停止
 
-![git-reset-mixed](../img/git-reset-mixed.png)
+<img src="../img/git-reset-mixed.png" alt="git-reset-mixed" style="zoom:80%;" />
 
 ### Hard
 
@@ -144,7 +144,7 @@ Git 主要通过操作上述三棵树的状态来进行版本控制
 
 `git reset --hard` 在这一步结束后停止：
 
-![git-reset-hard](../img/git-reset-hard.png)
+<img src="../img/git-reset-hard.png" alt="git-reset-hard" style="zoom:80%;" />
 
 `git reset --hard` 是一个危险的操作，因为它强制覆盖了工作目录中的文件，无法恢复
 
@@ -174,7 +174,7 @@ Git 的 `reset` 命令以特定顺序重写三棵树：
 
 实际上：产生了 __取消暂存文件__ 的效果：
 
-![git-reset-file](../img/git-reset-file.png)
+<img src="../img/git-reset-file.png" alt="git-reset-file" style="zoom:80%;" />
 
 ---
 

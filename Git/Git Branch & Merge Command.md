@@ -61,7 +61,7 @@ $ git branch --set-upstream-to=origin/dev
 
 ### Effect
 
-![git-branch-cmd](../img/git-branch-cmd.png)
+<img src="../img/git-branch-cmd.png" alt="git-branch-cmd" style="zoom:50%;" />
 
 ### git branch <branch_name>
 
@@ -91,7 +91,7 @@ Git 会将文件目录中的文件状态恢复为不同分支对应的状态
 
 ### Effect
 
-![git-branch-set-upstream](../img/git-branch-set-upstream.png)
+<img src="../img/git-branch-set-upstream.png" alt="git-branch-set-upstream" style="zoom:50%;" />
 
 ---
 
@@ -133,19 +133,19 @@ $ git push origin --delete dev
 
 ### Effect
 
-![git-merge-cmd](../img/git-merge-cmd.png)
+<img src="../img/git-merge-cmd.png" alt="git-merge-cmd" style="zoom:50%;" />
 
 合并后，本地分支的提交次数应该比远程分支提前（__ahead__）
 
 此时，使用 `git push` 将本地分支的提交到远程分支
 
-![git-push-merged-branch](../img/git-push-merged-branch.png)
+<img src="../img/git-push-merged-branch.png" alt="git-push-merged-branch" style="zoom:50%;" />
 
 此时，本地的 `dev` 分支已被删除，但远程的 `dev` 分支依旧存在
 
 在命令行中将远程 `dev` 删除：
 
-![git-rm-remote-branch](../img/git-rm-remote-branch.png)
+<img src="../img/git-rm-remote-branch.png" alt="git-rm-remote-branch" style="zoom:50%;" />
 
 ---
 
@@ -155,11 +155,11 @@ $ git push origin --delete dev
 
 ### Effect
 
-![git-merge-conflict](../img/git-merge-conflict.png)
+<img src="../img/git-merge-conflict.png" alt="git-merge-conflict" style="zoom:50%;" />
 
 产生冲突的部分如下：
 
-![git-conflict-code](../img/git-conflict-code.png)
+<img src="../img/git-conflict-code.png" alt="git-conflict-code" style="zoom:50%;" />
 
 目前分支处于 `master|MERGING` 的状态
 
@@ -167,11 +167,11 @@ $ git push origin --delete dev
 
 此后将 merge 推送到远程分支
 
-![git-push-conflict](../img/git-push-conflict.png)
+<img src="../img/git-push-conflict.png" alt="git-push-conflict" style="zoom:50%;" />
 
 删除合并后的无用本地和远程分支
 
-![git-push-rm-merged-branch](../img/git-push-rm-merged-branch.png)
+<img src="../img/git-push-rm-merged-branch.png" alt="git-push-rm-merged-branch" style="zoom:50%;" />
 
 ---
 
@@ -185,7 +185,7 @@ $ git push origin --delete dev
 
 在具体的冲突处理中
 
-用 Vim 还是算了吧 :sweat_smile: 一点都不直观
+用 Vim 还是算了吧 😅 一点都不直观
 
 还是 Visual Studio Code 里的 Git 插件简洁明了
 

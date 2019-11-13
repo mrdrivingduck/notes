@@ -28,17 +28,17 @@ Running several asynchronous operations in parallel.
 大致调用原理：
 
 * 初始化并取得一个 `Future<?>` 实例
-* 在异步操作的 `Handler` 参数中传入一个 `Handler<AsyncResult<?>>`
+* 在异步操作的 handler 参数中传入一个 `Handler<AsyncResult<?>>`
   * 异步操作包括：
-    * `HttpServer` 或 `NetServer` 的端口绑定与监听
-    * `MongoClient` 的数据库操作
+    * HttpServer 或 NetServer 的端口绑定与监听
+    * MongoClient 的数据库操作
     * ...
-  * 该 `Handler` 中包含异步操作的结果 `AsyncResult<?>`
-  * 在该 `Handler` 中实现 `Future<?>` 的 `complete` 或 `fail` 的逻辑
+  * 该 handler 中包含异步操作的结果 `AsyncResult<?>`
+  * 在该 handler 中实现 `Future<?>` 的 `complete` 或 `fail` 的逻辑
   * 以上所有泛型根据异步操作中的 `Handler<AsyncResult<?>>` 参数的泛型决定
-* 在异步操作结束时，自动调用 `Handler` 来决定 `Future` 的完成或是失败
-* `CompositeFuture` 接收多个 `Future` 参数，并挂载 `Handler` 来协同所有 `Future` 完成后的结果
-  * `Handler` 中携带的参数为 `CompositeFuture` - 其中包含执行状态（成功/失败）
+* 在异步操作结束时，自动调用 handler 来决定 Future 的完成或是失败
+* `CompositeFuture` 接收多个 `Future` 参数，并挂载 handler 来协同所有 `Future` 完成后的结果
+  * handler 中携带的参数为 `CompositeFuture` - 其中包含执行状态（成功/失败）
 
 协同模式
 
@@ -116,18 +116,18 @@ Chain asynchronous operations.
 * 从起始 `Future<?>` 实例开始链式调用 `compose()` 函数
   * 调用者 `Future<?>` 的状态改变为 _完成_ 时被调用
   * 调用链中间环节版本 - `compose(Handler<AsyncResult<?>>)`
-    * `Handler` 中包含异步操作结果 `AsyncResult<?>`，可对结果进行操作
+    * handler 中包含异步操作结果 `AsyncResult<?>`，可对结果进行操作
     * 取得下一个 `Future<?>` 实例
-    * 在下一个异步操作中传入 `Handler`，其中实现了下一个 `Future<?>` 的完成状态
+    * 在下一个异步操作中传入 handler，其中实现了下一个 `Future<?>` 的完成状态
     * 在该 `compose()` 中返回下一个 `Future<?>` 实例
     * 使用 _fluent API_ 链式调用下一个 `Future<?>` 实例的 `compose()`
     * 下一个 `compose()` 会在下一个 `Future<?>` 的状态为完成时被调用
   * 调用链结束版本 - `compose(Handler<AsyncResult<?>>, Future<?>)`
-    * `Handler` 中包含异步操作结果 `AsyncResult<?>`，可对结果进行操作
+    * handler 中包含异步操作结果 `AsyncResult<?>`，可对结果进行操作
     * 参数中的 `Future<?>` 为一开始定义的协同结束状态
     * 对结果处理完毕后，需要对代表结束状态的 `Future<?>` 实现完成/失败逻辑
     * 最后一个 `Future<?>` 结束后，调用链结束
-* 为结束状态的 `Future<?>` 设置 `Handler`，在链式操作结束后被调用
+* 为结束状态的 `Future<?>` 设置 handler，在链式操作结束后被调用
 
 e.g.
 
