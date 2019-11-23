@@ -42,7 +42,6 @@ $ java -jar xxx.jar
 Manifest-Version: 1.0 
 Main-Class: iot.zjt.protector.FileProtector 
 Class-Path: lib/encryption-machine-1.1.jar 
-
 ```
 
 Attention
@@ -62,7 +61,7 @@ Attention
 
 导出完成后，`xxx.jar` 会在同目录下的 `lib/` 中寻找依赖的其余 JAR
 
-* 总觉得不太爽 :triumph:
+* 总觉得不太爽 😤
 
 ### 直接用 Eclipse 导出
 
