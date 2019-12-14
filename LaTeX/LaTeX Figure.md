@@ -48,7 +48,7 @@ plt.savefig('out/accuracy.pdf', format='pdf')
 
 ---
 
-## Insertion
+## Insert an figure
 
 ```latex
 \begin{figure}[!htbp]
@@ -57,6 +57,29 @@ plt.savefig('out/accuracy.pdf', format='pdf')
     \label{}
 \end{figure}
 ```
+
+---
+
+## Insert figures horizontally
+
+```latex
+\begin{figure}[!htbp]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[height=3.2cm]{imgs/original.png}
+        \caption{Original Picture}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[height=3.2cm]{imgs/compressed-0.5.png}
+        \caption{50\% compress ratio}
+    \end{minipage}
+\end{figure}
+```
+
+每个图所占的宽度比例需要根据水平插入图片的数量调整
 
 ---
 
