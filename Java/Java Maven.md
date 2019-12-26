@@ -14,9 +14,24 @@ _Apache Maven&trade;_ 是一个项目管理和综合工具。提供一个 __项�
 
 ---
 
-## Installation & Configuration
+## Installation
 
 Eclipse 的最新发布版中已经内嵌了 Maven，不需要另外安装
+
+如果安装的话也就是下载 release 然后配置环境变量
+
+检测是否成功:
+
+```bash
+$ mvn -version
+Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-05T03:00:29+08:00)
+Maven home: C:\Program Files\maven
+Java version: 1.8.0_221, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk1.8.0_221\jre
+Default locale: zh_CN, platform encoding: GBK
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+```
+
+## Configuration
 
 Maven 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.maven.org/maven2/`
 
@@ -28,7 +43,7 @@ Maven 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.maven
 
 > 在 Linux 中：`maven/conf/setting.xml` (似乎 Windows 也 OK？？？ 😧)
 
-在配置文件中加入内容，添加国内的阿里云镜像：
+在配置文件中加入国内镜像 (阿里云为例):
 
 ```xml
 <settings>
@@ -96,7 +111,7 @@ Maven 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.maven
 
 在 cmd 中直接运行命令
 
-* `mvn compile` - 将 _Java_ 源文件编译为 `.class` 文件
+* `mvn compile` - 将 Java 源文件编译为 `.class` 文件
 * `mvn test` - 测试，并生成测试报告
 * `mvn clean` - 将以前编译的 `.class` 文件删除
 * `mvn package` - 打包
@@ -121,7 +136,7 @@ Maven 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.maven
 
 ![maven-clean](../img/maven-clean.png)
 
-编译前，需要在 `pom.xml` 文件中指定编译所需的 _JDK_ 版本和编码格式
+编译前，需要在 `pom.xml` 文件中指定编译所需的 JDK 版本和编码格式
 
 以及指定 `maven-compiler-plugins` 的版本 `<version></version>`
 
@@ -146,7 +161,9 @@ Maven 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.maven
 
 ## Summary
 
-其实以前经常碰到 _Maven_
+其实以前经常看到 _Maven_ 这个东西
+
+特别是在用别人的代码的时候
 
 但是没有花心思研究
 
@@ -160,11 +177,9 @@ Maven 默认从 __中央存储库__ 自动下载依赖资源 `http://repo1.maven
 
 传上去既影响速度也没有必要
 
-所以研究了一波 Maven
+所以把整个工程构建成 Maven project
 
-把整个工程构建成 Maven project
-
-就不需要上传依赖的库了
+这样不再需要上传依赖的库了
 
 ---
 
