@@ -163,8 +163,6 @@ $ sudo systemctl restart v2ray
 
 __退出该 Apple ID，登录回个人的 Apple ID__
 
-* 公共账号，方便他人，文明你我他 :sweat_smile:
-
 在 Shadowrocket 中：
 
 * 可以直接扫二维码 / URL 添加 Server 配置
@@ -175,7 +173,7 @@ Shadowrocket 支持的协议有：
 * Shadowsocks
 * ShadowsocksR
 * VMess (暂不支持 KCP)
-* Subscribe (:smile: 用 URL 自动导入所有 Server 配置​)
+* Subscribe (用 URL 自动导入所有 Server 配置​)
 * Socks5
 * Socks5 Over TLS
 * HTTP
@@ -187,28 +185,6 @@ Shadowrocket 支持的协议有：
 ### Others
 
 其它 OS 暂时用不到，网上教程也很多
-
----
-
-## Summary
-
-VMess 在速度上感觉比 Shadowsocks 快一些
-
-抛开协议本身的实现不谈
-
-至少 Shadowsocks 一直是重点照顾对象而受打压
-
-所以 VMess 自然应当更快一些
-
-V2Ray 这一套工具挺棒的 部署也方便
-
-看了下 GitHub 仓库，是用 GoLang 实现的
-
-最近看了篇文章说 Java 已经快不行了
-
-考虑抽个时间学一学 GoLang 吧！ :grin:
-
-夜已深 折腾完毕 睡啦~ Nite world :crescent_moon:
 
 ---
 

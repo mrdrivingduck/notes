@@ -10,17 +10,17 @@ Ningbo, Zhejiang, China
 
 <u>Understanding Machine Learning, From Theory to Algorithms</u>, _Shai Shalev-Shwartz_, _Shai Ben-David_
 
-### What Is Learning?
+## What Is Learning?
 
 >Machine Learning: we wish to program computers so that they can "learn" from input available to them. Roughly speaking, learning is the process of converting experience into expertise of knowledge. The input to a learning algorithm is training data, representing experience, and the output is some expertise, which usually takes the form of another computer program that perform some task.
 
 ---
 
-### When Do We Need Machine Learning?
+## When Do We Need Machine Learning?
 
 Two aspects of a given problem may call for the use of programs that learn and improve on the basis of their "experience": the problem's __complexity__ and the need for __adaptivity__.
 
-#### Tasks That Are Too Complex to Program
+### Tasks That Are Too Complex to Program
 
 * _Tasks Performed by Animals/Humans:_
   * Not sufficiently elaborate to extract a well defined program
@@ -30,14 +30,14 @@ Two aspects of a given problem may call for the use of programs that learn and i
   * Data archives that are too large and too complex for humans to make sense of
   * astronomical data, weather prediction, analysis of genomic data, Web search engines
 
-#### Adaptivity
+### Adaptivity
 
 * Many tasks change over time or from one user to another
   * decode handwritten text, spam detection programs, speech recognition programs
 
 ---
 
-### Types of Learning
+## Types of Learning
 
 * Supervised versus Unsupervised
 
@@ -62,7 +62,7 @@ Two aspects of a given problem may call for the use of programs that learn and i
 
 ---
 
-### Summary
+## Summary
 
 虽然很抗拒 但还是不得不开始看机器学习的书了
 

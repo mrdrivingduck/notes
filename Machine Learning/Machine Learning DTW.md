@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-### About
+## About
 
 DTW (Dynamic Time Warping) 动态时间规整算法
 
@@ -24,7 +24,7 @@ DTW (Dynamic Time Warping) 动态时间规整算法
 
 ---
 
-### Theory
+## Theory
 
 如果两个序列的长度不等
 
@@ -60,13 +60,13 @@ DTW (Dynamic Time Warping) 动态时间规整算法
 
 ---
 
-### Implementation
+## Implementation
 
 fastdtw - https://github.com/slaypni/fastdtw -- Python
 
 ---
 
-### Reference
+## Reference
 
 https://www.youtube.com/watch?v=_K1OsqCicBY
 
@@ -74,7 +74,7 @@ https://www.cnblogs.com/Daringoo/p/4095508.html
 
 ---
 
-### Summary
+## Summary
 
 这个算法之前在读论文的时候遇到过
 
