@@ -150,9 +150,9 @@ _Python_ 中，`=` 用于赋值：
 
 好像有点理解为什么都说 _Python_ 简单了
 
-因为很多函数都已经 _out of the box_ :ok_hand:
+因为很多函数都已经 _out of the box_
 
-好吧 继续 :muscle:
+好吧 继续
 
 ---
 

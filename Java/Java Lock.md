@@ -105,6 +105,10 @@ Java 的 `synchronized` 关键字就是悲观锁的典型
 
 因此会进行自旋等待 (不睡眠)
 
+独占锁是一种悲观锁的设计策略
+
+而共享锁则一种乐观锁的设计策略
+
 ### CAS Mechanism
 
 乐观锁在实现上使用了 __CAS (Compare And Swap)__ 机制
@@ -143,7 +147,7 @@ CAS 机制的特点:
 2. 自旋具有一定的 CPU 开销
 3. 只能保证一个变量的原子性操作
 
-Java 中的 ReentrantLock，以及原子变量:
+Java 中原子变量就是通过 CAS 机制实现的:
 
 ```bash
 $ ls java/util/concurrent/atomic
@@ -152,8 +156,6 @@ AtomicInteger.java              AtomicLongFieldUpdater.java   AtomicStampedRefer
 AtomicIntegerArray.java         AtomicMarkableReference.java  DoubleAccumulator.java            package-info.java       AtomicIntegerFieldUpdater.java  AtomicReference.java          DoubleAdder.java
 AtomicLong.java                 AtomicReferenceArray.java     LongAccumulator.java
 ```
-
-都是通过 CAS 机制实现的乐观锁
 
 ### ABA 问题
 
@@ -172,6 +174,8 @@ https://www.jianshu.com/p/ae25eb3cfb5d
 https://www.cnblogs.com/fengzheng/p/9018152.html
 
 https://blog.csdn.net/weixin_38035852/article/details/82081674
+
+https://www.cnblogs.com/wuzhenzhao/p/10256225.html
 
 ---
 

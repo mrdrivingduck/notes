@@ -81,7 +81,7 @@ name = input("Please enter your name: ")
 
 至少和别人交流的时候 特别是外行
 
-每次都说 __“我不会 Python”__ 是不是不太好 :joy:
+每次都说 __“我不会 Python”__ 是不是不太好
 
 ---
 
