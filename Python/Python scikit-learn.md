@@ -121,9 +121,7 @@ res = clf_gau_nb.predict(testing_data)
 
 Python + sklearn 让机器学习的实现变得简单。。。
 
-虽然这个应该只能用来做做实验吧 :sweat_smile:
-
-但至少能让不明白这个算法原理的人可以直接上手使用
+能让不明白这个算法原理的人可以直接上手使用
 
 最近做毕设实验
 

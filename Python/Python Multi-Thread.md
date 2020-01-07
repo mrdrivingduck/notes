@@ -1,4 +1,4 @@
-# Python - Thread
+# Python - Multi-Thread
 
 Created by : Mr Dk.
 
@@ -90,15 +90,44 @@ t2.join()
 
 ---
 
+## Getting Result
+
+如果传给线程的函数有返回值
+
+如何拿到返回值呢？
+
+根据网上查到的方法: 需要继承 `Thread` 类
+
+然后自定义一个用于返回结果的 `get_result()` 函数
+
+```python
+class MyThread(Thread):
+    def __init__(self, func, args):
+        super(MyThread, self).__init__()
+        self.func = func
+        self.args = args
+
+    def run(self):
+        self.result = self.func(*self.args)
+
+    def get_result(self):
+        try:
+            return self.result
+        except Exception:
+            return None
+```
+
+---
+
 ## Summary
 
-和 _Java_ 的多线程不太一样吧
+和 Java 的多线程不太一样吧
 
 反而和当年写操作系统作业时
 
-_C_ 里面的 _libpthread_ 库的用法有点像
+C 里面的 _libpthread_ 库的用法有点像
 
-再写一个类似 _Java_ 的网络程序时
+再写一个类似 Java 的网络程序时
 
 多线程肯定是要用到的
 

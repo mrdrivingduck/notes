@@ -151,9 +151,3 @@ test("Tim", 21, "Nanjing", "student")  # ERROR
 
 ---
 
-## Summary
-
-有几个没见过的高级用法还是需要好好想一想 :sweat_smile:
-
----
-
