@@ -10,9 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-Vue Router - 将组件映射到路由，然后告诉 Vue Router 在哪里渲染它们
-
----
+_Vue Router_ 能够将组件映射到路由，然后告诉 _Vue Router_ 在哪里渲染它们
 
 ## Installation
 
@@ -35,15 +33,13 @@ import Router from 'vue-router'
 Vue.use(Router)
 ```
 
----
-
 ## Relationship
 
-![vue-router-src](../img/vue-router-src.png)
+<img src="../img/vue-router-src.png" alt="vue-router-src" style="zoom:50%;" />
 
 1. 在 `/components` 中实现组件
 
-2. 在 `/router/index.js` 中实例化 Router，并配置组件和路由
+2. 在 `/router/index.js` 中实例化 Router，并配置组件和路由的关系
 
    ```javascript
    import Vue from 'vue'
@@ -90,16 +86,14 @@ Vue.use(Router)
 
 4. 在 `App.vue` 中指定组件渲染的位置和组件跳转的链接
 
----
-
 ## Template
 
-`<router-view></router-view>` 用于标识渲染位置
+`<router-view></router-view>` 标识组件渲染的位置
 
-`<router-link></router-link>` 是用于设置导航链接的组件
+`<router-link></router-link>` 设置导航链接
 
 * 用 `to` 属性指定链接
-* `<router-link></router-link>` 默认会被渲染成 `<a></a>` 标签
+* 默认会被渲染成 `<a></a>` 标签
 
 ```vue
 <template>
@@ -113,27 +107,97 @@ Vue.use(Router)
 </template>
 ```
 
----
+### Attributes of router-link
 
-## Attributes of `router-link`
+* `to` - 目标路由的链接，可带参数，点击后会将值传递到 `router.push()`
+* `replace` - 调用 `router.replace()`，__导航后不会留下 history 记录__
+* `append` - 在当前相对路径之后追加路径
+* `tag` - 指定 `<router-link></router-link>` 的渲染标签
+* ......
 
-`to` - 目标路由的链接，可带参数，点击后会将值传递到 `router.push()`
+## Programmatic Navigation
 
-`replace` - 调用 `router.replace()`，__导航后不会留下 history 记录__
+除了按下 `router-link` 标签渲染出的链接
 
-`append` - 在当前相对路径之后追加路径
+也可以在程序中直接调用 router 的 API，模拟点击的动作
 
-`tag` - 指定 `<router-link></router-link>` 的渲染标签
+### `router.push(location, onComplete?, onAbort?)`
 
-......
+```javascript
+const userId = '123'
+router.push({ name: 'user', params: { userId } }) // -> /user/123
+router.push({ path: `/user/${userId}` }) // -> /user/123
+```
 
----
+```javascript
+// literal string path
+router.push('home')
 
-## Summary
+// object
+router.push({ path: 'home' })
 
-把 Vue Router 看完
+// named route
+router.push({ name: 'user', params: { userId: '123' } })
 
-生成的 Vue.js 工程的整体逻辑大概就明白了
+// with query, resulting in /register?plan=private
+router.push({ path: 'register', query: { plan: 'private' } })
+```
+
+### `router.replace(location, onComplete?, onAbort?)`
+
+与 `router.push()` 作用类似，区别是不会产生历史条目
+
+### `router.go(n)`
+
+在历史栈中向前进或向后退的次数
+
+```javascript
+// go forward by one record, the same as history.forward()
+router.go(1)
+
+// go back by one record, the same as history.back()
+router.go(-1)
+
+// go forward by 3 records
+router.go(3)
+
+// fails silently if there aren't that many records.
+router.go(-100)
+router.go(100)
+```
+
+## Data Fetching
+
+在路由跳转后，如何获得路由中的数据：
+
+```javascript
+this.$route.params.id // 坑：不是 router 而是 route ！！！
+```
+
+并可以在 `watch` 中监听路由的变化：
+
+```javascript
+watch: {
+  // call again the method if the route changes
+  '$route': 'fetchData'
+}
+```
+
+## About the Re-clicking the Route Error
+
+当重复点击同一个路由时，浏览器控制台报错
+
+_Vue Router_ 开发人员推荐的解决方式：
+
+```javascript
+this.$router.push({
+  path: "/markdown",
+  query: {
+    repo: note.repo,
+    path: note.path
+  }
+}).catch(err => { err }); // the solution
+```
 
 ---
 
