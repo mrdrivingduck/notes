@@ -10,25 +10,9 @@ Nanjing, Jiangsu, China
 
 ## About
 
-国内访问 GitHub 龟速 🐢
+国内访问 GitHub 龟速 🐢。但由于 GitHub 不在 PAC 列表中，梯子不会将 GitHub 通过国外的服务器访问。
 
-但由于 GitHub 没有被 GTW 封禁
-
-梯子会将 GitHub 的域名过滤
-
-不会通过国外的服务器访问
-
-需要修改本机的 DNS 缓存
-
-当访问 GitHub 时
-
-直接使用本机的 DNS 映射
-
-连接到对应的 IP 地址
-
-从而绕过国内的 DNS 解析服务器
-
-> 相当于手动解析 GitHub 的域名
+从国内直接访问较慢的原因可能是 DNS 受到污染。我们可以修改本机的 DNS 缓存。当访问 GitHub 时，直接使用本机的 DNS 映射。连接到准确的 IP 地址，从而绕过国内的 DNS 解析，相当于手动解析 GitHub 的域名。
 
 ---
 
@@ -40,7 +24,7 @@ github.global.ssl.fastly.net
 assets-cdn.github.com
 ```
 
-在 <https://www.ipaddress.com/> 中，分别查询这三个域名的 IP 地址：
+在 [域名解析网站](https://www.ipaddress.com/) 中，分别查询这三个域名的 IP 地址：
 
 `github.com`
 
@@ -113,23 +97,9 @@ assets-cdn.github.com
 
 ## Summary
 
-从三月份开始到现在，快三个月了
+从三月份开始到现在，快三个月了，每次登上 GitHub 都有一些人的头像刷新不出来。一直觉着很奇怪 凭啥在别人的电脑上都能显示出来呢？ 😑
 
-每次登上 GitHub 都有一些人的头像刷新不出来
-
-一直觉着很奇怪 凭啥在别人的电脑上都能显示出来呢？ 😑
-
-今天突然想起来 💡 以前为了加速 GitHub 配置过 DNS 记录
-
-其中有很多条记录已经过期或无效了
-
-我的电脑直接根据这些记录访问那些过期的 IP 地址
-
-自然刷新不出头像
-
-今天重新查询了 IP 地址并更新了记录
-
-所有 Follower 和 Following 的头像全部都能正常显示了 🎉
+今天突然想起来 💡，以前为了加速 GitHub 配置过 DNS 记录。其中有很多条记录已经过期或无效了，我的电脑直接根据这些记录访问那些过期的 IP 地址，自然刷新不出头像。今天重新查询了 IP 地址并更新了 DNS 记录，所有 Follower 和 Following 的头像全部都能正常显示了。 🎉
 
 ---
 

@@ -29,35 +29,35 @@ $ git branch
 
 ### git branch -r
 
+列出所有远程分支
+
 ```bash
 $ git branch -r
 ```
 
-列出所有远程分支
-
 ### git branch -a
+
+列出所有本地分支和远程分支
 
 ```bash
 $ git branch -a
 ```
 
-列出所有本地分支和远程分支
-
 ### git branch -vv
+
+查看本地分支及其对应的远程分支
 
 ```bash
 $ git branch -vv
 ```
 
-查看本地分支及其对应的远程分支
-
 ### git branch --set-upstream-to=<branch_name>
+
+将本地分支关联到远程分支
 
 ```bash
 $ git branch --set-upstream-to=origin/dev
 ```
-
-将本地分支关联到远程分支
 
 ### Effect
 
@@ -65,17 +65,13 @@ $ git branch --set-upstream-to=origin/dev
 
 ### git branch <branch_name>
 
+创建 `dev` 分支，但依旧停留在当前分支上
+
 ```bash
 $ git branch dev
 ```
 
-创建 `dev` 分支，但依旧停留在当前分支上
-
 ### git checkout <branch_name>
-
-```bash
-$ git checkout dev
-```
 
 切换到 `dev` 分支
 
@@ -84,6 +80,10 @@ $ git checkout dev
 如果两个分支上的文件状态不同时
 
 Git 会将文件目录中的文件状态恢复为不同分支对应的状态
+
+```bash
+$ git checkout dev
+```
 
 ### git push --set-upstream origin dev
 
@@ -103,29 +103,25 @@ Git 会将文件目录中的文件状态恢复为不同分支对应的状态
 
 ### git merge <branch_name>
 
+将 `dev` 分支合并到当前分支
+
 ```bash
 $ git merge dev
 ```
 
-将 `dev` 分支合并到当前分支
-
 ### git branch -d <branch_name>
+
+删除本地的 `dev` 分支
 
 ```bash
 $ git branch -d dev
 ```
 
-删除本地的 `dev` 分支
-
 ### git push origin --delete <branch_name>
 
-删除本地的 `dev` 分支后
+删除本地的 `dev` 分支后，远程的 `dev` 分支依旧存在。
 
-远程的 `dev` 分支依旧存在
-
-可以在网页上直接删除
-
-也可以在命令行中直接删除：
+可以在网页上手动删除，也可以在命令行中直接删除：
 
 ```bash
 $ git push origin --delete dev
@@ -135,15 +131,11 @@ $ git push origin --delete dev
 
 <img src="../img/git-merge-cmd.png" alt="git-merge-cmd" style="zoom:50%;" />
 
-合并后，本地分支的提交次数应该比远程分支提前（__ahead__）
-
-此时，使用 `git push` 将本地分支的提交到远程分支
+合并后，本地分支的提交次数应该比远程分支提前（__ahead__）。此时，使用 `git push` 将本地分支的提交到远程分支：
 
 <img src="../img/git-push-merged-branch.png" alt="git-push-merged-branch" style="zoom:50%;" />
 
-此时，本地的 `dev` 分支已被删除，但远程的 `dev` 分支依旧存在
-
-在命令行中将远程 `dev` 删除：
+此时，本地的 `dev` 分支已被删除，但远程的 `dev` 分支依旧存在。在命令行中将远程 `dev` 删除：
 
 <img src="../img/git-rm-remote-branch.png" alt="git-rm-remote-branch" style="zoom:50%;" />
 
@@ -151,7 +143,7 @@ $ git push origin --delete dev
 
 ## Conflict
 
-人为制造了两个文件状态冲突的分支，并试图进行分支合并
+人为制造了两个文件状态冲突的分支，并试图进行分支合并：
 
 ### Effect
 
@@ -161,15 +153,13 @@ $ git push origin --delete dev
 
 <img src="../img/git-conflict-code.png" alt="git-conflict-code" style="zoom:50%;" />
 
-目前分支处于 `master|MERGING` 的状态
+目前分支处于 `master|MERGING` 的状态，在解决冲突并 commit 之后，分支回到 `master` 状态，本地分支合并成功。
 
-在解决冲突并 commit 之后，分支回到 `master` 状态，本地分支合并成功
-
-此后将 merge 推送到远程分支
+此后将 merge 推送到远程分支：
 
 <img src="../img/git-push-conflict.png" alt="git-push-conflict" style="zoom:50%;" />
 
-删除合并后的无用本地和远程分支
+删除合并后的无用本地和远程分支：
 
 <img src="../img/git-push-rm-merged-branch.png" alt="git-push-rm-merged-branch" style="zoom:50%;" />
 
@@ -177,19 +167,9 @@ $ git push origin --delete dev
 
 ## Summary
 
-一套完整的命令操作 branch 和 merge
+一套完整的命令操作 branch 和 merge，以及 conflict 处理的流程是走下来了。
 
-以及 conflict 处理的流程是走下来了
-
-感觉对 Git 又熟悉了一些
-
-在具体的冲突处理中
-
-用 Vim 还是算了吧 😅 一点都不直观
-
-还是 Visual Studio Code 里的 Git 插件简洁明了
-
-想成为技术比较厉害的人 对 Git 必须足够熟悉哦 👨‍💻
+感觉对 Git 又熟悉了一些。在具体的冲突处理中，用 Vim 还是算了吧 😅 一点都不直观。还是 Visual Studio Code 里的 Git 插件简洁明了。想成为技术比较厉害的人，对 Git 必须足够熟悉哦 👨‍💻。
 
 ---
 
