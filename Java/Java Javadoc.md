@@ -45,10 +45,11 @@ _Javadoc_ 中支持的部分标签：
 | `@return <description>`                                      | 描述函数的返回值                       | Method                                |
 | `@exception <class_name> <description>` / `@throws <class_name> <description>` | 描述函数中会抛出的异常                 | Method                                |
 | `@deprecated <description>`                                  | 描述一个已经过时的函数                 | Class, Interface, Enum, Field, Method |
-| `{ @link <reference> }`                                      | 链接到其它位置 (网页)                  | Class, Interface, Enum, Field, Method |
-| `{ @linkplain <reference> <text> }`                          | 与前者相同，但是显示的文本可以不是链接 | Class, Interface, Enum, Field, Method |
-| `{ @inheritDoc }`                                            | 拷贝被重写函数的描述                   | Overriding Method                     |
-| `{ @value <STATIC_FIELD> }`                                  | 返回静态域的值                         | Static Field                          |
+| `{@link <reference>}`                                        | 链接到其它位置 (网页)                  | Class, Interface, Enum, Field, Method |
+| `{@linkplain <reference> <text>}`                            | 与前者相同，但是显示的文本可以不是链接 | Class, Interface, Enum, Field, Method |
+| `{@inheritDoc}`                                              | 拷贝被重写函数的描述                   | Overriding Method                     |
+| `{@value <STATIC_FIELD>}`                                    | 返回静态域的值                         | Static Field                          |
+| `{@code <code>}`                                             | 代码块，相当于 Markdown 中的 \`\`      | Class, Interface, Enum, Field, Method |
 
 ## Examples of _Javadoc_ in _JDK 8_
 
