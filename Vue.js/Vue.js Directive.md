@@ -16,10 +16,14 @@ Nanjing, Jiangsu, China
 
 ## Conditionals
 
-`v-if` - Determine the presence of an element
+`v-if` - 决定某个元素是否显示。是一种条件渲染方式。
 
-- Similar: `v-show`
-- for more logic: `v-else-if`、`v-else`
+* Similar: `v-show`
+* for more logic: `v-else-if`、`v-else`
+
+与 `v-show` 的区别在于，`v-show` 只是简单控制元素是否显示的属性，而 `v-if` 是真正的 __条件渲染__ - 即，满足条件就被渲染，依次调用 `beforeCreate()` `created()` `beforeMount()` `mounted()`；不满足条件就被销毁，依次调用 `beforeDestroy()` `destroyed()`。
+
+在进行首次加载时，`v-if` 实际上会进行懒加载 - 如果不满足条件就不渲染了，因此首次渲染的开销要小得多；而 `v-show` 不管条件是否满足都会被渲染，只不过条件为假时不显示罢了。
 
 Format: `<tagname v-if="flag">...</tagname>`
 
@@ -128,7 +132,7 @@ export default {
 
 在 `reverse()` 中，更新了应用状态，但不需要触碰 DOM
 
-* 所有的 DOM 操作都有 Vue 来处理，代码只需要关注逻辑层面即可
+* 所有的 DOM 操作都由 Vue 来处理，代码只需要关注逻辑层面即可
 
 ### Descriptor
 
@@ -175,7 +179,7 @@ export default {
 
 ## Two-way Binding
 
-`v-model` - Make two-way binding between form input and app state a breeze
+`v-model` - 使得输入与应用的状态之间存在双向绑定。
 
 示例：
 
@@ -217,14 +221,6 @@ export default {
   * 绑定表达式或 HTML
 * `v-model` 使用在表单中，实现双向数据绑定，在表单元素外使用不起作用
   * text / radio / checkBox / select / ...
-
----
-
-## Summary
-
-学习了一些 Vue.js 中的指令
-
-对于前端好像有了那么一些感觉了
 
 ---
 
