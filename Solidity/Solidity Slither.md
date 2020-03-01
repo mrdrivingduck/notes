@@ -207,6 +207,41 @@ class UnusedStateVars(AbstractDetector):
 
 ---
 
+## Example
+
+举一个 __重入__ (Reentrancy) 威胁的例子。想象如下的场景：
+
+```solidity
+function withdrawBalance() public{
+    // send userBalance[msg.sender] ethers to msg.sender
+    // if msg.sender is a contract, it will call its fallback function
+    if( ! (msg.sender.call.value(userBalance[msg.sender])() ) ){
+        revert();
+    }
+    userBalance[msg.sender] = 0;
+}
+```
+
+这是一个退款的场景。用户在合约内存有一定的 Ether，想要退款。该合约先将用户在该合约中的余额通过转账退回给用户，然后更新合约中记账的数据结构。然而，当调用转账的函数时，如果用户也是一个 contract，就会触发用户的 fallback function - 在该函数中，恶意用户可能又会调用一次退款函数。此时，由于记账的数据结构还没有更新，合约就会重复退款给用户，以此类推。
+
+检测这种威胁的原则就是，搜索 CFG，在一次外部调用之后，是否出现了对状态变量的写入操作。
+
+## Installation && Usage
+
+首先安装 _slither_ 本身：
+
+```bash
+$ pip3 install slither-analyzer
+```
+
+由于 _slither_ 需要编译器的 AST，因此需要 [_sloc_](https://github.com/ethereum/solidity/) 编译器。
+
+使用 _slither_ 对一个具有重入威胁的合约进行分析：
+
+![slither-reentrancy](../img/slither-reentrancy.png)
+
+---
+
 ## Summary
 
 根据 _slither_ 的论文，从三个角度与其它的静态分析工具进行了对比：
