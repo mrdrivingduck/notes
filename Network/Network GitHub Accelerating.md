@@ -8,15 +8,21 @@ Nanjing, Jiangsu, China
 
 ---
 
-## About
+记录加速 GitHub 访问的几种方式。
 
-国内访问 GitHub 龟速 🐢。但由于 GitHub 不在 PAC 列表中，梯子不会将 GitHub 通过国外的服务器访问。
-
-从国内直接访问较慢的原因可能是 DNS 受到污染。我们可以修改本机的 DNS 缓存。当访问 GitHub 时，直接使用本机的 DNS 映射。连接到准确的 IP 地址，从而绕过国内的 DNS 解析，相当于手动解析 GitHub 的域名。
+GitHub 真的是让人又爱又恨。爱它在于它真的是一个宝藏网站，也是 IT 人士的身份名片；恨它在于受限于网络环境，和它打交道真是太痛苦了。我们总在不停探索与 _GFW_ 和国内 _ISP_ 斗智斗勇的方法。
 
 ---
 
-## GitHub IP Address
+## Web Page
+
+GitHub 不在 PAC 列表中。如果代理速度够快的话，可以手动将 GitHub 添加到 PAC 列表中。
+
+## DNS Configuration
+
+GitHub 速度慢的另一个原因是受到了国内 DNS 污染。可以到专门的域名解析网站，解析以下三个域名，并将这三个域名的 IP 地址配置到操作系统的 DNS 表中。
+
+这样就可以绕过 DNS 服务器，通过本地的 DNS 解析直接访问相应的 IP 地址。
 
 ```
 github.com
@@ -37,10 +43,6 @@ assets-cdn.github.com
 `assets-cdn.github.com`
 
 ![github-cdn3](../img/github-cdn3.png)
-
----
-
-## Add DNS Record
 
 ### Windows
 
@@ -89,17 +91,25 @@ assets-cdn.github.com
 
 添加完成后，保存文件，刷新 DNS 缓存使之生效：
 
-```
+```cmd
 > ipconfig /flushdns
 ```
 
----
+## Git Configuration
 
-## Summary
+还是通过代理。不管是 _SSH_ 方式还是 _HTTPS_ 方式，git 都可以通过配置代理加速。具体方式参考 [另一篇文章](https://mrdrivingduck.github.io/#/markdown?repo=notes&path=Git%2FGit%20Proxy.md)。
 
-从三月份开始到现在，快三个月了，每次登上 GitHub 都有一些人的头像刷新不出来。一直觉着很奇怪 凭啥在别人的电脑上都能显示出来呢？ 😑
+## Repository
 
-今天突然想起来 💡，以前为了加速 GitHub 配置过 DNS 记录。其中有很多条记录已经过期或无效了，我的电脑直接根据这些记录访问那些过期的 IP 地址，自然刷新不出头像。今天重新查询了 IP 地址并更新了 DNS 记录，所有 Follower 和 Following 的头像全部都能正常显示了。 🎉
+想要把整个仓库 clone 下来，却发现速度太慢。国内的 Gitee 网站提供了一个很好的功能：__仓库导入__ 。在 Gitee 中新建一个仓库，并给出 GitHub 对应仓库的链接，点击创建。大约需要几分钟时间，Gitee 就会把 GitHub 上的仓库原封不动地导入到 Gitee 上，成为一个类似镜像的 Gitee 仓库。然后从 Gitee 上 `git clone`，就是国内的网速了。
+
+另外，Gitee 的页面上有个刷新键，可以随时从 GitHub 的仓库同步。
+
+## Release
+
+在 GitHub 上，某些项目的 release 中会带有一些已经编译好的可执行文件。如果想下载这些文件，GitHub 会重定向到 AWS 上进行下载 - 速度极慢。
+
+在 _知乎_ 上看到了一个 GitHub 的 HTTP 版本的 [__镜像__](http://github-mirror.bugkiller.org/) 网站。从这个网站上下载 release 中的文件，也可以达到国内网速。 🤞
 
 ---
 
