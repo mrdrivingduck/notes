@@ -191,3 +191,16 @@ Golang 给了一个官方的教程程序 - _tour_ ，依赖于 _net_ 和 _tools_
 
 ---
 
+## Proxy (2020/03/03)
+
+上一章节编写于 2019 年 6 月。当时，只能采用上述的麻烦办法。情况已经有了改观：现在国内已经有了 Go 模块的代理 - [goproxy.cn](https://goproxy.cn)，将 Go 模块原封不动地缓存起来。并且已经在工业与信息化部备案，在中国完全合法。
+
+配置方法 - 打开终端并执行如下命令即可：
+
+```bash
+$ go env -w GO111MODULE=on
+$ go env -w GOPROXY=https://goproxy.cn,direct
+```
+
+---
+
