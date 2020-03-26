@@ -18,17 +18,15 @@ Nanjing, Jiangsu, China
 
 ## 2. Generate SSH-key locally
 
-Get into Command-Line
-
 ```bash
 $ ssh-keygen -t rsa -C "your_email@youremail.com"
 ```
 
 * 按下 `Enter` 后会提示保存密钥的路径 - 可直接 `Enter` 使用默认路径
-* 提示输入一个密码 - 用于拉取或提交代码时验证（可以不设置密码）
-* `SSH key` 生成完成
-  * 可以在设定的保存密钥路径中找到公钥 _id_rsa.pub_
-  * 默认位于 `.../.ssh/` 路径下
+* 提示输入一个密码 - 用于保护产生的密钥（可以不设置密码）
+* SSH key 生成完成
+  * 在设定的保存密钥路径中可以找到公钥 _id_rsa.pub_
+  * 默认位于 `~/.ssh/` 路径下
 
 ## 3. Add Public Key to your account
 
@@ -48,27 +46,25 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6oNrhO0KoK9IcvXCg30oaDKLI95ucOFloikfjMXU1
 
 ## 4. Git local configuration
 
-* After creating a repository on the website and `clone` it to local
+After creating a repository on the website and `clone` it to local:
 
 ```bash
 $ git clone xxxxxxxx.git
 ```
 
-* Get into Command-Line (Git Bash)
+Get into Command-Line (Git Bash):
 
 ```bash
 $ cd ./xxxxxxxx
 $ git config --list
 ```
 
-* Check all configurations
+Check all configurations, configure `name` & `email`:
 
 ```bash
 $ git config --global user.name "mrdrivingduck"
 $ git config --global user.email "562655624@qq.com"
 ```
-
-* Configure `name` & `email`
 
 ---
 

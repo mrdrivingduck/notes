@@ -13,13 +13,9 @@ __ANTLR (ANother Tool for Language Recognition)__ 是一套计算机语言处理
 * SQL 识别器
 * JSON 识别器
 
-除了用于自动生成 Java 代码，ANTLR 还提供一个 Runtime 工具，用于为自动生成的 Java 代码的执行提供支持。Runtime 需要作为依赖 (如 Maven) 引入。项目地址为 https://github.com/antlr/antlr4 。
+除了用于自动生成 Java 代码，ANTLR 还提供一个 [Runtime 工具](https://github.com/antlr/antlr4)，用于为自动生成的 Java 代码的执行提供支持。Runtime 需要作为依赖 (如 Maven) 引入。对于流行通用的编程语言、格式，开源社区都已经提供了 [现成的 g4 语法文件](https://github.com/antlr/grammars-v4) 🤞
 
 本文以生成一个 Java 版本的 JSON 解析器作为 🌰。
-
----
-
-噢对了 对于流行通用的编程语言、格式，开源社区都已经提供了 [现成的 g4 语法文件](https://github.com/antlr/grammars-v4) 🤞
 
 ---
 
@@ -114,7 +110,7 @@ ANTLR 提供命令行版本的工具，但更方便的还是集成在 IDEA 中�
 * `JSONLexer.java` - 词法分析代码
 * `JSONParser.java` - 语法分析代码
 
-其它的接下来再作解释，再由 ANTLR Runtime 的支持，这些类就可以被实例化了：
+生成的其它的文件接下来再作解释。接下来，在项目中引入 ANTLR Runtime 依赖。由 ANTLR Runtime 支持，这些类就可以被实例化了：
 
 ```java
 public static void main(String[] args) {
@@ -139,7 +135,7 @@ public static void main(String[] args) {
 
 ## Listener && Visitor
 
-使用这个框架的更多需求是，当进入或退出某条语法规则的时候，我们可能想做一些自定义的事情。ANTLR 允许我们在语法树上注册回调函数，并提供了两种遍历方式 - listener 和 visitor。
+使用 ANTLR 框架的更多需求是，当进入或退出某条语法规则的时候，我们可能想做一些事情，比如在 AST 上做一定的转换。ANTLR 允许我们在语法树上注册回调函数，并提供了两种遍历方式 - listener 和 visitor。
 
 ### Listener
 
@@ -178,7 +174,7 @@ public interface JSONListener extends ParseTreeListener {
 
 实际上内部继承了 ANTLR Runtime 的 `ParseTreeListener` 类。在大部分情况下，我们只希望指定某几个规则的行为，其它的什么也不做。
 
-ANTLR 已经自动生成了一个 `JSONBaseListener.java`，该类实现了上述接口中定义的每一个 `enter` / `exit` 函数，但每个函数的实现都是空的。我们只需实现一个类，继承自 `JSONBaseListener`，并只需要 override 我们想要的那几个规则对应的函数即可。
+ANTLR 已经自动生成了一个 `JSONBaseListener.java`，该类实现了上述接口中定义的每一个 `enter` / `exit` 函数，但每个函数的实现都是空的。我们只需新建一个继承自 `JSONBaseListener` 的 Class，并只需要 override 我们想要操作的那几条规则对应的函数即可。
 
 * 如果 override `enter` 函数，则是一种先序遍历的逻辑
 * 如果 override `exit` 函数，则是一种后序遍历的逻辑
@@ -189,10 +185,12 @@ ANTLR 已经自动生成了一个 `JSONBaseListener.java`，该类实现了上�
 2. 自动遍历所有的子结点
 3. 子结点遍历完毕后，自动调用 `exit` 函数
 
-在遍历到某一结点时，可以通过 context 参数取得结点上的信息
+在遍历到某一结点时，可以通过参数中的 context 取得结点上的信息。
+
+遍历的基本代码如下：
 
 ```java
-// 用之前实例化的 parser，实例化从顶层规则开始的语法树
+// 用之前实例化的 parser，实例化从顶层规则开始的语法树 (json 是顶层规则)
 ParseTree tree = parser.json();
 // 实例化一个 listener
 JSON2XML.XMLEmitter listener = new JSON2XML.XMLEmitter();
@@ -242,7 +240,7 @@ public interface JSONVisitor<T> extends ParseTreeVisitor<T> {
 @Override public T visitJson(JSONParser.JsonContext ctx) { return visitChildren(ctx); }
 ```
 
-如果需要自定义实现逻辑，只需要实现一个类，继承自 `JSONBaseVisitor` 并 override 对应函数即可：
+如果需要自定义实现逻辑，只需新建一个继承自 `JSONBaseVisitor` 的 Class，并 override 对应函数即可：
 
 ```java
 JSONBaseVisitor visitor = new JSONBaseVisitor();

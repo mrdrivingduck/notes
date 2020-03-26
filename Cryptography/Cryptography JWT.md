@@ -66,7 +66,10 @@ Token 由三部分构成，这三部分用 `.` 分隔：
 
 * 注册声明
     * 不强制但推荐使用，是一些预定义的字段
-    * `iss` (issuer), `exp` (expiration time), `sub` (subject), `aud` (audience)
+      * `iss` (issuer) 发行者
+      * `exp` (expiration time) 过期时间
+      * `sub` (subject) 主题
+      * `aud` (audience) 观众
 * 公共声明
     * 可以随意定义，但要避免冲突
 * 私人声明

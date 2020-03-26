@@ -21,11 +21,11 @@ Nanjing, Jiangsu, China
 
 ### git branch
 
+列出所有的本地分支，并用 `*` 标记当前分支
+
 ```bash
 $ git branch
 ```
-
-列出所有的本地分支，并用 `*` 标记当前分支
 
 ### git branch -r
 
