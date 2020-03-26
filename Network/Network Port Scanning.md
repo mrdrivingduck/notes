@@ -44,7 +44,7 @@ Ningbo, Zhejiang, China
 
 ## 境外端口扫描
 
-扫描网站 - [https://www.yougetsignal.com/tools/open-ports](https://www.yougetsignal.com/tools/open-ports)
+扫描网站 - [https://www.whatismyip.com/port-scanner/)
 
 输入服务器的 IP 地址和 SSH 端口
 
