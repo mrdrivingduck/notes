@@ -14,15 +14,11 @@ Nanjing, Jiangsu, China
 * 发送者的身份认证
 * 防止交易中的抵赖
 
-## 前提概念：[非对称加密算法](https://github.com/mrdrivingduck/notes/blob/master/Algorithm/Algorithm%20Symmetric%26Asymmetric%20Encryption.md)
+## 前提概念：[非对称加密算法](https://mrdrivingduck.github.io/#/markdown?repo=notes&path=Cryptography%2FCryptography%20Symmetric%20%26%20Asymmetric%20Encryption.md)
 
 ## 前提概念：Digest 数字摘要
 
-一种 __单向、不可逆__ 的加密算法
-
-采用 __单向 hash 函数__ 对报文进行计算，得到报文的摘要
-
-也称为 __指纹__ - _Finger Print_
+一种 __单向、不可逆__ 的加密算法，采用 __单向 hash 函数__ 对报文进行计算，得到报文的摘要。也称为 __指纹 (Finger Print)__ 。
 
 摘要算法的特点：
 
@@ -55,19 +51,13 @@ Nanjing, Jiangsu, China
 ## 签名过程
 
 * 发送方使用 _hash_ 函数对报文文本生成 __数字摘要__
-* 发送方使用自己的 __私钥__ 对数字摘要进行加密 - _数字签名_
+* 发送方使用自己的 __私钥__ 对数字摘要进行加密 (签名)
 * 将加密后的摘要作为数字签名和报文原文一起发送给接收方
 * 接收方使用相同的 _hash_ 函数对报文文本生成数字摘要
-* 接收方使用发送方的 __公钥__ 对收到的加密摘要进行解密 - _数字签名验证_
+* 接收方使用发送方的 __公钥__ 对收到的加密摘要进行解密 (验证签名)
 * 接收方对比解密后的摘要和自己生成的摘要是否一致
   * 如果摘要相同，则接收方可确认该数字签名确实来自发送方
   * 因为发送方有独一无二的 __私钥__，否则使用发送方公钥无法解密摘要
-
----
-
-## Summary
-
-了解 _数字证书_ 知识的前提
 
 ---
 
