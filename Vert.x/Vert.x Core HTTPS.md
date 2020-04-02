@@ -8,28 +8,20 @@ Nanjing, Jiangsu, China
 
 ---
 
-为了写一个 HTTPS 的 server + client
+为了写一个 HTTPS 的 server + client，总计折腾了 36h 左右 😌。自卑 + 自闭。
 
-总计折腾了 36h 左右 😌 自卑 + 自闭
-
----
-
-Related - https://github.com/mrdrivingduck/notes/blob/master/Cryptography/Cryptography%20Keystore.md
+相关工作涉及 [密钥管理和数字证书](https://mrdrivingduck.github.io/#/markdown?repo=notes&path=Cryptography%2FCryptography%20Keystore%20%26%20Certificates.md)
 
 ---
 
 ## HTTPS Vert.x Implementation
 
-其实最终的编程很简单
-
-在实例化 `HttpServer` 和 `HttpClient` 时
+其实最终的编程很简单。在实例化 `HttpServer` 和 `HttpClient` 时：
 
 * 添加选项 `.setSsl(true)` - 开启 SSL
 * 添加选项 `.setKeyStoreOptions()` 或 `.setTrustOptions()` - 发放证书或信任证书
 
-证书可以以多种形式存在，比如 `.jks` 、 `.pem` 、`pfx` 等
-
-在 keystore 中，有两类条目：
+证书可以以多种形式存在，比如 `.jks` 、 `.pem` 、`pfx` 等。在 keystore 中，有两类条目：
 
 * PrivateKeyEntry
   * 由 `setKeyStoreOptions()` 来设置
@@ -38,25 +30,13 @@ Related - https://github.com/mrdrivingduck/notes/blob/master/Cryptography/Crypto
   * 由 `setTrustOptions()` 来设置
   * 通常用于接受并信任对方的证书
 
-通常来说，HttpServer 应当设置 `setKeyStoreOptions()`，向客户端发放自己的证书
+通常来说，HttpServer 应当设置 `setKeyStoreOptions()`，向客户端发放自己的证书；而 HttpClient 设置 `setTrustOptions()`，信任服务器发放的证书。这样双方就可以完成 SSL 握手
 
-而 HttpClient 设置 `setTrustOptions()`，信任服务器发放的证书
-
-这样双方就可以完成 SSL 握手
-
-> 如果 HttpClient 需要向 HttpServer 发放证书
->
-> 即客户端向服务器认证自己的身份，实现双向认证
->
-> 那么 HttpClient 也就需要设置 `setKeyStoreOptions()`
->
-> 读取 keystore 中的 PrivateKeyEntry 条目
+> 如果 HttpClient 需要向 HttpServer 发放证书，即客户端向服务器认证自己的身份，实现双向认证。那么 HttpClient 也就需要设置 `setKeyStoreOptions()`，读取 keystore 中的 PrivateKeyEntry 条目。
 
 ### HTTP Server
 
-假设已经有一个存放 PrivateKeyEntry 的 keystore - `test.jks`
-
-这是一个自签名的证书：
+假设已经有一个存放 PrivateKeyEntry 的 keystore - `test.jks`。这是一个自签名的证书：
 
 ```bash
 别名: test
@@ -145,9 +125,7 @@ public final class Server {
 
 ### HTTP Client
 
-假设已经有一个存放 trustedCertEntry 的 keystore (我把这个条目也放在 `test.jks` 中了)
-
-即，客户端信任这个自签名证书
+假设已经有一个存放 trustedCertEntry 的 keystore (我把这个条目也放在 `test.jks` 中了)。即，客户端信任这个自签名证书：
 
 ```bash
 别名: client
@@ -194,9 +172,7 @@ KeyIdentifier [
 *******************************************
 ```
 
-同样，将该文件的路径和密码交给 Vert.x 框架，并实例化客户端
-
-也可以默认使客户端信任所有的证书：
+同样，将该文件的路径和密码交给 Vert.x 框架，并实例化客户端。也可以默认使客户端信任所有的证书：
 
 * `.setTrustAll(true)`
 
@@ -235,9 +211,7 @@ public final class Client {
 
 ## Certificate Generation
 
-可以看到，上面的实现中，都需要用到 `.jks` 文件，以及其中的 entry
-
-如何使用 JDK 自带的 keytool 工具进行证书生成呢？
+可以看到，上面的实现中，都需要用到 `.jks` 文件，以及其中的 entry。如何使用 JDK 自带的 keytool 工具进行证书生成呢？
 
 基本概念：
 
@@ -247,9 +221,7 @@ public final class Client {
 
 ### Self-signed Certificate Generation
 
-产生一个自签名的证书
-
-* 生成一对公私钥，指定 RSA 叭 🤔
+产生一个自签名的证书，生成一对公私钥，指定 RSA 叭。 🤔
 
 ```bash
 $ keytool -genkeypair \
@@ -324,7 +296,7 @@ Warning:
 JKS 密钥库使用专用格式。建议使用 "keytool -importkeystore -srckeystore .\test.jks -destkeystore .\test.jks -deststoretype pkcs12" 迁移到行业标准格式 PKCS12。
 ```
 
-可以看到，所谓的自签名证书
+可以看到，所谓的自签名证书：
 
 * 证书的 __所有者 (subject)__ 和 __发布者 (issuer)__ 相同
 * 如果发布者是 CA，那么这个证书就是根证书，存放在 OS 的 root program 中
@@ -339,21 +311,13 @@ $ keytool -export \
     -file <output.cer>
 ```
 
-![self-signed-certificate](../img/self-signed-certificate.png)
+<img src="../img/self-signed-certificate.png" alt="self-signed-certificate" style="zoom: 50%;" />
 
-当然啦，这个证书可以被安装到 OS 信任的根证书列表中
-
-这样的话，用这个证书的下级证书开启 HTTPS 服务器后
-
-可以直接从浏览器中通过 `htts://...` 访问
-
-* 因为浏览器最终信任的是 OS root program 中的根证书
+当然啦，这个证书可以被安装到 OS 信任的根证书列表中。这样的话，用这个证书的下级证书开启 HTTPS 服务器后，可以直接从浏览器中通过 `htts://...` 访问。因为浏览器最终信任的是 OS root program 中的根证书。
 
 ### Certificate Request
 
-通常来说，自签名证书需要生成 __证书签名请求文件 CSR__
-
-并提交给 CA 进行签名
+通常来说，自签名证书需要生成 __证书签名请求文件 CSR__ ，并提交给 CA 进行签名。
 
 ```bash
 $ keytool -certreq \
@@ -364,11 +328,7 @@ $ keytool -certreq \
 
 ### Certificate Signature
 
-提交的 CSR 被签名后，证书的 subject 和 issuer 就不一样了，issuer 变为 CA
-
-提交给 CA 进行签名 - 要 💰、要 ⌚
-
-所以可以自己模拟 CA 来进行签名
+提交的 CSR 被签名后，证书的 subject 和 issuer 就不一样了，issuer 变为 CA。提交给 CA 进行签名 - 要 💰、要 ⌚。所以可以自己模拟 CA 来进行签名：
 
 * CA 也有自己的公私钥对，所以按照上述自签名证书的生成方法产生公私钥对
 * 用模拟 CA 的私钥对 CSR 进行签名
@@ -383,23 +343,15 @@ $ keytool -gencert \
     -ext ...
 ```
 
-如果说 CA 的根证书已经被 OS 信任
+如果说 CA 的根证书已经被 OS 信任，那么签名后的证书也会被 OS 信任 (证书链)。
 
-那么签名后的证书也会被 OS 信任 (证书链)
-
-![signed-certificate](../img/signed-certificate.png)
+<img src="../img/signed-certificate.png" alt="signed-certificate" style="zoom:50%;" />
 
 ### Certificate Import
 
-接下来，需要把 CA 的 root 证书和被签名后的证书
+接下来，需要把 CA 的 root 证书和被签名后的证书，导入回 subject 的 keystore。其中，CA 的 root 证书以另一个 alias 导入为 trustedCertEntry 条目。
 
-导入回 subject 的 keystore
-
-其中，CA 的 root 证书以另一个 alias 导入
-
-* 导入为 trustedCertEntry 条目
-
-而被签名后的证书需要以和之前相同的 alias 导入
+而被签名后的证书需要以和之前相同的 alias 导入：
 
 * 导入为 PrivateKeyEntry 条目
 * 覆盖之前的自签名证书
@@ -418,11 +370,7 @@ $ keytool -importcert \
 证书回复已安装在密钥库中
 ```
 
-由此，该 keystore 信任了根证书
-
-* 将 CA 的 root 证书加入了 keystore 的 trustedCertEntry
-
-同时，该 keystore 存储了 subject 生成的证书的证书链
+由此，该 keystore 信任了根证书，将 CA 的 root 证书加入了 keystore 的 trustedCertEntry。同时，该 keystore 存储了 subject 生成的证书的证书链。
 
 * 将证书链加入 keystore 的 PrivateKeyEntry 中
 * 链的最终源头是 CA 的 root 证书，自签名自认证
@@ -554,9 +502,9 @@ KeyIdentifier [
 *******************************************
 ```
 
-这个 `.jks` 文件可用于 Vert.x HTTPS 服务器的输入
+这个 `.jks` 文件可用于 Vert.x HTTPS 服务器的输入。
 
-在对应的 HTTPS 客户端上
+在对应的 HTTPS 客户端上：
 
 * 配置 `.jks` 文件中的 trustedCertEntry 包含了该证书，那么就可以建立连接
 * 但是浏览器不行，因为浏览器只信任 OS 上的根证书
@@ -566,21 +514,9 @@ KeyIdentifier [
 
 ## Certificate Extension
 
-上述过程中产生的证书，确实是正确的证书
+上述过程中产生的证书，确实是正确的证书，但是放到 Vert.x HTTPS Server 上之后，无论是浏览器，还是 HTTPS Client，都是无法访问的。哪怕把模拟 CA 的根证书加入了 OS 的信任列表。
 
-但是放到 Vert.x HTTPS Server 上之后
-
-无论是浏览器，还是 HTTPS Client，都是无法访问的
-
-* 哪怕把模拟 CA 的根证书加入了 OS 的信任列表
-
-原因在于，__被签名后的证书，需要与 IP 地址或域名等绑定__
-
-这些信息保存在证书的 __X.509 证书扩展__ 中
-
-CA 在对证书签名时，会将扩展信息加在证书中
-
-参考 keytool 的官方文档：
+原因在于，__被签名后的证书，需要与 IP 地址或域名等绑定__ ，这些信息保存在证书的 __X.509 证书扩展__ 中。CA 在对证书签名时，会将扩展信息加在证书中。参考 keytool 的官方文档：
 
 ```
 -ext {name{:critical} {=value}}
@@ -618,9 +554,7 @@ $ keytool -gencert \
     -ext SAN=DNS:localhost,ip:127.0.0.1
 ```
 
-产生的签名证书导入 keystore 后，可以看到
-
-根证书带有 3 个扩展，被签名的证书带有 6 个扩展：
+产生的签名证书导入 keystore 后，可以看到，根证书带有 3 个扩展，被签名的证书带有 6 个扩展：
 
 ```bash
 别名: localhost
@@ -720,22 +654,18 @@ KeyIdentifier [
 *******************************************
 ```
 
-其中，被签名证书的扩展中带有了 `DNSName: localhost` 和 `IPAddress: 127.0.0.1`
-
-此时，将该 `.jks` 文件输入 Vert.x HTTPS Server
-
-在 Vert.x HTTPS Client 中发起请求，host 可以填写 `localhost` 或 `127.0.0.1`
+其中，被签名证书的扩展中带有了 `DNSName: localhost` 和 `IPAddress: 127.0.0.1`。此时，将该 `.jks` 文件输入 Vert.x HTTPS Server。在 Vert.x HTTPS Client 中发起请求，host 可以填写 `localhost` 或 `127.0.0.1`：
 
 * 接收到的 status code 为 200，代表请求成功
 
-如果模拟 CA 的根证书被加入 OS 的信任列表
+如果模拟 CA 的根证书被加入 OS 的信任列表：
 
 * 那么在浏览器中也可以访问 `https://localhost:<port>`
 * 建立的是 HTTPS 安全连接
 
 查看证书信息：
 
-![certificate-extension](../img/certificate-extension.png)
+<img src="../img/certificate-extension.png" alt="certificate-extension" style="zoom:50%;" />
 
 ---
 
@@ -753,23 +683,9 @@ https://www.jianshu.com/p/8e065153f315
 
 ## Summary
 
-除了 _keytool_ 以外，_openssl_ 也提供了制作证书的工具
+除了 _keytool_ 以外，_openssl_ 也提供了制作证书的工具，本质上是一样的，都是以指定的格式生成证书、签名。里面的坑实在是不少...一直成功不了的原因在于漏掉了证书中的 SAN 扩展。直到使用了 GitHub 上的 [mkcert](https://github.com/FiloSottile/mkcert)，并对比了一下这个工具产生的证书和我制作的证书有什么区别，才发现了 SAN 的作用。
 
-本质上是一样的，都是以指定的格式生成证书、签名
-
-里面的坑实在是不少...
-
-一直成功不了的原因在于漏掉了证书中的 SAN 扩展
-
-直到使用了 GitHub 上的 _[mkcert](https://github.com/FiloSottile/mkcert)_
-
-并对比了一下这个工具产生的证书和我制作的证书有什么区别
-
-才发现了 SAN 上的区别
-
-研究 SSL/TLS 算是解开了很长时间以来的一个心结吧
-
-以后不用写裸奔的 HTTP 程序啦 😭
+研究 SSL/TLS 算是解开了很长时间以来的一个心结吧，以后不用写裸奔的 HTTP 程序啦。 😭
 
 ---
 
