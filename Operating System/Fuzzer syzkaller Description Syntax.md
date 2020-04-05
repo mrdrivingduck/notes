@@ -10,15 +10,9 @@ Nanjing, Jiangsu, China
 
 ## Syscall Descriptions
 
-`syz-fuzzer` 进程产生程序，由 `syz-executor` 进行执行
+`syz-fuzzer` 进程产生测试 kernel 系统调用的程序，由 `syz-executor` 进行执行。对应的系统调用接口需要在指定目录下被声明，从而使 syzkaller 能够利用这些系统调用接口生成程序。
 
-对应的系统调用接口需要在指定目录下被声明
-
-从而使 syzkaller 能够利用这些系统调用接口生成程序
-
-系统调用描述文件位于 syzkaller 目录的 `/sys/:OS/:*.txt` 中
-
-* 比如，`sys/linux/dev_snd_midi.txt` 中包含了 Linux MIDI 接口的描述
+系统调用描述文件位于 syzkaller 目录的 `/sys/:OS/:*.txt` 中：比如，`sys/linux/dev_snd_midi.txt` 中包含了 Linux MIDI 接口的描述。
 
 ---
 
@@ -109,9 +103,7 @@ type = typename [ "[" type-options "]" ]
 
 加入 `be` 后缀表示大端 - `int16be`
 
-可以对整数指定范围：`int32[0:100]`
-
-也可以指定位长度：`int64:N`
+可以对整数指定范围：`int32[0:100]`，也可以指定位长度：`int64:N`：
 
 ```
 example_struct {
@@ -153,7 +145,7 @@ example_struct {
 
 ### Resources
 
-代表需要从一个系统调用的输出中传递到另一个系统调用的输入的值
+代表需要从一个系统调用的输出中传递到另一个系统调用的输入的值：
 
 ```
 resource <identifier> [<underlying_type>] ...

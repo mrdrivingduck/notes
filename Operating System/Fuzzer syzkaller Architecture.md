@@ -10,9 +10,7 @@ Nanjing, Jiangsu, China
 
 ## What is syzkaller
 
-__syzkaller__ is an unsupervised, coverage-guided kernel fuzzer by _Google_ implemented in Golang.
-
-Link - https://github.com/google/syzkaller
+[**syzkaller**](https://github.com/google/syzkaller) is an unsupervised, coverage-guided kernel fuzzer by *Google* implemented in Golang.
 
 Supported OSes:
 
@@ -25,13 +23,13 @@ Supported OSes:
 * OpenBSD
 * Windows
 
-最初，syzkaller 被用于 Linux 内核的 fuzzing
+被用于 Linux 内核的 fuzzing。
 
 ---
 
 ## How syzkaller Works
 
-红色标签代表对应的配置选项
+红色标签代表对应的配置选项：
 
 ![syzkaller](../img/syzkaller.png)
 
@@ -55,25 +53,15 @@ Supported OSes:
 
 ## Syscall Descriptions
 
-`syz-fuzzer` 进程产生程序，由 `syz-executor` 进行执行
+`syz-fuzzer` 进程产生用于测试 kernel syscall 的程序，由 `syz-executor` 进行执行。对应的系统调用接口需要在指定目录下被声明，从而使 syzkaller 能够利用这些系统调用接口生成程序。
 
-对应的系统调用接口需要在指定目录下被声明
-
-从而使 syzkaller 能够利用这些系统调用接口生成程序
-
-系统调用描述文件位于 syzkaller 目录的 `/sys/:OS/:*.txt` 中
-
-* 比如，`sys/linux/dev_snd_midi.txt` 中包含了 Linux MIDI 接口的描述
+系统调用描述文件位于 syzkaller 目录的 `/sys/:OS/:*.txt` 中：比如，`sys/linux/dev_snd_midi.txt` 中包含了 Linux MIDI 接口的描述。
 
 ---
 
 ## Crash Reports
 
-syzkaller 发现 crash 后，将会把信息保存到 `workdir/crashes` 中
-
-该目录下的每一个子目录都代表了一次单独的 crash，由唯一的字符串表示
-
-用于调试和复现
+syzkaller 发现 crash 后，将会把信息保存到 `workdir/crashes` 中。该目录下的每一个子目录都代表了一次单独的 crash，由唯一的字符串表示，用于调试和复现。
 
 ```
  - crashes/
@@ -99,23 +87,13 @@ syzkaller 发现 crash 后，将会把信息保存到 `workdir/crashes` 中
   * 输入 `syz-execprog` 工具用于人工定位
 * `reportN` 文件包含符号化的内核 crash 报告和后续处理过程
 
-通常来说，只需要一对 `logN` 和 `reportN` 文件就足够
-
-但有时 crash 很难复现，因此 syzkaller 保存多达 100 对
-
-有三种特殊类型的 crash：
+通常来说，只需要一对 `logN` 和 `reportN` 文件就足够。但有时 crash 很难复现，因此 syzkaller 保存多达 100 对。有三种特殊类型的 crash：
 
 * `no output from test machine`
 * `lost connection to test machine`
 * `test machine is not executing programs`
 
-对于这几种 crash，通常看不到 `reportN` 文件
-
-有时这些问题由 syzkaller 本身的 BUG 导致
-
-（尤其是看到日志中有 `Go panic` 信息时）
-
-但更多情况下，被测试内核应该是发生了死锁等情况
+对于这几种 crash，通常看不到 `reportN` 文件。有时这些问题由 syzkaller 本身的 BUG 导致（尤其是看到日志中有 `Go panic` 信息时）。但更多情况下，被测试内核应该是发生了死锁等情况。
 
 ---
 
@@ -140,7 +118,7 @@ $ ./bin/syz-manager -config my.cfg
 
 * `syz-manager` 进程会启动 VM 并开始 fuzzing
 * `-config` 选项给定了配置文件的位置
-* crashes、数据和其它信息将会暴露在配置文件中的 HTTP 地址上
+* Crashes、数据和其它信息将会暴露在配置文件中的 HTTP 地址上
 
 配置文件是 JSON 格式的，示例：
 
@@ -169,33 +147,17 @@ $ ./bin/syz-manager -config my.cfg
 
 所有的参数：https://github.com/google/syzkaller/blob/master/pkg/mgrconfig/config.go
 
-一旦 syzkaller 检测到 VM 中的内核 crash
-
-将会自动启动进程重现这个 crash
+一旦 syzkaller 检测到 VM 中的内核 crash,将会自动启动进程重现这个 crash。
 
 * 默认情况下，将会使用 4 个 VM 重现该 crash
 * 最小化导致该 crash 的程序
 
-这可能会停止 fuzzing，因为所有的 VM 实例都忙于重现这个 BUG
+这可能会停止 fuzzing，因为所有的 VM 实例都忙于重现这个 BUG。重现的过程可能只需几分钟，可能需要一小时，取决于这个 crash 是否容易重现。
 
-重现的过程可能只需几分钟，可能需要一小时
-
-取决于这个 crash 是否容易重现
-
-如果重现成功，syzkaller 将会生成两种形式的代码：syzkaller 程序或 C 程序
+如果重现成功，syzkaller 将会生成两种形式的代码：syzkaller 程序或 C 程序：
 
 * 总是优先生成 C 程序，但由于有时因为各种原因，只能生成 syzkaller 程序
 * syzkaller 程序可以被执行，用于手动重现、调试产生的 crash
-
----
-
-## Summary
-
-分析源码可能暂时有点困难
-
-因为暂时还不太懂 Golang
-
-不过可以先试着使用一下
 
 ---
 
