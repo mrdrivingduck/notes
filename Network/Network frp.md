@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-[_frp_](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。
+[*frp*](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。
 
 作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机
 
@@ -155,7 +155,7 @@ remote_port = 13000
 
 ## Summary
 
-_frp_ 这个项目好像还是中国人开发的呢~中国开发者给力！ 😎
+*frp* 这个项目好像还是中国人开发的呢~中国开发者给力！ 😎
 
 ---
 

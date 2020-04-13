@@ -128,10 +128,10 @@ $ chmod +x create-image.sh
 $ ./create-image.sh
 ```
 
-脚本默认创建了一个最小化的 Debian-stretch 的 Linux image (stretch 是 Debian 9 的代号)。也可以在运行脚本时，指定其它发布版，比如 Debian 7：
+脚本默认创建了一个最小化的 Debian-stretch 的 Linux image (stretch 是 Debian 9 的代号)。也可以在运行脚本时，指定其它发布版，比如 Debian 10：
 
 ```bash
-$ ./create-image.sh --distribution wheezy
+$ ./create-image.sh --distribution buster
 ```
 
 当然也可以装非最小化版本，比如带上了 `git`、`vim` 等工具。但是 syzkaller 的运行不需要用到它们：
