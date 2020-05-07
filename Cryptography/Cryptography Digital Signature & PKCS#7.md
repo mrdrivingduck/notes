@@ -36,7 +36,7 @@ Ningbo, Zhejiang, China
 
 ## PKCS \#7 Standard
 
-PKCS (Public Key Cryptography Standards) \#7 被命名为 CMS (Cryptographic Message Syntax Standard) 是 *RSA* 公司提出的最著名的标准。这一标准也是 S/MIME (Secure/Multipurpose Internet Mail Extensions) 的基础。
+PKCS (Public Key Cryptography Standards) \#7 被命名为 CMS (Cryptographic Message Syntax Standard)，是 *RSA* 公司提出的最著名的标准。这一标准也是 S/MIME (Secure/Multipurpose Internet Mail Extensions) 的基础。
 
 PKCS \#7 提供了一种用途广泛的创建数字签名的语法和格式。其中，包含了六种类型的数据：
 
