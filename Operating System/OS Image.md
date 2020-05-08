@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-`IMG` 指的是以 `.img` 文件扩展名结尾的二进制 __文件__
+`IMG` 指的是以 `.img` 文件扩展名结尾的二进制 **文件**
 
 其中存储的内容是软盘、硬盘、光盘等存储介质上的原始二进制数据
 
@@ -60,7 +60,7 @@ Windows 10 里面应当已经内置了映像解析了
 
 ![linux-partition](../img/linux-partition.png)
 
-一个典型的 Linux 系统的分区：(maybe _ext4_ FS?)
+一个典型的 Linux 系统的分区：(maybe *ext4* FS?)
 
 * 最开始的部分是 OS 引导块 - boot block，通常位于第一扇区中
 * 之后的部分 - super block

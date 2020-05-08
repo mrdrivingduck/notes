@@ -10,27 +10,15 @@ Nanjing, Jiangsu, China
 
 ## About
 
-改一下双系统的默认启动顺序
+改一下双系统的默认启动顺序。我的大本本装着 Windows 10 + Ubuntu 18.04 的双系统，每次启动时，如果不人为选择，GRUB 超时后自动启动 Ubuntu。有时候我人不在电脑边，开着 Windows，但它因为 Windows Update 自动重启了，结果给我重启到 Ubuntu 里面去了......
 
-我的大本本装着 _Windows 10_ + _Ubuntu 18.04_ 的双系统
-
-每次启动时，如果不人为选择，_GRUB_ 超时后自动启动 Ubuntu
-
-有时候我人不在电脑边，开着 Windows，但它因为 Windows Update 自动重启了
-
-结果给我重启到 Ubuntu 里面去了......
-
-人在外面的我，想连 Windows 的远程桌面：？？？网断了？？？ 😂
-
-回到实验室发现，哦，电脑已经在 Ubuntu 的登录界面等着了
+人在外面的我，想连 Windows 的远程桌面：？？？网断了？？？ 😂 回到实验室发现，哦，电脑已经在 Ubuntu 的登录界面等着了。
 
 ---
 
 ## GRUB Default Boot Order
 
-理论上应当想到，要改 GRUB 的配置文件
-
-但是 GRUB 的配置文件是生成的，不建议手动修改：
+理论上应当想到，要改 GRUB 的配置文件。但是 GRUB 的配置文件是生成的，不建议手动修改：
 
 ```bash
 $ sudo vim /boot/grub/grub.cfg
@@ -71,9 +59,7 @@ administrator.  For example, you can add an entry to boot another OS as
 the menu; and then adjust the default setting via /etc/default/grub.
 ```
 
-所以，`/etc/grub.d` 目录下都是些可执行文件，没什么好改的
-
-只需要在 `/etc/default/grub` 中调整默认启动顺序就好了
+所以，`/etc/grub.d` 目录下都是些可执行文件，没什么好改的。只需要在 `/etc/default/grub` 中调整默认启动顺序就好了：
 
 ```bash
 $ sudo vim /etc/default/grub
@@ -115,11 +101,9 @@ GRUB_CMDLINE_LINUX=""
 #GRUB_INIT_TUNE="480 440 1"
 ```
 
-其中，`GRUB_DEFAULT` 原先为 `0`，对应我的本本上的 Ubuntu
+其中，`GRUB_DEFAULT` 原先为 `0`，对应我的本本上的 Ubuntu。Window Boot Manager (即 Windows) 在 GRUB 列表上为第三个，因此将这个值修改为 `2`。
 
-Window Boot Manager (即 Windows) 在 GRUB 列表上为第三个，因此将这个值修改为 `2`
-
-根据该文件中的说明，修改该文件后，需要运行 `update-grub` 来生成最终的 GRUB 配置文件 `/boot/grub/grub.cfg`
+根据该文件中的说明，修改该文件后，需要运行 `update-grub` 来生成最终的 GRUB 配置文件 `/boot/grub/grub.cfg`：
 
 ```bash
 $ sudo update-grub
@@ -136,7 +120,7 @@ Adding boot menu entry for EFI firmware configuration
 done
 ```
 
-重启之后，在 GRUB 中默认进入 Windows 了诶 😁
+重启之后，在 GRUB 中默认进入 Windows 了诶~ 😁
 
 ---
 

@@ -16,13 +16,13 @@ Nanjing, Jiangsu, China
 
 应该是显卡冲突的问题
 
-进入系统后 发现 _Ubuntu_ 使用了集成显卡
+进入系统后 发现 *Ubuntu* 使用了集成显卡
 
-没有使用 _NVIDIA_
+没有使用 *NVIDIA*
 
 ![ubuntu-without-nvidia](../img/ubuntu-without-nvidia.png)
 
-因此需要安装 _NVIDIA_ 的附加驱动
+因此需要安装 *NVIDIA* 的附加驱动
 
 ```bash
 $ ubuntu-drivers devices
@@ -44,13 +44,13 @@ $ sudo ubuntu-drivers autoinstall
 
 ## Wireless Interface Problem
 
-在 _Terminal_ 中输入：
+在 *Terminal* 中输入：
 
 ```bash
 $ rfkill list all
 ```
 
-_Lenovo R720_ 的无线网卡被硬件关闭了
+*Lenovo R720* 的无线网卡被硬件关闭了
 
 因此在操作系统中无法通过软件打开
 
@@ -79,7 +79,7 @@ $ sudo modprobe -r ideapad_laptop
 
 坑真多 不过现在终于成功装上了双系统 :smile:
 
-第一次在高性能的机器上裸装 _Linux_ 了
+第一次在高性能的机器上裸装 *Linux* 了
 
 不用再受虚拟机的资源限制了
 

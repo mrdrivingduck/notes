@@ -65,7 +65,7 @@ Fine. 是这样 最近一个项目正在收尾
 $ grep -rl "mrdrivingduck" ./*
 ```
 
-综合起来，用 __命令替换__ 使 bash 先执行 `grep`
+综合起来，用 **命令替换** 使 bash 先执行 `grep`
 
 再将结果作为 `sed` 的输入：
 

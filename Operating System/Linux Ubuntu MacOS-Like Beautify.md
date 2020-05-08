@@ -25,11 +25,11 @@ $ sudo apt-get install gnome-shell-extensions
 ## Download resources
 
 * 在 `https://www.opendesktop.org/` 上下载资源
-  * _GTK_（系统）主题 __(GTK Themes)__
-  * 图标主题 __(Icon Themes)__
-  * _shell_ 主题 __(Shell Themes)__
+  * *GTK*（系统）主题 **(GTK Themes)**
+  * 图标主题 **(Icon Themes)**
+  * *shell* 主题 **(Shell Themes)**
   * 桌面 | 锁屏图片
-* 对于 _GTK_ 主题
+* 对于 *GTK* 主题
   * 将解压后的文件夹放入 `/usr/share/themes` 目录下
 * 对于图标主题
   * 将解压后的文件夹放入 `/usr/share/icons` 目录下
@@ -39,10 +39,10 @@ $ sudo apt-get install gnome-shell-extensions
 
 ## Summary
 
-* 太 tm 花里胡哨了 :thumbsup:
-* _Ubuntu_ 原版界面不是太好看 :expressionless:
-* _Apple_ 的 _UI_ 设计确实是世界顶尖 :heart_eyes:
-* 屌丝程序员装逼必备 :poop:
+* 太 tm 花里胡哨了 👍
+* *Ubuntu* 原版界面不是太好看 💩
+* *Apple* 的 *UI* 设计确实是世界顶尖
+* 屌丝程序员装逼必备
 
 ---
 

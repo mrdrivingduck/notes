@@ -10,9 +10,9 @@ Nanjing, Jiangsu, China
 
 ## Workflow
 
-_Ubuntu 18.04_ 默认的软件源在国外，网速较慢
+*Ubuntu 18.04* 默认的软件源在国外，网速较慢
 
-改为国内的软件源更为有效，以 _Aliyun Source_ 为例：
+改为国内的软件源更为有效，以 *Aliyun Source* 为例：
 
 ```bash
 $ sudo gedit /etc/apt/sources.list
@@ -31,7 +31,7 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe m
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
-中国科学技术大学 _USTC_ 软件源镜像：
+中国科学技术大学 *USTC* 软件源镜像：
 
 ```
 deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
@@ -58,11 +58,11 @@ $ sudo apt-get upgrade
 
 ## Attention
 
-`bionic` 是 _Ubuntu 18.04_ 的版本代号
+`bionic` 是 *Ubuntu 18.04* 的版本代号
 
-如果为不同版本的 _Ubuntu_ 更换 _APT_ 源
+如果为不同版本的 Ubuntu 更换 APT 源
 
-需要选择对应版本的 _APT_ 源
+需要选择对应版本的 APT 源
 
 ---
 
