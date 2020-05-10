@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 突然想研究研究 HTTPS 的实际使用，所以看了一下数字证书的相关知识。最终问题转化为使用 JDK 自带的 `keytool` 工具管理密钥。
 
-__Keystore__ 是一个用于存放公钥和证书的存储设施，里面能够存放不同类型的条目。应用最多的两类条目：
+**Keystore** 是一个用于存放公钥和证书的存储设施，里面能够存放不同类型的条目。应用最多的两类条目：
 
 * Key entries - 以被保护的格式存放，可以包含：
   * 密钥
@@ -84,7 +84,7 @@ X.509 证书除去签名以外，包含下列数据：
 
 ## Certificate Chains
 
-当新的密钥对刚被生成时，证书链一开始只有一个 __自签名证书__ ：
+当新的密钥对刚被生成时，证书链一开始只有一个 **自签名证书**：
 
 * 即 subject == issuer，证书中的签名是由生成密钥中的私钥加密的
 * 证书的签名可以由证书中的公钥认证
@@ -120,13 +120,13 @@ Root program 通常用它们包含的证书，提供一系列合法的功能。
 
 ## Reference
 
-https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html
+[Oracle - keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html)
 
-https://en.wikipedia.org/wiki/Public_key_infrastructure
+[Wikipedia - PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)
 
-https://en.wikipedia.org/wiki/Public_key_certificate
+[Wikipedia - Public key certificate](https://en.wikipedia.org/wiki/Public_key_certificate)
 
-https://en.wikipedia.org/wiki/Authorization_certificate
+[Wikipedia - Authroization certificate](https://en.wikipedia.org/wiki/Authorization_certificate)
 
 ---
 

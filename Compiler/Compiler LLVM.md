@@ -18,7 +18,7 @@ LLVM 是一个模块化、可重用的编译器和工具链技术的集合
 >
 > The name "LLVM" itself is not an acronym; it is the full name of the project.
 
-_"For designing and implementing LLVM"_, the ACM presented Vikram Adve, Chris Lattner, and Evan Cheng with the 2012 ACM Software System Award.
+*"For designing and implementing LLVM"*, the ACM presented Vikram Adve, Chris Lattner, and Evan Cheng with the 2012 ACM Software System Award.
 
 ---
 
@@ -46,7 +46,7 @@ _"For designing and implementing LLVM"_, the ACM presented Vikram Adve, Chris La
 
 ![compiler-llvm](../img/compiler-llvm.png)
 
-* __不同的前后端使用相同的中间代码 - LLVM Intermediate Representation (LLVM IR)__
+* **不同的前后端使用相同的中间代码 - LLVM Intermediate Representation (LLVM IR)**
 * 如果需要支持一种新的编程语言，只需要实现一个新的前端
 * 如果需要支持一种新的硬件平台，只需要实现一个新的后端
 * 优化阶段通用，只针对 LLVM IR，与前端后端无关
@@ -73,11 +73,11 @@ GCC 的前后端耦合严重
 * 优化器
 * 机器码生成器
 
-_[LLVM Official](http://llvm.org/)_:
+[LLVM Official](http://llvm.org/):
 
-> The __LLVM Core__ libraries provide a modern source- and target-independent __optimizer__, along with __code generation__ support for many popular CPUs (as well as some less common ones!) 
+> The **LLVM Core** libraries provide a modern source- and target-independent **optimizer**, along with **code generation** support for many popular CPUs (as well as some less common ones!) 
 >
-> These libraries are built around a well specified code representation known as the __LLVM intermediate representation ("LLVM IR")__.
+> These libraries are built around a well specified code representation known as the **LLVM intermediate representation ("LLVM IR")**.
 >
 > The LLVM Core libraries are well documented, and it is particularly easy to invent your own language (or port an existing compiler) to use LLVM as an optimizer and code generator.
 
@@ -95,13 +95,13 @@ Clang 是 LLVM 的一个子项目，是 C/C++/Objective-C 的编译器前端
 * Useful error and warning messages
 * Provide a platform for building great source level tools
 
-> The __Clang Static Analyzer__ is a tool that automatically finds bugs in your code, and is a great example of the sort of tool that can be built using the Clang frontend as a library to parse C/C++ code.
+> The **Clang Static Analyzer** is a tool that automatically finds bugs in your code, and is a great example of the sort of tool that can be built using the Clang frontend as a library to parse C/C++ code.
 
 ![clang](../img/clang.png)
 
 IR 由 Clang 生成
 
-并由 __Pass__ 进行优化，通过 LLVM Core 生成对应的机器码
+并由 **Pass** 进行优化，通过 LLVM Core 生成对应的机器码
 
 ### LLDB
 

@@ -45,7 +45,7 @@ Optimize Unnecessary Variables
 
 从 Control-flow Graph 的终点开始 - backward analysis
 
-依次标注每个 Basic Block 所 __依赖__ 的变量集合：
+依次标注每个 Basic Block 所 **依赖** 的变量集合：
 
 * 赋值不是依赖
 * 如果依赖的值与旧值无关，则可以被覆盖
@@ -59,9 +59,9 @@ Optimize Unnecessary Variables
 
 ## Observations
 
-1. Can be run __forward__ or __backward__
-2. May have to __join__ results from multiple sources
-3. __Loops__ is non-trivial
+1. Can be run **forward** or **backward**
+2. May have to **join** results from multiple sources
+3. **Loops** is non-trivial
 
 ## Inter-Procedural Analysis
 
@@ -86,7 +86,7 @@ Optimize Unnecessary Variables
 
 如果要进行 context-sensitive 的分析，就需要过滤 valid path
 
-_Meet over Valid Paths (MVP)_ 分析
+*Meet over Valid Paths (MVP)* 分析
 
 * Context-sensitive version of MOP
 

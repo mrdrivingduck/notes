@@ -72,6 +72,8 @@ CONFIG_KASAN_INLINE=y
 
 对于较新版本的 Linux 内核，以下两个选项也要开启 (老版本内核没有这两个选项)：
 
+> 这两个选项很重要！否则虚拟机会进入 rescue mode
+
 ```
 CONFIG_CONFIGFS_FS=y
 CONFIG_SECURITYFS=y
@@ -170,10 +172,10 @@ sudo debootstrap --include=$PREINSTALL_PKGS $RELEASE $DIR http://mirrors.ustc.ed
 
 ## QEMU
 
-直接使用 `apt` 安装 QEMU：
+直接使用 `apt` 安装 QEMU。另外，`net-tools` 也需要被安装，因为我发现不安装可能会导致虚拟机网卡失效。
 
 ```bash
-$ sudo apt install qemu-system-x86
+$ sudo apt install qemu-system-x86 net-tools
 ```
 
 测试刚才的 kernel 和 image 是否能在 QEMU 中运行：
