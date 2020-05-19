@@ -1,4 +1,4 @@
-# JVM - Class Path
+# Java - Class Path
 
 Created by : Mr Dk.
 
