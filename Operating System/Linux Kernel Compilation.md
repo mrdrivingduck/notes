@@ -8,13 +8,21 @@ Nanjing, Jiangsu, China
 
 ---
 
-对如何编译 Linux 内核进行总结。
+对如何编译 Linux 内核进行总结。内核的编译基于 Makefile，因此编译命令基本上围绕 `make` 进行。
 
-内核的编译基于 Makefile，因此编译命令基本上围绕 `make` 进行。
+## Source Code
+
+Linux 官方提供一个稳定版的内核 git 地址：
+
+```
+git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+```
+
+另外，在 GitHub 上也有相应的镜像。[Linus Torvalds](https://github.com/torvalds/linux) 的镜像只有 `x.xx` 版本的 tag，另外还有维护了[稳定版](https://github.com/gregkh/linux) tag `x.xx.xx` 的镜像。
 
 ## Dependencies
 
-这些依赖于内核源代码无关，主要是编译一些脚本、工具。比如用于内核模块签名的工具 `scripts/sign-file.c`。
+这些依赖与内核源代码无关，主要是编译一些脚本、工具。比如用于内核模块签名的工具 `scripts/sign-file.c`。
 
 ```bash
 $ sudo apt install libelf-dev libssl-dev
@@ -39,6 +47,12 @@ $ make allnoconfig # New config where all options are answered with no'
 $ make allyesconfig	# New config where all options are accepted with yes'
 $ make allmodconfig	# New config selecting modules when possible'
 $ make alldefconfig # New config with all symbols set to default'
+```
+
+如果想根据系统启动以来已经加载的模块进行编译，使得内核仅支持当前已经加载的模块，从而简化配置流程：
+
+```bash
+$ make localmodconfig
 ```
 
 如果想通过一个 GUI 进行手动配置，则可以使用如下几个命令。(使用这几个命令需要安装用于支持相关 GUI 的软件包，比如 GTK、QT 等)：
@@ -86,7 +100,14 @@ $ make bzImage # 经过压缩的核心
 $ make -j8
 ```
 
-编译完毕后的 `bzImage` 可以直接被 QEMU 使用。
+编译完毕后的 `bzImage` 可以直接被 QEMU 使用。如果想要将内核主映像和模块安装到真机：
+
+```bash
+$ sudo make modules_install
+$ sudo make install
+```
+
+然后重启电脑后进入 GRUB 后，选择高级启动选项，然后选择编译好的内核启动。
 
 如果想要将内核编译为 debian 包 (或其它压缩形式)，然后通过 `dpkg` 来安装，相关的支持命令位于 `scripts/package/Makefile` 中：
 
