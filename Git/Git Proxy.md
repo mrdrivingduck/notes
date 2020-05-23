@@ -36,7 +36,7 @@ $ git config --global --unset https.proxy
 
 在 Baidu 上没有找到解决方案，后来通过 Google 看了一篇 [博客](https://communary.net/2017/01/12/getting-git-to-work-through-a-proxy-server-in-windows/) 发现符合我的应用场景，并且经过测试方法是有效的。
 
-我的应用场景是 [_Git for Windows_](https://gitforwindows.org/) + [_V2Ray_](https://github.com/2dust/v2rayN) 的本地代理。
+我的应用场景是 [*Git for Windows*](https://gitforwindows.org/) + [*V2Ray*](https://github.com/2dust/v2rayN) 的本地代理。
 
 具体的设置方式是在 SSH 的配置文件 (`~/.ssh/config`) 中添加规则。规则中的代理命令需要使用到一个叫做 `connect.exe` 的程序。这个程序不用另外下载，在 Git for Windows 的安装目录下已经提供：`<Git_Path>/Git/mingw64/bin/`。该程序的使用方式如下：
 

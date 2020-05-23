@@ -10,19 +10,11 @@ Nanjing, Jiangsu, China
 
 ## About
 
-Git 这个东西我觉得主要是想法很独特
-
-每一次提交，会产生指向上一个提交对象的指针
-
-每个 __提交对象__ 指向版本快照
-
-版本快照记录本次提交的一些元数据，产生了哪些变化等等
+Git 这个东西想法很独特。每一次提交，会产生指向上一个提交对象的指针，每个 **提交对象** 指向版本快照，版本快照记录本次提交的一些元数据，产生了哪些变化等等：
 
 ![git-work-tree](../img/git-work-tree.png)
 
-默认会有一个 `master` 分支指针指向 __提交对象__
-
-会有一个 `HEAD` 指针指向当前操作的分支：
+默认会有一个 `master` 分支指针指向 **提交对象**，会有一个 `HEAD` 指针指向当前操作的分支：
 
 ![git-head](../img/git-head.png)
 
@@ -40,17 +32,15 @@ $ git branch <branch_name>
 
 ![git-branch](../img/git-branch.png)
 
-在分支之间切换：
+在分支之间切换，实际上是将 `HEAD` 指针指向了对应的分支指针：
 
 ```bash
 $ git checkout <branch_name>
 ```
 
-实际上是将 `HEAD` 指针指向了对应的分支指针：
-
 ![git-checkout](../img/git-checkout.png)
 
-之后可以在对应分支上进行 `commit`，对应的分支指针就会向前移动：
+之后可以在对应分支上进行 `commit`，分支指针就会向前移动：
 
 ![git-branch-commit](../img/git-branch-commit.png)
 
@@ -60,35 +50,15 @@ $ git checkout <branch_name>
 
 Git 的官方网站给出了一个便于理解的实际应用场景：
 
-项目的生产环境服务器上使用的是 `master` 分支的版本
-
-突然，有人提出 `#53 issue` 中的功能需要被实现
-
-因此，从 `master` 分支上派生出 `iss53` 分支用于开发
-
-并将更新 commit 到 `iss53` 分支上：
+项目的生产环境服务器上使用的是 `master` 分支的版本。突然，有人提出 `#53 issue` 中的功能需要被实现。因此，从 `master` 分支上派生出 `iss53` 分支用于开发，并将更新 commit 到 `iss53` 分支上
 
 ![git-iss53](../img/git-iss53.png)
 
-此时，突然有人报告，生产环境中的另一个地方出现 BUG 需要被立刻修复
-
-但是 `iss53` 中的需求还没有被实现完
-
-此时，只需要切换回 `master` 分支，Git 将状态恢复到 `C2`
-
-从 `C2` 状态派生出一个新的紧急修补分支 `hotfix`，并进行 BUG 修复：
+此时，突然有人报告，生产环境中的另一个地方出现 BUG 需要被立刻修复，但是 `iss53` 中的需求还没有被实现完。此时，只需要切换回 `master` 分支，Git 将状态恢复到 `C2`，从 `C2` 状态派生出一个新的紧急修补分支 `hotfix`，并进行 BUG 修复：
 
 ![git-branch-hotfix](../img/git-branch-hotfix.png)
 
-此时，`hotfix` 分支上的 commit 已经修复了 BUG
-
-因此，需要将生产服务器上的版本更新为修复 BUG 后
-
-即需要合并 `master` 和 `hotfix` 分支
-
-由于从 `master` 分支的 `C2` 状态可以无需回退而直接到达 `C4` 状态
-
-因此这种合并方式称为 __Fast Forward__，即只需要将 `master` 分支指针右移：
+此时，`hotfix` 分支上的 commit 已经修复了 BUG。因此，需要将生产服务器上的版本更新为修复 BUG 后 - 即需要合并 `master` 和 `hotfix` 分支。由于从 `master` 分支的 `C2` 状态可以无需回退而直接到达 `C4` 状态，因此这种合并方式称为 **Fast Forward**，即只需要将 `master` 分支指针右移：
 
 ```bash
 $ git merge hotfix
@@ -100,19 +70,11 @@ Fast-forward
 
 ![git-fast-forward](../img/git-fast-forward.png)
 
-`hotfix` 分支指针已经完成了使命，可以被删除了
-
-目前生产环境服务器使用的是 `C4` 状态的版本
-
-然后就可以重新转到 `iss53` 分支上，继续新功能的开发：
+`hotfix` 分支指针已经完成了使命，可以被删除了。目前生产环境服务器使用的是 `C4` 状态的版本，然后就可以重新转到 `iss53` 分支上，继续新功能的开发：
 
 ![git-branch-go-on](../img/git-branch-go-on.png)
 
-当新功能开发完成后，`iss53` 需要和 `master` 合并时
-
-问题出现了 - 并不能使用 fast-forward 的合并方式
-
-Git 会找到它们的共同祖先，进行三方合并计算：
+当新功能开发完成后，`iss53` 需要和 `master` 合并时，问题出现了：并不能使用 fast-forward 的合并方式。Git 会找到它们的共同祖先，进行三方合并计算：
 
 ![git-before-merge](../img/git-before-merge.png)
 
@@ -123,9 +85,7 @@ index.html |    1 +
 1 file changed, 1 insertion(+)
 ```
 
-Git 会将合并后的结果生成为一个新的状态
-
-此时 `iss53` 的使命也完成了，可以被删除：
+Git 会将合并后的结果生成为一个新的状态。此时 `iss53` 的使命也完成了，可以被删除：
 
 ```bash
 $ git branch -d <branch_name>
@@ -137,11 +97,7 @@ $ git branch -d <branch_name>
 
 ## Conflict
 
-合并操作并不一定像上述过程一样顺利
-
-如果两个分支都修改了同一个文件
-
-那么 Git 对 `C6` 状态的生成一定会是矛盾的：
+合并操作并不一定像上述过程一样顺利。如果两个分支都修改了同一个文件，那么 Git 对 `C6` 状态的生成一定会是矛盾的：
 
 ```bash
 $ git merge iss53
@@ -164,18 +120,12 @@ Unmerged paths:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-到底该使用 `C4` 版本的状态还是 `C5` 版本的状态呢？
-
-因此这时需要人为裁决：
+到底该使用 `C4` 版本的状态还是 `C5` 版本的状态呢？此时需要人为裁决：
 
 * 二选一
 * 亲自整合冲突
 
-显示 __both modified__ 的文件就是发生冲突的文件
-
-Git 会自动在文件中将冲突位置标识
-
-Vim 我是真的懒得用，用 Visual Studio Code 打开文件就会有显示：
+显示 **both modified** 的文件就是发生冲突的文件。Git 会自动在文件中将冲突位置标识，vim 我是真的懒得用，用 Visual Studio Code 打开文件就会有显示：
 
 ```text
 <<<<<<< HEAD:index.html
@@ -191,50 +141,30 @@ Vim 我是真的懒得用，用 Visual Studio Code 打开文件就会有显示�
 * `>>>>>>>` 指示的是 `iss53` 版本
 * `=======` 指示的是分割线，区分两个版本
 
-在 Visual Studio Code 中可以直接点击按钮二选一，或同时合并
-
-也可以人为进行编辑
+在 Visual Studio Code 中可以直接点击按钮二选一，或同时合并；也可以人为进行编辑：
 
 * 先编辑成想要合并后的样子
-* 然后将 `<<<<<<<`、`>>>>>>>`、`=======` 全部删掉（不然会有语法错误 :sweat_smile:）
+* 然后将 `<<<<<<<`、`>>>>>>>`、`=======` 全部删掉（不然会有语法错误 🤨）
 
-修改完成后，保存
-
-然后通过 `git add` 将该文件送入 stage：
+修改完成后，保存。然后通过 `git add` 将该文件送入 stage：
 
 ```bash
 $ git add index.html
 ```
 
-尽可能不要修改同一个文件才是正解叭
+尽可能不要修改同一个文件才是正解叭。
+
+---
+
+另外强推 Lydia Hallie 的文章 [CS Visualized: Useful Git Commands](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)，上面用可视化的方式介绍了 Git 命令的效果，形象直观。
 
 ---
 
 ## Reference
 
-<https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B>
+[Git 分支 - 分支简介](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B)
 
-<https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6>
-
----
-
-## Summary
-
-以前一直是一个人在 `master` 分支上玩耍
-
-现在需要和别人协作了
-
-还是学一下 branch 的原理和机制吧
-
-当多个人同时在一个 branch 上协作时
-
-也会在合并时自动创建一个临时分支
-
-总体来看走的机制还是同一套
-
-一直以为很复杂的 Merge 今天也整明白了
-
-不得不说，发明 Git 的 Linus Benedict Torvalds 真的是个天才！
+[Git 分支 - 分支的新建与合并](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6)
 
 ---
 

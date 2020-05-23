@@ -32,13 +32,13 @@ $ git log
 
 ## Commit - 提交更新
 
-每次 _commit_ 一般会带有注释，表示本次提交完成的工作，如下面的 `"Updated ..."`
+每次 commit 一般会带有注释，表示本次提交完成的工作，如下面的 `"Updated ..."`
 
 ```bash
 $ git commit -m "Updated ..."
 ```
 
-如果在 _commit_ 后想修改注释：
+如果在 commit 后想修改注释：
 
 ```bash
 $ git commit --amend
@@ -51,27 +51,21 @@ $ git commit --amend
 `$ git reset --mixed HEAD^` - 默认参数
 
 * 不删除工作空间中的改动代码
-* 撤销 _commit_
+* 撤销 commit
 * 撤销文件追踪
 
 `$ git reset --soft HEAD^`
 
 * 不删除工作空间中的改动代码
-* 撤销 _commit_
+* 撤销 commit
 * 不撤销文件追踪
 
 `$ git reset --hard HEAD^`
 
 * 删除工作空间的改动代码
-* 撤销 _commit_
+* 撤销 commit
 * 撤销文件追踪
-* __实际上就是恢复到上一次的 _commit_ 状态__
-
----
-
-## Summary
-
-今天用到了 顺手记录一下
+* **实际上就是恢复到上一次的 commit 状态**
 
 ---
 

@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## Local
 
-使用命令 `reset` 加上 _版本号_ 的方式，可以实现本地仓库的版本进退：
+使用命令 `reset` 加上 **版本号** 的方式，可以实现本地仓库的版本进退：
 
 ```bash
 $ git reset --hard [commit_id]
@@ -30,7 +30,7 @@ $ git reset --hard HEAD^^    # 上上个版本
 
 ## Remote
 
-本地分支回退后，版本将落后于远程分支，必须使用 __强制__ 覆盖远程分支
+本地分支回退后，版本将落后于远程分支，必须使用 **强制** (慎用) 覆盖远程分支：
 
 ```bash
 $ git push -f [origin master]

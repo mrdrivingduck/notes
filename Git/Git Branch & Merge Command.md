@@ -21,7 +21,7 @@ Nanjing, Jiangsu, China
 
 ### git branch
 
-列出所有的本地分支，并用 `*` 标记当前分支
+列出所有的本地分支，并用 `*` 标记当前分支：
 
 ```bash
 $ git branch
@@ -29,7 +29,7 @@ $ git branch
 
 ### git branch -r
 
-列出所有远程分支
+列出所有远程分支：
 
 ```bash
 $ git branch -r
@@ -37,7 +37,7 @@ $ git branch -r
 
 ### git branch -a
 
-列出所有本地分支和远程分支
+列出所有本地分支和远程分支：
 
 ```bash
 $ git branch -a
@@ -45,7 +45,7 @@ $ git branch -a
 
 ### git branch -vv
 
-查看本地分支及其对应的远程分支
+查看本地分支及其对应的远程分支：
 
 ```bash
 $ git branch -vv
@@ -53,7 +53,7 @@ $ git branch -vv
 
 ### git branch --set-upstream-to=<branch_name>
 
-将本地分支关联到远程分支
+将本地分支关联到远程分支：
 
 ```bash
 $ git branch --set-upstream-to=origin/dev
@@ -65,7 +65,7 @@ $ git branch --set-upstream-to=origin/dev
 
 ### git branch <branch_name>
 
-创建 `dev` 分支，但依旧停留在当前分支上
+创建 `dev` 分支，但依旧停留在当前分支上：
 
 ```bash
 $ git branch dev
@@ -73,13 +73,7 @@ $ git branch dev
 
 ### git checkout <branch_name>
 
-切换到 `dev` 分支
-
-此时运行 `git branch -vv`，远程分支中还没有分支和 `dev` 分支对应
-
-如果两个分支上的文件状态不同时
-
-Git 会将文件目录中的文件状态恢复为不同分支对应的状态
+切换到 `dev` 分支。此时运行 `git branch -vv`，远程分支中还没有分支和 `dev` 分支对应。如果两个分支上的文件状态不同时，Git 会将文件目录中的文件状态恢复为不同分支对应的状态。
 
 ```bash
 $ git checkout dev
@@ -87,7 +81,7 @@ $ git checkout dev
 
 ### git push --set-upstream origin dev
 
-将本地提交推送到远程提交中的 `dev` 分支，并将本地分支和远程分支关联
+将本地提交推送到远程提交中的 `dev` 分支，并将本地分支和远程分支关联。
 
 ### Effect
 
@@ -97,13 +91,11 @@ $ git checkout dev
 
 ## Merge Commands
 
-当需要将 `dev` 分支合并到 `master` 分支时
-
-首先需要使用 `git checkout master` 切换到 `master` 分支
+当需要将 `dev` 分支合并到 `master` 分支时，首先需要使用 `git checkout master` 切换到 `master` 分支。
 
 ### git merge <branch_name>
 
-将 `dev` 分支合并到当前分支
+将 `dev` 分支合并到当前分支。
 
 ```bash
 $ git merge dev
@@ -111,7 +103,7 @@ $ git merge dev
 
 ### git branch -d <branch_name>
 
-删除本地的 `dev` 分支
+删除本地的 `dev` 分支。
 
 ```bash
 $ git branch -d dev
@@ -119,9 +111,7 @@ $ git branch -d dev
 
 ### git push origin --delete <branch_name>
 
-删除本地的 `dev` 分支后，远程的 `dev` 分支依旧存在。
-
-可以在网页上手动删除，也可以在命令行中直接删除：
+删除本地的 `dev` 分支后，远程的 `dev` 分支依旧存在。可以在网页上手动删除，也可以在命令行中直接删除：
 
 ```bash
 $ git push origin --delete dev
@@ -131,7 +121,7 @@ $ git push origin --delete dev
 
 <img src="../img/git-merge-cmd.png" alt="git-merge-cmd" style="zoom:50%;" />
 
-合并后，本地分支的提交次数应该比远程分支提前（__ahead__）。此时，使用 `git push` 将本地分支的提交到远程分支：
+合并后，本地分支的提交次数应该比远程分支提前 (**ahead**)。此时，使用 `git push` 将本地分支的提交到远程分支：
 
 <img src="../img/git-push-merged-branch.png" alt="git-push-merged-branch" style="zoom:50%;" />
 
@@ -153,23 +143,13 @@ $ git push origin --delete dev
 
 <img src="../img/git-conflict-code.png" alt="git-conflict-code" style="zoom:50%;" />
 
-目前分支处于 `master|MERGING` 的状态，在解决冲突并 commit 之后，分支回到 `master` 状态，本地分支合并成功。
-
-此后将 merge 推送到远程分支：
+目前分支处于 `master|MERGING` 的状态，在解决冲突并 commit 之后，分支回到 `master` 状态，本地分支合并成功。此后将 merge 推送到远程分支：
 
 <img src="../img/git-push-conflict.png" alt="git-push-conflict" style="zoom:50%;" />
 
 删除合并后的无用本地和远程分支：
 
 <img src="../img/git-push-rm-merged-branch.png" alt="git-push-rm-merged-branch" style="zoom:50%;" />
-
----
-
-## Summary
-
-一套完整的命令操作 branch 和 merge，以及 conflict 处理的流程是走下来了。
-
-感觉对 Git 又熟悉了一些。在具体的冲突处理中，用 Vim 还是算了吧 😅 一点都不直观。还是 Visual Studio Code 里的 Git 插件简洁明了。想成为技术比较厉害的人，对 Git 必须足够熟悉哦 👨‍💻。
 
 ---
 
