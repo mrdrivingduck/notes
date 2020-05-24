@@ -292,6 +292,14 @@ value
 
 ---
 
+## Case-Insensitive Lexing
+
+对于 SQL 等一些 (关键字以外) 大小写不敏感的语言的处理方式：
+
+* [Case-Insensitive Lexing](https://github.com/antlr/antlr4/blob/master/doc/case-insensitive-lexing.md#custom-character-streams-approach)
+
+---
+
 ## Summary
 
 这套工具由旧金山大学的 [Terence Parr](https://github.com/parrt) 教授开发。我本人很佩服这套框架的定位：类似于 LLVM 编译器的前后端解耦，ANTLR 实现了语法和应用逻辑的解耦，使我们在大部分应用场景下，不用太关心语法的具体细节，不再需要专门实现语法的解析逻辑，因为 ANTLR 帮我们完成了最复杂的 **语法 → 应用程序** 的自动转换。(实际上也就是词法、语法分析代码的自动生成)
