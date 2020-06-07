@@ -43,6 +43,12 @@ $ git branch -r
 $ git branch -a
 ```
 
+上述命令中的信息可能会过时，因此需要保持远程分支信息在本地的同步：
+
+```bash
+$ git remote update origin --prune
+```
+
 ### git branch -vv
 
 查看本地分支及其对应的远程分支：
