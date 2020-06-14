@@ -31,19 +31,7 @@ Nanjing, Jiangsu, China
   * 指定远程服务端的 IP 地址和端口号，连接到远程服务器
   * 设定本机的开放端口和远程服务器上的相应穿透端口
 
-> e.g.
->
-> frp 服务端运行于公网服务器的 12666 端口
->
-> 内网主机的 frp 客户端连接到公网服务器的 12666 端口上
->
-> 内网 frp 客户端希望将内网本地的 80 端口通过公网服务器的 13000 端口穿透出去
->
-> 这样，所有用户都能够通过访问公网服务器的 13000 端口
->
-> 间接访问内网主机的 80 端口
->
-> 从而实现了穿透
+> e.g.: frp 服务端运行于公网服务器的 12666 端口，内网主机的 frp 客户端连接到公网服务器的 12666 端口上，内网 frp 客户端希望将内网本地的 80 端口通过公网服务器的 13000 端口穿透出去。这样，所有用户都能够通过访问公网服务器的 13000 端口，间接访问内网主机的 80 端口，从而实现了穿透。
 
 ---
 
@@ -130,9 +118,7 @@ local_port = 22
 remote_port = 13000
 ```
 
-如果笔记本跑 Windows，可以通过 Windows 的远程桌面连接：
-
-* 前提是要在设置中开启允许被远程连接
+如果笔记本跑 Windows，可以通过 Windows 的远程桌面连接 (前提是要在设置中开启允许被远程连接)：
 
 ```ini
 # frpc.ini
@@ -151,11 +137,49 @@ remote_port = 13000
 
 由于 SSH 和远程桌面的流量都需要经过公网服务器，所以连接到公网服务器的延迟决定了一部分的服务质量。一开始我使用了用于科学上网的美国 Hostwinds 服务器，延迟高得令人发指。后来改用了使用阿里云的国内服务器，延迟情况好了很多。
 
----
+以下配置可以防止客户端连接失败后直接退出，而是不断尝试重新连接服务器：
 
-## Summary
+```ini
+login_fail_exit = false
+```
 
-*frp* 这个项目好像还是中国人开发的呢~中国开发者给力！ 😎
+## frp as a Service
+
+更实用的方法是将 frp 设置为一个系统服务，这样 frp 就可以在系统启动后自动运行了。在编写服务脚本时，要注意的是系统开机时网络可能还未准备好，因此要等网络就绪后再运行 frp 服务。一个 GitHub 网友 [vc5](https://github.com/vc5) 提供了一个可用的 [脚本](https://github.com/fatedier/frp/issues/176)：
+
+将 `frpc` / `frps` 拷贝到 `/usr/sbin` 目录下，将相应配置文件拷贝到 `/etc/frp` 下，然后编辑配置文件 `frpc.service` / `frps.service`。以 `frpc` 为例：
+
+```bash
+$ sudo vim /etc/systemd/system/frpc.service
+```
+
+```
+[Unit]
+Description=frpc daemon
+After=syslog.target  network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/frpc -c /etc/frp/frpc.ini
+Restart= always
+RestartSec=1min
+ExecStop=/usr/bin/killall frpc
+
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+$ sudo systemctl enable frpc.service
+```
+
+之后就可以启动服务了：
+
+```bash
+$ service frpc start
+```
 
 ---
 

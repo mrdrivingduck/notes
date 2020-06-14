@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-在 _Java_ 中获取当前时间戳的几种方式
+在 Java 中获取当前时间戳的几种方式
 
 ---
 
@@ -43,7 +43,7 @@ public Date() {
 }
 ```
 
-所以说，还不如使用第一种方式
+还不如使用第一种方式？
 
 ---
 
@@ -53,17 +53,7 @@ public Date() {
 long timestamp = Calendar.getInstance().getTimeInMillis();
 ```
 
-效率最低，没有必要
-
----
-
-## Summary
-
-不知道为啥
-
-到目前为止也写了那么多的 _Java_ 了
-
-但是第一种效率最高的方式是最后才知道的
+效率最低，没有必要。
 
 ---
 
