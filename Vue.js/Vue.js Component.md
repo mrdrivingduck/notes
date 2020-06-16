@@ -1,165 +1,115 @@
-# Vue.js - Component Registration
+# Vue.js - Component
 
 Created by : Mr Dk.
 
-2019 / 02 / 22 23:45
+2019 / 03 / 16 0:15
 
 Nanjing, Jiangsu, China
 
 ---
 
-## About
+## Compenent Registration
 
-__组件__ 是可复用的 Vue 实例
+关于组件的注册主要有两种：
 
-并带有一个名字，可以在根实例中将组件当做自定义元素使用
+* 全局注册
+* 局部注册
 
-组件可以进行任意次数的复用
-
-* 每用一次组件，一个新的 Vue 实例就会被创建
-
-通常一个应用会以一棵嵌套的组件树的形式来组织：
-
-![vue-component](../img/vue-components.png)
-
----
-
-## Registration
-
-### Global Registration
-
-Vue 实例的 `component()` 方法
-
-全局注册的组件可以用于在其 __被注册之后__ 的任何新创建的 Vue 根实例及其所有子组件模板中
-
-* 全局注册三个组件，三个组件中也可以互相使用另两个组件
+全局注册的组件可以用在任何新创建的 Vue 根实例模板中（`new Vue`）：
 
 ```javascript
-Vue.component('my-component', {
-  data: function() {
-    return {
-      count: 0
-    }
-  },
-  template: template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-})
+Vue.component('component-a', { /* ... */ })
+Vue.component('component-b', { /* ... */ })
+Vue.component('component-c', { /* ... */ })
 
-new Vue({
-  el: '#app',
-  components: { App },
-  template: '<App/>'
-})
+new Vue({ el: '#app' })
 ```
 
-__ATTENTION - 组件中的 `data` 必须是一个函数__
+局部注册的组件在当前组件中使用：
 
-也可以将组件的内容实现在 `.vue` 文件中，以实现复用：
+```javascript
+import ComponentA from './ComponentA.vue'
 
-```vue
-<template>
-    <button v-on:click="add">You clicked me {{ count }} times.</button>
-</template>
-
-<script>
 export default {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  methods: {
-    add: function () {
-      this.count++
-    }
-  },
-  name: 'Button'
-}
-</script>
-```
-
-```javascript
-import Button from './components/Button.vue'
-Vue.component('Button', Button)
-
-new Vue({
-  el: '#pp',
-  components: { App },
-  template: '<App/>'
-})
-```
-
-### Local Registration
-
-Vue 实例中的 `components` 属性
-
-使用普通的 JavaScript 对象定义组件：
-
-```javascript
-var ComponentA = { /*    */ }
-var ComponentB = { /*    */ }
-
-new Vue({
-  el: '#app',
   components: {
-    'component-a': ComponentA,
-    'component-b': ComponentB
-  }
-})
-```
-
-局部注册的组件在其子组件中不可用
-
-* `A` 组件中不能使用 `B` 组件
-
-除非：
-
-```javascript
-var ComponentA = { /*    */ }
-
-var ComponentB = {
-  components: {
-    'component-a': ComponentA
+    ComponentA
   },
   // ...
 }
 ```
 
-也可以直接将组件实现在 `.vue` 文件中
+---
 
-```vue
-<template>
-  <div id="app">
-    <HelloWorld></HelloWorld>
-  </div>
-</template>
+## Communication between Components
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+### 从父组件到子组件的通信
 
-export default {
-  components: {
-    HelloWorld    // Helloworld: Helloworld
+由 prop 实现，具体使用过程：
+
+* 在父组件中，使用 `v-bind` 将数据属性绑定到子组件上
+  * 注意，由于 HTML 大小写不敏感，需要将驼峰命名转换为对应的 kebab-case 命名
+* 在子组件的 `props: []` 中声明绑定与父组件绑定的数据
+* 在子组件中可以直接使用声明过的数据
+
+prop 使得父子组件之间形成 **单向下行绑定** 的关系。
+
+* 父级 prop 对应的数据更新将向下流动到子组件中
+* 由于 Vue.js 的响应式特性，子组件的对应值将会随着父组件改变
+* 反过来不行，即 **不应该在一个子组件内部改变 prop**
+
+两种可能的需要改变 prop 的场景：
+
+1. prop 用于传递初始值，子组件接下来将其作为一个本地的数据使用
+
+   ```javascript
+   props: ['initialCounter'],
+   data: function () {
+     return {
+       counter: this.initialCounter
+     }
+   }
+   ```
+
+2. prop 以原始值传入，子组件需要进行运算转换
+
+   ```javascript
+   props: ['size'],
+   computed: {
+     normalizedSize: function () {
+       return this.size.trim().toLowerCase()
+     }
+   }
+   ```
+
+### 从子组件到父组件的通信
+
+实现过程：
+
+* 在父组件中自定义一个事件，并通过 `v-on` 绑定到子组件
+* 在子组件中调用 `this.$emit('event-name', params)` 触发父组件绑定的事件，并传递参数
+* 父组件执行触发函数
+
+---
+
+## Watch
+
+用于观察和响应 Vue 实例上的数据变动。当然，也可以使用 `computed` 属性。
+
+```javascript
+data: {
+  firstName: 'Foo',
+  lastName: 'Bar',
+  fullName: 'Foo Bar'
+},
+watch: {
+  firstName: function (val) {
+    this.fullName = val + ' ' + this.lastName
   },
-  name: 'App'
+  lastName: function (val) {
+    this.fullName = this.firstName + ' ' + val
+  }
 }
-</script>
 ```
-
----
-
-## Automatic Global Registration of Base Components
-
-下次用到了再研究
-
----
-
-## Summary
-
-明白了 Vue.js 为何要这样设计
-
-将每一部分都拆分为组件
-
-这样整个网页可以像搭积木一样一点一点被拼出来
 
 ---
 

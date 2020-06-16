@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-_Vue Router_ 能够将组件映射到路由，然后告诉 _Vue Router_ 在哪里渲染它们
+*Vue Router* 能够将组件映射到路由，然后告诉 *Vue Router* 在哪里渲染它们。
 
 ## Installation
 
@@ -38,7 +38,6 @@ Vue.use(Router)
 <img src="../img/vue-router-src.png" alt="vue-router-src" style="zoom:50%;" />
 
 1. 在 `/components` 中实现组件
-
 2. 在 `/router/index.js` 中实例化 Router，并配置组件和路由的关系
 
    ```javascript
@@ -88,12 +87,9 @@ Vue.use(Router)
 
 ## Template
 
-`<router-view></router-view>` 标识组件渲染的位置
-
-`<router-link></router-link>` 设置导航链接
-
-* 用 `to` 属性指定链接
-* 默认会被渲染成 `<a></a>` 标签
+* `<router-view></router-view>` 标识组件渲染的位置
+* `<router-link></router-link>` 设置导航链接
+* `to` 属性指定链接，默认会被渲染成 `<a></a>` 标签
 
 ```vue
 <template>
@@ -110,16 +106,14 @@ Vue.use(Router)
 ### Attributes of router-link
 
 * `to` - 目标路由的链接，可带参数，点击后会将值传递到 `router.push()`
-* `replace` - 调用 `router.replace()`，__导航后不会留下 history 记录__
+* `replace` - 调用 `router.replace()`，**导航后不会留下 history 记录**
 * `append` - 在当前相对路径之后追加路径
 * `tag` - 指定 `<router-link></router-link>` 的渲染标签
-* ......
+* ...
 
 ## Programmatic Navigation
 
-除了按下 `router-link` 标签渲染出的链接
-
-也可以在程序中直接调用 router 的 API，模拟点击的动作
+除了按下 `router-link` 标签渲染出的链接，也可以在程序中直接调用 router 的 API，模拟点击的动作。
 
 ### `router.push(location, onComplete?, onAbort?)`
 
@@ -145,11 +139,11 @@ router.push({ path: 'register', query: { plan: 'private' } })
 
 ### `router.replace(location, onComplete?, onAbort?)`
 
-与 `router.push()` 作用类似，区别是不会产生历史条目
+与 `router.push()` 作用类似，区别是不会产生历史条目。
 
 ### `router.go(n)`
 
-在历史栈中向前进或向后退的次数
+在历史栈中向前进或向后退的次数。
 
 ```javascript
 // go forward by one record, the same as history.forward()
@@ -185,9 +179,7 @@ watch: {
 
 ## About the Re-clicking the Route Error
 
-当重复点击同一个路由时，浏览器控制台报错
-
-_Vue Router_ 开发人员推荐的解决方式：
+当重复点击同一个路由时，浏览器控制台报错。*Vue Router* 开发人员推荐的解决方式：
 
 ```javascript
 this.$router.push({

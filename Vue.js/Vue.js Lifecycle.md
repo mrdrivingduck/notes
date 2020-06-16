@@ -10,10 +10,6 @@ Nanjing, Jiangsu, China
 
 ## Lifecycle Mounts
 
-现在对 Vue.js 已经有了一定的了解后
-
-再来看看这张图
-
 ![vue-lifecycle](../img/vue-lifecycle.png)
 
 1. 实例化 Vue - `new Vue()`
@@ -76,13 +72,7 @@ parent -> destroyed()
 
 ## Summary
 
-父子组件的生命周期关系
-
-可以类比 C++ 的子类构造函数调用顺序 :grin:
-
-把这个理清楚以后
-
-就不会出现父子组件之间诡异的渲染失败了
+父子组件的生命周期关系，可以类比 C++ 的子类构造函数调用顺序。把这个理清楚以后，就不会出现父子组件之间诡异的渲染失败了。
 
 ---
 

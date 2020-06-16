@@ -10,9 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-注册组件时，通过 `props` 属性将参数传到子组件中
-
-在子组件中，能够像访问 `data` 属性中的数据一样访问 `props` 中的值
+注册组件时，通过 `props` 属性将参数传到子组件中。在子组件中，能够像访问 `data` 属性中的数据一样访问 `props` 中的值。
 
 ```javascript
 Vue.component('blog-post', {
@@ -50,7 +48,7 @@ export default {
 
 ## Naming
 
-__HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase.__
+**HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase.**
 
 当使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名：
 
@@ -68,7 +66,7 @@ Vue.component('blog-post', {
 <blog-post post-title="hello!"></blog-post>
 ```
 
-如果使用字符串模板，这个限制不存在
+如果使用字符串模板，这个限制不存在。
 
 ---
 
@@ -122,16 +120,12 @@ post: {
 
 ## One-way Data Flow
 
-`prop` 使得父子 `prop` 之间形成了一个 __单向下行绑定__
+`prop` 使得父子 `prop` 之间形成了 **单向下行绑定**
 
 * 父组件的 `prop` 更新会向下流动到子组件中
 * 反过来则不行 - 防止子组件意外改变父组件状态
 
-父组件发生更新时，子组件中的 `prop` 会被刷新成最新的值
-
-* 不应该在子组件内部改变 `prop`
-
-常见的试图改变 `prop` 的场景：
+父组件发生更新时，子组件中的 `prop` 会被刷新成最新的值。因此不应该在子组件内部改变 `prop`。常见的试图改变 `prop` 的场景：
 
 1. `prop` 用于传递一个初始值；子组件接下来希望将其作为一个本地数据使用
    * 定义一个本地 `data` 属性，并使用该 `prop` 作为其初始值
@@ -144,9 +138,7 @@ post: {
 
 ## Type Checks
 
-可以为组件的 `prop` 指定验证要求
-
-为了定制验证方式，需要为 `props` 中的值指定验证需求，而不是字符串数组
+可以为组件的 `prop` 指定验证要求。为了定制验证方式，需要为 `props` 中的值指定验证需求，而不是字符串数组。
 
 ```javascript
 Vue.component('blog-post', {
@@ -193,7 +185,7 @@ Vue.component('blog-post', {
 })
 ```
 
->注意那些 prop 会在一个组件实例 __创建之前__ 进行验证，所以实例的属性（如 `data`、`computed` 等）在 `default` 或 `validator` 函数中是不可用的。
+>注意那些 prop 会在一个组件实例 **创建之前** 进行验证，所以实例的属性（如 `data`、`computed` 等）在 `default` 或 `validator` 函数中是不可用的。
 
 支持类型：
 
@@ -206,19 +198,13 @@ Vue.component('blog-post', {
 * `Function`
 * `Symbol`
 
-此外还可以是自定义类型的构造函数
-
-将通过 `instanceof` 检查
+此外还可以是自定义类型的构造函数。将通过 `instanceof` 检查。
 
 ---
 
 ## Non-Prop Attributes
 
-传向一个子组件，但子组件没有相应 `prop` 定义的属性
-
-* 该属性会被直接添加到该子组件的根元素上
-
-对于大多数属性来说：
+传向一个子组件，但子组件没有相应 `prop` 定义的属性，那么该属性会被直接添加到该子组件的根元素上。对于大多数属性来说：
 
 * 从外部提供给组件的值会替换掉组件内部设置好的值
 * `class` 和 `style` 会智能一些 - 两个值会被合并
