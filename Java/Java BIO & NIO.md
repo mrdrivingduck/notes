@@ -214,7 +214,7 @@ while (true) {
 
 这两个系统调用是 POSIX 标准中定义的多路复用功能，Linux 很早就实现了它们。用户空间程序告诉内核自己想要查询哪些 fd 的 I/O 已经处于就绪状态，内核代为查询之后，返回给用户空间。
 
-关于 SELECT 在 Linux 0.12 中的实现可以参考 [这里](https://blog.mrdrivingduck.cn/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)。用户空间程序可以以 bitmap 的形式，将想要查询 I/O 状态的 fd 对应的 bit 置为 1。其中的限制在于 bitmap 的长度是确定的，因此查询的 fd 范围受到了限制。而 POLL 的参数是链表，从而突破了这个局限。
+关于 SELECT 在 Linux 0.12 中的实现可以参考 [这里](https://mrdrivingduck.cn/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)。用户空间程序可以以 bitmap 的形式，将想要查询 I/O 状态的 fd 对应的 bit 置为 1。其中的限制在于 bitmap 的长度是确定的，因此查询的 fd 范围受到了限制。而 POLL 的参数是链表，从而突破了这个局限。
 
 ```
 NAME
@@ -408,7 +408,7 @@ EPOLL 有两种触发方式：
 
 [Julia Evans - Async IO on Linux: select, poll, and epoll](https://jvns.ca/blog/2017/06/03/async-io-on-linux--select--poll--and-epoll/)
 
-[Mr Dk.'s blog - Linux 0.12 内核完全注释 - select.c 程序](https://blog.mrdrivingduck.cn/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)
+[Mr Dk.'s blog - Linux 0.12 内核完全注释 - select.c 程序](https://mrdrivingduck.cn/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)
 
 ---
 

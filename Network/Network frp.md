@@ -162,7 +162,7 @@ Wants=network.target
 [Service]
 Type=simple
 ExecStart=/usr/sbin/frpc -c /etc/frp/frpc.ini
-Restart= always
+Restart=always
 RestartSec=1min
 ExecStop=/usr/bin/killall frpc
 
@@ -179,6 +179,25 @@ $ sudo systemctl enable frpc.service
 
 ```bash
 $ service frpc start
+```
+
+如果出现了一些问题想查看日志 (以 frps 服务端程序为例)：
+
+```bash
+$ service frps status
+● frps.service - frpc daemon
+   Loaded: loaded (/etc/systemd/system/frps.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2020-06-17 22:04:03 CST; 12min ago
+  Process: 27059 ExecStop=/usr/bin/killall frpc (code=exited, status=1/FAILURE)
+ Main PID: 27060 (frps)
+    Tasks: 4 (limit: 2338)
+   CGroup: /system.slice/frps.service
+           └─27060 /usr/sbin/frps -c /etc/frp/frps.ini
+
+Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [proxy.go:87] [4221a83a22b59969] [ssh] proxy closing
+Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [proxy.go:159] [4221a83a22b59969] [ssh] listener is closed
+Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [control.go:383] [4221a83a22b59969] client exit success
+Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [service.go:432] [6ba27948d06ad3f1] client login info: ip [58.213.91.10:25481] version [0.33.0] hostname [] os [linux] arch [amd64]
 ```
 
 ---

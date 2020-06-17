@@ -10,13 +10,7 @@ Nanjing, Jiangsu, China
 
 ## Background
 
-__OpenAPI Specification (OAS)__，以前叫做 _Swagger_ 标准
-
-是用于描述 RESTful Web 服务的接口文件
-
-可以对接口进行描述、可视化等等
-
-在 2016 年从 Swagger 项目中独立出来称为独立项目
+**OpenAPI Specification (OAS)**，以前叫做 *Swagger* 标准，是用于描述 RESTful Web 服务的接口文件。可以对接口进行描述、可视化等等。在 2016 年从 Swagger 项目中独立出来称为独立项目。
 
 版本：
 
@@ -25,15 +19,7 @@ __OpenAPI Specification (OAS)__，以前叫做 _Swagger_ 标准
 * 2012-08-22: Swagger 1.1
 * ...
 
-算是 RESTful 的世界标准？
-
-> 好吧，接触过的几个 RESTful 的应用一个都没有使用 OAS
-
-但毕竟是 RESTful 领域中的官方标准了
-
-最近又准备做一做 RESTful fuzzing
-
-所以研究了一下 OAS 的文档并做一些梳理
+算是 RESTful 的世界标准？好吧，接触过的几个 RESTful 的应用一个都没有使用 OAS，但毕竟是 RESTful 领域中的官方标准了。最近又准备做一做 RESTful fuzzing，所以研究了一下 OAS 的文档并做一些梳理。
 
 ---
 
@@ -85,7 +71,7 @@ JSON 格式或 YAML 格式
 
 ### OpenAPI Object
 
-OpenAPI 文档的 root document
+OpenAPI 文档的 root document：
 
 | Field Name   | Type                            | Description                                     |
 | ------------ | ------------------------------- | ----------------------------------------------- |
@@ -98,7 +84,7 @@ OpenAPI 文档的 root document
 | tags         | [ Tag Object ]                  | 额外的 metadata                                 |
 | externalDocs | External Documentation Object   | 额外的文档                                      |
 
-接下来先解决其中的几个简单的对象
+接下来先解决其中的几个简单的对象：
 
 ### Server Object
 
@@ -180,7 +166,7 @@ OpenAPI 文档的 root document
 
 ### Operation Object
 
-描述某一路径上的某一 API
+描述某一路径上的某一 API：
 
 | Field Name   | Type                                             | Description                       |
 | ------------ | ------------------------------------------------ | --------------------------------- |
@@ -269,7 +255,7 @@ OpenAPI 文档的 root document
 | Field Name             | Type                           | Description                          |
 | ---------------------- | ------------------------------ | ------------------------------------ |
 | description            | string                         |                                      |
-| content (__REQUIRED__) | Map<string, Media Type Object> | 定义了对于每种请求 Media Type 的处理 |
+| content (**REQUIRED**) | Map<string, Media Type Object> | 定义了对于每种请求 Media Type 的处理 |
 | required               | boolean                        | 该请求体是否必须存在于请求中         |
 
 ```json
@@ -328,11 +314,7 @@ OpenAPI 文档的 root document
 
 ### Parameter Object
 
-定义某一个操作需要使用的参数
-
-参数由 __name__ 和 __location__ 唯一确定
-
-Location 是参数在请求中的位置
+定义某一个操作需要使用的参数，参数由 **name** 和 **location** 唯一确定。Location 是参数在请求中的位置：
 
 * path - 参数值是操作 URL 的一部分 - `/items/{itemId}`
 * query - 参数值是附加在 URL 尾部 - `/items?id=###`
@@ -341,8 +323,8 @@ Location 是参数在请求中的位置
 
 | Field Name          | Type                                            | Description                                                  |
 | ------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| name (__REQUIRED__) | string                                          | 参数名                                                       |
-| in (__REQUIRED__)   | string                                          | 参数的位置 (location)                                        |
+| name (**REQUIRED**) | string                                          | 参数名                                                       |
+| in (**REQUIRED**)   | string                                          | 参数的位置 (location)                                        |
 | description         | string                                          |                                                              |
 | required            | boolean                                         |                                                              |
 | deprecated          | boolean                                         |                                                              |
@@ -404,9 +386,7 @@ Location 是参数在请求中的位置
 
 ### Schema Object
 
-定义输入/输出的数据类型
-
-可以是原生数据类型，也可以是对象或数组
+定义输入/输出的数据类型。可以是原生数据类型，也可以是对象或数组：
 
 | Field Name    | Type                          | Description  |
 | ------------- | ----------------------------- | ------------ |
@@ -447,7 +427,7 @@ Location 是参数在请求中的位置
 
 | Field Name          | Type   | Description          |
 | ------------------- | ------ | -------------------- |
-| $ref (__REQUIRED__) | string | The reference string |
+| $ref (**REQUIRED**) | string | The reference string |
 
 ```json
 {
@@ -457,7 +437,7 @@ Location 是参数在请求中的位置
 
 ### Components Object
 
-定义 OAS 中的一些可重用对象
+定义 OAS 中的一些可重用对象：
 
 | Field Name      | Type                                                    | Description |
 | --------------- | ------------------------------------------------------- | ----------- |
@@ -504,12 +484,12 @@ Location 是参数在请求中的位置
 
 | Field Name             | Type           | Description                          |
 | ---------------------- | -------------- | ------------------------------------ |
-| title (__REQUIRED__)   | string         | The title of the application         |
+| title (**REQUIRED**)   | string         | The title of the application         |
 | description            | string         | 对于 app 的描述                      |
 | termsOfService         | string         | API Terms of Services 的 URL         |
 | contact                | Contact Object | 联系信息                             |
 | license                | License Object | License 信息                         |
-| version (__REQUIRED__) | string         | OpenAPI 文档的版本 (不是 OAS 的版本) |
+| version (**REQUIRED**) | string         | OpenAPI 文档的版本 (不是 OAS 的版本) |
 
 ```json
 {
@@ -541,7 +521,7 @@ Location 是参数在请求中的位置
 
 | Field Name          | Type   | Description        |
 | ------------------- | ------ | ------------------ |
-| name (__REQUIRED__) | string | API license 的名称 |
+| name (**REQUIRED**) | string | API license 的名称 |
 | url                 | string | API license 的 URL |
 
 ---
@@ -549,20 +529,6 @@ Location 是参数在请求中的位置
 ## Reference
 
 https://swagger.io/specification/
-
----
-
-## Summary
-
-还有一些 object 不想看了 太多了
-
-只列了一些我认为比较常用的
-
-顺着对象之间的引用关系，理了理每个对象的作用
-
-接下来准备自己写一个简单的 OAS 文件
-
-开源社区中应当有很多的工具支持
 
 ---
 
