@@ -32,7 +32,7 @@ Link:
 
 ## VMess
 
-__VMess__ 是 V2Ray 原创的加密通讯协议
+**VMess** 是 V2Ray 原创的加密通讯协议
 
 * 基于 TCP，所有数据使用 TCP 传输
 * 用户 ID —— UUID 作为令牌
@@ -61,9 +61,7 @@ $ sudo chmod 755 ./go.sh
 $ sudo ./go.sh
 ```
 
-脚本会从 V2Ray 的官方仓库上下载并安装。重新执行安装脚本可以进行更新。
-
-利用以下命令可以分别启动、停止、重启 V2Ray Server：
+脚本会从 V2Ray 的官方仓库上下载并安装。重新执行安装脚本可以进行更新。利用以下命令可以分别启动、停止、重启 V2Ray Server：
 
 ```bash
 $ sudo systemctl start v2ray
@@ -117,7 +115,7 @@ $ sudo systemctl restart v2ray
 * 一台境外服务器
 * 一个域名
 
-只要能满足上述需求，直接按照脚本傻瓜式安装即可。大致过程是在服务器上运行一个 Web server (如 _Caddy_)，并指定一个路由用于 V2Ray 的加密通信。使用域名到 _Let's Encrypt_ 上申请一个 SSL/TLS 证书 - 这样，境内客户端与境外服务器之间的通信被伪装为 websocket，并由 TLS 进行加密。然后 _Caddy_ 将指定路由上的流量转到 V2Ray 的端口。_Caddy_ 的配置文件看起来是这样的：
+只要能满足上述需求，直接按照脚本傻瓜式安装即可。大致过程是在服务器上运行一个 Web server (如 [*Caddy*](https://caddyserver.com/))，并指定一个路由用于 V2Ray 的加密通信。使用域名到 [Let's Encrypt](https://letsencrypt.org/) 上申请一个 SSL/TLS 证书 - 这样，境内客户端与境外服务器之间的通信被伪装为 websocket，并由 TLS 进行加密。然后 *Caddy* 将指定路由上的流量转到 V2Ray 的端口。*Caddy* 的配置文件看起来是这样的：
 
 ```
 <xxxdomain.cn> {
@@ -159,9 +157,9 @@ timeouts none
 
 ### iOS
 
-用 iPhone Safari 打开 <http://ice8.net/>，得到一个美区 App Store 账户。在个人设置的 `iTunes & App Store` 中，注销个人 Apple ID，并使用网页上给定的 Apple ID 登录，切换到 App Store 美国区（中国区已下架类似功能 APP）。
+得到一个美区 App Store 账户。在个人设置的 `iTunes & App Store` 中，注销个人 Apple ID，并使用网页上给定的 Apple ID 登录，切换到 App Store 美国区（中国区已下架类似功能 APP）。
 
-在 App Store 中搜索 __Shadowrocket__ ，由于该账号已购买过该 APP，再次下载不需付费。下载完成后，打开 Shadowrocket，确保安装成功。然后 __退出该 Apple ID，登录回个人的 Apple ID__ 。
+在 App Store 中搜索 *Shadowrocket*，由于该账号已购买过该 APP，再次下载不需付费。下载完成后，打开 Shadowrocket，确保安装成功。然后退出该 Apple ID，登录回个人的 Apple ID。
 
 在 Shadowrocket 中：
 
@@ -180,9 +178,9 @@ Shadowrocket 支持的协议有：
 * HTTPS
 * Lua
 
-### Others
+### Linux (Ubuntu)
 
-其它 OS 暂时用不到，网上教程也很多
+使用 [V2RayL](https://github.com/jiangxufeng/v2rayL)。
 
 ---
 

@@ -12,21 +12,19 @@ Nanjing, Jiangsu, China
 
 [Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell):
 
->  __Secure Shell (SSH)__ is a cryptographic network protocol for operating network services securely over an unsecured network. Typical applications include __remote command-line login__ and __remote command execution__, but any network service can be secured with SSH.
+>  **Secure Shell (SSH)** is a cryptographic network protocol for operating network services securely over an unsecured network. Typical applications include **remote command-line login** and **remote command execution**, but any network service can be secured with SSH.
 >
-> SSH provides a secure channel over an unsecured network in a __client–server__ architecture, connecting an __SSH client__ application with an __SSH server__. The protocol specification distinguishes between two major versions, referred to as __SSH-1__ and __SSH-2__. The standard TCP port for SSH is __22__. SSH is generally used to access __Unix-like__ operating systems, but it can also be used on __Microsoft Windows__. Windows 10 uses __OpenSSH__ as its default SSH client.
+> SSH provides a secure channel over an unsecured network in a **client–server** architecture, connecting an **SSH client** application with an **SSH server**. The protocol specification distinguishes between two major versions, referred to as **SSH-1** and **SSH-2**. The standard TCP port for SSH is **22**. SSH is generally used to access **Unix-like** operating systems, but it can also be used on **Microsoft Windows**. Windows 10 uses **OpenSSH** as its default SSH client.
 >
-> SSH was designed as a replacement for Telnet and for unsecured remote shell protocols such as the Berkeley rlogin, rsh, and rexec protocols. Those protocols send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis. The encryption used by SSH is intended to provide __confidentiality__ and __integrity__ of data over an unsecured network, such as the Internet, although files leaked by _Edward Snowden_ indicate that the _National Security Agency_ can sometimes decrypt SSH, allowing them to read the contents of SSH sessions.
+> SSH was designed as a replacement for Telnet and for unsecured remote shell protocols such as the Berkeley rlogin, rsh, and rexec protocols. Those protocols send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis. The encryption used by SSH is intended to provide **confidentiality** and **integrity** of data over an unsecured network, such as the Internet, although files leaked by *Edward Snowden* indicate that the *National Security Agency* can sometimes decrypt SSH, allowing them to read the contents of SSH sessions.
 
 ---
 
 ## Definition
 
-SSH 利用公钥密码学认证远程计算机。认证基于私钥，密钥本身不会通过网络传播。__SSH 只认证提供公钥的一方是否也拥有对应的私钥__ - 因此 __认证未知公钥__ 相当重要。如果接受了攻击者的公钥，将导致未授权的攻击者成为合法用户。
+SSH 利用公钥密码学认证远程计算机。认证基于私钥，密钥本身不会通过网络传播。**SSH 只认证提供公钥的一方是否也拥有对应的私钥** - 因此 **认证未知公钥** 相当重要。如果接受了攻击者的公钥，将导致未授权的攻击者成为合法用户。
 
-SSH 通常用于登录远程机器并执行命令，也支持 __SSH File Transfer Protocol (SFTP)__ 和 __Secure Copy Protocol (SCP)__ 。
-
-SSH 使用服务器-客户端模型。SSH 服务的熟知 TCP 端口是 `22`。
+SSH 通常用于登录远程机器并执行命令，也支持 **SSH File Transfer Protocol (SFTP)** 和 **Secure Copy Protocol (SCP)**。SSH 使用服务器-客户端模型。SSH 服务的熟知 TCP 端口是 `22`。
 
 ---
 
@@ -44,7 +42,7 @@ Warning: Permanently added '104.168.166.54' (ECDSA) to the list of known hosts.
 
 以上信息表示无法验证远程服务器的身份，只知道其公钥指纹。用户需要自行比对公钥指纹，和远程服务器公开的公钥指纹，对远程服务器的身份认证。否则，攻击者可能截获到客户端的登录请求后，向客户端发放伪造的公钥，从而成为中间人 (Man-In-The-Middle)，通过伪造公钥获取用户登录到远程服务器的账号、密码。再使用用户的账号、密码 SSH 连接到远程服务器上，从而导致 SSH 的安全机制完全失效。
 
-假设用户接受该公钥，则公钥会被保存在客户端的 `~/.ssh/known_hosts` 中，下次再连接该远程服务器时，会直接使用该公钥。每个 SSH 用户都有自己的 known_hosts，同时系统也有一个 `/etc/ssh/ssh_known_hosts`，保存一些对所有用户都可信赖的远程服务器公钥。
+假设用户接受该公钥，则公钥会被保存在客户端的 `~/.ssh/known_hosts` 中，下次再连接该远程服务器时，会直接使用该公钥。每个 SSH 用户都有自己的 `known_hosts`，同时系统也有一个 `/etc/ssh/ssh_known_hosts`，保存一些对所有用户都可信赖的远程服务器公钥。
 
 ---
 
@@ -75,9 +73,7 @@ Warning: Permanently added '104.168.166.54' (ECDSA) to the list of known hosts.
 $ ssh-keygen -t rsa -C "..."
 ```
 
-会问一大堆问题，比如是否想密钥保存在 `~/.ssh/id_rsa` 等
-
-如果觉得密钥不安全，还可以对密钥设口令，每次使用时需要认证口令。生成完成后，密钥默认生成在：
+会问一大堆问题，比如是否想密钥保存在 `~/.ssh/id_rsa` 等。如果觉得密钥不安全，还可以对密钥设口令，每次使用时需要认证口令。生成完成后，密钥默认生成在：
 
 * 私钥位于 `~/.ssh/id_rsa`
 * 公钥位于 `~/.ssh/id_rsa.pub`
@@ -123,24 +119,18 @@ $ ssh MyServerName
 
 ### Disconnect
 
-SSH 连接后，如果窗口在一段时间内不去管它，服务器就会自动断开连接，导致已有的一些交互性工作丢失。
+SSH 连接后，如果窗口在一段时间内不去管它，服务器就会自动断开连接，导致已有的一些交互性工作丢失。在 SSH 的客户端和服务端都可以配置心跳，使连接能继续保持下去。
 
-在 SSH 的客户端和服务端都可以配置心跳，使连接能继续保持下去。
-
-对于服务端的配置 - 编辑 `/etc/ssh/sshd_config`：
+服务端配置 - 编辑 `/etc/ssh/sshd_config`：
 
 ```
 ClientAliveInterval 10
 ClientAliveCountMax 3
 ```
 
-然后重启 sshd 服务。
+然后重启 sshd 服务。配置的含义是每 10s 向客户端发送一个心跳包。如果连续三个心跳包都没有得到客户端的回应，就与客户端断开连接。另外，`TCPKeeyAlive` 被配置为 `yes` 也有类似效果。开启这个选项会使用 TCP keep alive 来保持连接。与上一个选项的区别在于，SSH 自身的 keep alive 信号是应用层信息，是经过加密的；而 TCP 层的 keep alive 是可以被欺骗的。
 
-配置的含义是每 10s 向客户端发送一个心跳包。如果连续三个心跳包都没有得到客户端的回应，就与客户端断开连接。
-
-另外，`TCPKeeyAlive` 被配置为 `yes` 也有类似效果。开启这个选项会使用 TCP keep alive 来保持连接。与上一个选项的区别在于，SSH 自身的 keep alive 信号是应用层信息，是经过加密的；而 TCP 层的 keep alive 是可以被欺骗的。
-
-对于 SSH 客户端，也可以配置主动发送心跳包的时间。一些常用的 SSH 客户端 _XShell_, _Terminus_ 也有类似的功能。对于 Terminal 用户，配置过程与服务端类似 - 编辑 `/etc/ssh/ssh_config`：
+对于 SSH 客户端，也可以配置主动发送心跳包的时间。一些常用的 SSH 客户端 *XShell*、*Terminus* 也有类似的功能。对于 Terminal 用户，配置过程与服务端类似 - 编辑 `/etc/ssh/ssh_config`：
 
 ```
 ServerAliveInterval 10

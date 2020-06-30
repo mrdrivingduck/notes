@@ -10,15 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-__Secure Copy Protocol (SCP)__ 是一款用于
-
-在本地与远程主机之间安全传输文件的协议
-
-基于 Secure Shell (SSH) 协议
-
-其本身既代表一个协议，又代表实现该协议的程序
-
-OpenSSH 中包含了 SCP 的实现
+**Secure Copy Protocol (SCP)** 是一款用于在本地与远程主机之间安全传输文件的协议，基于 Secure Shell (SSH) 协议。其本身既代表一个协议，又代表实现该协议的程序。OpenSSH 中包含了 SCP 的实现
 
 > According to OpenSSH developers in April 2019 the scp protocol is outdated, inflexible and not readily fixed.
 
@@ -58,7 +50,7 @@ Host hostwind
 scp [] host1:... host2:...
 ```
 
-若拷贝目录，则加入 `-r`
+若拷贝目录，则加入 `-r`。
 
 ---
 
@@ -69,9 +61,7 @@ scp [] host1:... host2:...
 * 远程服务器上运行 SSH 服务器
 * 本地机器上运行 SSH 客户端
 
-换句话说，由于 SCP 基于 SSH
-
-只有本地机器能够通过 SSH 连接到远程机器，才能使用 SCP
+换句话说，由于 SCP 基于 SSH。只有本地机器能够通过 SSH 连接到远程机器，才能使用 SCP
 
 ### Linux Configuration
 
@@ -91,26 +81,15 @@ usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
 如果没有安装 SSH 服务器的话：
 
 * 安装 `openssh-server`
-
-* 启动 sshd 服务：
-
-  ```bash
-  $ systemctl start sshd
-  ```
+* 启动 sshd 服务
 
 ### Windows Configuration
 
-Windows 10 的较新版本已经内置了 OpenSSH
-
-但是默认只安装 OpenSSH Client
-
-在 Win 10 - `设置 - 应用 - 管理可选功能 - 添加功能` 中
-
-找到 OpenSSH 服务器并安装
+Windows 10 的较新版本已经内置了 OpenSSH，但是默认只安装 OpenSSH Client。在 Win 10 - `设置 - 应用 - 管理可选功能 - 添加功能` 中，找到 OpenSSH 服务器并安装：
 
 ![openssh-start](../img/openssh-start.png)
 
-在系统 `服务` 中，找到 `OpenSSH SSH Server`，并启动该服务
+在系统 `服务` 中，找到 `OpenSSH SSH Server`，并启动该服务：
 
 ![openssh-service](../img/openssh-service.png)
 
@@ -124,23 +103,11 @@ Windows 10 的较新版本已经内置了 OpenSSH
 * Windows ⇔ Windows
 * Windows ⇔ Linux
 
-应当是全部可以实现互相 SSH 以及 SCP 了
+应当是全部可以实现互相 SSH 以及 SCP 了。
 
-接下来就是一些小问题
+接下来就是一些小问题，比如不同 OS 上路径表示方式的差异。Linux 上可以用 `~/dir/...` 来表示当前用户主目录；而在 Windows 上不识别 `~`，所以使用 `./dir/...` 就可以了。
 
-比如不同 OS 上路径表示方式的差异
-
-Linux 上可以用 `~/dir/...` 来表示当前用户主目录
-
-而在 Windows 上不识别 `~`，所以使用 `./dir/...` 就可以了 👍
-
-SCP 可以轻松实现能够互相通过 SSH 连接的设备之间的文件传输
-
-所以，可以借助远程服务器下载外网资源，再通过 SCP 传回本地
-
-或者借助高速的局域网连接，实现同一局域网内设备之间的文件传递
-
-比 U 盘来的高效多了...... 🤗
+SCP 可以轻松实现能够互相通过 SSH 连接的设备之间的文件传输。所以，可以借助远程服务器下载外网资源，再通过 SCP 传回本地；或者借助高速的局域网连接，实现同一局域网内设备之间的文件传递。比 U 盘来的高效多了...... 🤗
 
 ---
 
