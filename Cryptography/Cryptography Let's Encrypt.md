@@ -60,7 +60,7 @@ server {
 
 ## Certificates
 
-证书被生成在一个特定位置，包含以下四个文件：
+证书被生成在一个特定位置 (`/etc/letsencrypt/live/<hostname>/`)，包含以下四个文件：
 
 * `cert1.pem`
 * `chain1.pem`
@@ -197,9 +197,9 @@ public void init(final Vertx vertx) {
 
 ## References
 
-https://www.jianshu.com/p/1a792f87b6fe
+[简书 - Let's Encrypt 证书申请及配置](https://www.jianshu.com/p/1a792f87b6fe)
 
-https://certbot.eff.org/
+[Certbot](https://certbot.eff.org/)
 
 ---
 
