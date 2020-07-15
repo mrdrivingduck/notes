@@ -27,7 +27,7 @@ Nanjing, Jiangsu, China
 
 2018 年最新的 Kali 2.0 国内可用软件源记录：
 
-```bash
+```console
 $ vim /etc/apt/sources.list
 ```
 

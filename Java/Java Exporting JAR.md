@@ -26,7 +26,7 @@ Nanjing, Jiangsu, China
 
 可以直接被执行的 JAR 文件：
 
-```bash
+```console
 $ java -jar xxx.jar
 ```
 

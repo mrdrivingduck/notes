@@ -67,7 +67,7 @@ scp [] host1:... host2:...
 
 一般来说，Linux 上已经自带了 SSH 客户端，可通过如下命令测试：
 
-```bash
+```console
 $ ssh
 usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
            [-D [bind_address:]port] [-E log_file] [-e escape_char]

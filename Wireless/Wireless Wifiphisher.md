@@ -38,7 +38,7 @@ _wifiphisher_ 是一款安全工具，由希腊安全研究员 _George Chatzisof
 
 ### 1. Start wireless network adapter
 
-```bash
+```console
 $ ifconfig wlan0 up
 ```
 
@@ -46,7 +46,7 @@ $ ifconfig wlan0 up
 
 ### 2. Turn wireless network adapter into MONITOR mode
 
-```bash
+```console
 $ airmon-ng start wlan0
 ```
 
@@ -54,7 +54,7 @@ $ airmon-ng start wlan0
 
 ### 3. Start wifiphisher and select target
 
-```bash
+```console
 $ wifiphisher
 ```
 

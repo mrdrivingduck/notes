@@ -49,12 +49,12 @@ Windows 下：
 Linux 下：
 
 * 编辑环境变量文件
-  ```bash
+  ```console
   $ vim /etc/profile
   ```
 * 在文件中加入如下代码
-  ```bash
-  export JAVA_HOME=/usr/local/jdk1.8.0_172  # 压缩包解压路径
+  ```
+  export JAVA_HOME=/usr/local/jdk1.8.0_172
   export PATH=.:$JAVA_HOME/bin:$PATH
   ```
 * 刷新环境变量配置 (重启 bash 即可)

@@ -23,7 +23,7 @@ Nanjing, Jiangsu, China
 
 列出所有的本地分支，并用 `*` 标记当前分支：
 
-```bash
+```console
 $ git branch
 ```
 
@@ -31,7 +31,7 @@ $ git branch
 
 列出所有远程分支：
 
-```bash
+```console
 $ git branch -r
 ```
 
@@ -39,13 +39,13 @@ $ git branch -r
 
 列出所有本地分支和远程分支：
 
-```bash
+```console
 $ git branch -a
 ```
 
 上述命令中的信息可能会过时，因此需要保持远程分支信息在本地的同步：
 
-```bash
+```console
 $ git remote update origin --prune
 ```
 
@@ -53,7 +53,7 @@ $ git remote update origin --prune
 
 查看本地分支及其对应的远程分支：
 
-```bash
+```console
 $ git branch -vv
 ```
 
@@ -61,7 +61,7 @@ $ git branch -vv
 
 将本地分支关联到远程分支：
 
-```bash
+```console
 $ git branch --set-upstream-to=origin/dev
 ```
 
@@ -73,7 +73,7 @@ $ git branch --set-upstream-to=origin/dev
 
 创建 `dev` 分支，但依旧停留在当前分支上：
 
-```bash
+```console
 $ git branch dev
 ```
 
@@ -81,7 +81,7 @@ $ git branch dev
 
 切换到 `dev` 分支。此时运行 `git branch -vv`，远程分支中还没有分支和 `dev` 分支对应。如果两个分支上的文件状态不同时，Git 会将文件目录中的文件状态恢复为不同分支对应的状态。
 
-```bash
+```console
 $ git checkout dev
 ```
 
@@ -103,7 +103,7 @@ $ git checkout dev
 
 将 `dev` 分支合并到当前分支。
 
-```bash
+```console
 $ git merge dev
 ```
 
@@ -111,7 +111,7 @@ $ git merge dev
 
 删除本地的 `dev` 分支。
 
-```bash
+```console
 $ git branch -d dev
 ```
 
@@ -119,7 +119,7 @@ $ git branch -d dev
 
 删除本地的 `dev` 分支后，远程的 `dev` 分支依旧存在。可以在网页上手动删除，也可以在命令行中直接删除：
 
-```bash
+```console
 $ git push origin --delete dev
 ```
 

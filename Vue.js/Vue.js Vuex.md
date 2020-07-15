@@ -25,7 +25,7 @@ Vuex 将组件中的共享状态抽取出来，以一个全局单例模式管理
 
 ## Installation
 
-```bash
+```console
 $ npm install vuex --save
 ```
 

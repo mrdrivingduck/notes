@@ -80,7 +80,7 @@ CAS 机制的特点:
 
 Java 中原子变量就是通过 CAS 机制实现的:
 
-```bash
+```console
 $ ls java/util/concurrent/atomic
 AtomicBoolean.java              AtomicLongArray.java          AtomicReferenceFieldUpdater.java  LongAdder.java
 AtomicInteger.java              AtomicLongFieldUpdater.java   AtomicStampedReference.java       Striped64.java

@@ -230,7 +230,7 @@ function withdrawBalance() public{
 
 首先安装 _slither_ 本身：
 
-```bash
+```console
 $ pip3 install slither-analyzer
 ```
 

@@ -20,7 +20,7 @@ Ningbo, Zhejiang, China
 
 这是最早期版本的 Unix 中的 diff 的输出格式：
 
-```bash
+```console
 $ diff f1 f2
 30,31c30
 <             System.out.println(hunk.getToFileRange().getLineStart());
@@ -35,13 +35,13 @@ $ diff f1 f2
 * `a` - addition - 内容增加
 * `d` - deletion - 内容删除
 
-```bash
+```console
 $ diff f1 f2
 31a32
 >             return;
 ```
 
-```bash
+```console
 $ diff f1 f2
 30,31d29
 <             System.out.println(hunk.getToFileRange().getLineStart());
@@ -58,7 +58,7 @@ $ diff f1 f2
 
 在 *UC Berkeley* 开发的 BSD 推出时，提出 diff 的显示过于简单，最好能显示修改位置的前后信息，即上下文，以便于理解发生的修改。
 
-```bash
+```console
 $ diff -c f1 f2
 *** f1  2020-03-26 15:44:46.142999800 +0800
 --- f2  2020-03-26 15:44:51.056000000 +0800
@@ -91,7 +91,7 @@ $ diff -c f1 f2
 
 如果文件修改前后变动的部分不多，上述方式将会带来大量的重复显示。GNU diff 率先推出了合并格式的 diff，将 f1 和 f2 的上下文合并在一起显示，从而避免了冗余的显示信息：
 
-```bash
+```console
 $ diff -u f1 f2
 --- f1  2020-03-26 15:44:46.142999800 +0800
 +++ f2  2020-03-26 15:44:51.056000000 +0800
@@ -113,7 +113,7 @@ $ diff -u f1 f2
 
 如果相邻两处修改的距离超过了六行 (即前一个修改位置的后三行，后一个修改位置的前三行)，那么改动将会被拆分为两个部分。试想，如果两处修改之间距离成百上千行，那么中间不变的部分就可以不显示了：
 
-```bash
+```console
 $ diff -u f1 f2
 --- f1  2020-03-26 15:44:46.142999800 +0800
 +++ f2  2020-03-26 15:56:50.124400600 +0800
@@ -140,7 +140,7 @@ $ diff -u f1 f2
 
 Git 使用的是 unified diff 的一种变体。比较对象不再是两个文件，而是同一个文件的两个版本：
 
-```bash
+```console
 $ git diff
 diff --git a/src/main/java/edu/nuaa/zjt/avatar/App.java b/src/main/java/edu/nuaa/zjt/avatar/App.java
 index f7b1066..0419171 100644

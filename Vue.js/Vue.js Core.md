@@ -34,7 +34,7 @@ Vue (读音 /vjuː/，类似于 *view*) 是一套用于构建用户界面的 Jav
 
 Vue.js 提供了官方的命令行工具，用于快速搭建大型单页应用
 
-```bash
+```console
 $ npm install -g @vue/cli
 $ vue create my-project
 

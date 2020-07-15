@@ -22,13 +22,13 @@ Wikipedia -
 
 Sniffing should be done under _Linux_ - 
 
-```bash
+```console
 $ sudo apt install wireshark
 ```
 
 To capture 802.11 frames, the network adapter should be running at __monitor mode__ - 
 
-```bash
+```console
 $ ifconfig
 $ sudo ifconfig wlx0087345038d3 down
 $ sudo iwconfig wlx0087345038d3 mode monitor
@@ -37,7 +37,7 @@ $ ifconfig
 $ iwconfig
 ```
 
-```bash
+```console
 $ sudo wireshark
 ```
 
@@ -45,7 +45,7 @@ Select the corresponding adapter and start sniffing
 
 Changing channel - 
 
-```bash
+```console
 $ sudo iwconfig wlx0087345038d3 channel 11
 ```
 

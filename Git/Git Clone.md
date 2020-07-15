@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 克隆一个现有的远程仓库到本地。
 
-```bash
+```console
 $ git clone [url]
 ```
 
@@ -21,13 +21,13 @@ $ git clone [url]
 
 自定义本地仓库的名字：
 
-```bash
+```console
 $ git clone [url] [local_repo_name]
 ```
 
 指定克隆的分支：
 
-```bash
+```console
 $ git clone -b [branch_name] [url]
 ```
 

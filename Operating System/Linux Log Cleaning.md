@@ -14,7 +14,7 @@ Ningbo, Zhejiang, China
 
 有没有办法可以在不停止服务 (不中断程序) 的前提下，将磁盘上的日志文件清空？通过下面的命令就可以：
 
-```bash
+```console
 $ echo ' ' > server.log
 ```
 

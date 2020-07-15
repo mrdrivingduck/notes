@@ -12,12 +12,12 @@ Hangzhou, Zhejiang, China
 
 ### Interaction Mode
 
-```bash
+```console
 $ python
 >>>
 ```
 
-```bash
+```console
 $ C:\> python
 >>>
 >>> exit()
@@ -29,7 +29,7 @@ $ C:\>
 
 ### CMD Mode
 
-```bash
+```console
 $ python test.py
 ```
 

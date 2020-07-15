@@ -12,9 +12,9 @@ Nanjing, Jiangsu, China
 
 Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. - https://golang.org/
 
-Wiki - 
+Wiki:
 
-> __Go__ (__Golang__) 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。与 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。
+> **Go** (Golang) 是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。与 2009 年 11 月正式宣布推出，成为开放源代码项目，并在 Linux 及 Mac OS X 平台上进行了实现，后来追加了 Windows 系统下的实现。
 
 Go 的语法接近 C 语言，但对于变量的声明有所不同。Go 支持垃圾回收功能，特色在于令人简易使用的并行设计 - Goroutine：
 
@@ -41,13 +41,13 @@ Goroutine 类似于线程，但不属于系统层面，相当于轻量级的线�
 
 将压缩包解压到 `/usr/local` 目录下：
 
-```bash
+```console
 $ tar -C /usr/local -zxvf go1.12.6.linux-amd64.tar.gz
 ```
 
 添加 Go 的 `/bin` 到环境变量中：
 
-```bash
+```console
 $ vim /etc/profile
 ```
 
@@ -56,13 +56,13 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 ```
 
-```bash
+```console
 $ source /etc/profile
 ```
 
 测试配置是否成功：
 
-```bash
+```console
 $ go version
 go version go1.12.6 linux/amd64
 ```
@@ -71,7 +71,7 @@ go version go1.12.6 linux/amd64
 
 ## Command
 
-```bash
+```console
 $ go
 Go is a tool for managing Go source code.
 
@@ -118,7 +118,7 @@ func main() {
 
 执行 `go build` 能够编译并生成可执行文件：
 
-```bash
+```console
 $ go build hello.go
 $ ./hello.exe
 Hello World
@@ -128,13 +128,13 @@ Hello World
 
 `go run` 相当于将上述的两部合并为一步，不再产生中间文件：
 
-```bash
+```console
 $ go run hello.go
 ```
 
 清除产生的可执行文件（默认清除所有可执行文件）：
 
-```bash
+```console
 $ go clean [xxx.go]
 ```
 
@@ -147,7 +147,7 @@ $ go clean [xxx.go]
 
 ### get
 
-```bash
+```console
 $ go get github.com/google/syzkaller
 ```
 
@@ -178,14 +178,14 @@ $GOPATH
 
 好像几个基本的包不需要 install，只需要在源码目录里放着就行？这个还没太搞清楚。
 
-Golang 给了一个官方的教程程序 - _tour_ ，依赖于 _net_ 和 _tools_ 这两个包：
+Golang 给了一个官方的教程程序 - *tour* ，依赖于 *net* 和 *tools* 这两个包：
 
 * 这两个包由于在 golang.org 上被墙，只能从 GitHub 镜像上下载
-* 哦，_tour_ 好像也只能从 GitHub 镜像上下载
+* 哦，*tour* 好像也只能从 GitHub 镜像上下载
 
 然后在 tour 的目录中 `go install`：
 
-* 会自动寻找到依赖的 _net_ 和 _tools_ ，编译
+* 会自动寻找到依赖的 *net* 和 *tools* ，编译
 * 在 `$GOPATH/bin` 下生成了 `tour.exe`
 * 运行 `tour.exe`，在浏览器访问对应端口，就可以开始学习 Golang 的旅程了
 
@@ -197,7 +197,7 @@ Golang 给了一个官方的教程程序 - _tour_ ，依赖于 _net_ 和 _tools_
 
 配置方法 - 打开终端并执行如下命令即可：
 
-```bash
+```console
 $ go env -w GO111MODULE=on
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```

@@ -10,19 +10,19 @@ Nanjing, Jiangsu, China
 
 ## 查看端口占用情况
 
-```bash
+```console
 $ lsof -i
 ```
 
 ## 查看某一端口的占用情况
 
-```bash
+```console
 $ lsof -i:8090
 ```
 
 ## 结束占用端口的进程
 
-```bash
+```console
 $ killall 进程名
 $ kill -9 pid
 ```

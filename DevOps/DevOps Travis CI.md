@@ -64,7 +64,7 @@ deploy:
 
 触发 Travis CI 后，进行了一次自动构建和自动部署。产生的日志如下：
 
-```bash
+```console
 Worker information
 
 Build system information

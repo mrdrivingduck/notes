@@ -16,14 +16,14 @@ GitHub 有 HTTPS 和 SSH 两种访问方式。在我自己的电脑上，由于�
 
 这种网上的解决方式是最多的，直接在 Git 命令行中设置即可。
 
-```bash
+```console
 $ git config –global http.proxy http://[user:password@]10.167.32.133:8080
 $ git config –global http.proxy https://[user:password@]10.167.32.133:8080
 ```
 
 相应的撤销代理方法：
 
-```bash
+```console
 $ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
 ```

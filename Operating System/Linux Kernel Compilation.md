@@ -24,7 +24,7 @@ git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 
 这些依赖与内核源代码无关，主要是编译一些脚本、工具。比如用于内核模块签名的工具 `scripts/sign-file.c`。
 
-```bash
+```console
 $ sudo apt install libelf-dev libssl-dev
 ```
 
@@ -36,13 +36,13 @@ $ sudo apt install libelf-dev libssl-dev
 
 以下命令会根据当前机器的体系结构，生成一个新的默认配置文件 `.config`：
 
-```bash
+```console
 $ make defconfig # New config with default from ARCH supplied defconfig
 ```
 
 另外还有几个自动的配置：
 
-```bash
+```console
 $ make allnoconfig # New config where all options are answered with no'
 $ make allyesconfig	# New config where all options are accepted with yes'
 $ make allmodconfig	# New config selecting modules when possible'
@@ -51,13 +51,13 @@ $ make alldefconfig # New config with all symbols set to default'
 
 如果想根据系统启动以来已经加载的模块进行编译，使得内核仅支持当前已经加载的模块，从而简化配置流程：
 
-```bash
+```console
 $ make localmodconfig
 ```
 
 如果想通过一个 GUI 进行手动配置，则可以使用如下几个命令。(使用这几个命令需要安装用于支持相关 GUI 的软件包，比如 GTK、QT 等)：
 
-```bash
+```console
 $ make menuconfig # Update current config utilising a menu based program'
 $ make xconfig # Update current config utilising a Qt based front-end
 $ make gconfig # Update current config utilising a GTK+ based front-end
@@ -65,13 +65,13 @@ $ make gconfig # Update current config utilising a GTK+ based front-end
 
 由于我进行的一些开发是在 QEMU 虚拟机中运行的。因此在 `make defconfig` 后，直接运行如下命令自动配置一些设备驱动相关的选项，并开启一些新的选项：
 
-```bash
+```console
 $ make kvmconfig # Enable additional options for kvm guest kernel support
 ```
 
 也可以直接编辑 `.config` 进行配置。在配置完毕后，需要通过如下命令将配置更新：
 
-```bash
+```console
 $ make oldconfig # Update current config utilising a provided .config as base'
 ```
 
@@ -88,7 +88,7 @@ $ make oldconfig # Update current config utilising a provided .config as base'
 
 最后开始编译核心与模块：
 
-```bash
+```console
 $ make vmlinux # 未经压缩的核心
 $ make modules # 模块
 $ make bzImage # 经过压缩的核心
@@ -96,13 +96,13 @@ $ make bzImage # 经过压缩的核心
 
 或者直接编译全部 (多任务加速)：
 
-```bash
+```console
 $ make -j8
 ```
 
 编译完毕后的 `bzImage` 可以直接被 QEMU 使用。如果想要将内核主映像和模块安装到真机：
 
-```bash
+```console
 $ sudo make modules_install
 $ sudo make install
 ```

@@ -49,7 +49,7 @@ Nanjing, Jiangsu, China
 
 进入内核源码目录 `$KERNEL`，生成默认的编译配置：
 
-```bash
+```console
 $ cd $KERNEL
 $ make defconfig
 $ make kvmconfig
@@ -81,13 +81,13 @@ CONFIG_SECURITYFS=y
 
 开启这些选项后，会导致更多的子选项可用，所以需要重新生成 config：
 
-```bash
+```console
 $ make oldconfig
 ```
 
 完成后，开始编译内核：
 
-```bash
+```console
 $ make CC="$GCC/bin/gcc" -j64
 ```
 
@@ -111,7 +111,7 @@ $ make CC="$GCC/bin/gcc" -j64
 
 首先在 host 中安装 *debootstrap*，用于制作虚拟机使用的硬盘映像：
 
-```bash
+```console
 $ sudo apt install debootstrap
 ```
 
@@ -123,7 +123,7 @@ $ sudo apt install debootstrap
 
 Syzkaller 官方给出了一个自动创建一个映像工作目录的脚本。首先创建一个目录 `$IMAGE` 用于存放映像，然后下载脚本并执行，生成 Linux 发布版的映像：
 
-```bash
+```console
 $ cd $IMAGE/
 $ wget https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh -O create-image.sh
 $ chmod +x create-image.sh
@@ -132,13 +132,13 @@ $ ./create-image.sh
 
 脚本默认创建了一个最小化的 Debian-stretch 的 Linux image (stretch 是 Debian 9 的代号)。也可以在运行脚本时，指定其它发布版，比如 Debian 10：
 
-```bash
+```console
 $ ./create-image.sh --distribution buster
 ```
 
 当然也可以装非最小化版本，比如带上了 `git`、`vim` 等工具。但是 syzkaller 的运行不需要用到它们：
 
-```bash
+```console
 $ ./create-image.sh --feature full
 ```
 
@@ -151,7 +151,7 @@ $ ./create-image.sh --feature full
 
 查阅 debootstrap 文档，发现命令之后可以带参数指定镜像：
 
-```bash
+```console
 $ debootstrap
 I: usage: [OPTION]... <suite> <target> [<mirror> [<script>]]
 ```
@@ -174,13 +174,13 @@ sudo debootstrap --include=$PREINSTALL_PKGS $RELEASE $DIR http://mirrors.ustc.ed
 
 直接使用 `apt` 安装 QEMU。另外，`net-tools` 也需要被安装，因为我发现不安装可能会导致虚拟机网卡失效。
 
-```bash
+```console
 $ sudo apt install qemu-system-x86 net-tools
 ```
 
 测试刚才的 kernel 和 image 是否能在 QEMU 中运行：
 
-```bash
+```console
 $ qemu-system-x86_64 \
   -kernel $KERNEL/arch/x86/boot/bzImage \
   -append "console=ttyS0 root=/dev/sda debug earlyprintk=serial slub_debug=QUZ"\
@@ -198,7 +198,7 @@ $ qemu-system-x86_64 \
 
 由于 `syz-manager` 需要通过 `ssh` 控制 VM，还要测试一下 `ssh` 的可用性：
 
-```bash
+```console
 $ ssh -i $IMAGE/stretch.id_rsa -p 10021 -o "StrictHostKeyChecking no" root@localhost
 ```
 
@@ -210,7 +210,7 @@ $ ssh -i $IMAGE/stretch.id_rsa -p 10021 -o "StrictHostKeyChecking no" root@local
 
 下载 syzkaller 理论上的方法：
 
-```bash
+```console
 $ go get -u -d github.com/google/syzkaller/...
 ```
 
@@ -220,7 +220,7 @@ $ go get -u -d github.com/google/syzkaller/...
 
 接下来，编译 syzkaller。在 `$GOPATH/bin` 中会生成 `syz-fuzzer` 和 `syz-manager`。
 
-```bash
+```console
 $ cd $GOPATH/src/github.com/google/syzkaller
 $ make
 ```
@@ -254,7 +254,7 @@ $ make
 
 在 syzkaller 的源码目录下，创建工作目录，并使用该配置文件启动 `syz-manager`：
 
-```bash
+```console
 $ mkdir workdir
 $ sudo ./bin/syz-manager -config=my.cfg
 2019/07/06 10:54:37 loading corpus...

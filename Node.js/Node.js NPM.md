@@ -24,13 +24,13 @@ npm 包含三个独立的部分：
 
 查看 npm 当前版本：
 
-```bash
+```console
 $ npm -v
 ```
 
 更新 npm：
 
-```bash
+```console
 $ npm install npm@latest -g
 ```
 
@@ -83,7 +83,7 @@ The best way to manage locally installed npm packages is to create a `package.js
 
 * 创建一个个人的 `package.json`
 
-  ```bash
+  ```console
   $ npm init
   ```
 
@@ -91,7 +91,7 @@ The best way to manage locally installed npm packages is to create a `package.js
 
 * 创建一个默认的 `package.json`
 
-  ```bash
+  ```console
   $ npm init --yes
   ```
 
@@ -99,7 +99,7 @@ The best way to manage locally installed npm packages is to create a `package.js
 
 也可以进行修改：
 
-```bash
+```console
 $ npm set init.author.name "mrdrivingduck"
 ```
 
@@ -109,13 +109,13 @@ $ npm set init.author.name "mrdrivingduck"
 
 To add an entry to your `package.json`'s `dependencies`:
 
-```bash
+```console
 $ npm install <package_name> --save
 ```
 
 To add an entry to your `package.json`'s `devDependencies`:
 
-```bash
+```console
 $ npm install <package_name> --save-dev
 ```
 
@@ -127,13 +127,13 @@ $ npm install <package_name> --save-dev
 
 #### Setting
 
-```bash
+```console
 $ npm config set registry https://registry.npm.taobao.org
 ```
 
 #### Check
 
-```bash
+```console
 $ npm config get registry
 $ npm info express
 ```

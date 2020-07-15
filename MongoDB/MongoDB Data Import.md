@@ -10,22 +10,22 @@ Nanjing, Jiangsu, China
 
 ## About
 
-__mongorestore__ tool - 导入已有数据库的导出备份：
+**mongorestore** tool - 导入已有数据库的导出备份：
 
 * 元数据为 `xxx.metadata.json`
 * 数据为 `xxx.bson`
 
-__mongoimport__ tool - 导入单独的 Collection 的 JSON 导出文件
+**mongoimport** tool - 导入单独的 Collection 的 JSON 导出文件
 
 ---
 
 ## Import
 
-```bash
+```console
 $ mongorestore -d <db_name> /dir/...
 ```
 
-```bash
+```console
 $ mongoimport --db <db_name> --collection <cl_name> --file data.json
 ```
 

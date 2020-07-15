@@ -31,19 +31,19 @@ cached 中暂存了所有文件的状态，运行 `git status` 时，只会显�
 
 清空暂存区全部文件 (该命令也可以用于从暂存区中移除某个已经暂存的文件)：
 
-```bash
+```console
 $ git rm -r --cached .
 ```
 
 将工作目录全部导入暂存区：
 
-```bash
+```console
 $ git add .
 ```
 
 再查看暂存区状态，会发现 `.gitignore` 已经生效：
 
-```bash
+```console
 $ git status
 ```
 

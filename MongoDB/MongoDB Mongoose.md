@@ -24,7 +24,7 @@ Be sure to have __MongoDB__ and __Node.js__ installed
 
 ### Install
 
-```bash
+```console
 $ npm install mongoose
 ```
 

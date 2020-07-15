@@ -20,7 +20,7 @@ Nanjing, Jiangsu, China
 
 理论上应当想到，要改 GRUB 的配置文件。但是 GRUB 的配置文件是生成的，不建议手动修改：
 
-```bash
+```console
 $ sudo vim /boot/grub/grub.cfg
 ```
 
@@ -37,7 +37,7 @@ $ sudo vim /boot/grub/grub.cfg
 
 所以已经有了提示，需要编辑 `/etc/grub.d` 和 `/etc/default/grub`
 
-```bash
+```console
 $ cd /etc/grub.d
 $ ls
 00_header        10_linux      20_memtest86+  30_uefi-firmware  41_custom
@@ -61,7 +61,7 @@ the menu; and then adjust the default setting via /etc/default/grub.
 
 所以，`/etc/grub.d` 目录下都是些可执行文件，没什么好改的。只需要在 `/etc/default/grub` 中调整默认启动顺序就好了：
 
-```bash
+```console
 $ sudo vim /etc/default/grub
 ```
 
@@ -105,7 +105,7 @@ GRUB_CMDLINE_LINUX=""
 
 根据该文件中的说明，修改该文件后，需要运行 `update-grub` 来生成最终的 GRUB 配置文件 `/boot/grub/grub.cfg`：
 
-```bash
+```console
 $ sudo update-grub
 Sourcing file `/etc/default/grub'
 Generating grub configuration file ...

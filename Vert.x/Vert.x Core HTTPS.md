@@ -38,7 +38,7 @@ Nanjing, Jiangsu, China
 
 假设已经有一个存放 PrivateKeyEntry 的 keystore - `test.jks`。这是一个自签名的证书：
 
-```bash
+```console
 别名: test
 创建日期: 2019-8-8
 条目类型: PrivateKeyEntry
@@ -127,7 +127,7 @@ public final class Server {
 
 假设已经有一个存放 trustedCertEntry 的 keystore (我把这个条目也放在 `test.jks` 中了)。即，客户端信任这个自签名证书：
 
-```bash
+```console
 别名: client
 创建日期: 2019-8-8
 条目类型: trustedCertEntry
@@ -223,7 +223,7 @@ public final class Client {
 
 产生一个自签名的证书，生成一对公私钥，指定 RSA 叭。 🤔
 
-```bash
+```console
 $ keytool -genkeypair \
     -alias <alias> \
     -keystore <key_store.jks> \
@@ -235,12 +235,12 @@ $ keytool -genkeypair \
 
 查看 keystore 中的所有 entry ：
 
-```bash
+```console
 $ keytool -list -v \
     -keystore <key_store.jks>
 ```
 
-```bash
+```console
 密钥库类型: jks
 密钥库提供方: SUN
 
@@ -304,7 +304,7 @@ JKS 密钥库使用专用格式。建议使用 "keytool -importkeystore -srckeys
 
 可以导出这个证书看一看：
 
-```bash
+```console
 $ keytool -export \
     -alias <alias> \
     -keystore <key_store.jks> \
@@ -319,7 +319,7 @@ $ keytool -export \
 
 通常来说，自签名证书需要生成 __证书签名请求文件 CSR__ ，并提交给 CA 进行签名。
 
-```bash
+```console
 $ keytool -certreq \
     -alias <alias> \
     -keystore <key_store.jks> \
@@ -334,7 +334,7 @@ $ keytool -certreq \
 * 用模拟 CA 的私钥对 CSR 进行签名
 * 将 CA 的自签名证书 (根证书) 和签名后的证书一起返还给签名请求方 (subject)
 
-```bash
+```console
 $ keytool -gencert \
     -alias <root_ca> \
     -keystore <root_ca_key_store.jks> \
@@ -356,7 +356,7 @@ $ keytool -gencert \
 * 导入为 PrivateKeyEntry 条目
 * 覆盖之前的自签名证书
 
-```bash
+```console
 $ keytool -importcert \
     -alias <root> \
     -keystore <key_store.jks> \
@@ -378,7 +378,7 @@ $ keytool -importcert \
 
 最终的效果如下：
 
-```bash
+```console
 密钥库类型: jks
 密钥库提供方: SUN
 
@@ -542,7 +542,7 @@ Denotes an X.509 certificate extension. The option can be used in -genkeypair an
 
 在上述对证书签名的步骤中，加入这些 extension：
 
-```bash
+```console
 $ keytool -gencert \
     -alias <root_ca> \
     -keystore <root_ca_key_store.jks> \
@@ -556,7 +556,7 @@ $ keytool -gencert \
 
 产生的签名证书导入 keystore 后，可以看到，根证书带有 3 个扩展，被签名的证书带有 6 个扩展：
 
-```bash
+```console
 别名: localhost
 创建日期: 2019-8-8
 条目类型: PrivateKeyEntry

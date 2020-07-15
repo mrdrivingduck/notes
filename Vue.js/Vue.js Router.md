@@ -20,7 +20,7 @@ Nanjing, Jiangsu, China
 
 ### NPM
 
-```bash
+```console
 $ npm install vue-router
 ```
 

@@ -10,13 +10,13 @@ Nanjing, Jiangsu, China
 
 ## Install some necessary tools
 
-```bash
+```console
 $ sudo apt install gnome-tweak-tool
 ```
 
 * 安装完成后，在 `显示应用程序` 中应有 `优化 (Tweaks)` 这一程序
 
-```bash
+```console
 $ sudo apt install gnome-shell-extensions
 ```
 

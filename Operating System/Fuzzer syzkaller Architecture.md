@@ -101,7 +101,7 @@ syzkaller 发现 crash 后，将会把信息保存到 `workdir/crashes` 中。�
 
 启动 `syz-manager` 进程：
 
-```bash
+```console
 $ ./bin/syz-manager -config my.cfg
 2017/06/14 16:39:05 loading corpus...
 2017/06/14 16:39:05 loaded 0 programs (0 total, 0 deleted)

@@ -16,13 +16,13 @@ Nanjing, Jiangsu, China
 
 经过上网搜索，Linux 提供了好几款基于命令行的 web 浏览器：*links2*、*links*、*lynx*，最后我选用了 *links2* 进行尝试。
 
-```bash
+```console
 $ sudo apt install links2
 ```
 
 * 使用 *links2* 访问网页 - 比如我访问了我自己的主页
 
-```bash
+```console
 $ links2 mrdrivingduck.vip
 ```
 

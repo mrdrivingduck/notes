@@ -56,19 +56,19 @@ bind_port = 12666
 
 然后启动服务端程序：
 
-```bash
+```console
 $ ./frps -c ./frps.ini
 ```
 
 该服务端程序会阻塞命令行，所以可以使其在后台运行，将输出重定向到了 log 文件中：
 
-```bash
+```console
 $ ./frps -c ./frps.ini > log &
 ```
 
 可以通过 `tail` 命令查看最新的 log：
 
-```bash
+```console
 $ tail log
 ```
 
@@ -93,7 +93,7 @@ remote_port = 13000
 
 启动客户端：
 
-```bash
+```console
 $ ./frpc -c ./frpc.ini
 ```
 
@@ -149,7 +149,7 @@ login_fail_exit = false
 
 将 `frpc` / `frps` 拷贝到 `/usr/sbin` 目录下，将相应配置文件拷贝到 `/etc/frp` 下，然后编辑配置文件 `frpc.service` / `frps.service`。以 `frpc` 为例：
 
-```bash
+```console
 $ sudo vim /etc/systemd/system/frpc.service
 ```
 
@@ -171,19 +171,19 @@ ExecStop=/usr/bin/killall frpc
 WantedBy=multi-user.target
 ```
 
-```bash
+```console
 $ sudo systemctl enable frpc.service
 ```
 
 之后就可以启动服务了：
 
-```bash
+```console
 $ service frpc start
 ```
 
 如果出现了一些问题想查看日志 (以 frps 服务端程序为例)：
 
-```bash
+```console
 $ service frps status
 ● frps.service - frpc daemon
    Loaded: loaded (/etc/systemd/system/frps.service; enabled; vendor preset: enabled)

@@ -136,13 +136,13 @@ Git 的 `reset` 命令以特定顺序重写三棵树：
 
 1. 取消暂存的文件
 
-   ```bash
+   ```console
    $ git reset HEAD <file_name>
    ```
 
 2. 撤销对文件的修改
 
-   ```bash
+   ```console
    $ git checkout -- <file_name>
    ```
 

@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 通过源码编译安装好麻烦。最方便的方法当然是通过 APT 来安装历史版本的 GCC。但是如何管理多个版本的 GCC 是个麻烦事。使用 `build-essential` 可以进行方便地管理：
 
-```bash
+```console
 $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9
 $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
 $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7

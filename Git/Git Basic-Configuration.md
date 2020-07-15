@@ -18,7 +18,7 @@ Nanjing, Jiangsu, China
 
 ## 2. Generate SSH-key locally
 
-```bash
+```console
 $ ssh-keygen -t rsa -C "your_email@youremail.com"
 ```
 
@@ -35,7 +35,7 @@ $ ssh-keygen -t rsa -C "your_email@youremail.com"
 
 比如，复制如下部分：
 
-```bash
+```console
 $ cat .ssh/id_rsa.pub 
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6oNrhO0KoK9IcvXCg30oaDKLI95ucOFloikfjMXU1S3cfmkOuUgtZ+e+UYaQQQjsGnyqynf4LqVE459Sit0qDEyiEUtLbYdaoIAC95puK4fZDJbM8/f1RnnMuzzVAmhr6viSfFGZ+Ck4tyMYSDQXE+Da3B5JeQe0T9yGqtoMPcXFWixrWqG/vKX9lN8tFhKMAZB5/1n/NBZUMkpqPfUjcvTfLzDeUCn2ZtsXA6G0TtcILM06NMMCZIzd0yyaZkIVAp4zNSGoOLLISiLjAxNZb1DyBs+KzFSrPVxb30KZZrCKT0LTp0Tw52FKnGCpxaUs8AkCQ7Nz9Rla07NIg5xRJ 562655624@qq.com
 ```
@@ -48,20 +48,20 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6oNrhO0KoK9IcvXCg30oaDKLI95ucOFloikfjMXU1
 
 After creating a repository on the website and `clone` it to local:
 
-```bash
+```console
 $ git clone xxxxxxxx.git
 ```
 
 Get into Command-Line (Git Bash):
 
-```bash
+```console
 $ cd ./xxxxxxxx
 $ git config --list
 ```
 
 Check all configurations, configure `name` & `email`:
 
-```bash
+```console
 $ git config --global user.name "mrdrivingduck"
 $ git config --global user.email "562655624@qq.com"
 ```

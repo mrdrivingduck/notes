@@ -62,120 +62,120 @@ server {
 
 证书被生成在一个特定位置 (`/etc/letsencrypt/live/<hostname>/`)，包含以下四个文件：
 
-* `cert1.pem`
-* `chain1.pem`
-* `fullchain1.pem`
-* `privkey1.pem`
+* `cert.pem`
+* `chain.pem`
+* `fullchain.pem`
+* `privkey.pem`
 
-其中，`privkey1.pem` 保存了私钥；`cert1.pem` 是签发的最终证书，保存了公钥。可以使用 `openssl` 查看证书：
+其中，`privkey.pem` 保存了私钥；`cert.pem` 是签发的最终证书，保存了公钥。可以使用 `openssl` 查看证书：
 
-```bash
-$ openssl x509 -in cert1.pem -noout -text 
+```console
+$ openssl x509 -in cert.pem -noout -text 
 Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number:
-            03:3f:c7:88:2e:7f:ad:cd:17:28:c7:e2:c2:81:bb:cd:ce:94
+            03:2d:cc:e8:26:d7:27:1e:cf:e2:d5:f6:a4:4a:92:76:be:1d
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C = US, O = Let's Encrypt, CN = Let's Encrypt Authority X3
         Validity
-            Not Before: Mar 19 16:02:23 2020 GMT
-            Not After : Jun 17 16:02:23 2020 GMT
-        Subject: CN = api.smartcommunity.mrdrivingduck.cn
+            Not Before: May 23 09:03:07 2020 GMT
+            Not After : Aug 21 09:03:07 2020 GMT
+        Subject: CN = mrdrivingduck.cn
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (2048 bit)
                 Modulus:
-                    00:9f:33:28:bd:79:4d:c6:34:3b:d9:4a:8b:ed:d5:
-                    55:22:84:00:fa:bd:84:00:2c:0d:3d:4e:10:61:82:
-                    a3:07:7a:87:0d:01:11:09:bc:78:0f:37:d6:85:bb:
-                    90:10:8e:e9:7f:fd:55:46:33:be:94:99:ea:4e:90:
-                    87:05:1a:c2:04:90:95:47:13:1f:88:b0:da:46:7a:
-                    92:8d:13:9a:bb:6f:2f:9c:7c:c5:6f:7b:c3:0b:2c:
-                    ee:5e:e7:48:5a:f1:fe:ee:b2:7b:3a:51:6c:1f:55:
-                    5a:fe:10:3c:dc:f9:75:87:31:e1:83:a8:71:97:1b:
-                    0a:71:a1:04:83:eb:3e:c5:c3:09:a2:6b:c9:08:77:
-                    bd:92:86:a2:4b:2b:b7:4c:6a:1e:d6:b8:3c:79:ca:
-                    6c:99:65:20:7a:e7:68:5b:cd:1d:a8:b9:d1:44:b8:
-                    e1:51:53:b9:7f:df:9f:cf:8f:04:d9:bc:da:bb:c7:
-                    81:da:d9:d8:bd:7a:7e:79:a1:f9:99:1f:8d:8c:d3:
-                    a9:e6:16:e2:d0:e5:0f:8a:e8:dc:65:36:05:fa:d9:
-                    f7:c7:f5:ef:cd:be:d0:ae:01:e0:bd:be:94:f3:84:
-                    be:62:2f:a6:4d:2a:2e:96:1c:7b:90:29:95:0c:7a:
-                    13:0c:63:db:c5:c8:aa:51:cb:ef:ba:5a:35:e8:de:
-                    ee:25
+                    00:b3:4f:39:51:cf:55:7e:b9:de:9c:b9:ad:20:87:
+                    4b:69:8c:b8:74:d3:c9:16:4a:63:6e:62:f8:7d:24:
+                    5c:b8:ea:cd:44:a8:a4:32:2f:e5:84:25:b8:9d:f6:
+                    78:3c:72:69:e1:8e:d2:ad:02:d9:c8:28:24:0e:67:
+                    5b:20:4f:4f:b6:9c:ca:b1:c0:90:b3:28:1a:69:a7:
+                    a6:9a:a5:c0:ab:4f:a4:c0:6b:f3:d5:50:93:02:75:
+                    74:ed:ba:1e:f1:05:3a:4c:53:2c:88:d2:01:c4:12:
+                    eb:b6:ce:e2:6f:21:de:2b:e8:04:d9:17:45:09:1b:
+                    b8:0e:ac:43:b2:55:af:8e:32:3f:ca:bb:15:54:c2:
+                    71:49:44:6e:5c:75:d9:65:e1:ad:e4:1c:44:df:53:
+                    a4:e5:77:af:ba:e1:5b:5f:e1:29:df:96:d0:8e:b0:
+                    6f:06:48:b9:e1:16:47:e8:d6:6b:4e:aa:5a:9f:75:
+                    26:df:d9:1f:b5:fe:74:29:9d:17:b7:9b:99:43:5a:
+                    29:b7:1d:5a:0a:3e:c9:9f:76:c5:b6:78:9b:55:d8:
+                    87:07:47:b7:54:59:db:d6:b7:45:3f:0e:4e:c0:8f:
+                    ae:c0:93:68:8d:2a:5e:86:d1:04:a9:30:5c:2a:38:
+                    9e:34:30:d8:e4:2a:98:3c:82:b6:1a:91:db:23:72:
+                    ef:17
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
             X509v3 Key Usage: critical
                 Digital Signature, Key Encipherment
-            X509v3 Extended Key Usage: 
+            X509v3 Extended Key Usage:
                 TLS Web Server Authentication, TLS Web Client Authentication
             X509v3 Basic Constraints: critical
                 CA:FALSE
-            X509v3 Subject Key Identifier: 
-                B3:FD:D0:6E:AB:3E:42:27:2A:36:C8:23:49:8A:54:E3:93:9B:F9:0C
-            X509v3 Authority Key Identifier: 
+            X509v3 Subject Key Identifier:
+                E4:0E:96:45:DA:A7:B7:C3:05:4A:5C:85:83:73:43:C7:4A:22:93:89
+            X509v3 Authority Key Identifier:
                 keyid:A8:4A:6A:63:04:7D:DD:BA:E6:D1:39:B7:A6:45:65:EF:F3:A8:EC:A1
 
-            Authority Information Access: 
+            Authority Information Access:
                 OCSP - URI:http://ocsp.int-x3.letsencrypt.org
                 CA Issuers - URI:http://cert.int-x3.letsencrypt.org/
 
-            X509v3 Subject Alternative Name: 
-                DNS:api.smartcommunity.mrdrivingduck.cn
-            X509v3 Certificate Policies: 
+            X509v3 Subject Alternative Name:
+                DNS:mrdrivingduck.cn, DNS:www.mrdrivingduck.cn
+            X509v3 Certificate Policies:
                 Policy: 2.23.140.1.2.1
                 Policy: 1.3.6.1.4.1.44947.1.1.1
                   CPS: http://cps.letsencrypt.org
 
-            CT Precertificate SCTs: 
+            CT Precertificate SCTs:
                 Signed Certificate Timestamp:
                     Version   : v1 (0x0)
                     Log ID    : 5E:A7:73:F9:DF:56:C0:E7:B5:36:48:7D:D0:49:E0:32:
                                 7A:91:9A:0C:84:A1:12:12:84:18:75:96:81:71:45:58
-                    Timestamp : Mar 19 17:02:23.379 2020 GMT
+                    Timestamp : May 23 10:03:07.985 2020 GMT
                     Extensions: none
                     Signature : ecdsa-with-SHA256
-                                30:45:02:21:00:EF:16:97:A2:E7:FF:7D:D9:C0:D8:84:
-                                2F:9F:FC:92:89:27:77:83:5A:63:8C:12:5B:44:20:A2:
-                                BC:F9:C1:E1:50:02:20:51:8D:59:BE:0E:E9:93:81:B8:
-                                09:98:08:39:BA:F6:07:14:EF:58:A0:09:E0:6D:24:D3:
-                                B9:64:F3:83:78:22:E7
+                                30:46:02:21:00:DE:1F:30:39:B6:43:FA:2D:C7:12:C3:
+                                94:DE:12:90:FC:6C:B3:46:01:4C:B7:3E:5F:11:B1:4C:
+                                90:07:1D:60:33:02:21:00:C6:12:AF:BE:14:81:25:D6:
+                                39:C1:58:E4:0C:5F:4C:9C:43:F5:4E:CC:18:F5:ED:54:
+                                3A:79:AF:17:61:E4:E1:D5
                 Signed Certificate Timestamp:
                     Version   : v1 (0x0)
                     Log ID    : 07:B7:5C:1B:E5:7D:68:FF:F1:B0:C6:1D:23:15:C7:BA:
                                 E6:57:7C:57:94:B7:6A:EE:BC:61:3A:1A:69:D3:A2:1C
-                    Timestamp : Mar 19 17:02:23.455 2020 GMT
+                    Timestamp : May 23 10:03:08.020 2020 GMT
                     Extensions: none
                     Signature : ecdsa-with-SHA256
-                                30:44:02:20:1C:0E:27:DB:10:96:46:78:D2:DD:B3:21:
-                                E9:B8:64:FB:44:16:E8:11:6A:28:FC:96:A8:4E:2C:3C:
-                                5E:FE:05:AC:02:20:3A:49:60:25:C6:26:44:C8:72:11:
-                                B4:3B:8D:4E:D4:E7:AE:60:44:B8:90:B8:3B:60:9D:31:
-                                30:69:25:0C:79:5A
+                                30:45:02:21:00:84:D1:B1:25:E8:B0:D7:5D:FE:F0:34:
+                                B7:DB:32:A4:4E:0D:84:DD:55:C1:60:24:3F:BA:6D:63:
+                                EE:E6:1B:44:46:02:20:2D:D8:DF:90:FE:AE:A4:6F:AC:
+                                2F:50:28:03:4D:FD:4A:36:FE:7E:4A:72:A0:6C:3B:A6:
+                                33:31:91:0E:81:E4:C9
     Signature Algorithm: sha256WithRSAEncryption
-         7a:a5:56:d7:18:9f:0c:39:70:df:91:d2:ca:aa:43:8a:b1:33:
-         f7:df:72:4d:f1:aa:1f:ee:32:ca:51:89:e7:37:e1:66:a6:f1:
-         2a:14:4f:52:32:05:78:8b:89:49:65:bf:b9:a6:9c:ac:ce:79:
-         6c:2b:07:8f:b7:85:62:a4:50:43:db:a6:42:a5:92:e0:1a:c5:
-         59:f7:21:f5:db:97:8b:85:f0:96:c1:fe:57:7a:8e:f0:25:87:
-         1f:8a:c3:b9:4a:72:51:2a:d8:5b:71:c2:fb:fc:64:6c:70:a6:
-         a5:41:44:e1:85:52:8e:1b:d2:04:9d:89:9e:30:47:72:98:55:
-         b9:da:ec:86:63:9f:cb:87:6b:e4:6c:8c:06:b5:5f:23:e2:b8:
-         31:aa:dc:22:04:b3:46:ad:42:79:67:2f:be:4c:5f:4e:fb:95:
-         83:7c:e0:ea:7b:2b:28:57:5e:e4:64:e8:8e:8e:dd:4c:0b:e5:
-         9a:f9:cc:52:b7:a3:f6:e8:96:58:62:17:aa:63:05:bf:7c:63:
-         ab:1c:fa:ef:c8:a8:79:9c:28:61:0d:96:b0:c7:12:81:b7:05:
-         26:b9:76:19:4c:80:4d:2e:a7:71:33:03:df:4e:be:61:0e:ea:
-         24:07:95:f7:53:10:b7:b3:c0:71:55:e7:37:62:54:3f:83:1b:
-         37:5d:a7:f3
+         07:0c:63:d0:8a:b7:f5:35:f8:65:00:20:f2:c4:ca:27:52:72:
+         55:92:9a:ee:5e:da:1c:1b:b5:f1:fc:8d:db:61:02:7c:46:58:
+         0e:21:67:44:91:08:fe:2b:f6:27:72:24:8b:1d:80:5a:f8:d7:
+         aa:2f:25:82:9b:ee:9f:59:5a:32:e3:a2:6e:8e:03:7e:0c:6b:
+         e9:af:90:77:93:e8:00:56:74:f5:a1:1b:74:dd:3f:ce:34:b2:
+         b4:f2:fc:9b:1b:1c:5f:21:d9:7f:1b:85:67:09:26:ee:1d:e1:
+         ae:3c:5c:50:a5:ee:61:d7:8e:30:a7:49:0c:e4:7a:4c:00:60:
+         2f:dd:30:d9:9c:b8:79:fb:23:b2:22:a3:f2:e9:11:65:2e:c9:
+         fe:ad:22:d3:b9:73:81:4c:98:cc:5c:fb:41:51:13:3d:79:36:
+         b4:8c:7e:e5:24:60:0f:4e:a1:fa:9a:8d:19:e4:c0:94:08:ea:
+         46:b8:fa:ce:dd:e9:db:72:83:4c:61:e1:0d:ac:52:0c:e5:33:
+         7a:ce:5b:dc:42:90:93:3e:f7:49:98:1d:ce:3b:e3:1e:e2:ab:
+         e5:f7:1e:d2:a2:00:97:06:b7:75:ac:db:45:44:58:00:12:4c:
+         e8:28:61:7a:60:82:c2:49:0b:bf:fd:61:8f:b5:8e:3b:3f:d1:
+         22:ff:60:63
 ```
 
-而 `chain1.pem` 应当是签发证书 `cert1.pem` 到 CA 根证书中间的证书链条；`fullchain.pem` 是包含了 **签发证书** 和 **中间证书链** 在内的 **完整证书链条**。
+其中，`chain.pem` 应当是签发证书 `cert.pem` 到 CA 根证书中间的证书链条；`fullchain.pem` 是包含了 **最终签发证书** 和 **中间证书链** 在内的 **完整证书链条**。
 
 ## **记坑**
 
-这次试用 Vert.x HTTPS Server 作为后端。Server 初始化代码是这样写的：
+这次使用 Vert.x HTTPS Server 作为后端。Server 初始化代码是这样写的：
 
 ```java
 public void init(final Vertx vertx) {
@@ -189,11 +189,11 @@ public void init(final Vertx vertx) {
 }
 ```
 
-关于 `keyPath`，很显然是使用私钥 `privkey1.pem`；而证书路径，我一开始使用的是 `cert1.pem`，即只有签发证书不包含证书链的那个 keystore。
+关于 `keyPath`，很显然是使用私钥 `privkey.pem`；而证书路径，我一开始使用的是 `cert.pem`，即只有签发证书不包含证书链的那个 keystore。
 
 然后微信小程序前端就出了问题：测试时都是 OK 的，真机调试时，iOS OK，Android 的请求无法发出去。虽然用了一些在线测试网站都正常，但还是没解决问题。Baidu 上搜索没有一个有效答案 (顺便真心吐槽一下国内的技术氛围)，反正大致意思都是说证书有问题。
 
-后来从上面的 *nginx* 配置文件中受到启发。在 *nginx* 的配置中，私钥用的是 `privkey.pem`，证书用的是 `fullchain.pem`。看来，如果缺少了中间的证书链，HTTPS 的认证不一定能成功。另外还在 [StackOverflow](https://stackoverflow.com/questions/54305577/lets-encrypt-with-vert-x) 上找到了一个相关的具体问题。于是按照答案，将证书的路径由 `cert.pem` 换为 `fullchain.pem`。一开始 Android 前端好像说还是不行，我还正郁闷着呢 😓，突然就看到屏幕上打出来日志，访问来源是 *MI 6*，成功啦！😆
+后来从上面的 *nginx* 配置文件中受到启发。在 *nginx* 的配置中，私钥用的是 `privkey.pem`，证书用的是 `fullchain.pem`。看来，如果缺少了中间的证书链，HTTPS 的认证不能成功。另外还在 [StackOverflow](https://stackoverflow.com/questions/54305577/lets-encrypt-with-vert-x) 上找到了一个相关的具体问题。于是按照答案，将证书的路径由 `cert.pem` 换为 `fullchain.pem`。一开始 Android 前端好像说还是不行，我还正郁闷着呢 😓，突然就看到屏幕上打出来日志，访问来源是 *MI 6*，成功啦！😆
 
 ## References
 

@@ -24,7 +24,7 @@ Git 这个东西想法很独特。每一次提交，会产生指向上一个提�
 
 创建一个新的分支：
 
-```bash
+```console
 $ git branch <branch_name>
 ```
 
@@ -34,7 +34,7 @@ $ git branch <branch_name>
 
 在分支之间切换，实际上是将 `HEAD` 指针指向了对应的分支指针：
 
-```bash
+```console
 $ git checkout <branch_name>
 ```
 
@@ -60,7 +60,7 @@ Git 的官方网站给出了一个便于理解的实际应用场景：
 
 此时，`hotfix` 分支上的 commit 已经修复了 BUG。因此，需要将生产服务器上的版本更新为修复 BUG 后 - 即需要合并 `master` 和 `hotfix` 分支。由于从 `master` 分支的 `C2` 状态可以无需回退而直接到达 `C4` 状态，因此这种合并方式称为 **Fast Forward**，即只需要将 `master` 分支指针右移：
 
-```bash
+```console
 $ git merge hotfix
 Updating f42c576..3a0874c
 Fast-forward
@@ -78,7 +78,7 @@ Fast-forward
 
 ![git-before-merge](../img/git-before-merge.png)
 
-```bash
+```console
 $ git merge iss53
 Merge made by the 'recursive' strategy.
 index.html |    1 +
@@ -87,7 +87,7 @@ index.html |    1 +
 
 Git 会将合并后的结果生成为一个新的状态。此时 `iss53` 的使命也完成了，可以被删除：
 
-```bash
+```console
 $ git branch -d <branch_name>
 ```
 
@@ -99,14 +99,14 @@ $ git branch -d <branch_name>
 
 合并操作并不一定像上述过程一样顺利。如果两个分支都修改了同一个文件，那么 Git 对 `C6` 状态的生成一定会是矛盾的：
 
-```bash
+```console
 $ git merge iss53
 Auto-merging index.html
 CONFLICT (content): Merge conflict in index.html
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-```bash
+```console
 $ git status
 On branch master
 You have unmerged paths.
@@ -148,7 +148,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 修改完成后，保存。然后通过 `git add` 将该文件送入 stage：
 
-```bash
+```console
 $ git add index.html
 ```
 

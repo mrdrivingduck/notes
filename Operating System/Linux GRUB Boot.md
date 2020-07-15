@@ -34,7 +34,7 @@ chainloader /efi/Microsoft/Boot/bootmgfw.efi
 
 使用 U 盘制作一个 Ubuntu 启动盘，然后从 U 盘启动，并进入试用模式。然后下载 [boot-repair](https://github.com/yannmrn/boot-repair) 自动修复：
 
-```bash
+```console
 $ sudo add-apt-repository ppa:yannubuntu/boot-repair && sudo apt update
 $ sudo apt install -y boot-repair
 $ boot-repair

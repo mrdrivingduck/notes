@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 利用脚本来处理文本文件
 
-```bash
+```console
 $ sed [-hnV][-e<script>][-f<script文件>][文本文件]
 ```
 
@@ -61,7 +61,7 @@ Fine. 是这样 最近一个项目正在收尾
 
 同时，为了搜索目录下所有文件，还需要加入递归选项：
 
-```bash
+```console
 $ grep -rl "mrdrivingduck" ./*
 ```
 
@@ -69,7 +69,7 @@ $ grep -rl "mrdrivingduck" ./*
 
 再将结果作为 `sed` 的输入：
 
-```bash
+```console
 $ sed -i "s/mrdrivingduck/zjt/g" `grep -rl "mrdrivingduck" ./*`
 ```
 

@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 <https://pypi.org/project/pandas/> - 
 
-```bash
+```console
 $ pip install pandas
 ```
 

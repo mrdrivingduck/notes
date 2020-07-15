@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-> Project V 是一个工具集合，它可以帮助你打造专属的基础通信网络。Project V 的核心工具称为 __V2Ray__，其主要负责网络协议和功能的实现，与其它 Project V 通信。V2Ray 可以单独运行，也可以和其它工具配合，以提供简便的操作流程。
+> Project V 是一个工具集合，它可以帮助你打造专属的基础通信网络。Project V 的核心工具称为 **V2Ray**，其主要负责网络协议和功能的实现，与其它 Project V 通信。V2Ray 可以单独运行，也可以和其它工具配合，以提供简便的操作流程。
 
 V2Ray 支持以下协议：
 
@@ -45,25 +45,25 @@ Link:
 
 下载 V2Ray 的安装脚本：
 
-```bash
+```console
 $ wget https://install.direct/go.sh
 ```
 
 下载完成后，可能需要修改脚本的权限：
 
-```bash
+```console
 $ sudo chmod 755 ./go.sh
 ```
 
 执行安装脚本：
 
-```bash
+```console
 $ sudo ./go.sh
 ```
 
 脚本会从 V2Ray 的官方仓库上下载并安装。重新执行安装脚本可以进行更新。利用以下命令可以分别启动、停止、重启 V2Ray Server：
 
-```bash
+```console
 $ sudo systemctl start v2ray
 $ sudo systemctl stop v2ray
 $ sudo systemctl restart v2ray

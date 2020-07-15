@@ -18,7 +18,7 @@ Nanjing, Jiangsu, China
 
 * `development` - 开发环境模式，对应于 `serve` 命令
 * `production` - 生产环境模式，对应于 `build` 命令
-* `test` = 测试环境模式，对应于 `test` 命令
+* `test` - 测试环境模式，对应于 `test` 命令
 
 由此，在工程根目录下可以有以下几类环境变量文件：
 
@@ -30,6 +30,10 @@ Nanjing, Jiangsu, China
 ```
 
 其中，带有 `mode` 的环境变量文件比一般的环境变量文件 (比如 `.env`) 有更高的优先级。
+
+```
+VUE_APP_SECRET=HHHHHHHH
+```
 
 **只有以 `VUE_APP_` 开头的环境变量才会被嵌入到客户端中！** 在代码中可以通过如下方式访问：
 

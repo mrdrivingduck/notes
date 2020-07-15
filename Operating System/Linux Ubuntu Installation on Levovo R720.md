@@ -24,13 +24,13 @@ Nanjing, Jiangsu, China
 
 因此需要安装 *NVIDIA* 的附加驱动
 
-```bash
+```console
 $ ubuntu-drivers devices
 ```
 
 ![ubuntu-drivers-devices](../img/ubuntu-drivers-devices.png)
 
-```bash
+```console
 $ sudo ubuntu-drivers autoinstall
 ```
 
@@ -46,7 +46,7 @@ $ sudo ubuntu-drivers autoinstall
 
 在 *Terminal* 中输入：
 
-```bash
+```console
 $ rfkill list all
 ```
 
@@ -56,7 +56,7 @@ $ rfkill list all
 
 通过列一个黑名单，将硬件关闭屏蔽
 
-```bash
+```console
 $ sudo touch /etc/modprobe.d/ideapad.conf
 $ sudo gedit /etc/modprobe.d/ideapad.conf 
 ```
@@ -67,7 +67,7 @@ blacklist ideapad_laptop
 
 保存文件并关闭，移除设备：
 
-```bash
+```console
 $ sudo modprobe -r ideapad_laptop 
 ```
 

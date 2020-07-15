@@ -38,7 +38,7 @@ Linux 的共享库命名规则：`lib<name>.so.x.y.z`
 
 Linux 和 Solaris 使用 *SO-NAME* 的命名机制来记录共享库的依赖关系。SO-NAME 即共享库文件名去掉次版本号和发布版本号：如对 `libfoo.so.2.6.1`，SO-NAME 为 `libfoo.so.2`。SO-NAME 定死了共享库的接口，相同 SO-NAME 的库，次版本号高的兼容次版本号低的。在 Linux 中，系统为每个共享库创建一个名称为 SO-NAME 的符号链接：
 
-```bash
+```console
 $ ls -alt libthread*
 lrwxrwxrwx 1 root root    19 6月   4 22:24 libthread_db.so.1 -> libthread_db-1.0.so
 -rw-r--r-- 1 root root 35648 4月  17  2018 libthread_db-1.0.so

@@ -32,7 +32,7 @@ SSH 通常用于登录远程机器并执行命令，也支持 **SSH File Transfe
 
 在第一次客户端连接到远程服务器时：
 
-```bash
+```console
 $ ssh user@host
 The authenticity of host '104.168.166.54 (104.168.166.54)' can't be established.
 ECDSA key fingerprint is SHA256:skmJDYbFdTFiftzRApMGQpRZHiuc8w36R3MkvKninQo.
@@ -69,7 +69,7 @@ Warning: Permanently added '104.168.166.54' (ECDSA) to the list of known hosts.
 
 这种方法必须要求客户端有自己的公私钥对，如果没有则需要生成：
 
-```bash
+```console
 $ ssh-keygen -t rsa -C "..."
 ```
 
@@ -82,13 +82,13 @@ $ ssh-keygen -t rsa -C "..."
 
 下一步，将客户端公钥放到服务器上即可。服务器将可登录的客户端公钥存放在 `~/.ssh/authorized_keys` 中，将公钥直接追加在该文件末尾即可。也可以在客户端直接通过命令将公钥拷贝：
 
-```bash
+```console
 $ ssh-copy-id user@host
 ```
 
 当然，拷贝这一步暂时还是需要像口令登录一样输入密码的，不然任何人都可以把自己的公钥放到服务器上去了。从此以后，再次登录就不需要密码了：
 
-```bash
+```console
 $ ssh user@host
 ```
 
@@ -109,7 +109,7 @@ Host MyServerName
 
 保存配置后，以后可以直接通过别名进行登录：
 
-```bash
+```console
 $ ssh MyServerName
 ```
 
@@ -141,7 +141,7 @@ ServerAliveCountMax 3
 
 在 macOS 14 Mojave 的 Terminal 上使用 SSH 时，出现问题：
 
-```bash
+```console
 $ ssh root@user
 packet_write_wait: Connection to 104.168.166.54 port 22: Broken pipe
 ```

@@ -33,7 +33,7 @@ Nanjing, Jiangsu, China
 
 Linux 中的动态链接器位于 `/lib/x86_64-linux-gnu/ld-2.27.so`：
 
-```bash
+```console
 $ ls -alt ld*
 -rwxr-xr-x 1 root root 170960 Apr 17  2018 ld-2.27.so
 lrwxrwxrwx 1 root root     10 Apr 17  2018 ld-linux-x86-64.so.2 -> ld-2.27.so
