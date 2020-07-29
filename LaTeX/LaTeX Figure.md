@@ -10,17 +10,13 @@ Nanjing, Jiangsu, China
 
 ## About
 
-在 LaTeX 中插入矢量图
+在 LaTeX 中插入矢量图。
 
 ---
 
 ## Drawing
 
-使用 Python 中的 _seaborn_ 模块进行绘制
-
-该模块基于 matplotlib
-
-所以可以直接调用 matplotlib 的 `savefig()` 函数：
+使用 Python 中的 *seaborn* 模块进行绘制。该模块基于 *matplotlib*，所以可以直接调用 matplotlib 的 `savefig()` 函数：
 
 ```python
 import pandas as pd
@@ -44,7 +40,7 @@ plt.savefig('out/accuracy.pdf', format='pdf')
 * `.pdf`
 * `.svg`
 
-为了方便插入到 LaTeX 中，输出 `.pdf` 比较好
+为了方便插入到 LaTeX 中，输出 `.pdf` 比较好。
 
 ---
 
@@ -79,7 +75,7 @@ plt.savefig('out/accuracy.pdf', format='pdf')
 \end{figure}
 ```
 
-每个图所占的宽度比例需要根据水平插入图片的数量调整
+每个图所占的宽度比例需要根据水平插入图片的数量调整。
 
 ---
 

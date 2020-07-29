@@ -10,13 +10,10 @@ Nanjing, Jiangsu, China
 
 ## About
 
-原生 LaTeX 不支持绘制斜线表头
+原生 LaTeX 不支持绘制斜线表头，需要借助宏包 *diagbox* 实现：
 
-需要借助宏包 diagbox 实现
-
-GitHub Link - <https://github.com/leo-liu/tex-pkg>
-
-CTAN Link - <https://ctan.org/pkg/diagbox/>
+* [GitHub](https://github.com/leo-liu/tex-pkg)
+* [CTAN](https://ctan.org/pkg/diagbox/)
 
 ---
 

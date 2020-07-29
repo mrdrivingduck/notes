@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-使用 BibTeX 生成论文中的参考文献
+使用 BibTeX 生成论文中的参考文献。
 
 *BibTeX* is reference management software for formatting lists of references.
 
@@ -18,13 +18,7 @@ Nanjing, Jiangsu, China
 
 ## Register
 
-在 _[Google Scholar](https://scholar.google.com/)_、_[dblp](https://dblp.uni-trier.de/)_ 等网站中
-
-对于某篇 论文/专利/标准文档 等文献资料
-
-点击 export，选择 export BibTeX 的选项
-
-导出的格式如下：
+在 [*Google Scholar*](https://scholar.google.com/)、[*dblp*](https://dblp.uni-trier.de/) 等网站中，对于某篇 论文/专利/标准文档 等文献资料，点击 export，选择 export BibTeX 的选项。导出的格式如下：
 
 ```latex
 @ARTICLE{7786995, 
@@ -41,9 +35,7 @@ ISSN={},
 month={Dec},}
 ```
 
-将此格式的文本复制到 LaTeX 目录中的 `xxx.bib` 文件中
-
-并在 `xxx.tex` 中引入
+将此格式的文本复制到 LaTeX 目录中的 `xxx.bib` 文件中，并在 `xxx.tex` 中引入：
 
 * BibTeX 的样式
 * BibTeX 的具体信息，e.g. `references.bib`
@@ -53,11 +45,7 @@ month={Dec},}
 \bibliography{bib/references} % ATTENTION: NO '.bib'
 ```
 
-此时，该引用条目仅被注册
-
-如果在论文中没有被声明引用
-
-将不会被排版到最终的参考文献中
+此时，该引用条目仅被注册。如果在论文中没有被声明引用，将不会被排版到最终的参考文献中。
 
 ---
 
@@ -90,19 +78,7 @@ IEEE 802.11标准及其修订案 \cite{7786995} 规定，
 
 ## Summary
 
-这个东西就很舒服 😈
-
-对于引用格式一直很头大
-
-不知道对于不同类型的文献分别应该怎么写
-
-使用 BibTeX 不仅不用操心格式的问题 而且效率超高
-
-此外，不需要担心编号的问题
-
-因为编号会在排版过程中自动完成 ✔️
-
-编写 LaTeX 时只需要用 `\cite{}` 引用 `.bib` 中的 ID 即可
+这个东西就很舒服 😈。对于引用格式一直很头大，不知道对于不同类型的文献分别应该怎么写。使用 BibTeX 不仅不用操心格式的问题 而且效率超高。此外，不需要担心编号的问题，因为编号会在排版过程中自动完成 ✔️。编写 LaTeX 时只需要用 `\cite{}` 引用 `.bib` 中的 ID 即可。
 
 ---
 

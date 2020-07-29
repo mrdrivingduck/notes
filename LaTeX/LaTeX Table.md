@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 ## About
 
-学习了使用 _LaTeX_ 绘制表格
+学习了使用 *LaTeX* 绘制表格。
 
 ---
 

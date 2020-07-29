@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 ## About
 
-学习了使用 _LaTeX_ 进行论文结构的撰写
+学习了使用 *LaTeX* 进行论文结构的撰写。
 
 ---
 
@@ -71,18 +71,6 @@ Ningbo, Zhejiang, China
 
 \end{document}
 ```
-
----
-
-## Summary
-
-这只是入门级的用法
-
-编译出来的 `.pdf` 文档不太好看
-
-和读过的论文的格式不太一样
-
-可能不同的论文有不同的样式文件吧
 
 ---
 

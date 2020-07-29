@@ -10,17 +10,13 @@ Nanjing, Jiangsu, China
 
 ## About
 
-绘制水平并排排列的两张表
-
-使用宏包 - _algorithm2e_
+绘制水平并排排列的两张表。使用宏包 - *algorithm2e*。
 
 ---
 
 ## Usage
 
-利用 `minipage` 实现
-
-* 可以有总的 `caption` 和各表格独自的 `caption`
+利用 `minipage` 实现。可以有总的 `caption` 和各表格独自的 `caption`。
 
 ```latex
 \begin{minipage}[!htbp]{0.9\linewidth}

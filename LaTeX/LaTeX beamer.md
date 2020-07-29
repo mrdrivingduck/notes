@@ -1,4 +1,4 @@
-# LaTeX - _beamer_
+# LaTeX - *Beamer*
 
 Created by : Mr Dk.
 
@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-beamer is a LaTeX class for producing presentations and slides. - https://github.com/josephwright/beamer
+[Beamer](https://github.com/josephwright/beamer) is a LaTeX class for producing presentations and slides.
 
 > The beamer LATEX class can be used for producing slides. The class works in both PostScript and direct PDF output modes, using the [pgf](https://ctan.org/pkg/pgf) graphics system for visual effects.
 >
@@ -24,7 +24,7 @@ beamer is a LaTeX class for producing presentations and slides. - https://github
 
 ## Command
 
-在安装了 _beamer_ 宏包后，就可以使用 _beamer_ 中的内置命令了
+在安装了 *beamer* 宏包后，就可以使用 *beamer* 中的内置命令了。
 
 ```tex
 \somebeamercommand[⟨optional arguments⟩]{⟨first argument⟩}{⟨second argument⟩}
@@ -40,11 +40,7 @@ beamer is a LaTeX class for producing presentations and slides. - https://github
 
 ## Structure
 
-文件的开头，声明这是一个 beamer document
-
-以及关于 slides 的一些基本信息
-
-然后在 document 中声明每一页 slide (也就是一个 `frame`)
+文件的开头，声明这是一个 beamer document，以及关于 slides 的一些基本信息。然后在 document 中声明每一页 slide (也就是一个 `frame`)：
 
 ```tex
 \documentclass{beamer}
@@ -74,11 +70,7 @@ beamer is a LaTeX class for producing presentations and slides. - https://github
 
 ## Style
 
-分为样式主题和颜色主题两种
-
-关于 _beamer_ 中自带样式的比较，可以在这个网站中查看：
-
-https://hartwork.org/beamer-theme-matrix/
+分为样式主题和颜色主题两种。关于 *beamer* 中自带样式的比较，可以在 [这个网站](https://hartwork.org/beamer-theme-matrix/) 中查看：
 
 ```tex
 \usetheme{Montpellier}
@@ -97,9 +89,7 @@ https://hartwork.org/beamer-theme-matrix/
 
 ## The Title Page Frame
 
-将 slide 中已经声明的 metadata 显示在页面上
-
-形成 slide 的封面
+将 slide 中已经声明的 metadata 显示在页面上，形成 slide 的封面。
 
 ```tex
 \begin{frame}
@@ -111,7 +101,7 @@ https://hartwork.org/beamer-theme-matrix/
 
 ## The Table of Contents
 
-大纲 / 目录
+大纲 / 目录：
 
 ```tex
 \begin{frame}
@@ -124,7 +114,7 @@ https://hartwork.org/beamer-theme-matrix/
 
 ## Sections and Subsections
 
-将 slide 组织为几个 section
+将 slide 组织为几个 section：
 
 ```tex
 \section{Motivation}
@@ -169,7 +159,7 @@ https://hartwork.org/beamer-theme-matrix/
 
 ## Frames
 
-Frame 对应了一个页面，可能会被渲染成多页
+Frame 对应了一个页面，可能会被渲染成多页：
 
 ```tex
 \begin{frame}

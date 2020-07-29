@@ -10,11 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-如何在 LaTeX 中绘制算法块？
-
-使用宏包 - _algorithm2e_
-
-<https://ctan.org/pkg/algorithm2e>
+如何在 LaTeX 中绘制算法块？使用宏包 - [*algorithm2e*](https://ctan.org/pkg/algorithm2e)。
 
 ---
 
@@ -22,7 +18,7 @@ Nanjing, Jiangsu, China
 
 ### Install
 
-`[]` 中的选项影响算法块的样式
+`[]` 中的选项影响算法块的样式。
 
 ```latex
 \usepackage[ruled]{algorithm2e}
@@ -65,18 +61,6 @@ Nanjing, Jiangsu, China
 
 * 默认情况下，打印一个 `;`
 * 可以通过 `\dontprintsemicolon` 配置
-
----
-
-## Summary
-
-下载了 _algorithm2e_ 的官方说明书看了下
-
-里面高级的用法还有很多
-
-但用于写论文的话
-
-以上这些应该已经够了 :violin:
 
 ---
 
