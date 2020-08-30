@@ -1,4 +1,4 @@
-# Fuzzer - syzkaller Usage
+# Syzkaller - Usage
 
 Created by : Mr Dk.
 

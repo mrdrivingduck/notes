@@ -1,4 +1,4 @@
-# Linux - tail 命令
+# Linux - Tail 命令
 
 Created by : Mr Dk.
 

@@ -1,4 +1,4 @@
-# Linux - wget
+# Linux - Wget
 
 Created by : Mr Dk.
 
@@ -10,9 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-*wget* 是一个从网络上自动下载文件的自由工具，支持通过 *HTTP*、*HTTPS*、*FTP* 下载，并可以使用 *HTTP* 代理
-
-*wget* 这个名称来源于 *World Wide Web* 与 *get* 的结合
+*wget* 是一个从网络上自动下载文件的自由工具，支持通过 *HTTP*、*HTTPS*、*FTP* 下载，并可以使用 *HTTP* 代理。*wget* 这个名称来源于 *World Wide Web* 与 *get* 的结合。
 
 ## Purpose
 

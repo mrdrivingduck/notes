@@ -1,4 +1,4 @@
-# Linux - sed
+# Linux - Sed
 
 Created by : Mr Dk.
 

@@ -1,4 +1,4 @@
-# Fuzzer - syzkaller Description Syntax
+# Syzkaller - Description Syntax
 
 Created by : Mr Dk.
 
