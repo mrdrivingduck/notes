@@ -1,4 +1,4 @@
-# Linux - Ubuntu Installation on Lenovo R720
+# Ubuntu - Installation on Lenovo R720
 
 Created by : Mr Dk.
 

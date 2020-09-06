@@ -1,4 +1,4 @@
-# Linux - Ubuntu Multi-OS (UEFI)
+# Ubuntu - Multi-OS (UEFI)
 
 Created by : Mr Dk.
 

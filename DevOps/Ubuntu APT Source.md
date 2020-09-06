@@ -1,4 +1,4 @@
-# Linux - Ubuntu 18.04 APT Source
+# Ubuntu - APT Source
 
 Created by : Mr Dk.
 
