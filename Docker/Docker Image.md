@@ -20,14 +20,26 @@ Docker 容器从镜像中启动。Docker 镜像由多层文件系统叠加而成
 
 列出主机上可用的镜像 (位于 `/var/lib/docker`)：
 
-```bash
-sudo docker images
+```console
+$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              20.04               4e2eef94cd6b        2 weeks ago         73.9MB
+hello-world         latest              bf756fb1ae65        8 months ago        13.3kB
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ```
 
 从 Docker Registry 上拉取镜像。同一个仓库 (如 `ubuntu`) 可以有多个不同的镜像 (`12.04` / `12.10` / `precise`)。
 
-```bash
-sudo docker pull ubuntu:12.04
+```console
+$ sudo docker pull ubuntu:20.04
+20.04: Pulling from library/ubuntu
+54ee1f796a1e: Already exists
+f7bfea53ad12: Already exists
+46d371e02073: Already exists
+b66c17bbf772: Already exists
+Digest: sha256:31dfb10d52ce76c5ca0aa19d10b3e6424b830729e32a89a7c6eee2cda2be67a5
+Status: Downloaded newer image for ubuntu:20.04
+docker.io/library/ubuntu:20.04
 ```
 
 为了区分同一个仓库中的不同镜像，Docker 提供了 **标签 (tag)** 功能。每个标签对一些特定的镜像层进行标记。通过在仓库名后加一个冒号和标签名来指定仓库中的镜像。另外，一个镜像也可以有多个标签。
@@ -45,8 +57,34 @@ sudo docker pull fedora:21
 
 在 Docker Hub 可以查找公共的镜像，也可以通过命令完成：
 
-```bash
-sudo docker search puppet
+```console
+$ sudo docker search puppet
+NAME                                               DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+puppet/puppetserver                                A Docker Image for running Puppet Server. Wi…   93
+alekzonder/puppeteer                               GoogleChrome/puppeteer image and screenshots…   75                                      [OK]
+buildkite/puppeteer                                A Puppeteer Docker image based on Puppeteer’…   54                                      [OK]
+puppet/puppetdb                                    A Docker image for running PuppetDB             33
+devopsil/puppet                                    Dockerfile for a container with puppet insta…   31                                      [OK]
+macadmins/puppetmaster                             Simple puppetmaster based on CentOS 6           26                                      [OK]
+puppet/puppetboard                                 The Puppet Board dashboard for PuppetDB         19
+puppet/puppet-agent-alpine                         Puppet Agent as a Docker Image. Based on Alp…   17
+puppet/puppet-agent                                Puppet Agent as a Docker Image.                 13
+puppet/puppetexplorer                              The Puppet Explorer dashboard for PuppetDB      13
+puppet/puppet-agent-ubuntu                         Puppet Agent as a Docker Image. Based on the…   13
+zenato/puppeteer-renderer                          Puppeteer(Chrome headless node API) based we…   11                                      [OK]
+puppet/puppet-dev-tools                            Puppet development tools such as PDK, onceov…   8
+camptocamp/puppetserver                            Puppetlabs's puppetserver                       7                                       [OK]
+puppet/continuous-delivery-for-puppet-enterprise   Automated testing and promotion of infrastru…   4
+jumanjiman/puppet                                  Use Puppet to configure CoreOS hosts            3
+vpgrp/puppet                                       Docker images of Puppet.                        2                                       [OK]
+vladgh/puppetserver                                Vlad's Puppet Server                            2                                       [OK]
+vladgh/puppet                                      Ubuntu 16.04 LTS Base image with Puppet         2                                       [OK]
+ccaum/puppet-dev                                   Puppet development tools in Docker              1
+vladgh/puppetserverdb                              Vlad's Puppet Server configured for PuppetDB    1                                       [OK]
+puppet/puppet-bolt                                 Puppet Bolt as a docker image                   1
+terzom/puppetboard                                 Puppetboard is a web interface to PuppetDB p…   0                                       [OK]
+ananace/puppetlint                                 Docker images with Puppet-lint and checks fo…   0                                       [OK]
+ipcrm/puppet_webapp                                                                                0
 ```
 
 ## 构建镜像

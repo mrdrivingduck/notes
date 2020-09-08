@@ -40,21 +40,86 @@ Docker 的技术组件如下：
 
 在 Docker 安装完毕后，需要确认 Docker 守护进程是否开始运行。并可以通过命令改变守护进程的监听端口号、绑定的 socket 等。
 
-```bash
-sudo status docker
-```
+```console
+$ service docker status
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2020-09-08 20:19:52 CST; 1min 20s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 24918 (dockerd)
+      Tasks: 17
+     Memory: 41.4M
+     CGroup: /system.slice/docker.service
+             └─24918 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
-```bash
-service docker stop
-service docker start
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.154154178+08:00" level=warning msg="Your ke>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.154172375+08:00" level=warning msg="Your ke>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.154190112+08:00" level=warning msg="Your ke>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.154639178+08:00" level=info msg="Loading co>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.428462501+08:00" level=info msg="Default br>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.557265005+08:00" level=info msg="Loading co>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.640068507+08:00" level=info msg="Docker dae>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.640445267+08:00" level=info msg="Daemon has>
+9月 08 20:19:52 zjt-lap-ubuntu-20 dockerd[24918]: time="2020-09-08T20:19:52.707702471+08:00" level=info msg="API listen>
+9月 08 20:19:52 zjt-lap-ubuntu-20 systemd[1]: Started Docker Application Container Engine.
 ```
 
 ## 3. Docker 的简易使用
 
 查看 docker 程序是否存在，功能是否正常：
 
-```bash
-sudo docker info
+```console
+$ sudo docker info
+Client:
+ Debug Mode: false
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 0
+ Server Version: 19.03.12
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 7ad184331fa3e55e52b890ea95e65ba581ae3429
+ runc version: dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ init version: fec3683
+ Security Options:
+  apparmor
+  seccomp
+   Profile: default
+ Kernel Version: 5.4.0-45-generic
+ Operating System: Ubuntu 20.04.1 LTS
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 8
+ Total Memory: 15.51GiB
+ Name: zjt-lap-ubuntu-20
+ ID: TYBM:QZMD:FTXJ:L7E7:MNWE:QRQ2:R5TD:2OV2:P7TU:BDTG:7OVO:6DIT
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: No swap limit support
 ```
 
 使用 `docker run` 来启动第一个 Docker 容器。首次启动时，Docker 会在本地检查是否存在镜像，如果没有，则会到 Registry 上拉取镜像。
@@ -70,8 +135,10 @@ sudo docker run -i -t ubuntu /bin/bash
 
 在交互式容器中查看 `/etc/hosts` 文件，可以看到容器有了自己的网卡和 IP 地址。在退出交互式容器的 bash 后，容器停止运行，但镜像依旧存在。通过以下命令可以查看所有的容器 (已停止的和正在运行的)：
 
-```bash
-sudo docker ps -a
+```console
+$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                          PORTS               NAMES
+df7c6d1e9349        hello-world         "/hello"            About a minute ago   Exited (0) About a minute ago                       laughing_fermat
 ```
 
 Docker 会为每一个容器自动生成一个随机的名称。如果想要自行指定容器名称，可以在 `docker run` 命令中显式指定。容器的命名有助于分辨容器。
