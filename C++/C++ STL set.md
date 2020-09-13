@@ -8,9 +8,9 @@ Nanjing, Jiangsu, China
 
 ---
 
-## 1. 原型 特性
+## Definition
 
-```C++
+```c++
 template < 
     class T,
     class Compare = less<T>,
@@ -18,162 +18,114 @@ template <
 > class set;
 ```
 
- * 集合容器
- * *key* 就是 *value*
- * 容器中 *key* 值唯一，按照 *key* 值从小到大排列
- * 底层实现为 *红黑树*
- * 插入元素时不破坏顺序
- * 若元素已存在，则插入失败
+Set 为集合容器，key 就是 value。容器中 key 值唯一，按照 key 值从小到大排列。底层实现为 *红黑树*，插入元素时不破坏顺序，若元素已存在，则插入失败。
 
----
-
-## 2. 引用头文件
-
-```C++
+```c++
 #include <set>
-using namespace std;	// OR : std::set
+using namespace std; // OR : std::set
 ```
 
----
+## Constructor
 
-## 3. 构造函数
-
-```C++
-set <key_type> Set;
+```c++
+set <key_type> set;
 ```
 
----
+## Attributes
 
-## 4. 基本属性
-
-```C++
-// 返回 set 中的元素个数
-int size = Set.size();
-
-// 返回 set 是否为空
-bool empty = Set.empty();
-
-// 返回 set 的最大容量
-int max_size = Set.max_size();
+```c++
+int size = set.size(); // 返回 set 中的元素个数
+bool empty = set.empty(); // 返回 set 是否为空
+int max_size = set.max_size(); // 返回 set 的最大容量
 ```
 
----
+## Iterator
 
-## 5. 迭代器的声明和使用 （遍历）
+```c++
+set<key_type>::iterator iter; // 正向迭代器
+iter = set.begin(); // 指向第一个元素的迭代器
+iter = set.end(); // 指向最后一个元素下一个位置的迭代器
 
-```C++
-// 声明正向迭代器
-set <key_type>::iterator setIter;
-// 返回指向第一个元素的迭代器
-setIter = Set.begin();
-// 返回指向最后一个元素下一个位置的迭代器
-setIter = Set.end();
+set <key_type>::reverse_iterator r_iter; // 反向迭代器
+r_iter = set.rbegin(); // 指向最后一个元素的迭代器
+r_iter = set.rend(); // 指向第一个元素前一个位置的迭代器
 
-// 声明反向迭代器
-set <key_type>::reverse_iterator reverseIter;
-// 返回指向最后一个元素的迭代器
-reverseIter = Set.rbegin();
-// 返回指向第一个元素前一个位置的迭代器
-reverseIter = Set.rend();
-
-// 取得 key 值
-key_type key = *setIter;
+key_type key = *iter; // 取得 key 值
 
 // 遍历
-for (setIter= Set.begin();
-     setIter != Set.end();
-     setIter++) {
-    // *setIter
+for (iter= set.begin(); iter != set.end(); iter++) {
+    // *iter
     // TO DO ...
 }
 ```
 
----
+## Search
 
-## 6. 查找
-
-```C++
-setIter = Set.find(key);
+```c++
+iter = set.find(key);
 
 // 若没有找到 key ，则返回指向超尾元素的迭代器
 // 若找到 key ，则返回指向该 node 的迭代器
-// 时间复杂度基本为 Log(Map.size())
-if (setIter == Set.end()) {
+// 时间复杂度基本为 log(set.size())
+if (iter == set.end()) {
     // Not Found
 } else {
     // Found
 }
 ```
 
----
+## Insert
 
-## 7. 插入
-
-```C++
+```c++
 // 若 key 已存在，则插入失败
 // 新值不会覆盖旧值
 // 调用拷贝构造函数
-Set.insert (key);
+set.insert(key);
 
 // 若需要获得插入状态
 // 返回的迭代器指向 set 中已存在的 key
 // 返回的 bool 表示插入是否成功
-pair <set <key_type>::iterator, bool> res = Set.insert(key);
-if (res.second == false)
-{
+pair<set <key_type>::iterator, bool> res = set.insert(key);
+if (res.second == false) {
     // Insert failure
     // TO DO ...
 }
 ```
 
----
+## Deletion
 
-## 8. 删除
-
-```C++
-// 删除迭代器指向的 node
-Set.erase (setIter);
-
-// 删除指定的 key 值所对应的 node
-Set.erase (key);
-
-// 删除一个范围内的 node
-Set.erase (Iter1, Iter2);
-
-// 删除所有元素
-Set.clear();
+```c++
+set.erase(iter); // 删除迭代器指向的 node
+set.erase(key); // 删除指定的 key 值所对应的 node
+set.erase(Iter1, Iter2); // 删除一个范围内的 node
+set.clear(); // 删除所有元素
 ```
 
----
+## Self-Defined Keys
 
-## 9. 自定义对象作为 key 时需要注意
-
-```C++
-// 由于 set 本身是有序的
-// 因此需要 key 类型是可比较的
-// 当使用自定义的 class 作为 key 时
-// 需要 overload < 运算符
-// 在 overload 的写法上需要注意
-// 千万不能漏掉 {} 之前的 const
+```c++
+// 由于 set 本身是有序的，因此需要 key 类型是可比较的。
+// 当使用自定义的 class 作为 key 时，需要 overload < 运算符。
+// 在 overload 的写法上需要注意，千万不能漏掉 {} 之前的 const。
 
 class Class {
-    public:
-    	// ...
-    	// ...
-    	// Constructor
-    	// Copy_Constructor (VERY IMPORTANT!!!)
-        bool operator < (const Class &C) const {
-            // TO DO ...
-            // return true | return false;
-        }
+public:
+    // ...
+    // ...
+    // Constructor
+    // Copy_Constructor (VERY IMPORTANT!!!)
+    bool operator < (const Class &cD) const {
+        // TO DO ...
+        // return true | return false;
+    }
 };
 ```
 
 ---
 
-## 总结
+## Summary
 
-在 _并查集_ 题目中经常使用
+在 *并查集* 类算法题目中经常使用。
 
 ---
 
