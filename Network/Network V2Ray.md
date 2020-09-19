@@ -32,7 +32,7 @@ Link:
 
 ## VMess
 
-**VMess** 是 V2Ray 原创的加密通讯协议
+**VMess** 是 V2Ray 原创的加密通讯协议：
 
 * 基于 TCP，所有数据使用 TCP 传输
 * 用户 ID —— UUID 作为令牌
@@ -139,7 +139,7 @@ timeouts none
 
 ### Windows
 
-下载 [v2rayN-Core](https://github.com/2dust/v2rayN)（图形界面，且带有 V2Ray 核心程序），解压到上述目录.打开 GUI，进行服务器的配置（需要与 V2Ray Server 的配置匹配）：
+下载 [v2rayN-Core](https://github.com/2dust/v2rayN) (图形界面，且带有 V2Ray 核心程序)，解压到上述目录.打开 GUI，进行服务器的配置 (需要与 V2Ray Server 的配置匹配)：
 
 * IP Address
 * port
@@ -149,7 +149,7 @@ timeouts none
 * 传输协议（默认 TCP）
 * 伪装类型（不清楚可保持默认）
 
-接下来点击 `启用系统代理` 或 `Enable HTTP Proxy`。在 `系统代理模式` 或 `HTTP Proxy Mode` 中选择 `PAC 模式` / `PAC Mode`（可能需要重启客户端服务后）即可。
+接下来点击 `启用系统代理` 或 `Enable HTTP Proxy`。在 `系统代理模式` 或 `HTTP Proxy Mode` 中选择 `PAC 模式` / `PAC Mode` (可能需要重启客户端服务) 即可。
 
 ### macOS
 
@@ -157,14 +157,14 @@ timeouts none
 
 ### iOS
 
-得到一个美区 App Store 账户。在个人设置的 `iTunes & App Store` 中，注销个人 Apple ID，并使用网页上给定的 Apple ID 登录，切换到 App Store 美国区（中国区已下架类似功能 APP）。
+得到一个 [美区 App Store 账户](https://shadowsockshelp.github.io/ios/)。在个人设置的 `iTunes & App Store` 中，注销个人 Apple ID，并使用网页上给定的 Apple ID 登录，切换到 App Store 美国区 (中国区已下架类似功能 APP)。
 
 在 App Store 中搜索 *Shadowrocket*，由于该账号已购买过该 APP，再次下载不需付费。下载完成后，打开 Shadowrocket，确保安装成功。然后退出该 Apple ID，登录回个人的 Apple ID。
 
 在 Shadowrocket 中：
 
 * 可以直接扫二维码 / URL 添加 Server 配置
-* 也可以手动添加 Server 配置（需要与 Server 的配置相匹配）
+* 也可以手动添加 Server 配置 (需要与 Server 的配置相匹配)
 
 Shadowrocket 支持的协议有：
 
