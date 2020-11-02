@@ -1,4 +1,4 @@
-# Java - _Javadoc_
+# Java - *Javadoc*
 
 Created by : Mr Dk.
 
@@ -8,15 +8,15 @@ Ningbo, Zhejiang, China
 
 ---
 
-## What is _Javadoc_ ?
+## What is *Javadoc* ?
 
-[_Javadoc_](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) 是 _Sun_ 开发的 Java 文档生成工具。该工具可以从 Java 源代码的注释中生成 HTML 格式的 API 文档。HTML 格式可以将相关文档通过超链接连接在一起。
+[*Javadoc*](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) 是 *Sun* 开发的 Java 文档生成工具。该工具可以从 Java 源代码的注释中生成 HTML 格式的 API 文档。HTML 格式可以将相关文档通过超链接连接在一起。
 
-_Javadoc_ 中使用的 __doc comments__ 格式是记录 Java 类的行业标准。以前，通常由专业的技术文档编写者来编写软件的独立文档，是这些文档与代码本身保持同步非常困难。_Javadoc_ 使得文档可以直接内嵌在代码中，从而解决了代码与文档的同步问题。
+*Javadoc* 中使用的 **doc comments** 格式是记录 Java 类的行业标准。以前，通常由专业的技术文档编写者来编写软件的独立文档，是这些文档与代码本身保持同步非常困难。*Javadoc* 使得文档可以直接内嵌在代码中，从而解决了代码与文档的同步问题。
 
-_Javadoc_ 不会影响 Java 代码执行的性能。在编译时，注释会被移除。
+*Javadoc* 不会影响 Java 代码执行的性能。在编译时，注释会被移除。
 
-## _Javadoc_ Structure
+## *Javadoc* Structure
 
 通过标准的多行注释 `/*` 和 `*/` 在代码中编写注释 - 其中，起始标记具有额外的星号 `/**`。注释中：
 
@@ -33,7 +33,7 @@ _Javadoc_ 不会影响 Java 代码执行的性能。在编译时，注释会被�
  */
 ```
 
-_Javadoc_ 中支持的部分标签：
+*Javadoc* 中支持的部分标签：
 
 | Tag & Parameter                                              | Usage                                  | Applies to                            |
 | ------------------------------------------------------------ | -------------------------------------- | ------------------------------------- |
@@ -51,7 +51,7 @@ _Javadoc_ 中支持的部分标签：
 | `{@value <STATIC_FIELD>}`                                    | 返回静态域的值                         | Static Field                          |
 | `{@code <code>}`                                             | 代码块，相当于 Markdown 中的 \`\`      | Class, Interface, Enum, Field, Method |
 
-## Examples of _Javadoc_ in _JDK 8_
+## Examples of *Javadoc* in JDK 8
 
 ```java
 /**
@@ -116,15 +116,13 @@ public final int getAndAccumulate(int x,
 boolean offerLast(E e);
 ```
 
-## _Javadoc_ Effect
+## *Javadoc* Effect
 
 ![javadoc](../img/javadoc.png)
 
-## Issue: Include Reference to Unit Test Classes in _Javadoc_
+## Issue: Include Reference to Unit Test Classes in *Javadoc*
 
-Explaination on [StackOverflow](https://stackoverflow.com/questions/45160647/include-link-to-unit-test-classes-in-javadoc) .
-
-试图在 Java 代码中使用 `@see` 指向对应的单元测试类，失败。想来也有道理：
+试图在 Java 代码中使用 `@see` 指向对应的单元测试类，失败。Explanation on [StackOverflow](https://stackoverflow.com/questions/45160647/include-link-to-unit-test-classes-in-javadoc)。想来也有道理：
 
 * 单元测试是用于测试 Java 代码的，因此在单元测试中使用 `@see` 指向对应的 Java 代码合情合理
 * 而 Java 代码不是为单元测试而设计的，因此从 Java 代码中引用对应的测试类不合理

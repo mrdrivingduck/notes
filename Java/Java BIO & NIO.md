@@ -408,7 +408,7 @@ EPOLL 有两种触发方式：
 
 [Julia Evans - Async IO on Linux: select, poll, and epoll](https://jvns.ca/blog/2017/06/03/async-io-on-linux--select--poll--and-epoll/)
 
-[Mr Dk.'s blog - Linux 0.12 内核完全注释 - select.c 程序](https://mrdrivingduck.cn/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)
+[Mr Dk.'s blog - Linux 0.12 内核完全注释 - select.c 程序](https://mrdrivingduck.github.io/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)
 
 ---
 

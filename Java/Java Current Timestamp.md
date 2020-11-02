@@ -10,9 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-在 Java 中获取当前时间戳的几种方式
-
----
+在 Java 中获取当前时间戳的几种方式。
 
 ## 1. `java.lang.System`
 
@@ -20,15 +18,13 @@ Nanjing, Jiangsu, China
 long timestamp = System.currentTimeMillis();
 ```
 
----
-
 ## 2. `java.util.Date`
 
 ```java
 long timestamp = new Date().getTime();
 ```
 
-看其源代码：
+它的源代码：
 
 ```java
 /**
@@ -43,9 +39,7 @@ public Date() {
 }
 ```
 
-还不如使用第一种方式？
-
----
+好像还不如使用第一种方式？
 
 ## 3. `java.util.Calendar`
 

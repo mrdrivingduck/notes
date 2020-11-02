@@ -10,34 +10,21 @@ Nanjing, Jiangsu, China
 
 ## About
 
-_Reflection - 反射_
-* 通过 _.class_ 文件动态加载类
-* 不用通过类对象，就能获取类的所有信息
-  * _Field_、_Method_、_Constructor_ 等
-* 不用通过类对象，就能调用类的函数
-* 在运行时判断任意一个对象所属的类
+Reflection - 反射
 
----
+通过 `.class` 文件动态加载类，而不用通过类对象，就能获取类的所有信息，包括 *field*、*method*、*constructor* 等。不用通过类对象，就能调用类的函数。在运行时判断任意一个对象所属的类。
 
-## Procedure
+## Usage
 
-1. 获取 _Class_ 对象
-2. 利用 _Class_ 对象获取类的信息（_Field_、_Method_、_Constructor_）
-3. 使用构造函数实例化对象 - 访问属性 - 调用函数
-
----
+1. 获取 Class 对象
+2. 利用 Class 对象获取类信息 (域、函数、构造函数)
+3. 使用构造函数实例化对象 / 访问属性 / 调用函数
 
 ## 类装载过程
 
-* 加载某个类的 _.class_ 文件
-* _JVM_ 在磁盘上寻找对应的 _.class_ 文件，并载入 _JVM_ 内存
-* _JVM_ 自动创建一个 _Class_ 对象
-  * 一个类只产生一个 _Class_ 对象
-  * _Class_ 对象中存储与类有关的各种信息
+加载某个类的 `.class` 文件。JVM 在磁盘上寻找对应的 `.class` 文件，并载入 JVM 内存。JVM 自动创建一个 Class 对象，一个类只产生一个 Class 对象，其中存储与类有关的各种信息。
 
----
-
-## 获取 _Class_ 对象
+## 获取 Class 对象
 
 ```java
 class Base {
@@ -94,13 +81,11 @@ Class clazz = base.getClass();
 Class clazz = Class.forName("package.Base");
 ```
 
----
-
 ## 获取类信息
 
-* 只能获取到当前类的信息，不能获取到父类的信息
+只能获取到当前类的信息，不能获取到父类的信息
 
-* 获取 _Constructors_
+* 获取构造函数
 
   ```java
   /**
@@ -126,7 +111,7 @@ Class clazz = Class.forName("package.Base");
   Constructor constructor = clazz.getDeclaredConstructor(int.class, String.class);
   ```
 
-* 获取 _fields_
+* 获取成员变量
 
   ```java
   /**
@@ -150,7 +135,7 @@ Class clazz = Class.forName("package.Base");
   Field field = clazz.getField("a");
   ```
 
-* 获取 _Methods_
+* 获取函数
 
   ```java
   /**
@@ -175,8 +160,6 @@ Class clazz = Class.forName("package.Base");
    */
   Method method = clazz.getDeclaredMethod("Print", String.class);
   ```
-
----
 
 ## 对类的一些操作
 
@@ -222,29 +205,25 @@ Class clazz = Class.forName("package.Base");
   method.invoke(obj, "HelloWorld");
   ```
 
----
+## Pros and Cons
 
-## Pros
+### Pros
 
-应用在那些需要 __在运行时检测或修改程序行为__ 的程序中
-
----
+应用在那些需要 **在运行时检测或修改程序行为** 的程序中。
 
 ## Cons
 
-* 反射的效率比非反射低得多
-  * 避免在经常执行的代码中使用
-  * 避免在对性能要求较高的代码中使用
-* 使用反射要求程序必须在一个没有安全限制的环境内运行
-* 内部暴露
-  * 反射允许一些正常情况下不被允许的操作
-    * 访问 _private_ 属性
-    * 访问 _private_ 函数
-  * 反射可能导致一些副作用
-    * 代码功能上的错误
-    * 降低可移植性
-    * 破坏代码的抽象性
-    * 不同运行平台上的行为差异
+反射的效率比非反射低得多，所以避免在经常执行的代码中使用，避免在对性能要求较高的代码中使用。使用反射要求程序必须在一个没有安全限制的环境内运行，因为产生了内部暴露，允许一些正常情况下不被允许的操作：
+
+* 访问 `private` 属性
+* 访问 `private` 函数
+
+反射可能导致一些副作用，如：
+
+* 代码功能上的错误
+* 降低可移植性
+* 破坏代码的抽象性
+* 不同运行平台上的行为差异
 
 ---
 

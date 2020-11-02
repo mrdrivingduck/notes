@@ -12,8 +12,6 @@ Nanjing, Jiangsu, China
 
 *Apache Maven* 是一个项目管理和综合工具。提供一个 **项目对象模型文件 (POM)** 的概念来管理项目的构建、相关性和文档。还能够自动下载项目依赖库。
 
----
-
 ## Installation
 
 从 Apache official 上下载 Maven 的可执行文件并解压。
@@ -25,8 +23,8 @@ Nanjing, Jiangsu, China
 
 ### Linux
 
-```console
-$ vim /etc/profile
+```bash
+vim /etc/profile
 ```
 
 ```
@@ -35,8 +33,8 @@ export MAVEN_REPO=/opt/module/apache-maven-3.3.9/m2/repository
 export PATH=$PATH:$MAVEN_HOME/bin
 ```
 
-```console
-$ source /etc/profile
+```bash
+source /etc/profile
 ```
 
 检测是否成功:
@@ -76,8 +74,6 @@ Maven 默认从 **中央存储库** (`http://repo1.maven.org/maven2/`) 自动下
 </settings>
 ```
 
----
-
 ## Project
 
 在 Eclipse 中新建一个 Maven project，里面有很多个工程模板，根据需求选择 (一般选择 `quickstart` 即可)，填写 `groupId`、`artifactId`、`version`。Maven 通过这三个元素唯一确定一个工程：
@@ -115,8 +111,6 @@ Maven 默认从 **中央存储库** (`http://repo1.maven.org/maven2/`) 自动下
   </dependencies>
 </project>
 ```
-
----
 
 ## Command
 
