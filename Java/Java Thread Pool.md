@@ -39,7 +39,7 @@ Nanjing, Jiangsu, China
   * `CallerRunsPolicy` - 由调用者所在线程运行任务
   * `DiscardOldestPolicy` - 丢掉队列里最老的任务，并试图添加新的任务
   * `DiscardPolicy` - 不处理新任务
-  * 实现 `RejectedCexcutionHandler` 接口自行定义策略
+  * 实现 `RejectedExecutionHandler` 接口自行定义策略
 * 时间参数
   * `keepAliveTime` - 超出线程池 `corePoolSize` 的工作线程空闲后保持存活的时间
   * `TimeUnit` - 线程活动保持时间的单位

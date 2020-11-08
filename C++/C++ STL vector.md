@@ -33,20 +33,20 @@ vector<int> vector; // 空的 vector
 vector<int> vector(n); // n 个元素的 vector，若 <> 内为对象，则调用构造函数初始化
 vector<int> vector(n, number); // n 个元素的 vector，并赋值为 number
 vector<int> vector(another_vector); // 拷贝构造函数
-vector<int> vector = { 1, 2, 3 }; // 常量拷贝构造，列表中的元素必须内容相容
+vector<int> vector = { 1, 2, 3 }; // 常量拷贝构造，列表中的元素内容必须相容
 vector<int> vector(iter.begin(), iter.end()); // 迭代器拷贝构造
 ```
 
 ## Memory Allocation
 
 ```c++
-vector.reserve(n); // 预留 n 个元素的空间 (但不分配内存)，访问预留的空间是非法的
-vector.push_back(1); // 可以与 push_back () 方法配合使用 (分配内存在这里发生)
+vector.reserve(n); // 预留 n 个元素的内存空间，但不创建元素，因此访问预留的空间是非法的
+vector.push_back(1); // 可以与 push_back() 方法配合使用 (元素创建在这里发生)
 ```
 
 ```c++
-vector.resize(n); // 分配 n 个元素的内存
-vector.resize(n, 0); // 分配 n 个元素的内存，并赋值
+vector.resize(n); // 分配 n 个元素的内存，并建立对象
+vector.resize(n, 0); // 分配 n 个元素的内存，并建立对象，赋值
 ```
 
 ## Attributes
@@ -91,7 +91,6 @@ for (r_iter = vector.rbegin(); r_iter != vector.rend(); r_iter++) {
 // 若超出内存范围，则自动重新分配内存
 // 在知道插入数量的情况下，提前使用 reserve 函数预留内存，避免内存重新分配，效率更高
 vector.push_back(1);
-
 vector.pop_back(); // 在尾部删除
 
 vector.insert(iter, 1); // 在 iter 的位置前插入元素
@@ -139,8 +138,8 @@ reverse(vector.begin(), vector.end());
 ## Heap Operation
 
 ```c++
-make_heap (vector.begin(), vector.end()); // 建堆 (默认为大顶堆)
-make_heap (vector.begin(), vector.end(), greater <int> ()); // 小顶堆
+make_heap(vector.begin(), vector.end()); // 建堆 (默认为大顶堆)
+make_heap(vector.begin(), vector.end(), greater <int> ()); // 小顶堆
 
 // 堆中添加元素
 vector.push_back(1);
