@@ -60,24 +60,24 @@ bool empty = vector.empty(); // vector 是否为空
 ## Iterator
 
 ```c++
-vector <int>::iterator vector_iter; // 正向迭代器
+vector<int>::iterator vector_iter; // 正向迭代器
 vector_iter = vector.begin(); // 指向头一个元素的迭代器
 vector_iter = vector.end(); // 指向最后一个元素的下一个位置的迭代器
 
-vector <int>::reverse_iterator reverseIter; // 反向迭代器
+vector<int>::reverse_iterator reverseIter; // 反向迭代器
 reverseIter = vector.rbegin(); // 指向最后一个元素的反向迭代器
 reverseIter = vector.rend(); // 指向第一个元素前一个位置的反向迭代器
 ```
 
 ```c++
-vector <int>::iterator iter; // 正向迭代器
+vector<int>::iterator iter; // 正向迭代器
 
 // 遍历
 for (iter = vector.begin(); iter != vector.end(); iter++) {
     cout << *iter << endl;
 }
 
-vector <int>::reverse_iterator r_iter; // 反向迭代器
+vector<int>::reverse_iterator r_iter; // 反向迭代器
 
 // 遍历
 for (r_iter = vector.rbegin(); r_iter != vector.rend(); r_iter++) {
@@ -125,7 +125,11 @@ cout << vector[pos] << endl;
 
 ```c++
 #include <algorithm> // 需要引用头文件
+```
 
+### Sort / Reverse
+
+```c++
 // 排序
 sort(vector.begin(), vector.end());
 sort(vector.begin(), vector.end(), greater<int> ());
@@ -135,11 +139,17 @@ sort(vector.begin(), vector.end(), compare); // 比较函数 bool compare() 需�
 reverse(vector.begin(), vector.end());
 ```
 
-## Heap Operation
+### Heap Operation
+
+建立堆的过程中可以使用自定义的二元比较函数，在以下三个函数中都可以使用可选的比较函数 (默认使用 `<` 的运算符)：
+
+* `make_heap()` 用于在一个已有的数组上建堆
+* `push_heap()` 对数组中的最后一个元素进行堆调整 (所以之前要调用 `push_back()`)
+* `pop_heap()` 将堆顶换到数组的最后一个元素，然后对剩余的数组调整堆序 (之后一般要调用 `pop_back()` 取出堆顶)
 
 ```c++
 make_heap(vector.begin(), vector.end()); // 建堆 (默认为大顶堆)
-make_heap(vector.begin(), vector.end(), greater <int> ()); // 小顶堆
+make_heap(vector.begin(), vector.end(), greater<int> ()); // 小顶堆
 
 // 堆中添加元素
 vector.push_back(1);
@@ -151,6 +161,16 @@ vector.pop_back();
 
 // 堆排序
 sort_heap(vector.begin(), vector.end());
+```
+
+### K-Smallest Element
+
+在数组中获取第 k 小 (默认) 的元素。算法默认使用 `<` 运算符生成结果，也可以自定义比较函数。函数执行后，在指定的位置之前的元素全部小于指定位置上的元素，指定位置之后的元素全部大于指定位置上的元素。显然，算法可以使用快速排序中的 pivot 思想，然后对子区间递归。原理如下图所示：
+
+![stl-nth-element](../img/stl-nth-element.png)
+
+```c++
+nth_element(vector.begin(), vector.begin() + n, vector.end(), comp);
 ```
 
 ## Two-Dimension Vector
