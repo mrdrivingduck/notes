@@ -22,9 +22,9 @@ Map 提供 key-value 的映射，底层实现是红黑树 (Red-Black Tree)，是
 
 根据 key 可以快速查找节点及其 value，查找的时间复杂度基本为 log(n)：
 
-* 快速插入 `key` - `value` 对
-* 快速删除 `key ` - `value` 对
-* 快速根据 `key` 修改对应的 `value` 
+* 快速插入 key-value pair
+* 快速删除 key-value pair
+* 快速根据 key 修改对应的 value 
 * 插入、删除结点对其它结点没有影响
 
 ```c++
@@ -35,7 +35,7 @@ using namespace std; // OR : std::map
 ## Constructor
 
 ```c++
-map <key_Type, value_Type> map;
+map<key_Type, value_Type> map;
 ```
 
 ## Attribute
@@ -48,11 +48,11 @@ bool empty = map.empty(); // 返回 map 是否为空
 ## Iterator
 
 ```c++
-map <key_Type, value_Type>::iterator iter; 正向迭代器
+map<key_Type, value_Type>::iterator iter; 正向迭代器
 iter = map.begin(); // 指向第一个元素的迭代器
 iter = map.end(); // 指向最后一个元素的下一个位置的迭代器
 
-map <key_Type, value_Type>::reverse_iterator r_iter; // 反向迭代器
+map<key_Type, value_Type>::reverse_iterator r_iter; // 反向迭代器
 r_iter = map.rbegin(); // 指向最后一个元素的迭代器
 r_iter = map.rend(); // 指向第一个元素前一个位置的迭代器
 
@@ -61,8 +61,8 @@ value_Type value = iter->second; // 取得 value 值
 
 // 遍历
 for (iter = map.begin(); iter != map.end(); iter++) {
-    cout << iter -> first << " ";
-    cout << iter -> second << endl;
+    cout << iter->first << " ";
+    cout << iter->second << endl;
 }
 ```
 
@@ -78,8 +78,8 @@ if (iter == map.end()) {
     // Not Found
 } else {
     // Found
-    cout << iter -> first << " ";
-    cout << iter -> second << endl;
+    cout << iter->first << " ";
+    cout << iter->second << endl;
 }
 ```
 
@@ -92,7 +92,7 @@ map.insert(pair<key_Type, value_Type> (key, value));
 // 若想要查看插入是否成功
 // 可采用如下插入方式
 pair<map<key_Type, value_Type>::iterator, bool> inserted 
-	= map.insert (pair<key_Type, value_Type> (key, value));
+	= map.insert(pair<key_Type, value_Type> (key, value));
 
 if (inserted.second == true) {
     // Insert success

@@ -22,8 +22,8 @@ using namespace std; // using std::string;
 ## Constructor
 
 ```c++
-string(); // Empty constructor (default)
-string(const string& str); // Copy constructor
+string();                                                 // Empty constructor (default)
+string(const string& str);                                // Copy constructor
 string(const string& str, size_t pos, size_t len = npos); // Substring contructor
 ```
 
@@ -32,7 +32,7 @@ string(const string& str, size_t pos, size_t len = npos); // Substring contructo
 * (string is too short) | ( `len` == `string::npos` ) -> copy until the end of string
 
 ```c++
-string (const char* s); // From C-String
+string (const char* s);           // From C-String
 string (const char* s, size_t n); // From C-String, copy first n characters
 ```
 
@@ -58,10 +58,10 @@ static const size_t npos = -1;
 ## Iterators
 
 ```c++
-string::iterator begin_iter = str.begin(); // 指向字符串开头的迭代器
-string::iterator end_iter = str.end(); // 指向字符串结尾的下一个位置的迭代器
+string::iterator begin_iter = str.begin();            // 指向字符串开头的迭代器
+string::iterator end_iter = str.end();                // 指向字符串结尾的下一个位置的迭代器
 string::reverse_iterator r_begin_iter = str.rbegin(); // 返回指向字符串结尾的反向迭代器
-string::reverse_iterator r_end_iter = str.rend(); // 返回指向字符串开头的前一个位置的反向迭代器
+string::reverse_iterator r_end_iter = str.rend();     // 返回指向字符串开头的前一个位置的反向迭代器
 ```
 
 ## Operators Overload
@@ -145,9 +145,10 @@ Return size of allocated storage:
 size_t capacity() const;
 ```
 
-* Resizes the string to a length of n characters
-  * If `c` is specified, the new elements are initialized as copies of `c`; Otherwise, they are value-initialized characters (null characters)
-  * If `n` is smaller than current string; the current value is shortened to its first `n` character
+Resizes the string to a length of n characters
+
+* If `c` is specified, the new elements are initialized as copies of `c`; Otherwise, they are value-initialized characters (null characters)
+* If `n` is smaller than current string; the current value is shortened to its first `n` character
 
 ```c++
 void resize(size_t n);
@@ -188,11 +189,11 @@ Assigns a new value to the string, replacing its current contents. Exception:
 * The function needs to allocate storage and fails: `bad_alloc` exception
 
 ```c++
-string& assign(const string& str); // String
+string& assign(const string& str);                               // String
 string& assign(const string& str, size_t subpos, size_t sublen); // Substring
-string& assign(const char* s); // C-String
-string& assign(const char* s, size_t n); // Buffer
-string& assign(size_t n, char c); // Fill
+string& assign(const char* s);                                   // C-String
+string& assign(const char* s, size_t n);                         // Buffer
+string& assign(size_t n, char c);                                // Fill
 template <class InputIterator> string& assign(InputIterator first, InputIterator last); // Range
 ```
   
@@ -204,11 +205,11 @@ Appending additional characters at the end of its current value. Exception:
 * The function needs to allocate storage and fails: `bad_alloc` exception
   
 ```c++
-string& append(const string& str); // String
+string& append(const string& str);                               // String
 string& append(const string& str, size_t subpos, size_t sublen); // Substring
-string& append(const char* s); // C-String
-string& append(const char* s, size_t n); // Buffer
-string& append(size_t n, char c); // Fill
+string& append(const char* s);                                   // C-String
+string& append(const char* s, size_t n);                         // Buffer
+string& append(size_t n, char c);                                // Fill
 template <class InputIterator> string& append(InputIterator first, InputIterator last); // Range
 ```
   
@@ -220,13 +221,13 @@ Insert into the string right **before** the character indicated by `pos` or `p`.
 * The function needs to allocate storage and fails: `bad_alloc` exception
 
 ```c++
-string& insert(size_t pos, const string& str); // String
+string& insert(size_t pos, const string& str);                                      // String
 string& insert(size_t pos, const string& str, size_t subpos, size_t sublen = npos); // Substring
-string& insert(size_t pos, const char* s); // C-String
-string& insert(size_t pos, const char* s, size_t n); // Buffer
-string& insert(size_t pos, size_t n, char c); // Fill
-iterator insert(const_iterator p, size_t n, char c); // Fill
-iterator insert(const_iterator p, char c); // Single Character
+string& insert(size_t pos, const char* s);                                          // C-String
+string& insert(size_t pos, const char* s, size_t n);                                // Buffer
+string& insert(size_t pos, size_t n, char c);                                       // Fill
+iterator insert(const_iterator p, size_t n, char c);                                // Fill
+iterator insert(const_iterator p, char c);                                          // Single Character
 template <class InputIterator> iterator insert(iterator p, InputIterator first, InputIterator last); // Range
 ```
   
@@ -237,8 +238,8 @@ Erase characters from string. Exception:
 
 ```c++
 string& erase(size_t pos = 0, size_t len = npos); // Sequence
-iterator erase(iterator p);  // Character
-iterator erase(iterator first, iterator last); // Range
+iterator erase(iterator p);                       // Character
+iterator erase(iterator first, iterator last);    // Range
 ```
 
 Replace portion of string, specify a range in old string by:
@@ -361,15 +362,15 @@ Find content in string - **matching the entire string**. Exception:
 ```c++
 // Find the first occurrence
 size_t find(const string& str, size_t pos = 0) const noexcept;     // String
-size_t find(const char* s, size_t pos = 0) const;                 // C-String
+size_t find(const char* s, size_t pos = 0) const;                  // C-String
 size_t find(const char* s, size_t pos, size_type n) const;         // Buffer
-size_t find(char c, size_t pos = 0) const noexcept;               // Character
+size_t find(char c, size_t pos = 0) const noexcept;                // Character
 
 // Find the last occurrence
 size_t rfind(const string& str, size_t pos = npos) const noexcept; // String
-size_t rfind(const char* s, size_t pos = npos) const;             // C-String
+size_t rfind(const char* s, size_t pos = npos) const;              // C-String
 size_t rfind(const char* s, size_t pos, size_t n) const;           // Buffer
-size_t rfind(char c, size_t pos = npos) const noexcept;           // Character
+size_t rfind(char c, size_t pos = npos) const noexcept;            // Character
 ```
 
 Find character in string - **matching any of the characters specified in arguments**. Exception:
@@ -388,9 +389,9 @@ size_t find_first_of(char c, size_t pos = 0) const noexcept;             // Char
 
 // The first character absent
 size_t find_first_not_of(const string& str, size_t pos = 0) const noexcept; // String
-size_t find_first_not_of(const char* s, size_t pos = 0) const;        // C-String
-size_t find_first_not_of(const char* s, size_t pos, size_t n) const;  // Buffer
-size_t find_first_not_of(char c, size_t pos = 0) const noexcept;      // Character
+size_t find_first_not_of(const char* s, size_t pos = 0) const;              // C-String
+size_t find_first_not_of(const char* s, size_t pos, size_t n) const;        // Buffer
+size_t find_first_not_of(char c, size_t pos = 0) const noexcept;            // Character
 
 // The last character matched
 size_t find_last_of(const string& str, size_t pos = npos) const noexcept; // String
@@ -399,10 +400,10 @@ size_t find_last_of(const char* s, size_t pos, size_t n) const;           // Buf
 size_t find_last_of(char c, size_t pos = npos) const noexcept;            // Character
 
 // The last character absent
-size_t find_last_not_of(const string& str, size_t pos = npos) const noexcept;// String
-size_t find_last_not_of(const char* s, size_t pos = npos) const;          // C-String
-size_t find_last_not_of(const char* s, size_t pos, size_t n) const;       // Buffer
-size_t find_last_not_of(char c, size_t pos = npos) const noexcept;        // Character
+size_t find_last_not_of(const string& str, size_t pos = npos) const noexcept; // String
+size_t find_last_not_of(const char* s, size_t pos = npos) const;              // C-String
+size_t find_last_not_of(const char* s, size_t pos, size_t n) const;           // Buffer
+size_t find_last_not_of(char c, size_t pos = npos) const noexcept;            // Character
 ```
 
 ## Input
@@ -418,9 +419,59 @@ istream& getline(istream&  is, string& str);
 istream& getline(istream&& is, string& str);
 ```
 
+## Conversion
+
+将数据类型转换为字符串：
+
+```c++
+#include <string>
+using std::to_string
+
+string to_string (int val);
+string to_string (long val);
+string to_string (long long val);
+string to_string (unsigned val);
+string to_string (unsigned long val);
+string to_string (unsigned long long val);
+string to_string (float val);
+string to_string (double val);
+string to_string (long double val);
+```
+
+将字符串转换为数据类型：
+
+```c++
+#include <string>
+using std::stoi;
+using std::stol;
+using std::stoul;
+using std::stoll;
+using std::stoull;
+using std::stof;
+using std::stod;
+using std::stold;
+
+int stoi (const string&  str, size_t* idx = 0, int base = 10);
+int stoi (const wstring& str, size_t* idx = 0, int base = 10);
+long stol (const string&  str, size_t* idx = 0, int base = 10);
+long stol (const wstring& str, size_t* idx = 0, int base = 10);
+unsigned long stoul (const string&  str, size_t* idx = 0, int base = 10);
+unsigned long stoul (const wstring& str, size_t* idx = 0, int base = 10);
+long long stoll (const string&  str, size_t* idx = 0, int base = 10);
+long long stoll (const wstring& str, size_t* idx = 0, int base = 10);
+unsigned long long stoull (const string&  str, size_t* idx = 0, int base = 10);
+unsigned long long stoull (const wstring& str, size_t* idx = 0, int base = 10);
+float stof (const string&  str, size_t* idx = 0);
+float stof (const wstring& str, size_t* idx = 0);
+double stod (const string&  str, size_t* idx = 0);
+double stod (const wstring& str, size_t* idx = 0);
+long double stold (const string&  str, size_t* idx = 0);
+long double stold (const wstring& str, size_t* idx = 0);
+```
+
 ---
 
-## 12. Summary
+## Summary
 
 Useful & important.
 
