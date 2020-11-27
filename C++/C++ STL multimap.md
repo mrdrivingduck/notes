@@ -24,7 +24,11 @@ Multimap 提供 key - value 的映射：key 必须能够被比较，使用 `<` �
 
 ```c++
 #include <map>
-using namespace std; // using std::multimap;
+using namespace std;
+
+// using std::multimap;
+// using std::pair;
+// using std::make_pair;
 ```
 
 ## Constructor

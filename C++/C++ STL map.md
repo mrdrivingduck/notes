@@ -29,7 +29,11 @@ Map 提供 key-value 的映射，底层实现是红黑树 (Red-Black Tree)，是
 
 ```c++
 #include <map>
-using namespace std; // OR : std::map
+using namespace std;
+
+// using std::map;
+// using std::pair;
+// using std::make_pair;
 ```
 
 ## Constructor
