@@ -121,3 +121,11 @@ map.reserve(20); // 设置 hash 桶的数量至最适合存放至少 n 个元素
 
 ---
 
+## References
+
+[cplusplus.com - unordered_map](http://www.cplusplus.com/reference/unordered_map/unordered_map/)
+
+[GeeksforGeeks - unordered_map in C++ STL](https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/)
+
+---
+
