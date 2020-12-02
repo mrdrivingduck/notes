@@ -1,4 +1,4 @@
-# C++ STL priority queue
+# C++ STL priority_queue
 
 Created by : Mr Dk.
 
@@ -50,7 +50,8 @@ template <class T,
 
 ```c++
 #include <queue>
-using namespace std; // OR : std::priority_queue;
+using namespace std;
+// using std::priority_queue;
 ```
 
 ## Constructor
