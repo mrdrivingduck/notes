@@ -1,4 +1,4 @@
-# Servlet - Container
+# Tomcat - Container
 
 Created by : Mr Dk.
 
@@ -67,6 +67,20 @@ public void invoke(org.apache.catalina.Request request, org.apache.catalina.Resp
 1. 一个容器有一个流水线实例，容器的 `invoke()` 会调用流水线的 `invoke()`
 2. 流水线的 `invoke()` 会依次调用每个阀门的 `invoke()`，最终调用基本阀门的 `invoke()`
 3. Wrapper 的基本阀门负责加载相关 Servlet 类；Context 的基本阀门复杂查找子容器，并调用子容器的 `invoke()`
+
+### Server
+
+`org.apache.cataline.Server` 接口描述了整个 Catalina Servlet 容器及其组件，并提供了优雅的机制启动和停止系统。其中实现了四个生命周期函数：
+
+* `initialize()` - 初始化组件
+* `start()` - 启动组件
+* `await()` - 等待关闭指令
+* `stop()` - 停止所有组件
+
+Server 内部维护了零个或多个 **服务**，服务实现了 `org.apache.catalina.Service` 接口，用于持有组件。一个服务可以有 **一个容器** 和 **多个连接器**：
+
+* 容器使得服务可以响应 Servlet 请求
+* 多个连接器使得 Tomcat 可以服务多个 **协议** (HTTP / HTTPS / ...)
 
 ## Servlet 接口
 

@@ -1,4 +1,4 @@
-# Servlet - Class Loader
+# Tomcat - Class Loader
 
 Created by : Mr Dk.
 
