@@ -172,6 +172,10 @@ remote_port = 12793
 
 FTP 客户端应当以被动模式连接 frp 服务器的 `2121` (FTP 服务器控制端口的远程端口)。注意，frp 的所有远程端口都应当在云服务器的安全组白名单内。
 
+### Others
+
+Ubuntu 20.04 上还可能在 vsftpd 服务的日志中看到错误，解决方案 [在此](https://askubuntu.com/questions/1239503/ubuntu-20-04-and-20-10-etc-securetty-no-such-file-or-directory)。
+
 ---
 
 ## Summary
