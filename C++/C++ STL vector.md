@@ -85,6 +85,10 @@ for (r_iter = vector.rbegin(); r_iter != vector.rend(); r_iter++) {
 }
 ```
 
+## Compare
+
+如果 vector 内使用 C++ 内置类型进行修饰，那么可以直接使用 `==`、`!=`、`<=`、`<`、`>=`、`>` 来比较两个 vector，将会对 vector 内的元素进行比较，返回字典序的比较结果。
+
 ## Modification
 
 ```c++
