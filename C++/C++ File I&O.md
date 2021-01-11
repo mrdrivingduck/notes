@@ -47,24 +47,22 @@ class basic_ofstream;
 
 ```c++
 #include <fstream>
-  using namespace std;
-  
-  // Two step
-  ifstream fin;
-  fin.open("read.txt", ios::in);
-  // One step
-  ofstream fout("write.txt", ios::out | ios::app);
-  
-  if(!fin.is_open())
-  {
-      exit(0);
-  }
-  if (fout.fail())
-  {
-      exit(0);
-  }
-  
-  // ...
+using namespace std;
+
+// Two step
+ifstream fin;
+fin.open("read.txt", ios::in);
+// One step
+ofstream fout("write.txt", ios::out | ios::app);
+
+if(!fin.is_open()) {
+    exit(0);
+}
+if (fout.fail()) {
+    exit(0);
+}
+
+// ...
 ```
   
 ### 关闭
