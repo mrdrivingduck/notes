@@ -8,36 +8,29 @@ Nanjing, Jiangsu, China
 
 ---
 
-## 1. About Template - 模板
+## About Template - 模板
 
-* 目的：__重用代码__
-* _e.g. A Container Class - 容器类_
-  * Used for storing other objects or types
-  * For different data types, codes are the same __except types__
-* Why not create a __generic - 泛型__ class?
-  * Independent from __types__
-  * Use __types__ as parameters to this class
+目的：**重用代码**。例子：容器类。
 
----
+* Used for storing other objects or types
+* For different data types, codes are the same **except types**
 
-## 2. 常用模板类
+Why not create a generic class?
 
-* _STL_ 中的 `vector` `map` 等
-* `vector <int>` `vector <double>` `vector <string>` 共用模板类 `std::vector`
+* Independent from **types**
+* Use **types** as parameters to this class
 
----
+## 常用模板类
 
-## 3. 使用方式
+比如 *STL* 中的 `vector` `map` 等。`vector <int>` / `vector <double>` / `vector <string>` 共用模板类 `std::vector`。
 
-* 在类声明代码块前声明 `template <class T>` 或 `template <typename T>`
+## 使用方式
 
-* 在类中直接使用 `T` 作为数据类型
-
-* 若类成员函数的实现在类外
-
+1. 在类声明代码块前声明 `template <class T>` 或 `template <typename T>`
+2. 在类中直接使用 `T` 作为数据类型
+3. 若类成员函数的实现在类外
   * 在每一个使用泛型的成员函数代码块前声明 `template <class T>` 或 `template <typename T>`
-
-  * ```C++
+  * ```c++
     返回值类型 类名 <T>:: 类成员函数 (参数列表)
     {
         // 函数实现
@@ -45,26 +38,23 @@ Nanjing, Jiangsu, China
     }
     ```
 
-* 使用时，在 `<>` 内指定特定的数据类型即可使用模板
-
+4. 使用时，在 `<>` 内指定特定的数据类型即可使用模板
   * 数据类型相当于变量
   * 必须显式指定数据类型，使编译器可以确定要生成的函数
-  * 数据类型必须实现模板类限定的方法，如 _STL_ 中的重载 `<` 运算符
-
----
+  * 数据类型必须实现模板类限定的方法，如 *STL* 中的重载 `<` 运算符
 
 ## 4. 应用实例
 
-* 使用 _STL_ 封装一个 __MultiMap__
-  * 一个 _key_ 可以对应多个 _value_
-  * _value_ 不可重复
-  * 实现 _STL_ 中 _map_ 的基本操作
+使用 *STL* 封装一个 MultiMap
+  * 一个 key 可以对应多个 value
+  * value 不可重复
+  * 实现 *STL* 中 map 的基本操作
 
-* 核心思路
-  * 底层使用 _STL_ 中的 _map_ 和 _set_ ： `map <key_type, set <value_type> >`
-  * 封装为：`MultiMap <key_type, value_type>`
+核心思路
+  * 底层使用 *STL* 中的 map 和 set：`map <key_type, set <value_type> >`
+  * 对外封装为：`MultiMap <key_type, value_type>`
 
-```C++
+```c++
 #include <iostream>
 #include <map>
 #include <set>
