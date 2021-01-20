@@ -10,6 +10,10 @@ Ningbo, Zhejiang, China
 
 STL 的 `<algorithm>` 中定义了专门用于对一个范围内的元素进行操作的各种算法。实现上肯定十分高效，熟悉这些算法肯定能够极大提升刷题效率。
 
+```c++
+#include <algorithm>
+```
+
 ## Sorting
 
 ### std::sort
