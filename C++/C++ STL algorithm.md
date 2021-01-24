@@ -14,6 +14,55 @@ STL 的 `<algorithm>` 中定义了专门用于对一个范围内的元素进行�
 #include <algorithm>
 ```
 
+## Non-Modifying Sequence Operations
+
+## Modifying Sequence Operations
+
+### std::unique
+
+在一个范围内去除重复元素，只保留相同元素中第一个出现的元素。`==` 运算符用于进行比较，但是可以自行实现比较函数。
+
+在具体的实现中，算法是将与当前迭代器不同的元素复制到前面来，实现去重。所以数组必须先进行排序后，再调用 `unique()`，才能真正实现去重的效果。
+
+```c++
+template <class ForwardIterator>
+  ForwardIterator unique (ForwardIterator first, ForwardIterator last);
+template <class ForwardIterator, class BinaryPredicate>
+  ForwardIterator unique (ForwardIterator first, ForwardIterator last,
+                          BinaryPredicate pred);
+```
+
+### std::unique_copy
+
+与上述功能相同，只需另外提供一个保存输出结果的迭代器即可。去重操作将不会影响原有数组。
+
+```c++
+template <class InputIterator, class OutputIterator>
+  OutputIterator unique_copy (InputIterator first, InputIterator last,
+                              OutputIterator result);
+template <class InputIterator, class OutputIterator, class BinaryPredicate>
+  OutputIterator unique_copy (InputIterator first, InputIterator last,
+```
+
+### std::reverse
+
+逆置。具体实现方式是从头部和尾部开始交换元素。
+
+```c++
+template <class BidirectionalIterator>
+  void reverse (BidirectionalIterator first, BidirectionalIterator last);
+```
+
+### std::reverse_copy
+
+逆置，将结果复制到一个迭代器指向的空间中。从结尾开始复制元素到结果空间的开头。
+
+```c++
+template <class BidirectionalIterator, class OutputIterator>
+  OutputIterator reverse_copy (BidirectionalIterator first,
+                               BidirectionalIterator last, OutputIterator result);
+```
+
 ## Sorting
 
 ### std::sort
@@ -405,8 +454,13 @@ template <class ForwardIterator, class Compare>
     minmax_element (ForwardIterator first, ForwardIterator last, Compare comp);
 ```
 
-## Non-Modifying Sequence Operations
-
-## Modifying Sequence Operations
-
 ## Other
+
+---
+
+## References
+
+[CPlusPlus.com](http://www.cplusplus.com/reference/algorithm/)
+
+---
+
