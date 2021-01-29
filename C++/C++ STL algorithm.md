@@ -24,6 +24,8 @@ STL 的 `<algorithm>` 中定义了专门用于对一个范围内的元素进行�
 
 在具体的实现中，算法是将与当前迭代器不同的元素复制到前面来，实现去重。所以数组必须先进行排序后，再调用 `unique()`，才能真正实现去重的效果。
 
+返回去重区间的结尾位置。
+
 ```c++
 template <class ForwardIterator>
   ForwardIterator unique (ForwardIterator first, ForwardIterator last);
@@ -61,6 +63,149 @@ template <class BidirectionalIterator>
 template <class BidirectionalIterator, class OutputIterator>
   OutputIterator reverse_copy (BidirectionalIterator first,
                                BidirectionalIterator last, OutputIterator result);
+```
+
+### std::copy / std::copy_backward
+
+复制一段范围的元素到另一个空间中 (从头开始拷贝或从尾开始拷贝)。
+
+* 一对输入迭代器指示范围
+* 一个输出迭代器指向目标空间开始的位置
+
+```c++
+template <class InputIterator, class OutputIterator>
+  OutputIterator copy (InputIterator first, InputIterator last, OutputIterator result);
+```
+
+```c++
+template <class BidirectionalIterator1, class BidirectionalIterator2>
+  BidirectionalIterator2 copy_backward (BidirectionalIterator1 first,
+                                        BidirectionalIterator1 last,
+                                        BidirectionalIterator2 result);
+```
+
+### std::copy_n
+
+复制某个位置开始的 n 个元素到目标空间中。
+
+* 一个输入迭代器指示起始位置
+* 整数 `n` 指示元素个数
+* 一个输出迭代器指示目标位置
+
+```c++
+template <class InputIterator, class Size, class OutputIterator>
+  OutputIterator copy_n (InputIterator first, Size n, OutputIterator result);
+```
+
+### std::copy_if
+
+复制一段范围中满足条件的元素到另一个空间中。
+
+* 一对输入迭代器指示范围
+* 一个输出迭代器指示目标空间起始位置
+* 一元表达式判断每个元素是否符合条件
+
+```c++
+template <class InputIterator, class OutputIterator, class UnaryPredicate>
+  OutputIterator copy_if (InputIterator first, InputIterator last,
+                          OutputIterator result, UnaryPredicate pred);
+```
+
+### std::move / std::move_backward
+
+将指定范围内的元素移动到目标空间中 (从头移动或从尾移动)。移动后，原范围内的元素将处于 **未确定但合法** 的状态。
+
+```c++
+template <class InputIterator, class OutputIterator>
+  OutputIterator move (InputIterator first, InputIterator last, OutputIterator result);
+```
+
+```c++
+template <class BidirectionalIterator1, class BidirectionalIterator2>
+  BidirectionalIterator2 move_backward (BidirectionalIterator1 first,
+                                        BidirectionalIterator1 last,
+                                        BidirectionalIterator2 result);
+```
+
+### std::swap / std::swap_ranges / std::iter_swap
+
+交换两个对象的值。
+
+```c++
+template <class T> void swap (T& a, T& b);
+```
+
+交换两个对象中指定长度范围内的元素。
+
+```c++
+template <class ForwardIterator1, class ForwardIterator2>
+  ForwardIterator2 swap_ranges (ForwardIterator1 first1, ForwardIterator1 last1,
+                                ForwardIterator2 first2);
+```
+
+交换两个迭代器指向的值。
+
+```c++
+template <class ForwardIterator1, class ForwardIterator2>
+  void iter_swap (ForwardIterator1 a, ForwardIterator2 b);
+```
+
+### std::transform
+
+对一段范围内的元素应用指定的一元或二元操作后，将结果保存到一个指定的空间中。
+
+一元操作：
+
+```c++
+template <class InputIterator, class OutputIterator, class UnaryOperation>
+  OutputIterator transform (InputIterator first1, InputIterator last1,
+                            OutputIterator result, UnaryOperation op);
+```
+
+二元操作：
+
+```c++
+template <class InputIterator1, class InputIterator2,
+          class OutputIterator, class BinaryOperation>
+  OutputIterator transform (InputIterator1 first1, InputIterator1 last1,
+                            InputIterator2 first2, OutputIterator result,
+                            BinaryOperation binary_op);
+```
+
+### std::replace / std::replace_copy / std::replace_if / std::replace_copy_if
+
+对一段范围内的元素将与指定值相等的值替换为新值，使用 `==` 操作符进行比较。
+
+```c++
+template <class ForwardIterator, class T>
+  void replace (ForwardIterator first, ForwardIterator last,
+                const T& old_value, const T& new_value);
+```
+
+将一段范围内的元素替换后的结果复制到一个独立的空间中：
+
+```c++
+template <class InputIterator, class OutputIterator, class T>
+  OutputIterator replace_copy (InputIterator first, InputIterator last,
+                               OutputIterator result,
+                               const T& old_value, const T& new_value);
+```
+
+对一段范围内满足指定条件的元素替换为新值，使用自定义的一元函数进行判断。
+
+```c++
+template <class ForwardIterator, class UnaryPredicate, class T>
+  void replace_if (ForwardIterator first, ForwardIterator last,
+                   UnaryPredicate pred, const T& new_value );
+```
+
+将一段范围内的元素替换后的结果复制到一个独立的空间中：
+
+```c++
+template <class InputIterator, class OutputIterator, class UnaryPredicate, class T>
+  OutputIterator replace_copy_if (InputIterator first, InputIterator last,
+                                  OutputIterator result, UnaryPredicate pred,
+                                  const T& new_value);
 ```
 
 ## Sorting
