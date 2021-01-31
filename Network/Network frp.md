@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 [*frp*](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。
 
-作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机
+作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机。
 
 ---
 
@@ -74,7 +74,7 @@ $ tail log
 
 ### Client
 
-在 `frpc.ini` 中配置远程服务器信息，以及想要穿透的端口。假设公网服务器的 IP 地址为 `x.x.x.x` ：
+在 `frpc.ini` 中配置远程服务器信息，以及想要穿透的端口。假设公网服务器的 IP 地址为 `x.x.x.x`：
 
 ```ini
 # frpc.ini
@@ -165,7 +165,6 @@ ExecStart=/usr/sbin/frpc -c /etc/frp/frpc.ini
 Restart=always
 RestartSec=1min
 ExecStop=/usr/bin/killall frpc
-
 
 [Install]
 WantedBy=multi-user.target
