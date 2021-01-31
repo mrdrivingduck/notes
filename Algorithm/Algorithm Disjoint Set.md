@@ -46,6 +46,8 @@ int find_root(vector<int> &collection, int i) {
 }
 ```
 
+> 实战中，有更好的 `find_root()` 实现方式。
+
 ```c++
 void merge() {
     collection[find_root(i)] = find_root(j);
@@ -58,16 +60,17 @@ void merge() {
 
 ![disjoint-set-path-compression](../img/disjoint-set-path-compression.png)
 
-另一种实现的 `find_root()` 算法能够天然实现路径压缩。在递归结束后，顺便更新每个结点所在集合的 root 结点：
+另一种实现的 `find_root()` 算法能够在合并分组的同时，顺便实现路径压缩。在递归结束后，顺便更新每个结点所在集合的 root 结点：
 
 ```c++
 int find_root(vector<int> &collection, int i) {
-    if (collection[i] != i) {
-        collection[i] = find_root(collection, collection[i]);
-    }
-    return collection[i];
+    return collection[i] == i ?
+            i :
+            collection[i] = find_root(collection, collection[i]);
 }
 ```
+
+> 在实际使用中，如果需要形成真正 unique 的并查集，在合并分组完成后，还要额外单独进行一轮路径压缩。这是由于 for 循环遍历的先后顺序导致的。
 
 ## Rank
 
