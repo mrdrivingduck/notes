@@ -180,7 +180,13 @@ nth_element(vector.begin(), vector.begin() + n, vector.end(), comp);
 ## Two-Dimension Vector
 
 ```c++
-vector<vector<int> > graph; // 一般用于表示图的邻接矩阵
+vector<vector<int>> graph; // 一般用于表示图的邻接矩阵
+```
+
+如果想要自定义初始化的矩阵大小：
+
+```c++
+vector<vector<int>> matrix(row, vector<int>(column));
 ```
 
 ---
