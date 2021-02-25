@@ -1,4 +1,4 @@
-# Java - Theory of Equals
+# Java - Equals
 
 Created by : Mr Dk.
 
@@ -111,8 +111,6 @@ public boolean equals(Object anObject) {
 }
 ```
 
----
-
 ## Equals of Arrays
 
 对于数组来说，如何定义其是否相等呢？Java 中有原生的数组对象 `Object[]` (`int[]` / `boolean[]` / ...)，还有 JDK 中实现的容器对象 `ArrayList` (以及其它 List)，都具有数组的功能。那么这两个对象的 `equals()` 有什么区别呢？另外，`java.util.Arrays` 工具类中提供的静态函数 `Arrays.equals(Object[] a, Object[] a2)` 又如何呢？
@@ -221,8 +219,6 @@ public static boolean equals(Object[] a, Object[] a2) {
 ```
 
 可以看到，其中也有一个 for 循环对数组中的每对元素调用 `equals()` 进行比较。两个数组相等当且仅当它们以相同的顺序包含了相同的元素。
-
----
 
 ## Equals of Wrapper Class
 
