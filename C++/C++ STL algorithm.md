@@ -1,4 +1,4 @@
-# C++ - Template & Genericity
+# C++ STL algorithm
 
 Created by : Mr Dk.
 
