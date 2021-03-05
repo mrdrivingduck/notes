@@ -2,257 +2,171 @@
 
 Created by : Mr Dk.
 
-2018 / 09 / 11 14:42
+2021 / 03 / 05 20:14
 
 Nanjing, Jiangsu, China
 
 ---
 
-## 1. 目标
+## About
 
-* 采用领域内习惯性的记述形式
-* 必要性：
-  * C++ 中预定义的运算符只能处理 __基本数据类型__
-* 使自定义的类可以使用通用的 C++ 运算符
-  * 运算类 -  `+` `-`  等
-  * 比较类 - `<` `==` 等
-  * 赋值类 - `=`
-  * 输入输出类 - `>>` `<<`  等
-  * 其它类 - `[]` `()` 等
+运算符重载是一种形式的 C++ 多态，根据操作数的 **数目** 和 **类型** 来决定采用哪种操作。其一般形式为：
 
----
-
-## 2. 规则与限制
-
-* 实现机制
-  * 将指定的 __运算符__ 转化为对 __运算符函数__ 的调用
-  * 将 __运算对象__ 转化为 __运算符函数的实参__
-  * 编译系统对重载运算符的选择，遵循函数重载的选择原则
-* 不能重载的运算符：`.` `*` `::` `?: ` `sizeof`
-* 只能重载 C++ 已有的运算符
-* 不能改变运算符的 __优先级__ 和 __结合性__
-* 不能改变操作数个数 _（维持相同的语法规则）_
-* 重载后的运算符参数中至少要包含一个用户自定义的类型
-  * 防止用户对 __标准数据类型__ 定义重载规则
-
----
-
-## 3. 实现形式
-
-* 重载为 __类成员函数__
-
-  ```c++
-  #include <iostream>
-  using namespace std;
-  
-  class Test 
-  {
-  private:
-      int value;
-  public:
-      // Constructor
-      Test(int value) {this -> value = value;}
-      // 重载为类成员函数
-      // 只需一个外部参数即可 另一个参数为对象本身
-      // 最好带有 const，以便集成 STL
-      bool operator< (const Test &t) const;
-  };
-  
-  bool Test::operator< (const Test &t) const
-  {
-      return value < t.value;
-  }
-  
-  int main()
-  {
-      Test t1(7);
-      Test t2(6);
-      cout << (t1 < t2) << endl;
-  
-      return 0;
-  }
-  ```
-
-* 重载为 __友元函数__
-
-  ```c++
-  #include <iostream>
-  using namespace std;
-  
-  class Test 
-  {
-  private:
-      int value;
-  public:
-      // Constructor
-      Test(int value) {this -> value = value;}
-      // 重载为友元函数
-      // 由于函数不属于类，参数个数发生变化
-      friend bool operator< (const Test &t1, const Test &t2);
-  };
-  
-  bool operator< (const Test &t1, const Test &t2) {
-      return t1.value < t2.value;
-  }
-  
-  int main()
-  {
-      Test t1(5);
-      Test t2(6);
-      cout << (t1 < t2) << endl;
-  
-      return 0;
-  }
-  ```
-
-* `C++` 中规定，`=` `[]` `()` `->` 四个运算符只能被重载为 __类成员函数__
-
-  * 因为这四种运算符没有精确匹配参数类型和数目的功能
-
-* `<<` 和 `>>` 用于输入输出时只能被重载为 __友元函数__
-
-  * 因为若重载为 __类成员函数__，则对象本身默认作为第一个参数
-  * 那么使用方式将变为：`t << cout`，这会令人迷惑，不可取！
-
----
-
-## 4. 几种重载写法
-
-```C++
-#include <iostream>
-#include <vector>
-using namespace std;
-
-class Test 
-{
-private:
-    int value;
-    vector <double> vec;
-public:
-    Test(int value) {this -> value = value;}
-    Test(const Test &t) {this -> value = t.value;}
-    Test(int value, vector <double> vec)
-    {
-        this -> value = value;
-        this -> vec.assign(vec.begin(), vec.end());
-    }
-    int getValue() {return value;}
-    
-    /*
-     * 重载 + ，返回一个新的对象
-     * Test t3 = t1 + t2;
-     * 重载 - 等同理
-     */
-    Test operator+ (const Test &t)
-    {
-        return Test(value + t.value);
-    }
-    
-    /*
-     * 重载 == ，返回一个逻辑值
-     * 重载 < > <= >= 等同理
-     */
-    bool operator== (const Test &t)
-    {
-        return value == t.value;
-    }
-    
-    /*
-     * 重载 = ，返回对象本身，因此返回值带引用
-     * 重载 += -= 等同理
-     */
-    Test & operator= (const Test &t)
-    {
-        value = t.value;
-        return *this;
-    }
-    
-    /*
-     * 重载 ++ ，返回对象本身，因此返回值带引用，无需其它参数
-     * 此运算符为 前置 ++
-     * ++t;
-     * 重载 -- 等同理
-     */
-    Test & operator++ ()
-    {
-        value++;
-        return *this;
-    }
-    
-    /*
-     * 重载 ++ ，返回对象本事，因此返回值带引用
-     * 此运算符为 后置 ++
-     * t++;
-     * int 参数为虚设，目的是为了区分前后置，不会被使用，值为0
-     * 虚参数不必命名，否则编译器将有警告 - 参数未使用
-     * 重载 -- 等同理
-     */
-    Test & operator++ (int)
-    {
-        value++;
-        return *this;
-    }
-    
-    /*
-     * 重载 << ，用于通过 cout 直接输出
-     * 只能通过 友元函数 的方式实现
-     */
-    friend ostream & operator<< (ostream &out, const Test &t)
-    {
-        out << t.value;
-        return out;
-    }
-    
-    /*
-     * 重载 >> ，用于通过 cin 直接输入
-     * 只能通过 友元函数 的方式实现
-     * 参数中自定义对象不能带 const ，因为该对象不是常量，会被输入改变
-     * 应当加入输入格式错误的处理
-     */
-    friend istream & operator>> (istream &in, Test &t)
-    {
-        in >> t.value;
-        return in;
-    }
-    
-    /*
-     * 重载 [] ，用于下标访问
-     * 只能带有一个参数 - 下标
-     * 重载 () 等同理
-     */
-    double & operator[] (const int position)
-    {
-        return vec[position];
-    }
-};
+```c++
+operatorop(args)
 ```
 
-* 如果需要使用 `STL`，则最重要的是重载 `<` 
+其中，后一个 `op` 可被替换为 C++ 中已经存在的且可以被重载的运算符，比如加法运算符 `+`：
 
-* 且重载声明后一定要加 `const`
+```c++
+operator+(args)
+```
 
-  ```C++
-  /* 
-   * Declaration
-   */
-  bool operator< (const Class &c1, const Class &c2) const;
-  
-  /* 
-   * Implementation
-   */
-  bool operator< (const Class &c1, const Class &c2) const
-  {
-      // TO DO ...
-  }
-  ```
+重载后，编译器能够对运算符进行等价的替换：
 
----
+```c++
+A = B + C;
+A = B.operator+(C);
+```
 
-## 5. 总结
+上述运算符重载方式只能由运算符左侧的操作数通过 **成员函数** 实现。另外可以通过 **友元函数** 实现运算符右侧操作数的运算符重载。
 
-_运算符重载_ 在 C++ 中是一项相当重要的技术
+## Limits
 
-在实现完成后 可以使编码更加简洁且易于理解
+C++ 的运算符重载又如下限制：
+
+1. 运算符重载至少要有一个操作数是用户定义的类型 (防止用户为原生类型重载运算符)
+2. 不能违反运算符的句法规则 (原来是双目，那就还得是双目)
+3. 不能修改运算符优先级
+4. 不能创建新的运算符
+5. 不能重载如下运算符：
+    * `sizeof`
+    * `.`
+    * `.*`
+    * `::`
+    * `?:`
+    * `typeid`
+    * `const_cast`
+    * `dynamic_cast`
+    * `reinterpret_cast`
+    * `static_cast`
+6. 某些运算符只能以成员函数的形式重载 (不能以友元函数)：
+    * `=`
+    * `()`
+    * `[]`
+    * `->`
+
+## Implementation
+
+### Member Function
+
+以成员函数实现运算符重载，默认了运算符左侧的操作数是当前对象，因此只需要传递一个右操作数作为参数即可。编译器负责将重载后的运算符替换为成员函数调用：
+
+```c++
+T::T operator*(const double &d) {
+    // ...
+}
+```
+
+```c++
+A = B * 2.75;
+A = B.operator*(2.75);
+```
+
+那么，这种情况怎么办呢？
+
+```c++
+A = 2.75 * B;
+```
+
+## Friend Function
+
+如果说将运算符的重载不重载为成员函数，而是重载为一个普通函数，通过传入两个参数，就可以实现按照需要获取操作数顺序。
+
+```c++
+T operator*(const double &d, T obj) {
+    // ...
+}
+```
+
+```c++
+A = 2.75 * B;
+A = operator*(2.75, B);
+```
+
+这时出现了一个问题：如果这个函数的实现需要访问类的 **私有成员变量** 该怎么办？由于非成员函数不是由对象调用，因此不能访问类内部的私有成员变量。这时候就需要类的 **友元函数** 出马。类的友元函数是非成员函数，但是访问权限与成员函数相同 - 可以访问类的私有成员变量。
+
+创建友元函数的方式是将函数声明在类内，并在原型前加上 `friend` 关键字 (不需要类限定符 `::`)：
+
+```c++
+friend T operator*(const double &d, T obj) {
+    // T.xxx;
+}
+```
+
+> 总结，如果要为类重载运算符，并且不是用类对象作为第一个参数，可以使用友元函数反转操作数顺序。当然，具体用不用友元取决于 **是否要访问类内的私有成员变量**：如果只是将对象作为一个整体使用，不用友元也一样。
+
+## Example: Overload <<
+
+对于一个自定义的类，用户希望能够通过 `cout << obj` 直接打印对象信息。对于该运算符来说，显然用户不会去修改 `iostream` 的头文件来为 cout 对象重载 `<<` 运算符。所以，需要通过友元 (如果需要打印类内私有变量的值) 的方式为该类对象重载 `<<` 运算符。
+
+```c++
+friend void operator<<(ostream &os, const T &t) {
+    os << t.xxx;
+}
+```
+
+由于要操作 cout 对象本身，所以这里传入的参数是引用。编译器会将代码转换为：
+
+```c++
+cout << obj;
+operator<<(cout, obj);
+```
+
+但是这样还是有个问题：没法适用于连续的 `<<` 运算符：
+
+```c++
+cout << "Hello" << obj << "hhh";
+// (cout << "Hello") << obj << "hhh";
+// cout << obj << "hhh";
+// (void) << "hhh";
+```
+
+所以重载函数的返回值也应当是 `ostream` 对象，并且是一个引用：
+
+```c++
+friend ostream & operator<<(ostream &os, const T &t) {
+    os << t.xxx;
+    return os;
+}
+```
+
+这样就可以实现如下的效果：
+
+```c++
+cout << "Hello" << obj << "hhh";
+// (cout << "Hello") << obj << "hhh";
+// cout << obj << "hhh";
+// cout << "hhh";
+```
+
+## Example: STL
+
+由于 STL 中的容器基本实现了泛型，因此用户可以将自定义类型的对象放进 STL 容器中。在对 STL 容器内元素进行排序时，算法默认使用 `<` 运算符。因此，如果要对自定义类型的对象进行排序，需要为类重载 `<` 运算符。函数原型如下：
+
+```c++
+bool operator<(const T &t) const;
+```
+
+这里为什么要使用 `const` 呢？STL 底层的比较函数实现类似如下：
+
+```c++
+bool operator<(const T &__x, const T &__y) {
+    return __x < __y;
+}
+```
+
+只有 `const` 函数才可以访问 `const` 对象中的数据。
 
 ---
 
