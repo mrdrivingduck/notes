@@ -80,5 +80,18 @@ int * const finger = &sloth;
 
 上述声明使得该指针只能指向 `sloth` 所在地址。
 
+## Const Member Function
+
+保证声明的函数 **不会修改** 调用它的对象。
+
+```c++
+void Stock::show() const;
+```
+
+```c++
+const Stock s;
+s.show(); // NOT ALLOWED if not const
+```
+
 ---
 

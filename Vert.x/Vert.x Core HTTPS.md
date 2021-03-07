@@ -298,7 +298,7 @@ JKS 密钥库使用专用格式。建议使用 "keytool -importkeystore -srckeys
 
 可以看到，所谓的自签名证书：
 
-* 证书的 __所有者 (subject)__ 和 __发布者 (issuer)__ 相同
+* 证书的 **所有者 (subject)** 和 **发布者 (issuer)** 相同
 * 如果发布者是 CA，那么这个证书就是根证书，存放在 OS 的 root program 中
 * 否则，没有人可以认证该证书的合法性
 
@@ -317,7 +317,7 @@ $ keytool -export \
 
 ### Certificate Request
 
-通常来说，自签名证书需要生成 __证书签名请求文件 CSR__ ，并提交给 CA 进行签名。
+通常来说，自签名证书需要生成 **证书签名请求文件 CSR**，并提交给 CA 进行签名。
 
 ```console
 $ keytool -certreq \
@@ -349,9 +349,7 @@ $ keytool -gencert \
 
 ### Certificate Import
 
-接下来，需要把 CA 的 root 证书和被签名后的证书，导入回 subject 的 keystore。其中，CA 的 root 证书以另一个 alias 导入为 trustedCertEntry 条目。
-
-而被签名后的证书需要以和之前相同的 alias 导入：
+接下来，需要把 CA 的 root 证书和被签名后的证书，导入回 subject 的 keystore。其中，CA 的 root 证书以另一个 alias 导入为 trustedCertEntry 条目。而被签名后的证书需要以和之前相同的 alias 导入：
 
 * 导入为 PrivateKeyEntry 条目
 * 覆盖之前的自签名证书
@@ -388,8 +386,8 @@ $ keytool -importcert \
 创建日期: 2019-8-8
 条目类型: trustedCertEntry
 
-所有者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
-发布者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+所有者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+发布者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
 序列号: 303ebd1e
 有效期为 Thu Aug 08 10:45:23 CST 2019 至 Wed Nov 06 10:45:23 CST 2019
 证书指纹:
@@ -433,7 +431,7 @@ KeyIdentifier [
 证书链长度: 2
 证书[1]:
 所有者: CN=zjt, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
-发布者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+发布者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
 序列号: 2e8f8760
 有效期为 Thu Aug 08 13:30:07 CST 2019 至 Wed Nov 06 13:30:07 CST 2019
 证书指纹:
@@ -463,8 +461,8 @@ KeyIdentifier [
 ]
 
 证书[2]:
-所有者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
-发布者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+所有者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+发布者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
 序列号: 303ebd1e
 有效期为 Thu Aug 08 10:45:23 CST 2019 至 Wed Nov 06 10:45:23 CST 2019
 证书指纹:
@@ -514,9 +512,7 @@ KeyIdentifier [
 
 ## Certificate Extension
 
-上述过程中产生的证书，确实是正确的证书，但是放到 Vert.x HTTPS Server 上之后，无论是浏览器，还是 HTTPS Client，都是无法访问的。哪怕把模拟 CA 的根证书加入了 OS 的信任列表。
-
-原因在于，__被签名后的证书，需要与 IP 地址或域名等绑定__ ，这些信息保存在证书的 __X.509 证书扩展__ 中。CA 在对证书签名时，会将扩展信息加在证书中。参考 keytool 的官方文档：
+上述过程中产生的证书，确实是正确的证书，但是放到 Vert.x HTTPS Server 上之后，无论是浏览器，还是 HTTPS Client，都是无法访问的。哪怕把模拟 CA 的根证书加入了 OS 的信任列表。原因在于，被签名后的证书，需要与 IP 地址或域名等绑定，这些信息保存在证书的 **X.509 证书扩展** 中。CA 在对证书签名时，会将扩展信息加在证书中。参考 keytool 的官方文档：
 
 ```
 -ext {name{:critical} {=value}}
@@ -532,7 +528,7 @@ Denotes an X.509 certificate extension. The option can be used in -genkeypair an
   * 密钥用于数字签名 / 证书签名 / ...
 * EKU / Extended Key Usage - `serverAuth/clientAuth/codeSigning/emailProtection/...`
   * 密钥还能用于服务端认证 / 客户端认证 / ...
-* __SAN / Subject Alternative Name__ - `type:value`，type 可以是 `EMAIL/URI/DNS/IP/OID`
+* **SAN / Subject Alternative Name** - `type:value`，type 可以是 `EMAIL/URI/DNS/IP/OID`
   * 这是最重要的一项 - 如果想要服务器能够被访问，这一项不能少
   * 域名可以用 `DNS`，IP 地址可以用 `IP`
 * IAN / Issuer Alternative Name
@@ -563,7 +559,7 @@ $ keytool -gencert \
 证书链长度: 2
 证书[1]:
 所有者: CN=zjt, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
-发布者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+发布者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
 序列号: 2043d288
 有效期为 Thu Aug 08 13:52:08 CST 2019 至 Wed Nov 06 13:52:08 CST 2019
 证书指纹:
@@ -615,8 +611,8 @@ KeyIdentifier [
 ]
 
 证书[2]:
-所有者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
-发布者: CN=Jingtang ZHang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+所有者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
+发布者: CN=Jingtang Zhang, OU=NUAA, O=CCST, L=Nanjing, ST=Jiangsu, C=CN
 序列号: 303ebd1e
 有效期为 Thu Aug 08 10:45:23 CST 2019 至 Wed Nov 06 10:45:23 CST 2019
 证书指纹:
@@ -654,14 +650,9 @@ KeyIdentifier [
 *******************************************
 ```
 
-其中，被签名证书的扩展中带有了 `DNSName: localhost` 和 `IPAddress: 127.0.0.1`。此时，将该 `.jks` 文件输入 Vert.x HTTPS Server。在 Vert.x HTTPS Client 中发起请求，host 可以填写 `localhost` 或 `127.0.0.1`：
+其中，被签名证书的扩展中带有了 `DNSName: localhost` 和 `IPAddress: 127.0.0.1`。此时，将该 `.jks` 文件输入 Vert.x HTTPS Server。在 Vert.x HTTPS Client 中发起请求，host 可以填写 `localhost` 或 `127.0.0.1`。接收到的 status code 为 200，代表请求成功
 
-* 接收到的 status code 为 200，代表请求成功
-
-如果模拟 CA 的根证书被加入 OS 的信任列表：
-
-* 那么在浏览器中也可以访问 `https://localhost:<port>`
-* 建立的是 HTTPS 安全连接
+如果模拟 CA 的根证书被加入 OS 的信任列表，那么在浏览器中也可以访问 `https://localhost:<port>` - 建立的是 HTTPS 安全连接。
 
 查看证书信息：
 
@@ -683,7 +674,7 @@ https://www.jianshu.com/p/8e065153f315
 
 ## Summary
 
-除了 _keytool_ 以外，_openssl_ 也提供了制作证书的工具，本质上是一样的，都是以指定的格式生成证书、签名。里面的坑实在是不少...一直成功不了的原因在于漏掉了证书中的 SAN 扩展。直到使用了 GitHub 上的 [mkcert](https://github.com/FiloSottile/mkcert)，并对比了一下这个工具产生的证书和我制作的证书有什么区别，才发现了 SAN 的作用。
+除了 *keytool* 以外，*openssl* 也提供了制作证书的工具，本质上是一样的，都是以指定的格式生成证书、签名。里面的坑实在是不少...一直成功不了的原因在于漏掉了证书中的 SAN 扩展。直到使用了 GitHub 上的 [mkcert](https://github.com/FiloSottile/mkcert)，并对比了一下这个工具产生的证书和我制作的证书有什么区别，才发现了 SAN 的作用。
 
 研究 SSL/TLS 算是解开了很长时间以来的一个心结吧，以后不用写裸奔的 HTTP 程序啦。 😭
 
