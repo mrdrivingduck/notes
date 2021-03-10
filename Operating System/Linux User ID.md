@@ -105,3 +105,11 @@ $ ls -alt /etc/passwd
 
 ---
 
+## References
+
+Linux 内核完全注释 V5.0.1 - 8.10 sys.c 程序
+
+Linux 内核完全注释 V5.0.1 - 12.1 文件系统 总体功能
+
+---
+
