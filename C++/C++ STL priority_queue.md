@@ -71,6 +71,20 @@ priority_queue<int, vector<int>, std::greater<int>> pq;
 * `emplace()`: construct and insert element
 * `swap()`
 
+## Self-Defined Comparison
+
+如果想要自定义比较函数，需要自行定义一个结构体，并重载 `()` 运算符：
+
+```c++
+struct comp {
+    bool operator()(vector<int> &flight1, vector<int> &flight2) {
+        return flight1[1] > flight2[1];
+    }
+};
+
+priority_queue<vector<int>, vector<vector<int>>, comp> heap;
+```
+
 ---
 
 ## References
