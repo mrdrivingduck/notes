@@ -27,7 +27,7 @@ InnoDB 中的 Double Write 包含两个部分：
 * 内存中的 Double Write Buffer (2MB)
 * 磁盘上共享表空间中的连续 128 个页 (2MB)
 
-数据库在对脏页进行写回操作时，首先通过 `memcpy()` 将脏页复制到内存中的 Double Write Buffer 中。由 Double Write Buffer 分两次 **顺序地** 写入磁盘共享表空间中，然后立刻调用 `fsync()` 落盘 (保证脏页全部落到磁盘上)。这一步由于内存和磁盘中空间地连续性，开销不是很大。之后再将 Double Write Buffer 中的页离散地写入各个独立表空间中。
+数据库在对脏页进行写回操作时，首先通过 `memcpy()` 将脏页复制到内存中的 Double Write Buffer 中。由 Double Write Buffer 分两次 **顺序地** 写入磁盘共享表空间中，然后立刻调用 `fsync()` 落盘 (保证脏页全部落到磁盘上)。这一步由于内存和磁盘中空间的连续性，开销不是很大。之后再将 Double Write Buffer 中的页离散地写入各个独立表空间中。
 
 如果在将页写入磁盘的过程中发生了崩溃，在恢复过程中，InnoDB 存储索引可以从共享表空间中找到该页的一个副本，然后再应用 redo log 进行恢复。
 
