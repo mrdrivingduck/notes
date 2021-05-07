@@ -18,15 +18,11 @@ Nanjing, Jiangsu, China
 >
 > SSH was designed as a replacement for Telnet and for unsecured remote shell protocols such as the Berkeley rlogin, rsh, and rexec protocols. Those protocols send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis. The encryption used by SSH is intended to provide **confidentiality** and **integrity** of data over an unsecured network, such as the Internet, although files leaked by *Edward Snowden* indicate that the *National Security Agency* can sometimes decrypt SSH, allowing them to read the contents of SSH sessions.
 
----
-
 ## Definition
 
-SSH 利用公钥密码学认证远程计算机。认证基于私钥，密钥本身不会通过网络传播。**SSH 只认证提供公钥的一方是否也拥有对应的私钥** - 因此 **认证未知公钥** 相当重要。如果接受了攻击者的公钥，将导致未授权的攻击者成为合法用户。
+SSH 利用公钥密码学认证远程计算机。认证基于私钥，密钥本身不会通过网络传播。SSH 只认证 **提供公钥的一方是否也拥有对应的私钥**：因此 **认证未知公钥** 相当重要。如果接受了攻击者的公钥，将导致未授权的攻击者成为合法用户。
 
 SSH 通常用于登录远程机器并执行命令，也支持 **SSH File Transfer Protocol (SFTP)** 和 **Secure Copy Protocol (SCP)**。SSH 使用服务器-客户端模型。SSH 服务的熟知 TCP 端口是 `22`。
-
----
 
 ## Theory
 
@@ -44,8 +40,6 @@ Warning: Permanently added '104.168.166.54' (ECDSA) to the list of known hosts.
 
 假设用户接受该公钥，则公钥会被保存在客户端的 `~/.ssh/known_hosts` 中，下次再连接该远程服务器时，会直接使用该公钥。每个 SSH 用户都有自己的 `known_hosts`，同时系统也有一个 `/etc/ssh/ssh_known_hosts`，保存一些对所有用户都可信赖的远程服务器公钥。
 
----
-
 ## Log In by Password
 
 通过用户名 + 密码来登录远程服务器。
@@ -53,8 +47,6 @@ Warning: Permanently added '104.168.166.54' (ECDSA) to the list of known hosts.
 1. SSH 服务器受到客户端的登录请求，将公钥发送给客户端
 2. 客户端接收并信任该公钥，将登录用户名、密码通过公钥加密后发送
 3. 服务器通过私钥解密，并判断用户名、密码是否合法
-
----
 
 ## Log In by Public Key
 
@@ -92,8 +84,6 @@ $ ssh-copy-id user@host
 $ ssh user@host
 ```
 
----
-
 ## Host Configuration
 
 以上步骤完成后，每次 SSH 到远程服务器还是很麻烦，主要是 IP 地址太难记了。SSH 提供了一个配置文件，可以将 `user`、`host` 和私钥保存在配置文件中，并取一个别名。配置文件的格式如下：
@@ -112,8 +102,6 @@ Host MyServerName
 ```console
 $ ssh MyServerName
 ```
-
----
 
 ## Issue
 
