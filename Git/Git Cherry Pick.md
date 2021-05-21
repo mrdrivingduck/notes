@@ -38,6 +38,36 @@ a - b - c - d - f   Master
 
 转移后，commit 的 diff 不变，但是 commit hash 将会发生改变。
 
+```console
+$ git checkout feature_new
+Switched to branch 'feature_new'
+Your branch is up to date with 'origin/feature_new'.
+
+$ git log
+commit e4d682751dcc729c7d3501bf18ccd2a832b19d7b (HEAD -> feature_new, origin/feature_new)
+Author: mrdrivingduck <xxxxxxxxx@qq.com>
+Date:   Fri May 21 11:40:01 2021 +0800
+
+    New feature
+
+$ git checkout main
+Switched to branch 'main'
+
+$ git cherry-pick e4d682751dcc729c7d3501bf18ccd2a832b19d7b
+Auto-merging a.c
+[main a63e606] New feature
+ Date: Fri May 21 11:40:01 2021 +0800
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git log
+commit a63e6063ee07cea80b98b2cf9843505423f7386d (HEAD -> main)
+Author: mrdrivingduck <xxxxxxxxx@qq.com>
+Date:   Fri May 21 11:40:01 2021 +0800
+
+    New feature
+
+```
+
 ### Branch Name
 
 当然，也可以直接使用 **分支名**。此时命令的含义是，转移这个分支的最新一次 commit 到当前分支：
