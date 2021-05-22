@@ -14,7 +14,7 @@ Nanjing, Jiangsu, China
 
 首先，MySQL 默认 bind 了 `127.0.0.1` 作为监听地址，也就是说只有本机上的应用才能够通过 `localhost` 访问 MySQL。到 `/etc/mysql/mysql.conf.d` 中 (MySQL 5.7) 设置 `mysqld.cnf` 文件：
 
-```mysql
+```conf
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
@@ -23,7 +23,7 @@ bind-address            = 127.0.0.1
 
 设置为：
 
-```mysql
+```conf
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
@@ -36,7 +36,15 @@ bind-address            = 0.0.0.0
 
 MySQL 默认已经有了一个名为 `root` 的用户。对于一个应用来说，我们可以为这个应用创建一个用户并授予权限。另外，MySQL 中还对每个用户连接的源 IP 地址作出了限制，保证只有特定的 IP 地址能够通过该用户连接到 MySQL。
 
-创建用户的方式如下 - 登录 MySQL 的命令行，输入：
+创建用户的方式如下。登录 MySQL 的命令行，输入：
+
+```bash
+mysql> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+```
 
 ```mysql
 CREATE USER 'username'@'host' IDENTIFIED BY 'password';
