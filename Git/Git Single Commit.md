@@ -136,7 +136,28 @@ Commit 4
 #
 ```
 
-除去注释外，这里实际上包含了三次 commit 的 commit message。编辑这个文件，删掉原有的 commit message，为合并后的 commit 指定一条 commit message，保存。
+除去注释外，这里实际上包含了三次 commit 的 commit message。编辑这个文件，删掉原有的 commit message，为合并后的 commit 指定一条 commit message，保存：
+
+```
+# This is a combination of 3 commits.
+Merged commit!
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Sat May 29 10:44:23 2021 +0800
+#
+# interactive rebase in progress; onto 298e313
+# Last commands done (3 commands done):
+#    s 488e75e Commit 3
+#    s c44d371 Commit 4
+# No commands remaining.
+# You are currently rebasing branch 'master' on '298e313'.
+#
+# Changes to be committed:
+#       modified:   a.txt
+#
+```
 
 完成后，rebase 操作就成功了：
 
