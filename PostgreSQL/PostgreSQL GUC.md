@@ -250,5 +250,3 @@ select pg_reload_conf();
 
 [PostgreSQL 中文社区 - PostgreSQL 数据库参数生效规则](http://www.postgres.cn/news/viewone/1/262)
 
----
-
