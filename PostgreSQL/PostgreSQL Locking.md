@@ -129,7 +129,7 @@ typedef enum LockTupleMode
 } LockTupleMode;
 ```
 
-![postgres-row-level-locks](../img/postgres-row-level-locks)
+![postgres-row-level-locks](../img/postgres-row-level-locks.png)
 
 ## Page-level Locks
 
