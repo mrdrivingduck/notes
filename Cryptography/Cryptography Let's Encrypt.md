@@ -16,8 +16,8 @@ Ningbo, Zhejiang, China
 
 想要运行 certbot，要满足几个条件：
 
-* 一台服务器，并能够 SSH 连接到它上面进行操作
-* 一个已经在开放的 **80** 端口上运行的 HTTP 网站
+- 一台服务器，并能够 SSH 连接到它上面进行操作
+- 一个已经在开放的 **80** 端口上运行的 HTTP 网站
 
 ![certbot-requirement](../img/certbot-requirement.png)
 
@@ -40,21 +40,21 @@ Ningbo, Zhejiang, China
 server {
     server_name www.<hostname>.cn <hostname>.cn;
     listen 80;
-	rewrite ^(.*)$ https://${server_name}$1 permanent; # 将 80 端口的访问转移到 443
+    rewrite ^(.*)$ https://${server_name}$1 permanent; # 将 80 端口的访问转移到 443
 }
 
 server {
-	server_name www.<hostname>.cn <hostname>.cn;
-	location / {
-		root /root/homepage;
-		index index.html;
-	}
+    server_name www.<hostname>.cn <hostname>.cn;
+    location / {
+        root /root/homepage;
+        index index.html;
+    }
 
-	listen 443 ssl; # managed by Certbot
-	ssl_certificate /etc/letsencrypt/live/<hostname>.cn/fullchain.pem; # managed by Certbot
-	ssl_certificate_key /etc/letsencrypt/live/<hostname>.cn/privkey.pem; # managed by Certbot
-	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/<hostname>.cn/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/<hostname>.cn/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 ```
 
@@ -62,10 +62,10 @@ server {
 
 证书被生成在一个特定位置 (`/etc/letsencrypt/live/<hostname>/`)，包含以下四个文件：
 
-* `cert.pem`
-* `chain.pem`
-* `fullchain.pem`
-* `privkey.pem`
+- `cert.pem`
+- `chain.pem`
+- `fullchain.pem`
+- `privkey.pem`
 
 其中，`privkey.pem` 保存了私钥；`cert.pem` 是签发的最终证书，保存了公钥。可以使用 `openssl` 查看证书：
 
@@ -179,13 +179,13 @@ Certificate:
 
 ```java
 public void init(final Vertx vertx) {
-	server = vertx.createHttpServer(new HttpServerOptions()
-		.setSsl(true)
-		.setPemKeyCertOptions(new PemKeyCertOptions()
-			.setKeyPath(Config.getConfig().get("tls", "keyPath"))
-			.setCertPath(Config.getConfig().get("tls", "certPath"))
-		)
-	);
+    server = vertx.createHttpServer(new HttpServerOptions()
+        .setSsl(true)
+        .setPemKeyCertOptions(new PemKeyCertOptions()
+            .setKeyPath(Config.getConfig().get("tls", "keyPath"))
+            .setCertPath(Config.getConfig().get("tls", "certPath"))
+        )
+    );
 }
 ```
 
@@ -200,6 +200,4 @@ public void init(final Vertx vertx) {
 [简书 - Let's Encrypt 证书申请及配置](https://www.jianshu.com/p/1a792f87b6fe)
 
 [Certbot](https://certbot.eff.org/)
-
----
 
