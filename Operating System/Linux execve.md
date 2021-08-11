@@ -104,10 +104,10 @@ ZSH=/home/mrdrivingduck/.oh-my-zsh
 
 int main()
 {
-	char *argv[] = { "ls", NULL };
-	// char *evnp[] = { "aaa=1", "bbb=2", NULL };
-	execvp("ls", argv);
-	return 0;
+    char *argv[] = { "ls", NULL };
+    // char *evnp[] = { "aaa=1", "bbb=2", NULL };
+    execvp("ls", argv);
+    return 0;
 }
 ```
 
@@ -150,10 +150,10 @@ Shell 首先以 `./test` 和内置环境变量执行了测试程序。之后发�
 
 int main()
 {
-	char *argv[] = { "ls", NULL };
-	char *evnp[] = { "aaa=1", "bbb=2", NULL };
-	execve("ls", argv, evnp);
-	return 0;
+    char *argv[] = { "ls", NULL };
+    char *evnp[] = { "aaa=1", "bbb=2", NULL };
+    execve("ls", argv, evnp);
+    return 0;
 }
 ```
 
