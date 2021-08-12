@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-## 1. Feature
+## Feature
 
 ```c++
 template < class Key,                                   // multimap::key_type
@@ -18,7 +18,12 @@ template < class Key,                                   // multimap::key_type
            > class multimap;
 ```
 
-Multimap 提供 key - value 的映射：key 必须能够被比较，使用 `<` 运算符进行比较 - 若 key 为自定义类型，则需要重载 `<` 运算符。key 不会重复出现，value 可以重复出现。Multimap 根据 key 的大小排序，默认从小到大。
+Multimap 提供 key - value 的映射。
+
+- key 必须能够被比较，默认使用 `<` 运算符进行比较
+- 若 key 为自定义类型，则需要重载 `<` 运算符
+- key 不会重复出现，value 可以重复出现
+- 根据 key 的大小排序，默认从小到大
 
 通过 key 快速查找 value，key 可被修改，value 不可被修改。底层由 **红黑树** 实现。插入、删除操作后，其余迭代器 **不会失效**。
 
@@ -41,7 +46,7 @@ multimap<key_Type, value_Type> multimap(another_map.begin(), another_map.end());
 
 ## Operator `=`
 
-* **Copy** a container
+**Copy** a container.
 
 ```c++
 multimap<key_Type, value_Type> A;
@@ -122,7 +127,5 @@ for (Iter iter = range.first; iter != range.second; iter++) {
 
 ## Reference
 
-* [http://www.cplusplus.com/reference/map/multimap/](http://www.cplusplus.com/reference/map/multimap/)
-
----
+* [CPlusPlus.com - std::multimap](http://www.cplusplus.com/reference/map/multimap/)
 
