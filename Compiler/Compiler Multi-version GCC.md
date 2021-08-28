@@ -24,5 +24,3 @@ $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
 sudo update-alternatives --config gcc
 ```
 
----
-

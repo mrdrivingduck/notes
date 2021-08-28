@@ -10,8 +10,8 @@ Nanjing, Jiangsu, China
 
 最近需要参加一些在线笔试。OJ 平台有以下两种模式：
 
-* 核心代码模式 (以 *LeetCode* 为例)：只需要编写核心函数，无需自行处理输入输出
-* ACM 模式：需要自行编写代码读取输入，打印输出
+- 核心代码模式 (以 *LeetCode* 为例)：只需要编写核心函数，无需自行处理输入输出
+- ACM 模式：需要自行编写代码读取输入，打印输出
 
 对于 ACM 模式，特此记录各种处理输入的方式，防止笔试现场搞半天输入都处理不利索。
 
@@ -32,6 +32,9 @@ Nanjing, Jiangsu, China
 处理方法：
 
 ```c++
+#include <iostream>
+using namespace std;
+
 int a, b;
 while (cin >> a >> b) {
     // ...
@@ -54,6 +57,9 @@ while (cin >> a >> b) {
 处理方法：
 
 ```c++
+#include <iostream>
+using namespace std;
+
 int a, b;
 while (cin >> a >> b && (a || b)) {
     // ...
@@ -111,6 +117,4 @@ freopen("input.txt", "r", stdin);
 [牛客网 - OJ 在线编程常见输入输出练习](https://www.nowcoder.com/test/27976983/summary)
 
 [CSDN - ACM 题目中输入数据的处理 (C++版)](https://blog.csdn.net/sxhelijian/article/details/8978850)
-
----
 
