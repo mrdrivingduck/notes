@@ -1,4 +1,4 @@
-# Git - Branch & Merge Theory
+# Git - Branch & Merge
 
 Created by : Mr Dk.
 
@@ -17,8 +17,6 @@ Git 这个东西想法很独特。每一次提交，会产生指向上一个提�
 默认会有一个 `master` 分支指针指向 **提交对象**，会有一个 `HEAD` 指针指向当前操作的分支：
 
 ![git-head](../img/git-head.png)
-
----
 
 ## Branch
 
@@ -44,8 +42,6 @@ $ git checkout <branch_name>
 
 ![git-branch-commit](../img/git-branch-commit.png)
 
----
-
 ## Merge
 
 Git 的官方网站给出了一个便于理解的实际应用场景：
@@ -70,11 +66,13 @@ Fast-forward
 
 ![git-fast-forward](../img/git-fast-forward.png)
 
+![git-merge-fast-forward](../img/git-merge-fast-forward.gif)
+
 `hotfix` 分支指针已经完成了使命，可以被删除了。目前生产环境服务器使用的是 `C4` 状态的版本，然后就可以重新转到 `iss53` 分支上，继续新功能的开发：
 
 ![git-branch-go-on](../img/git-branch-go-on.png)
 
-当新功能开发完成后，`iss53` 需要和 `master` 合并时，问题出现了：并不能使用 fast-forward 的合并方式。Git 会找到它们的共同祖先，进行三方合并计算：
+当新功能开发完成后，`iss53` 需要和 `master` 合并时，问题出现了：并不能使用 fast-forward 的合并方式。Git 会找到它们的共同祖先，进行三方合并 (两个分支 + 一个共同祖先) 计算：
 
 ![git-before-merge](../img/git-before-merge.png)
 
@@ -93,7 +91,7 @@ $ git branch -d <branch_name>
 
 ![git-after-merge](../img/git-after-merge.png)
 
----
+![git-merge-no-fast-forward](../img/git-merge-no-fast-forward.gif)
 
 ## Conflict
 
@@ -122,8 +120,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 到底该使用 `C4` 版本的状态还是 `C5` 版本的状态呢？此时需要人为裁决：
 
-* 二选一
-* 亲自整合冲突
+- 二选一
+- 手动整合两个冲突
 
 显示 **both modified** 的文件就是发生冲突的文件。Git 会自动在文件中将冲突位置标识，vim 我是真的懒得用，用 Visual Studio Code 打开文件就会有显示：
 
@@ -137,26 +135,25 @@ no changes added to commit (use "git add" and/or "git commit -a")
 >>>>>>> iss53:index.html
 ```
 
-* `<<<<<<<` 指示的是 `HEAD` 版本
-* `>>>>>>>` 指示的是 `iss53` 版本
-* `=======` 指示的是分割线，区分两个版本
+- `<<<<<<<` 指示的是 `HEAD` 版本
+- `>>>>>>>` 指示的是 `iss53` 版本
+- `=======` 指示的是分割线，区分两个版本
 
 在 Visual Studio Code 中可以直接点击按钮二选一，或同时合并；也可以人为进行编辑：
 
-* 先编辑成想要合并后的样子
-* 然后将 `<<<<<<<`、`>>>>>>>`、`=======` 全部删掉（不然会有语法错误 🤨）
+- 先编辑成想要合并后的样子
+- 然后将 `<<<<<<<`、`>>>>>>>`、`=======` 全部删掉（不然会有语法错误 🤨）
 
 修改完成后，保存。然后通过 `git add` 将该文件送入 stage：
 
-```console
-$ git add index.html
+```bash
+git add index.html
+git merge --continue
 ```
 
+![git-merge-conflict](../img/git-merge-conflict.gif)
+
 尽可能不要修改同一个文件才是正解叭。
-
----
-
-另外强推 Lydia Hallie 的文章 [CS Visualized: Useful Git Commands](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)，上面用可视化的方式介绍了 Git 命令的效果，形象直观。
 
 ---
 
@@ -166,5 +163,5 @@ $ git add index.html
 
 [Git 分支 - 分支的新建与合并](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6)
 
----
+[Lydia Hallie - 🌳🚀 CS Visualized: Useful Git Commands](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)
 

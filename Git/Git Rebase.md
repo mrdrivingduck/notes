@@ -19,19 +19,19 @@ Nanjing, Jiangsu, China
 
 ## Rebase for a Branch
 
-场景：一个子分支从主分支的某一次 commit 上分叉，子分支和主分支都分别有独立的 commit：
-
-![git-rebase-basic](../img/git-rebase-basic.png)
+场景：一个子分支从主分支的某一次 commit 上分叉，子分支和主分支都分别有独立的 commit。
 
 `git merge` 的操作是将两个分支的最新一次 commit 和两个分支的公共祖先进行一次 **三方合并**，并生成一次新的 commit：
 
-![git-rebase-merge](../img/git-rebase-merge.png)
+![git-merge-no-fast-forward](../img/git-merge-no-fast-forward.gif)
 
 `git rebase` 的做法：找到主分支和子分支的分叉 commit，将子分支基于这次 commit 的修改保存为临时文件。然后将分支的 base 指向主分支的最新一次 commit，并对这次 commit 应用之前保存的修改。结果如下：
 
-![git-rebase-after](../img/git-rebase-after.png)
+![git-rebase-branch](../img/git-rebase-branch.gif)
 
-之后从主分支 merge 子分支就是一次 fast forward 的合并了。
+之后从主分支 merge 子分支就是一次 fast forward 的合并了：
+
+![git-merge-fast-forward](../img/git-merge-fast-forward.gif)
 
 变基是有风险的。由于被 rebase 分支的祖先 commit 变了，那么该分支内的每一次 commit 的 SHA 都会发生改变。在多人协作时，可不能瞎 rebase。
 
@@ -82,7 +82,10 @@ git rebase -i --root
 通过在交互式命令行中编辑每次 commit 之前的命令，就可以对每一次 commit 实现相应的动作。包括但不限于：
 
 - 合并几次 commit 为一次
+    ![git-rebase-interactive-squash](../img/git-rebase-interactive-squash.gif)
 - 拆分一次 commit 为多次
+- 删除某次 commit
+    ![git-rebase-interactive-drop](../img/git-rebase-interactive-drop.gif)
 - 编辑某次 commit 的 commit message
 - 在每次 commit 上修改 commit 邮箱地址
 - ...
@@ -94,4 +97,6 @@ Rebase 可以干很多事情。
 [3.6 Git 分支 - 变基](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA)
 
 [7.6 Git 工具 - 重写历史](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2)
+
+[Lydia Hallie - 🌳🚀 CS Visualized: Useful Git Commands](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)
 

@@ -12,6 +12,10 @@ Nanjing, Jiangsu, China
 
 这条命令用于把一个分支中的 **某几次** commit 挑选出来，接到另一个分支的 commit 链表上。如果要将分支中的所有 commit 转移到另一个分支上，那么等效于 `git merge`。
 
+示意动画 (来源于 [Lydia Hallie, CS Visualized: Useful Git Commands](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1))：
+
+![git-cherry-pick](../img/git-cherry-pick.gif)
+
 ## Usage
 
 ### Commit Hash
@@ -25,15 +29,15 @@ git cherry-pick <commit_hash>
 如下图所示。如果想要把 `Feature` 分支上的 `f` commit 单独挑出来，应用到 `Master` 分支上，那么只需要获得 `Feature` 分支上 `f` 的 commit hash，然后输入上述命令即可。产生的效果如图所示：
 
 ```
-a - b - c - d   Master
+a - b - c - d        Master
          \
-          e - f - g Feature
+          e - f - g  Feature
 ```
 
 ```
-a - b - c - d - f   Master
+a - b - c - d - f    Master
          \
-          e - f - g Feature
+          e - f - g  Feature
 ```
 
 转移后，commit 的 diff 不变，但是 commit hash 将会发生改变。
@@ -129,11 +133,15 @@ git cherry-pick --quit
 
 也可以在不同代码库之间的分支上进行转移。首先将另一个库作为远程仓库添加到本地仓库，然后将远程仓库的代码拉到本地。通过 `git log` 查看 commit hash 后，用类似的方法转移 commit。
 
+```bash
+git add remote ...
+git fetch
+git cherry-pick ...
+```
+
 ## References
 
 [阮一峰的网络日志 - git cherry-pick 教程](http://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
 [Lydia Hallie - 🌳🚀 CS Visualized: Useful Git Commands](https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1)
-
----
 
