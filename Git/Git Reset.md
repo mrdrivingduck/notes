@@ -12,8 +12,6 @@ Ningbo, Zhejiang, China
 
 用 Git 的时候，有时候会遇到一些需要撤销更改，或者回退的情况。以前是自己一个人玩，基本不会遇到类似的问题。现在正在和一个牛b博士进行协作，动不动他就会把仓库弄乱 😑。今天花了点时间了解了一下 Git 的管理思维。
 
----
-
 ## The Three Trees
 
 不知道为何在 Git 中将其命名为 **树**。其实它的意思是一个 **文件的集合**，而不是数据结构。
@@ -26,19 +24,10 @@ Ningbo, Zhejiang, China
 
 其中，`HEAD` 和 `Index` 记录在 `/.git` 文件夹中，`Working Derectory` 就是展现的工作目录。
 
-### HEAD
+- HEAD 是当前分支引用的指针，指向分支上的最后一次提交。即 **上一次提交的快照**，是开始一次编辑之前的初始状态。
 
-HEAD 是当前分支引用的指针，指向分支上的最后一次提交。即 **上一次提交的快照**，是开始一次编辑之前的初始状态。
-
-### Index
-
-是 **预期的下一次提交**，也就是 Git 中所谓的 **暂存区域** - stage。在其中，一些文件将会被替换为新版本。
-
-### Working Directory
-
-工作目录中的文件在提交至暂存区之前，可以随意编辑。
-
----
+- Index 是 **预期的下一次提交**，也就是 Git 中所谓的 **暂存区域**：stage。在其中，一些文件将会被替换为新版本。
+- 工作目录中的文件在提交至暂存区之前，可以随意编辑。
 
 ## Workflow
 
@@ -76,8 +65,6 @@ Git 主要通过操作上述三棵树的状态来进行版本控制，直观上�
 * 将 `Index` 填充为该次提交的快照
 * 将 `Index` 中的内容复制到 `Working Directory` 中
 
----
-
 ## Reset
 
 ### Soft
@@ -112,23 +99,16 @@ Git 的 `reset` 命令以特定顺序重写三棵树：
 * 恢复 `Index` - 指定 `--mixed` 或不指定（默认），则到此停止
 * 恢复 `Working Directory` - 指定 `--hard` 则到此停止
 
-### File
-
-可以为 `reset` 提供一个作用路径，将作用范围限定为指定的文件或文件集合。
-
-* 由于 `HEAD` 是一个指针，无法同时指向两个提交，因此会跳过这一步
-* 但 `Index` 和 `Working Directory` 可以部分更新
+可以为 `reset` 提供一个作用路径，将作用范围限定为指定的文件或文件集合。由于 `HEAD` 是一个指针，无法同时指向两个提交，因此会跳过这一步；但 `Index` 和 `Working Directory` 可以部分更新。
 
 假如运行 `git reset file.txt` (`git reset --mixed HEAD file.txt`)
 
 1. 移动 `HEAD` 指针 (跳过)
 2. 将 `Index` 恢复至 `HEAD` 的对应版本
 
-本质上：将 `file.txt` 从 `HEAD` 复制到 `Index` 中；实际上：产生了 **取消暂存文件** 的效果：
+本质上：将 `file.txt` 从 `HEAD` 复制到 `Index` 中；实际上：产生了 **取消暂存文件** 的效果。
 
 <img src="../img/git-reset-file.png" alt="git-reset-file" style="zoom:80%;" />
-
----
 
 ## Summary
 
@@ -145,6 +125,3 @@ Git 的 `reset` 命令以特定顺序重写三棵树：
    ```console
    $ git checkout -- <file_name>
    ```
-
----
-

@@ -156,6 +156,3 @@ Buffer buffer;
 fout.write((char *) &buffer, sizeof(Buffer));
 fin.read((char *) &buffer, sizeof(Buffer));
 ```
-
----
-

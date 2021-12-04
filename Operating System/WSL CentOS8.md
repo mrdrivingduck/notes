@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 ## Background
 
-最近两天参加 *PolarDB* [开源](https://github.com/alibaba/PolarDB-for-PostgreSQL) 相关的开发，需要配置一个 CentOS 的环境 (果然，离开公司就没有 *Alibaba Linux* 可以用了)。手边只有一台 Surface 的我当然还是选择 WSL2 啦~
+最近两天参加 *PolarDB* [开源](https://github.com/Apsara/PolarDB-for-PostgreSQL) 相关的开发，需要配置一个 CentOS 的环境 (果然，离开公司就没有 *Alibaba Linux* 可以用了)。手边只有一台 Surface 的我当然还是选择 WSL2 啦~
 
 发现 CentOS 系列在 *Microsoft Store* 中并没有可以下载的 distribution。经过了解，网上说需要付费 (我咋连付费的都没发现)，要么就用开源版本手动安装。所以记录一次手动安装的过程。
 

@@ -46,6 +46,3 @@ $ git add .
 ```console
 $ git status
 ```
-
----
-

@@ -167,6 +167,3 @@ bool operator<(const T &__x, const T &__y) {
 ```
 
 只有 `const` 函数才可以访问 `const` 对象中的数据。
-
----
-

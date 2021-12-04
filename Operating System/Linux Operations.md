@@ -1,4 +1,4 @@
-# Linux - Log Cleaning
+# Linux - Operations
 
 Created by : Mr Dk.
 
@@ -7,6 +7,8 @@ Created by : Mr Dk.
 Ningbo, Zhejiang, China
 
 ---
+
+## 日志文件清除
 
 之前有一个问题困扰我很久：在 Linux 上开始运行一个服务，但我又要查看日志。比如平时会用 *frp* 做内网穿透。一旦出现网络波动，断开、自动重连、断开、自动重连......每次连接都会产生日志记录。
 
@@ -28,11 +30,19 @@ $ echo ' ' > server.log
 > 2. 分配新的磁盘块，并写入 `echo` 的内容
 > 3. 将 `server.log` 文件的 inode 的起始磁盘块号 (`i_zone[0]`) 设置为这个新的磁盘块号
 
----
+[情景 Linux--如何解决服务器日志过多导致的磁盘空间不足？](https://www.jianshu.com/p/d3ffccbe82c5)
 
-## Reference
+## 查看端口占用
 
-https://www.jianshu.com/p/d3ffccbe82c5
+查看端口占用情况：
 
----
+```console
+$ lsof -i
+```
+
+查看某一端口的占用情况：
+
+```console
+$ lsof -i:8090
+```
 

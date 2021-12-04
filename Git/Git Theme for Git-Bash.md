@@ -8,21 +8,13 @@ Nanjing, Jiangsu, China
 
 ---
 
-## Why
-
 记得大二第一次使用 [Atom](https://atom.io/) 便爱上了默认自带的 *One Dark* 配色。后来开始使用 Visual Studio Code 以后，依旧通过插件使用着 *One Dark* 配色。比较好用的是这款：https://github.com/Binaryify/OneDark-Pro。
 
 后来为了消除不同软件间的切换导致视觉上的不适，在使用 Typora 进行 MarkDown 文本编辑时，也使用了官方提供的类似配色主题 - *LostKeys Dark*。
 
 然而对于 Git Bash，却一直用着默认的黑色 Terminal 主题。虽然在 Visual Studio Code 中内嵌了以现有配色启动 Git Bash 的功能，但 Git Bash 的主题我还是想调成 *One Dark* 的配色风格。
 
----
-
-## How
-
 在 Git Bash 的设置中有设置主题的选项，但是没有我想要的 One Dark 主题。所以只能自己设定了。在 `C:\Users\<UserName>` 下能够找到 Git Bash 的配置文件 `.minttyrc`。
-
----
 
 ## Basic Settings
 
@@ -38,8 +30,6 @@ BoldAsFont=yes
 FontSmoothing=full
 AllowBlinking=yes
 ```
-
----
 
 ## Background Color Style
 
@@ -64,8 +54,6 @@ BackgroundColour=40,44,52
 CursorColour=200,200,200
 CursorType=block
 ```
-
----
 
 ## Text Color Style
 
@@ -123,8 +111,6 @@ BrightRed=244,71,71
 BrightWhite=215,218,224
 ```
 
----
-
 ## Summary
 
 默认的 Git Bash 主题简直是看着让人窒息：
@@ -136,6 +122,3 @@ BrightWhite=215,218,224
 ![git-bash-one-dark](../img/git-bash-one-dark.png)
 
 妈诶 舒服了好多。
-
----
-
