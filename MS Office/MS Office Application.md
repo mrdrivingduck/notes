@@ -14,8 +14,6 @@ Ningbo, Zhejiang, China
 * Visual Studio Tools for Office
 * Microsoft Office
 
----
-
 ## Visual Studio Tools
 
 ![visual-studio-tool](../img/visual-studio-office-tool.png)
@@ -23,8 +21,6 @@ Ningbo, Zhejiang, China
 在这一步中，包含了 Visual Studio 对于 Office 应用的项目模板支持，以及操作 Office 的动态链接库。
 
 ![visual-studio-office-template](../img/visual-studio-office-template.png)
-
----
 
 ## Application
 

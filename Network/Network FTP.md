@@ -191,6 +191,3 @@ Ubuntu 20.04 上还可能在 vsftpd 服务的日志中看到错误，解决方�
 [Arch Linux - Very Secure FTP Daemon (简体中文)](https://wiki.archlinux.org/index.php/Very_Secure_FTP_Daemon_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 [Ben Scobie - Fixing 500 OOPS: vsftpd: refusing to run with writable root inside chroot ()](https://www.benscobie.com/fixing-500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot/)
-
----
-

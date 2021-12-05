@@ -12,8 +12,6 @@ Nanjing, Jiangsu, China
 
 GitHub 真的是让人又爱又恨。爱它在于它真的是一个宝藏网站，也是 IT 人士的身份名片；恨它在于受限于网络环境，和它打交道真是太痛苦了。我们总在不停探索与 GFW 和国内 ISP 斗智斗勇的方法。
 
----
-
 ## Web Page
 
 GitHub 不在 PAC 列表中。如果代理速度够快的话，可以手动将 GitHub 添加到 PAC 列表中。
@@ -89,7 +87,7 @@ assets-cdn.github.com
 
 ## Git Configuration
 
-Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。。具体方式参考 [另一篇文章](https://mrdrivingduck.github.io/blog/#/markdown?repo=notes&path=Git%2FGit%20Proxy.md)。
+Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。具体方式参考 [另一篇文章](https://mrdrivingduck.github.io/blog/#/markdown?repo=notes&path=Git%2FGit%20Proxy.md)。
 
 ## Repository
 
@@ -102,6 +100,3 @@ Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。。具体方
 在 GitHub 上，某些项目的 release 中会带有一些已经编译好的可执行文件。如果想下载这些文件，GitHub 会重定向到 AWS 上进行下载 - 速度极慢。
 
 在 *知乎* 上看到了一个 GitHub 的 HTTP 版本的 [**镜像**](https://github.com.cnpmjs.org/) 网站。从这个网站上下载 release 中的文件，也可以达到加速效果。 🤞
-
----
-

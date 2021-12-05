@@ -14,15 +14,11 @@ Ningbo, Zhejiang, China
 
 Office 提供了套件通用的 API，也有适用于程序个体 (Excel, Word...) 的专用 API。
 
----
-
 ## Office VBA
 
 Office Visual Basic for Applications (VBA) 是一种事件驱动编程语言。几乎所有可以使用鼠标、键盘或对话框执行的操作也可以通过使用 VBA 自动进行。若某个操作可以使用 VBA 执行一次，则可以同样轻松地执行该操作一百次。除了可通过编写 VBA 脚本来加速执行日常任务外，还可以使用 VBA 为 Office 应用程序添加新功能，或以特定于业务需要的方式来提示文档用户并与之交互。
 
 但是..技术似乎比较老，😅 不优雅。我不喜欢。
-
----
 
 ## VSTO
 
@@ -31,8 +27,6 @@ Visual Studio Tools for Office (VSTO) 是 VBA 的替代。VSTO 外接程序包�
 这种技术方便在，使用较为高级的编程语言，再加上宇宙第一 IDE 的集成，使得开发较为方便。[文档在这里](https://docs.microsoft.com/en-us/dotnet/api/microsoft.office.tools?view=vsto-2017)。
 
 考虑用这一套技术写一些简单的 Office 工具，比如自动化解锁密码。之前手动解密码让我觉得太累了。
-
----
 
 ## JavaScript API + Web
 
@@ -87,11 +81,9 @@ Office 加载项 = 加载项清单 (XML) + 网页 (HTML + JavaScript)
 
 ## References
 
-https://docs.microsoft.com/en-us/office/dev/add-ins/
+[Office Add-ins Documentation](https://docs.microsoft.com/en-us/office/dev/add-ins/)
 
-https://docs.microsoft.com/zh-cn/visualstudio/vsto/create-vsto-add-ins-for-office-by-using-visual-studio?view=vs-2017
-
----
+[使用 Visual Studio 创建 VSTO 外接程序](https://docs.microsoft.com/zh-cn/visualstudio/vsto/create-vsto-add-ins-for-office-by-using-visual-studio?view=vs-2017)
 
 ## Summary
 
@@ -99,6 +91,3 @@ https://docs.microsoft.com/zh-cn/visualstudio/vsto/create-vsto-add-ins-for-offic
 
 1. 将多个 Excel 文件合并为一个 Excel 文件中的多个表
 2. 将多个 Excel 文件的保护密码移除
-
----
-

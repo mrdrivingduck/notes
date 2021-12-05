@@ -8,13 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-## About
-
-[*frp*](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。
-
-作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机。
-
----
+[*frp*](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机。
 
 ## Architecture
 
@@ -22,7 +16,7 @@ Nanjing, Jiangsu, China
 
 ![frp-architecture](../img/frp-architecture.png)
 
-总体上是 C-S 架构
+总体上是 C-S 架构：
 
 * 在具有公网 IP 地址的服务器上运行服务端
   * 监听一个指定的端口，用于接收内网客户端的穿透请求
@@ -33,16 +27,14 @@ Nanjing, Jiangsu, China
 
 > e.g.: frp 服务端运行于公网服务器的 12666 端口，内网主机的 frp 客户端连接到公网服务器的 12666 端口上，内网 frp 客户端希望将内网本地的 80 端口通过公网服务器的 13000 端口穿透出去。这样，所有用户都能够通过访问公网服务器的 13000 端口，间接访问内网主机的 80 端口，从而实现了穿透。
 
----
-
 ## Usage
 
 在 [GitHub Release](https://github.com/fatedier/frp/releases) 上下载对应操作系统、体系结构的程序：
 
-* `frps` - 服务端程序
-* `frps.ini` - 服务端配置文件
-* `frpc` - 客户端程序
-* `frps.ini` - 客户端配置文件
+* `frps`：服务端程序
+* `frps.ini`：服务端配置文件
+* `frpc`：客户端程序
+* `frps.ini`：客户端配置文件
 
 ### Server
 
@@ -97,13 +89,9 @@ remote_port = 13000
 $ ./frpc -c ./frpc.ini
 ```
 
----
-
 ## Function
 
-更多高级的功能暂时用不到，我的需求是：把我的那台厚重但性能强劲的笔记本接入实验室内网，使我可以在任何地方用苏菲远程连接到它，干一些比较吃性能的活。
-
-如果笔记本跑 Linux，可以通过 SSH 连接：
+更多高级的功能暂时用不到，我的需求是：把我的那台厚重但性能强劲的笔记本接入实验室内网，使我可以在任何地方用苏菲远程连接到它，干一些比较吃性能的活。如果笔记本跑 Linux，可以通过 SSH 连接：
 
 ```ini
 # frpc.ini
@@ -198,6 +186,3 @@ Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [pr
 Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [control.go:383] [4221a83a22b59969] client exit success
 Jun 17 22:11:57 iZbp121dwclu57bx28p55eZ frps[27060]: 2020/06/17 22:11:57 [I] [service.go:432] [6ba27948d06ad3f1] client login info: ip [58.213.91.10:25481] version [0.33.0] hostname [] os [linux] arch [amd64]
 ```
-
----
-
