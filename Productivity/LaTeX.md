@@ -1,4 +1,4 @@
-# LaTeX - Basic
+# LaTeX
 
 Created by : Mr Dk.
 
