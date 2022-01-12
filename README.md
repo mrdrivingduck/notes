@@ -14,11 +14,8 @@ Nanjing, Jiangsu, China
 
 To record knowledge from learning.
 
-**Stay Hungry. Stay Foolish.** -- *Steve Jobs*
+**Stay Hungry. Stay Foolish.** -- _Steve Jobs_
 
 ## License
 
-Copyright © 2018-2021, Jingtang Zhang. ([MIT License](LICENSE))
-
----
-
+Copyright © 2018-2022, Jingtang Zhang. ([MIT License](LICENSE))
