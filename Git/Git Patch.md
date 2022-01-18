@@ -318,6 +318,16 @@ Date:   Wed Jan 12 22:02:50 2022 +0800
     Initial commit for B
 ```
 
+## AM Three-Way Issue
+
+在 `git am -3` 的时候出现以下错误：
+
+```
+fatal: sha1 information is lacking or useless (xxx/xxx).
+```
+
+在 [这个回答](https://stackoverflow.com/questions/16572024/get-error-message-fatal-sha1-information-is-lacking-or-useless-when-apply-a) 中，答者指出在带有与 patch 不相关历史的 Git 仓库内进行 `git am -3` 会出现这个问题，因为与 patch 中改动相关的文件 hash 不在当前代码库中。解决方式是把 patch 的来源代码库作为 remote 来源添加到当前代码库中，并且 `git fetch`。
+
 ## References
 
 [Git Documentations - format-patch](https://git-scm.com/docs/git-format-patch)
