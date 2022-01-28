@@ -55,7 +55,7 @@ Maven 默认从 **中央存储库** (`http://repo1.maven.org/maven2/`) 自动下
 首先找到 Maven 的配置文件：
 
 * Windows 下 - `${user.home}/.m2/settings.xml` 
-* Linux 下 - `maven/conf/setting.xml` (似乎 Windows 也 OK？？？ 😧)
+* Linux 下 - `/etc/maven/setting.xml` (似乎 Windows 也 OK？？？ 😧)
 
 在配置文件中加入国内镜像 (阿里云为例):
 
