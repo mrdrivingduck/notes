@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-[*frp*](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机。
+[_frp_](https://github.com/fatedier/frp) 是一款开源的内网穿透工具，由 Go 语言实现，可在多种平台上运行。作用：使外网设备能够访问内网环境中的服务。比如，通过外网 SSH 或远程登录到内网主机。
 
 ## Architecture
 
@@ -18,12 +18,12 @@ Nanjing, Jiangsu, China
 
 总体上是 C-S 架构：
 
-* 在具有公网 IP 地址的服务器上运行服务端
-  * 监听一个指定的端口，用于接收内网客户端的穿透请求
-  * 在公网服务器上开放客户端指定的端口，用于穿透
-* 在内网运行客户端
-  * 指定远程服务端的 IP 地址和端口号，连接到远程服务器
-  * 设定本机的开放端口和远程服务器上的相应穿透端口
+- 在具有公网 IP 地址的服务器上运行服务端
+  - 监听一个指定的端口，用于接收内网客户端的穿透请求
+  - 在公网服务器上开放客户端指定的端口，用于穿透
+- 在内网运行客户端
+  - 指定远程服务端的 IP 地址和端口号，连接到远程服务器
+  - 设定本机的开放端口和远程服务器上的相应穿透端口
 
 > e.g.: frp 服务端运行于公网服务器的 12666 端口，内网主机的 frp 客户端连接到公网服务器的 12666 端口上，内网 frp 客户端希望将内网本地的 80 端口通过公网服务器的 13000 端口穿透出去。这样，所有用户都能够通过访问公网服务器的 13000 端口，间接访问内网主机的 80 端口，从而实现了穿透。
 
@@ -31,10 +31,10 @@ Nanjing, Jiangsu, China
 
 在 [GitHub Release](https://github.com/fatedier/frp/releases) 上下载对应操作系统、体系结构的程序：
 
-* `frps`：服务端程序
-* `frps.ini`：服务端配置文件
-* `frpc`：客户端程序
-* `frps.ini`：客户端配置文件
+- `frps`：服务端程序
+- `frps.ini`：服务端配置文件
+- `frpc`：客户端程序
+- `frps.ini`：客户端配置文件
 
 ### Server
 
@@ -48,20 +48,8 @@ bind_port = 12666
 
 然后启动服务端程序：
 
-```console
-$ ./frps -c ./frps.ini
-```
-
-该服务端程序会阻塞命令行，所以可以使其在后台运行，将输出重定向到了 log 文件中：
-
-```console
-$ ./frps -c ./frps.ini > log &
-```
-
-可以通过 `tail` 命令查看最新的 log：
-
-```console
-$ tail log
+```bash
+./frps -c ./frps.ini
 ```
 
 ### Client
@@ -137,11 +125,11 @@ login_fail_exit = false
 
 将 `frpc` / `frps` 拷贝到 `/usr/sbin` 目录下，将相应配置文件拷贝到 `/etc/frp` 下，然后编辑配置文件 `frpc.service` / `frps.service`。以 `frpc` 为例：
 
-```console
-$ sudo vim /etc/systemd/system/frpc.service
+```bash
+sudo vim /etc/systemd/system/frpc.service
 ```
 
-```
+```ini
 [Unit]
 Description=frpc daemon
 After=syslog.target  network.target
@@ -158,14 +146,14 @@ ExecStop=/usr/bin/killall frpc
 WantedBy=multi-user.target
 ```
 
-```console
-$ sudo systemctl enable frpc.service
+```bash
+sudo systemctl enable frpc.service
 ```
 
 之后就可以启动服务了：
 
-```console
-$ service frpc start
+```bash
+service frpc start
 ```
 
 如果出现了一些问题想查看日志 (以 frps 服务端程序为例)：
