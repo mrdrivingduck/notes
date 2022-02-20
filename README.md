@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-To record knowledge from learning.
+To record knowledge from learning. Some small points will be recorded in [issues](https://github.com/mrdrivingduck/notes/issues).
 
 **Stay Hungry. Stay Foolish.** -- _Steve Jobs_
 
