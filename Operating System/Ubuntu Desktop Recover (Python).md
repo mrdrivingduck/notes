@@ -33,7 +33,7 @@ sudo apt install ubuntu-minimal ubuntu-standard ubuntu-desktop
 
 ## Terminal & Python 3
 
-之后，我试图使用 [管理多版本 GCC](https://mrdrivingduck.github.io/blog/#/markdown?repo=notes&path=Compiler%2FCompiler%20Multi-version%20GCC.md) 的方式来管理多版本的 Python 3。方法是可行的，但是将 `python3` 的指向从 `python3.6` 改到 `python3.7` 后，Terminal 运行不起来了。
+之后，我试图使用 [管理多版本 GCC](../Compiler/Compiler%20Multi-version%20GCC.md) 的方式来管理多版本的 Python 3。方法是可行的，但是将 `python3` 的指向从 `python3.6` 改到 `python3.7` 后，Terminal 运行不起来了。
 
 我通过远程 SSH 输入命令查看问题：
 

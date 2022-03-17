@@ -8,7 +8,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-受限于国内的网络环境，用 Git 从 GitHub 上 `clone` / `fetch` / `pull` / `push` 都痛苦异常。这段时间放假在家，家里的网速比实验室里的还慢，用 [配置 GitHub DNS](https://mrdrivingduck.github.io/blog/#/markdown?repo=notes&path=Network%2FNetwork%20GitHub%20Accelerating.md) 的方法已经不太奏效了。就算 IP 地址没有被污染，从国内连到国外相应服务器的延迟依旧很高。因此，试图配置 Git 的代理，借由在境外租用的服务器，来加速 Git 对 GitHub 的访问。
+受限于国内的网络环境，用 Git 从 GitHub 上 `clone` / `fetch` / `pull` / `push` 都痛苦异常。这段时间放假在家，家里的网速比实验室里的还慢，用 [配置 GitHub DNS](../Network/Network%20GitHub%20Accelerating.md) 的方法已经不太奏效了。就算 IP 地址没有被污染，从国内连到国外相应服务器的延迟依旧很高。因此，试图配置 Git 的代理，借由在境外租用的服务器，来加速 Git 对 GitHub 的访问。
 
 GitHub 有 HTTPS 和 SSH 两种访问方式。在我自己的电脑上，由于我有自己的 RSA 公私钥，所以一般使用 SSH 方式。对这两种访问方式，设置代理的方式也有所不同。
 

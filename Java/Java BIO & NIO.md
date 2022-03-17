@@ -10,10 +10,10 @@ Nanjing, Jiangsu, China
 
 BIO 和 NIO 的概念很早之前就听说过，但没有机会深挖。最近下定决心弄清楚，有机缘巧合买了一节相关的网课听了听，觉得有些收获。把几个常用到的名词和含义搞懂了：
 
-* BIO / NIO / AIO
-* SELECT / POLL / EPOLL
-* 同步 / 异步
-* 阻塞 / 非阻塞
+- BIO / NIO / AIO
+- SELECT / POLL / EPOLL
+- 同步 / 异步
+- 阻塞 / 非阻塞
 
 本文大致以服务端网络 I/O 操作的发展演进过程为逻辑。
 
@@ -23,9 +23,9 @@ BIO 和 NIO 的概念很早之前就听说过，但没有机会深挖。最近�
 
 BIO 即 blocking I/O，这是操作系统中最简单的 I/O 模型。无论是在网络课还是在操作系统课上，无论是 Java 还是 C/C++，都肯定演示过一个最简单的网络程序 (伪代码)：
 
-* 监听一个服务器端口
-* 在一个死循环中，不断接收客户端连接并处理
-* 如果不想在处理连接的同时错过新的客户端连接，就把连接的处理交给一个子进程/子线程
+- 监听一个服务器端口
+- 在一个死循环中，不断接收客户端连接并处理
+- 如果不想在处理连接的同时错过新的客户端连接，就把连接的处理交给一个子进程/子线程
 
 ```
 ServerSocket server = new ServerSocket(8080);
@@ -40,9 +40,9 @@ while (true) {
 
 ServerSocket 的实例化过程有三步：
 
-* 调用 OS 的 `socket()` 系统调用，拿到一个文件描述符 fd
-* 调用 OS 的 `bind()` 将这个 fd 关联到服务器要监听的端口上
-* 调用 OS 的 `listen()` 开始监听 fd (即监听端口)
+- 调用 OS 的 `socket()` 系统调用，拿到一个文件描述符 fd
+- 调用 OS 的 `bind()` 将这个 fd 关联到服务器要监听的端口上
+- 调用 OS 的 `listen()` 开始监听 fd (即监听端口)
 
 ```
 NAME
@@ -146,12 +146,12 @@ DESCRIPTION
 
 因此，BIO 的特性是：**一个线程对应一个连接**，能够解决的问题：
 
-* 可以接收大量的连接
+- 可以接收大量的连接
 
 但是弊端在于，OS 中将会同时存在大量的线程：
 
-* 线程内存开销较大
-* 大量的 CPU 资源被浪费在线程上下文切换上
+- 线程内存开销较大
+- 大量的 CPU 资源被浪费在线程上下文切换上
 
 造成 BIO 特性的根本原因是，**系统调用的阻塞性**。如果系统调用能够支持非阻塞，那么就能够使用新的 I/O 模型。
 
@@ -199,8 +199,8 @@ while (true) {
 
 每一轮循环中，`accept()` 不会阻塞，立刻返回：
 
-* 如果有连接，就返回连接
-* 如果没有连接，就返回 `null`
+- 如果有连接，就返回连接
+- 如果没有连接，就返回 `null`
 
 另外，在每轮循环中，对于已经建立的每一个连接调用一次 `read()` 来接收数据，`read()` 的调用也是非阻塞的，如果有数据，就返回一个大于 0 的字节数。这样一来，**只使用了一个线程**，就实现了 BIO 模型中的功能。在并发量较大时 (C10K)，相比 BIO 有优势。
 
@@ -214,7 +214,7 @@ while (true) {
 
 这两个系统调用是 POSIX 标准中定义的多路复用功能，Linux 很早就实现了它们。用户空间程序告诉内核自己想要查询哪些 fd 的 I/O 已经处于就绪状态，内核代为查询之后，返回给用户空间。
 
-关于 SELECT 在 Linux 0.12 中的实现可以参考 [这里](https://mrdrivingduck.cn/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)。用户空间程序可以以 bitmap 的形式，将想要查询 I/O 状态的 fd 对应的 bit 置为 1。其中的限制在于 bitmap 的长度是确定的，因此查询的 fd 范围受到了限制。而 POLL 的参数是链表，从而突破了这个局限。
+关于 SELECT 在 Linux 0.12 中的实现可以参考 [这里](../../linux-kernel-comments-notes/Chapter 12 - 文件系统/Chapter 12.19 - select.c 程序.md)。用户空间程序可以以 bitmap 的形式，将想要查询 I/O 状态的 fd 对应的 bit 置为 1。其中的限制在于 bitmap 的长度是确定的，因此查询的 fd 范围受到了限制。而 POLL 的参数是链表，从而突破了这个局限。
 
 ```
 NAME
@@ -279,8 +279,8 @@ DESCRIPTION
 
 这种多路复用显著减少了系统调用的调用次数，但是还存在一个问题：
 
-* 每次调用都要传递大量重复的 fd (用户空间向内核空间复制参数是需要开销的)
-* 内核每次都要遍历内核中所有的 fd 来确定哪些 fd 就绪 (类似轮询，需要通过中断解决)
+- 每次调用都要传递大量重复的 fd (用户空间向内核空间复制参数是需要开销的)
+- 内核每次都要遍历内核中所有的 fd 来确定哪些 fd 就绪 (类似轮询，需要通过中断解决)
 
 如果能够在内核中维护用户空间要查询的所有 fd 的状态，那么就能够消除这种参数复制开销。这就是 EPOLL 多路复用器出现的意义。
 
@@ -305,15 +305,15 @@ int epoll_wait(int epfd, struct epoll_event *events,
 
 然后，用户空间通过调用 `epoll_ctl()`，将 想要监视的 **fd** 以及 **事件** 注册到 epoll fd 对应的内存中。注意，对于某一个被监视的 fd，一般只需要调用一次 `epoll_ctl()` 即可。`epoll_ctl()` 支持的注册事件包括：
 
-* `EPOLL_CTL_ADD` - 注册 fd
-* `EPOLL_CTL_MOD` - 修改已注册 fd 的事件
-* `EPOLL_CTL_DEL` - 解除注册 fd
+- `EPOLL_CTL_ADD` - 注册 fd
+- `EPOLL_CTL_MOD` - 修改已注册 fd 的事件
+- `EPOLL_CTL_DEL` - 解除注册 fd
 
 支持监视的事件很多，比如：
 
-* `EPOLLIN` - fd 可被调用 `read()`
-* `EPOLLOUT` - fd 可被调用 `write()`
-* ...
+- `EPOLLIN` - fd 可被调用 `read()`
+- `EPOLLOUT` - fd 可被调用 `write()`
+- ...
 
 用户空间程序只需要调用 `epoll_wait()` (并可指定一个超时参数)，内核就会返回目前已经就绪的 fd。
 
@@ -383,8 +383,8 @@ EPOLL 是一个适用于多 CPU core 场景的多路复用器。对于 SELECT �
 
 EPOLL 有两种触发方式：
 
-* Level-triggered (水平触发) (也是 SELECT、POLL 的触发方式)
-* Edge-triggered (边沿触发) (也是 *信号驱动 I/O* 的触发方式)
+- Level-triggered (水平触发) (也是 SELECT、POLL 的触发方式)
+- Edge-triggered (边沿触发) (也是 _信号驱动 I/O_ 的触发方式)
 
 顾名思义，水平触发就是，只要 fd 已经就绪，每次调用 `epoll_wait()` 都能返回该 fd；而边沿触发只会在某个 fd 第一次就绪时通过 `epoll_wait()` 返回，假设用户代码没有对一个已经就绪的 fd 调用 `recv()`，那么之后调用 `epoll_wait()` 时内核将不会返回这个 fd，直到这个 fd 第二次就绪。
 
@@ -408,7 +408,4 @@ EPOLL 有两种触发方式：
 
 [Julia Evans - Async IO on Linux: select, poll, and epoll](https://jvns.ca/blog/2017/06/03/async-io-on-linux--select--poll--and-epoll/)
 
-[Mr Dk.'s blog - Linux 0.12 内核完全注释 - select.c 程序](https://mrdrivingduck.github.io/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.19%20-%20select.c%20%E7%A8%8B%E5%BA%8F.md)
-
----
-
+[Mr Dk.'s blog - Linux 0.12 内核完全注释 - select.c 程序](../../linux-kernel-comments-notes/Chapter 12 - 文件系统/Chapter 12.19 - select.c 程序.md)

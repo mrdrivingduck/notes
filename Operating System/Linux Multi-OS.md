@@ -22,26 +22,26 @@ Nanjing, Jiangsu, China
 
 第一个分区，用于安装系统内核。选择空闲空间，点击 `+`
 
-* 大小 - 30720MB (30GB)
-* 新分区的类型 - `逻辑分区`
-* 新分区的位置 - `空间起始位置`
-* 用于 - `Ext4 日志文件系统`
-* 挂载点 - `/`
+- 大小 - 30720MB (30GB)
+- 新分区的类型 - `逻辑分区`
+- 新分区的位置 - `空间起始位置`
+- 用于 - `Ext4 日志文件系统`
+- 挂载点 - `/`
 
 第二个分区，用作 swap space。选择空闲空间，点击 `+`
 
-* 大小 - 2048MB
-* 新分区的类型 - `逻辑分区`
-* 新分区的位置 - `空间起始位置`
-* 用于 - `交换空间`
+- 大小 - 2048MB
+- 新分区的类型 - `逻辑分区`
+- 新分区的位置 - `空间起始位置`
+- 用于 - `交换空间`
 
 第三个分区，用于用户数据。选择空闲空间，点击 `+`
 
-* 大小 - 剩余所有空间
-* 新分区的类型 - `逻辑分区`
-* 新分区的位置 - `空间起始位置`
-* 用于 - `Ext4 日志文件系统`
-* 挂载点 - `/home`
+- 大小 - 剩余所有空间
+- 新分区的类型 - `逻辑分区`
+- 新分区的位置 - `空间起始位置`
+- 用于 - `Ext4 日志文件系统`
+- 挂载点 - `/home`
 
 `安装启动引导器的设备 ：` - 这是安装系统 boot loader 的位置。找到系统上已经有的 EFI System Partition (ESP) 分区，将 boot loader 安装到这里。在这个分区的 `efi` 目录下，每一个子目录都是一个系统的 boot loader。
 
@@ -51,10 +51,10 @@ Nanjing, Jiangsu, China
 
 在 Linux 中，可以专门在磁盘上划分出一个 swap 分区，也可以在文件系统中创建一个指定大小的文件 swap file 作为 swap 空间。Swap space 的推荐大小因硬件而异，也因运行软件的需求而异。一般推荐的大小：
 
-* RAM < 2GB - RAM 的两倍大小
-* RAM 2-8GB - RAM 相同大小
-* RAM 9-64GB - 0.5 倍 RAM 大小
-* RAM > 64GB - 按应用程序需求而定
+- RAM < 2GB - RAM 的两倍大小
+- RAM 2-8GB - RAM 相同大小
+- RAM 9-64GB - 0.5 倍 RAM 大小
+- RAM > 64GB - 按应用程序需求而定
 
 我的工作机器在安装 Linux 时没有单独划分 swap space，内存只有 8GB。在运行实验程序时，内存几近用完。系统自动为我分配的一个 2GB 的 swap file 似乎也不太够用。于是我决定将 swap file 扩充为 16GB。
 
@@ -90,7 +90,7 @@ $ sudo swapon /swapfile
 任务管理器中重新显示了 swap space，并已经被扩容为 16GB。这就是挺喜欢 Linux 的地方 - 一切自己动手。 😁
 
 > [Linux 增加 swap 分区和删除 swapfile 文件的方法](https://blog.csdn.net/Seven_tester/article/details/82628866?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight)
-> 
+>
 > [如何在 Ubuntu 16.04 上增加 Swap 分区](https://baijiahao.baidu.com/s?id=1600715185132290794&wfr=spider&for=pc)
 
 ## GRUB Default Boot Order
@@ -207,9 +207,9 @@ done
 
 一台电脑上装了三个系统：
 
-* Windows 10
-* Ubuntu 18.04
-* Deepin
+- Windows 10
+- Ubuntu 18.04
+- Deepin
 
 直接把 deepin 的空间给回收了，但 GRUB 记录没有清理。重新开机以后直接进入了 GRUB 的命令行，无法自动 boot 了。
 
@@ -238,16 +238,16 @@ $ boot-repair
 ```
 
 > [CSDN - 修复 Ubuntu 启动项](https://blog.csdn.net/gyjun0230/article/details/48790501)
-> 
+>
 > [CSDN - 【一顿操作】用 Grub2 命令行引导启动 Windows 10](https://blog.csdn.net/hikkilover/article/details/82290873)
 
 ## GPU Problem
 
-系统安装完毕后重启，结果整个界面卡死，应该是显卡冲突的问题。进入系统后，发现 *Ubuntu* 使用了集成显卡，没有使用 *NVIDIA*。
+系统安装完毕后重启，结果整个界面卡死，应该是显卡冲突的问题。进入系统后，发现 _Ubuntu_ 使用了集成显卡，没有使用 _NVIDIA_。
 
 ![ubuntu-without-nvidia](../img/ubuntu-without-nvidia.png)
 
-因此需要安装 *NVIDIA* 的附加驱动：
+因此需要安装 _NVIDIA_ 的附加驱动：
 
 ```console
 $ ubuntu-drivers devices
@@ -271,4 +271,4 @@ $ sudo ubuntu-drivers autoinstall
 
 [Linux 系统中添加硬盘，并挂载到已有的目录](https://blog.csdn.net/jiandanjinxin/article/details/69969217?utm_source=blogxgwz0)
 
-[How the Linux Kernel Boots](https://mrdrivingduck.github.io/blog/#/markdown?repo=how_linux_works_notes&path=Chapter%205%20-%20How%20the%20Linux%20Kernel%20Boots.md)
+[How the Linux Kernel Boots](../../how-linux-works-notes/Chapter 5 - How the Linux Kernel Boots.md)

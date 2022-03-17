@@ -58,7 +58,7 @@ PID namespace 的隔离其实比较好理解。每个进程都会有一个唯一
 
 Mount namespace 通过隔离 **文件系统挂载点** 实现了隔离文件系统。创建 mount namespace 时，会将当前的文件结构复制给新的 mount namespace，两者严格隔离，新的 namespace 中的所有 mount 操作只影响自身的文件系统。
 
-> 顺嘴一提 mount 操作的本质 (参见 `mount` 系统调用的 [源代码](https://mrdrivingduck.github.io/blog/#/markdown?repo=linux_kernel_comments_notes&path=Chapter%2012%20-%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%2FChapter%2012.6%20-%20super.c%20%E7%A8%8B%E5%BA%8F.md))。Mount 操作实际上是将一个文件系统的 super block 关联到 rootfs 的一个路径上 (实际上是一个 inode 上)。这里 mount 隔离的意思应该是，假设在 mount namespace 1 中，将文件系统挂载到了 `/home/fs/` 下；而在 mount namespace 2 中，`/home/fs/` 路径上没有任何挂载。
+> 顺嘴一提 mount 操作的本质（参见 `mount` 系统调用的 [源代码](../../linux-kernel-comments-notes/Chapter 12 - 文件系统/Chapter 12.6 - super.c 程序.md)）。Mount 操作实际上是将一个文件系统的 super block 关联到 rootfs 的一个路径上 (实际上是一个 inode 上)。这里 mount 隔离的意思应该是，假设在 mount namespace 1 中，将文件系统挂载到了 `/home/fs/` 下；而在 mount namespace 2 中，`/home/fs/` 路径上没有任何挂载。
 
 这种完全的挂载隔离其实不太方便 - 假如父 namespace 中 mount 了一个新设备，在子 namespace 中是无法自动 mount 这个设备的。之后引入的 **挂载传播 (mount propagation)** 解决了这个问题，具体的解决方式是详细定义了挂载事件如何在 namespace 之间传播，细化了隔离的粒度：
 

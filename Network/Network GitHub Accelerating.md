@@ -87,7 +87,7 @@ assets-cdn.github.com
 
 ## Git Configuration
 
-Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。具体方式参考 [另一篇文章](https://mrdrivingduck.github.io/blog/#/markdown?repo=notes&path=Git%2FGit%20Proxy.md)。
+Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。具体方式参考 [另一篇文章](../Git/Git%20Proxy.md)。
 
 ## Repository
 
