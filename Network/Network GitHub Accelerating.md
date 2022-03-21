@@ -20,7 +20,7 @@ GitHub 不在 PAC 列表中。如果代理速度够快的话，可以手动将 G
 
 GitHub 速度慢的另一个原因是受到了国内 DNS 污染。可以到专门的域名解析网站，解析以下三个域名，并将这三个域名的 IP 地址配置到操作系统的 DNS 表中。这样就可以绕过 DNS 服务器，通过本地的 DNS 解析直接访问相应的 IP 地址。
 
-> 用处不大。
+> 目前来看用处不大了。
 
 ```
 github.com
@@ -30,9 +30,9 @@ assets-cdn.github.com
 
 在 [域名解析网站](https://www.ipaddress.com/) 中，分别查询这三个域名的 IP 地址：
 
-* github.com
-* github.global.ssl.fastly.net
-* assets-cdn.github.com
+- github.com
+- github.global.ssl.fastly.net
+- assets-cdn.github.com
 
 ### Windows
 
@@ -81,13 +81,13 @@ assets-cdn.github.com
 
 添加完成后，保存文件，刷新 DNS 缓存使之生效：
 
-```cmd
-> ipconfig /flushdns
+```powershell
+ipconfig /flushdns
 ```
 
 ## Git Configuration
 
-Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。具体方式参考 [另一篇文章](../Git/Git%20Proxy.md)。
+Git 也支持代理，不管是 _SSH_ 方式还是 _HTTPS_ 方式。具体方式参考 [另一篇文章](../Git/Git%20Proxy.md)。
 
 ## Repository
 
@@ -95,8 +95,8 @@ Git 也支持代理，不管是 *SSH* 方式还是 *HTTPS* 方式。具体方式
 
 另外，Gitee 的页面上有个刷新键，可以随时从 GitHub 的仓库同步。
 
-## Release
+## File Downloading
 
-在 GitHub 上，某些项目的 release 中会带有一些已经编译好的可执行文件。如果想下载这些文件，GitHub 会重定向到 AWS 上进行下载 - 速度极慢。
+在 GitHub 上，某些项目的 release 中会带有一些已经编译好的可执行文件。如果想下载这些文件，GitHub 会重定向到 AWS 上进行下载，速度极慢。
 
-在 *知乎* 上看到了一个 GitHub 的 HTTP 版本的 [**镜像**](https://github.com.cnpmjs.org/) 网站。从这个网站上下载 release 中的文件，也可以达到加速效果。 🤞
+[GitHub Proxy](https://ghproxy.com/) 提供 release、archive 等文件下载的加速服务。🤞

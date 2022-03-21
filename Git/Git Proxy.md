@@ -16,27 +16,29 @@ GitHub 有 HTTPS 和 SSH 两种访问方式。在我自己的电脑上，由于�
 
 这种网上的解决方式是最多的，直接在 Git 命令行中设置即可。
 
-```console
-$ git config –global http.proxy http://[user:password@]10.167.32.133:8080
-$ git config –global http.proxy https://[user:password@]10.167.32.133:8080
+```bash
+git config –global http.proxy http://[user:password@]10.167.32.133:8080
+git config –global http.proxy https://[user:password@]10.167.32.133:8080
 ```
+
+如果使用本地代理，那么使用 `127.0.0.1`。
 
 相应的撤销代理方法：
 
-```console
-$ git config --global --unset http.proxy
-$ git config --global --unset https.proxy
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 ```
 
 ## SSH Proxy
 
 ### Windows
 
-在 Baidu 上没有找到解决方案，后来通过 Google 看了一篇 [博客](https://communary.net/2017/01/12/getting-git-to-work-through-a-proxy-server-in-windows/) 发现符合我的应用场景，并且经过测试方法是有效的。我的应用场景是 [*Git for Windows*](https://gitforwindows.org/) + [*V2Ray*](https://github.com/2dust/v2rayN) 的本地代理。
+在 Baidu 上没有找到解决方案，后来通过 Google 看了一篇 [博客](https://communary.net/2017/01/12/getting-git-to-work-through-a-proxy-server-in-windows/) 发现符合我的应用场景，并且经过测试方法是有效的。我的应用场景是 [_Git for Windows_](https://gitforwindows.org/) + [_V2Ray_](https://github.com/2dust/v2rayN) 的本地代理。
 
 具体的设置方式是在 SSH 的配置文件 (`~/.ssh/config`) 中添加规则。规则中的代理命令需要使用到一个叫做 `connect.exe` 的程序。这个程序不用另外下载，在 Git for Windows 的安装目录下已经提供：`<Git_Path>/Git/mingw64/bin/`。该程序的使用方式如下：
 
-```bat
+```shell
 $ connect
 connect --- simple relaying command via proxy.
 Version 1.105
@@ -49,7 +51,7 @@ usage: C:\Program Files\Git\mingw64\bin\connect.exe [-dnhst45] [-p local-port]
 
 根据该程序的使用方法，可以使用 `-H` 参数下的 HTTP 代理和 `-S` 参数下的 SOCKS 代理 (其它代理反正我也没有不就深究含义)。我这边的 V2Ray 支持 HTTP 和 SOCKS 两种代理，只是端口号不一样，所以我就使用了 SOCKS 代理。在本地 SSH 的配置文件中添加如下规则：
 
-```
+```ssh
 Host github.com
     ProxyCommand "C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %h %p
     IdentityFile "~/.ssh/id_rsa"
@@ -70,7 +72,7 @@ Host github.com
 
 Linux 下主要是 `ProxyCommand` 的不同：
 
-```
+```ssh
 Host github.com
     ProxyCommand nc -x 127.0.0.1:10808 %h %p
     IdentityFile "~/.ssh/id_rsa"
@@ -88,6 +90,3 @@ Host github.com
 [Getting git to work through a proxy server (in Windows)](https://communary.net/2017/01/12/getting-git-to-work-through-a-proxy-server-in-windows/)
 
 [Use Proxy for Git/GitHub](https://gist.github.com/coin8086/7228b177221f6db913933021ac33bb92)
-
----
-
