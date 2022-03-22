@@ -75,4 +75,4 @@ Access-Control-Expose-Headers: ...
 
 [简书 - 前端 | 浅谈 preflight request](https://www.jianshu.com/p/b55086cbd9af)
 
-[稀土掘金 - 浅谈浏览器中的 preflight 请求](浅谈浏览器中的preflight请求)
+[稀土掘金 - 浅谈浏览器中的 preflight 请求](https://juejin.cn/post/6844904053328052232)
