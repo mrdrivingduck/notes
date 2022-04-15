@@ -18,4 +18,4 @@ To record knowledge from learning. Some small points will be recorded in [issues
 
 ## License
 
-Copyright © 2018-2022, Jingtang Zhang. ([MIT License](LICENSE))
+Copyright © 2018-2022, Jingtang Zhang. ([MIT License](./LICENSE))

@@ -271,4 +271,4 @@ $ sudo ubuntu-drivers autoinstall
 
 [Linux 系统中添加硬盘，并挂载到已有的目录](https://blog.csdn.net/jiandanjinxin/article/details/69969217?utm_source=blogxgwz0)
 
-[How the Linux Kernel Boots](../../how-linux-works-notes/Chapter 5 - How the Linux Kernel Boots.md)
+[How the Linux Kernel Boots](../../how-linux-works-notes/Chapter%205%20-%20How%20the%20Linux%20Kernel%20Boots.md)
