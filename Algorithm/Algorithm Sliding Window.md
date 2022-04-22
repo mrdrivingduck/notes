@@ -8,9 +8,9 @@ Ningbo, Zhejiang, China
 
 ---
 
-2021 年 2 月的 *LeetCode* 题目全都是 **滑动窗口** 相关。记录一下该类型题目的编程范式。以 C++ 为例：
+2021 年 2 月的 _LeetCode_ 题目全都是 **滑动窗口** 相关。记录一下该类型题目的编程范式。以 C++ 为例：
 
-```c++
+```cpp
 // vector<int> nums;
 
 int left = 0;
@@ -31,6 +31,3 @@ while (right < (int) nums.size()) {
     right++; // 滑动窗口向右扩展
 }
 ```
-
----
-

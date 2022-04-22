@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 学习一下 C++ 中四种常见智能指针的用法、行为和具体实现。它们的定义位于：
 
-```c++
+```cpp
 #include <memory>
 using namespace std;
 ```
@@ -23,9 +23,9 @@ Automatic Pointer，已经在 C++ 11 标准中过时。
 
 该指针提供了对一个指针的全周期生命管理，语义上类似于 **独占** 一个指针，维护着对内部指针的 **控制权**。对指针拥有控制权的 `auto_ptr` 负责对内部指针进行销毁。因此，不可能有多于两个 `auto_ptr` 对象在内部维护着同一个指针。当两个 `auto_ptr` 对象之间发生赋值时，将会涉及到控制权的转移。控制权转移之后，原指针将失效。
 
-另外，可以看到构造函数都带有 `throw`，保证是 *异常安全* 的。
+另外，可以看到构造函数都带有 `throw`，保证是 _异常安全_ 的。
 
-```c++
+```cpp
 explicit auto_ptr (X* p=0) throw();
 
 auto_ptr (auto_ptr& a) throw();
@@ -35,13 +35,13 @@ template<class Y>
 auto_ptr (auto_ptr_ref<X> r) throw();
 ```
 
-```c++
+```cpp
 ~auto_ptr() throw();
 ```
 
 常规指针行为：
 
-```c++
+```cpp
 X* get() const throw();        // 获取内部指针
 X& operator*() const throw();  // 通过 operator* 对内部指针解引用
 X* operator->() const throw(); // 通过 operator-> 返回内部指针的成员变量
@@ -49,7 +49,7 @@ X* operator->() const throw(); // 通过 operator-> 返回内部指针的成员�
 
 控制权管理：
 
-```c++
+```cpp
 // 指针赋值，左边的 auto_ptr 对象接管控制权，右边的 auto_ptr 对象置空
 auto_ptr& operator= (auto_ptr& a) throw();
 template <class Y>
@@ -77,16 +77,16 @@ void reset (X* p=0) throw();
 
 构造函数：
 
-```c++
+```cpp
 // 空构造函数，内部指针被设置为 nullptr
-constexpr unique_ptr() noexcept;	
+constexpr unique_ptr() noexcept;
 constexpr unique_ptr (nullptr_t) noexcept : unique_ptr() {}
 
 // 从指针构造
 explicit unique_ptr (pointer p) noexcept;
 // 从指针构造，并复制一份输入 deleter
 unique_ptr (pointer p,
-    typename conditional<is_reference<D>::value,D,const D&> del) noexcept;	
+    typename conditional<is_reference<D>::value,D,const D&> del) noexcept;
 // 从指针构造，并使用输入 deleter
 unique_ptr (pointer p,
     typename remove_reference<D>::type&& del) noexcept;
@@ -104,13 +104,13 @@ unique_ptr (const unique_ptr&) = delete;
 
 析构函数：
 
-```c++
+```cpp
 ~unique_ptr();  // 以内部指针为参数，调用 deleter
 ```
 
 指针行为：
 
-```c++
+```cpp
 // 判空，不再需要先通过 get 获取到内部指针，再对内部指针进行判空
 explicit operator bool() const noexcept;
 
@@ -121,7 +121,7 @@ pointer operator->() const noexcept;
 
 控制权管理：
 
-```c++
+```cpp
 // 放弃指针控制权，内部指针置空
 pointer release() noexcept;
 
@@ -144,7 +144,7 @@ void swap (unique_ptr& x) noexcept;
 
 构造函数：
 
-```c++
+```cpp
 // 空构造函数，不管理任何指针，引用计数为 0
 constexpr shared_ptr() noexcept;
 constexpr shared_ptr(nullptr_t) : shared_ptr() {}
@@ -185,13 +185,13 @@ template <class U> shared_ptr (const shared_ptr<U>& x, element_type* p) noexcept
 - 如果引用计数等于 1，那么使用 deleter 或 `operator delete` 销毁指针
 - 如果引用计数为 0，那么没有任何效果
 
-```c++
+```cpp
 ~shared_ptr();
 ```
 
 重置：
 
-```c++
+```cpp
 // 当前对象被自销毁
 void reset() noexcept;
 // (可选) 然后对一个新指针建立控制权
@@ -202,7 +202,7 @@ template <class U, class D, class Alloc> void reset (U* p, D del, Alloc alloc);
 
 引用计数相关：
 
-```c++
+```cpp
 long int use_count() const noexcept;  // 返回引用计数
 bool unique() const noexcept;         // 返回控制权是否唯一
 ```
@@ -215,7 +215,7 @@ shared_ptr 互相引用时，引用计数永远不会减至 0。weak_ptr 用于�
 
 构造函数：
 
-```c++
+```cpp
 // 成为共享组的一部分，但不持有控制权 (不增加引用计数)
 constexpr weak_ptr() noexcept;
 
@@ -229,7 +229,7 @@ template <class U> weak_ptr (const shared_ptr<U>& x) noexcept;
 
 引用计数相关：
 
-```c++
+```cpp
 // 返回共享内部指针控制权的指针数量
 long int use_count() const noexcept;
 // 返回当前 weak_ptr 是否过期 (use_count()==0)
@@ -253,4 +253,3 @@ weak_ptr 没有重载 `operator*` 和 `operator->`，因此只能通过 shared_p
 [cplusplus.com - shared_ptr](http://www.cplusplus.com/reference/memory/shared_ptr/)
 
 [cplusplus.com - weak_ptr](https://www.cplusplus.com/reference/memory/weak_ptr/)
-

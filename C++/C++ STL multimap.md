@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## Feature
 
-```c++
+```cpp
 template < class Key,                                   // multimap::key_type
            class T,                                     // multimap::mapped_type
            class Compare = less<Key>,                   // multimap::key_compare
@@ -27,7 +27,7 @@ Multimap 提供 key - value 的映射。
 
 通过 key 快速查找 value，key 可被修改，value 不可被修改。底层由 **红黑树** 实现。插入、删除操作后，其余迭代器 **不会失效**。
 
-```c++
+```cpp
 #include <map>
 using namespace std;
 
@@ -38,7 +38,7 @@ using namespace std;
 
 ## Constructor
 
-```c++
+```cpp
 multimap<key_Type, value_Type> multimap; // Empty container (default)
 multimap<key_Type, value_Type> multimap(another_map); // Copy constructor
 multimap<key_Type, value_Type> multimap(another_map.begin(), another_map.end()); // Range constructor
@@ -48,7 +48,7 @@ multimap<key_Type, value_Type> multimap(another_map.begin(), another_map.end());
 
 **Copy** a container.
 
-```c++
+```cpp
 multimap<key_Type, value_Type> A;
 multimap<key_Type, value_Type> B;
 A = B;
@@ -56,7 +56,7 @@ A = B;
 
 ## Iterators
 
-```c++
+```cpp
 multimap<key_Type, value_Type>::iterator iter_begin = multimap.begin(); // 指向第一个元素的迭代器
 multimap<key_Type, value_Type>::iterator iter_end = multimap.end(); // 指向最后一个元素的下一个位置的迭代器
 multimap<key_Type, value_Type>::reverse_iterator iter_rbegin = multimap.rbegin(); // 指向最后一个元素的迭代器
@@ -65,7 +65,7 @@ multimap<key_Type, value_Type>::reverse_iterator iter_rend = multimap.rend(); //
 
 ## Capacity
 
-```c++
+```cpp
 // 返回容器是否为空
 if (multimap.empty() == FALSE)
 {
@@ -78,7 +78,7 @@ if (multimap.empty() == FALSE)
 
 ## Modification
 
-```c++
+```cpp
 multimap.insert(pair<key_Type, value_Type> (key, value)); // 插入
 
 // 删除
@@ -93,7 +93,7 @@ multimap.swap(another_map);	// 交换两个容器中的内容
 
 ## Search
 
-```c++
+```cpp
 // find() - 返回第一次出现 key 的迭代器
 multimap<key_Type, value_Type>::iterator iter = multimap.find(key);
 if (iter == multimap.end())
@@ -114,7 +114,7 @@ Iter high = multimap.upper_bound(key);
 
 /*
  * equal_range() - 返回指向 key 的首尾范围的迭代器
- * 返回形式为 pair - 
+ * 返回形式为 pair -
  *     第一个成员为 lower_bound() 的结果
  *     第二个成员为 upper_bound() 的结果
  *     ['>=', '>') 等价于 '='
@@ -127,5 +127,4 @@ for (Iter iter = range.first; iter != range.second; iter++) {
 
 ## Reference
 
-* [CPlusPlus.com - std::multimap](http://www.cplusplus.com/reference/map/multimap/)
-
+- [CPlusPlus.com - std::multimap](http://www.cplusplus.com/reference/map/multimap/)

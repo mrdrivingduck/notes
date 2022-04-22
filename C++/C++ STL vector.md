@@ -10,25 +10,25 @@ Nanjing, Jiangsu, China
 
 ## Definition
 
-* 顺序存储容器
-* 动态大小数组​
+- 顺序存储容器
+- 动态大小数组 ​
 
 模板定义：
 
-```c++
+```cpp
 template < class T, class Alloc = allocator<T> > class vector;
 ```
 
 需要的头文件：
 
-```c++
+```cpp
 #include <vector>
 using namespace std; // OR : std::vector
 ```
 
 ## Declaration
 
-```c++
+```cpp
 vector<int> vector; // 空的 vector
 vector<int> vector(n); // n 个元素的 vector，若 <> 内为对象，则调用构造函数初始化
 vector<int> vector(n, number); // n 个元素的 vector，并赋值为 number
@@ -39,19 +39,19 @@ vector<int> vector(iter.begin(), iter.end()); // 迭代器拷贝构造
 
 ## Memory Allocation
 
-```c++
+```cpp
 vector.reserve(n); // 预留 n 个元素的内存空间，但不创建元素，因此访问预留的空间是非法的
 vector.push_back(1); // 可以与 push_back() 方法配合使用 (元素创建在这里发生)
 ```
 
-```c++
+```cpp
 vector.resize(n); // 分配 n 个元素的内存，并建立对象
 vector.resize(n, 0); // 分配 n 个元素的内存，并建立对象，赋值
 ```
 
 ## Attributes
 
-```c++
+```cpp
 int size = vector.size(); // vector 的长度
 
 bool empty = vector.empty(); // vector 是否为空
@@ -59,7 +59,7 @@ bool empty = vector.empty(); // vector 是否为空
 
 ## Iterator
 
-```c++
+```cpp
 vector<int>::iterator vector_iter; // 正向迭代器
 vector_iter = vector.begin(); // 指向头一个元素的迭代器
 vector_iter = vector.end(); // 指向最后一个元素的下一个位置的迭代器
@@ -69,7 +69,7 @@ reverseIter = vector.rbegin(); // 指向最后一个元素的反向迭代器
 reverseIter = vector.rend(); // 指向第一个元素前一个位置的反向迭代器
 ```
 
-```c++
+```cpp
 vector<int>::iterator iter; // 正向迭代器
 
 // 遍历
@@ -91,7 +91,7 @@ for (r_iter = vector.rbegin(); r_iter != vector.rend(); r_iter++) {
 
 ## Modification
 
-```c++
+```cpp
 // 若超出内存范围，则自动重新分配内存
 // 在知道插入数量的情况下，提前使用 reserve 函数预留内存，避免内存重新分配，效率更高
 vector.push_back(1);
@@ -109,14 +109,14 @@ vector.clear(); // 删除全部
 
 ## Assignment
 
-```c++
+```cpp
 vector<int> vector1 = vector2; // 已重载 = 运算符
 vector1.assign(vector2.begin(), vector2.end());
 ```
 
 ## Data Access
 
-```c++
+```cpp
 cout << vector.front() << endl; // 第一个元素
 cout << vector.back() << endl; // 最后一个元素
 
@@ -127,13 +127,13 @@ cout << vector[pos] << endl;
 
 ## Algorithm
 
-```c++
+```cpp
 #include <algorithm> // 需要引用头文件
 ```
 
 ### Sort / Reverse
 
-```c++
+```cpp
 // 排序
 sort(vector.begin(), vector.end());
 sort(vector.begin(), vector.end(), greater<int> ());
@@ -147,11 +147,11 @@ reverse(vector.begin(), vector.end());
 
 建立堆的过程中可以使用自定义的二元比较函数，在以下三个函数中都可以使用可选的比较函数 (默认使用 `<` 的运算符)：
 
-* `make_heap()` 用于在一个已有的数组上建堆
-* `push_heap()` 对数组中的最后一个元素进行堆调整 (所以之前要调用 `push_back()`)
-* `pop_heap()` 将堆顶换到数组的最后一个元素，然后对剩余的数组调整堆序 (之后一般要调用 `pop_back()` 取出堆顶)
+- `make_heap()` 用于在一个已有的数组上建堆
+- `push_heap()` 对数组中的最后一个元素进行堆调整 (所以之前要调用 `push_back()`)
+- `pop_heap()` 将堆顶换到数组的最后一个元素，然后对剩余的数组调整堆序 (之后一般要调用 `pop_back()` 取出堆顶)
 
-```c++
+```cpp
 make_heap(vector.begin(), vector.end()); // 建堆 (默认为大顶堆)
 make_heap(vector.begin(), vector.end(), greater<int> ()); // 小顶堆
 
@@ -173,19 +173,19 @@ sort_heap(vector.begin(), vector.end());
 
 ![stl-nth-element](../img/stl-nth-element.png)
 
-```c++
+```cpp
 nth_element(vector.begin(), vector.begin() + n, vector.end(), comp);
 ```
 
 ## Two-Dimension Vector
 
-```c++
+```cpp
 vector<vector<int>> graph; // 一般用于表示图的邻接矩阵
 ```
 
 如果想要自定义初始化的矩阵大小：
 
-```c++
+```cpp
 vector<vector<int>> matrix(row, vector<int>(column));
 ```
 
@@ -194,6 +194,3 @@ vector<vector<int>> matrix(row, vector<int>(column));
 ## Summary
 
 适合需要大量随机访问的场合，也可作为已知规模数据的静态存储方式。
-
----
-

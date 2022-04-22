@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## About
 
-最近刷 *LeetCode* 经常会碰到 **单调栈**，特此总结一下。顾名思义，单调栈就是栈内序列是单调递增或单调递减的栈。单调递增栈有什么用途？有哪些使用场景？
+最近刷 _LeetCode_ 经常会碰到 **单调栈**，特此总结一下。顾名思义，单调栈就是栈内序列是单调递增或单调递减的栈。单调递增栈有什么用途？有哪些使用场景？
 
 ## Next Higher Man
 
@@ -63,7 +63,7 @@ Nanjing, Jiangsu, China
 
 ## Biggest Number
 
-这是今天刷一道 hard 的 *LeetCode* 题目时用到的一个子功能，挺有意思。给定一个无序的数组，需要找出一个指定长度的子序列，使得这个子序列组成的数的数值最大。比如，对于 `[ 3, 5, 2, 8, 6, 4 ]`，从其中组成的最大的三位数应该是 `864`，这里实际上也用到了单调栈的思想。
+这是今天刷一道 hard 的 _LeetCode_ 题目时用到的一个子功能，挺有意思。给定一个无序的数组，需要找出一个指定长度的子序列，使得这个子序列组成的数的数值最大。比如，对于 `[ 3, 5, 2, 8, 6, 4 ]`，从其中组成的最大的三位数应该是 `864`，这里实际上也用到了单调栈的思想。
 
 既然要组成最大的三位数，那么我们肯定希望位数越高 (越左边) 的数尽可能大，依次单调递减。这里需要特别注意的情况有以下几个：
 
@@ -72,10 +72,10 @@ Nanjing, Jiangsu, China
 
 最终实现的代码如下，仍有优化空间：
 
-* 条件分支上的优化 (先后顺序，技巧等)
-* 通过参数支持动态传入比较函数 (类似 STL 的 `sort()`)
+- 条件分支上的优化 (先后顺序，技巧等)
+- 通过参数支持动态传入比较函数 (类似 STL 的 `sort()`)
 
-```c++
+```cpp
 vector<int> decending_stack(vector<int> &source, int capacity) {
     // capacity <= source.size()
     // 栈容量不可高于序列长度，否则永远不可能找到这样的序列
@@ -120,6 +120,3 @@ vector<int> decending_stack(vector<int> &source, int capacity) {
 ## References
 
 [GitHub fucking-algorithm 单调栈](https://github.com/labuladong/fucking-algorithm/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88.md)
-
----
-

@@ -12,19 +12,19 @@ Nanjing, Jiangsu, China
 
 运算符重载是一种形式的 C++ 多态，根据操作数的 **数目** 和 **类型** 来决定采用哪种操作。其一般形式为：
 
-```c++
+```cpp
 operatorop(args)
 ```
 
 其中，后一个 `op` 可被替换为 C++ 中已经存在的且可以被重载的运算符，比如加法运算符 `+`：
 
-```c++
+```cpp
 operator+(args)
 ```
 
 重载后，编译器能够对运算符进行等价的替换：
 
-```c++
+```cpp
 A = B + C;
 A = B.operator+(C);
 ```
@@ -40,21 +40,21 @@ C++ 的运算符重载又如下限制：
 3. 不能修改运算符优先级
 4. 不能创建新的运算符
 5. 不能重载如下运算符：
-    * `sizeof`
-    * `.`
-    * `.*`
-    * `::`
-    * `?:`
-    * `typeid`
-    * `const_cast`
-    * `dynamic_cast`
-    * `reinterpret_cast`
-    * `static_cast`
+   - `sizeof`
+   - `.`
+   - `.*`
+   - `::`
+   - `?:`
+   - `typeid`
+   - `const_cast`
+   - `dynamic_cast`
+   - `reinterpret_cast`
+   - `static_cast`
 6. 某些运算符只能以成员函数的形式重载 (不能以友元函数)：
-    * `=`
-    * `()`
-    * `[]`
-    * `->`
+   - `=`
+   - `()`
+   - `[]`
+   - `->`
 
 ## Implementation
 
@@ -62,20 +62,20 @@ C++ 的运算符重载又如下限制：
 
 以成员函数实现运算符重载，默认了运算符左侧的操作数是当前对象，因此只需要传递一个右操作数作为参数即可。编译器负责将重载后的运算符替换为成员函数调用：
 
-```c++
+```cpp
 T::T operator*(const double &d) {
     // ...
 }
 ```
 
-```c++
+```cpp
 A = B * 2.75;
 A = B.operator*(2.75);
 ```
 
 那么，这种情况怎么办呢？
 
-```c++
+```cpp
 A = 2.75 * B;
 ```
 
@@ -83,13 +83,13 @@ A = 2.75 * B;
 
 如果说将运算符的重载不重载为成员函数，而是重载为一个普通函数，通过传入两个参数，就可以实现按照需要获取操作数顺序。
 
-```c++
+```cpp
 T operator*(const double &d, T obj) {
     // ...
 }
 ```
 
-```c++
+```cpp
 A = 2.75 * B;
 A = operator*(2.75, B);
 ```
@@ -98,7 +98,7 @@ A = operator*(2.75, B);
 
 创建友元函数的方式是将函数声明在类内，并在原型前加上 `friend` 关键字 (不需要类限定符 `::`)：
 
-```c++
+```cpp
 friend T operator*(const double &d, T obj) {
     // T.xxx;
 }
@@ -110,7 +110,7 @@ friend T operator*(const double &d, T obj) {
 
 对于一个自定义的类，用户希望能够通过 `cout << obj` 直接打印对象信息。对于该运算符来说，显然用户不会去修改 `iostream` 的头文件来为 cout 对象重载 `<<` 运算符。所以，需要通过友元 (如果需要打印类内私有变量的值) 的方式为该类对象重载 `<<` 运算符。
 
-```c++
+```cpp
 friend void operator<<(ostream &os, const T &t) {
     os << t.xxx;
 }
@@ -118,14 +118,14 @@ friend void operator<<(ostream &os, const T &t) {
 
 由于要操作 cout 对象本身，所以这里传入的参数是引用。编译器会将代码转换为：
 
-```c++
+```cpp
 cout << obj;
 operator<<(cout, obj);
 ```
 
 但是这样还是有个问题：没法适用于连续的 `<<` 运算符：
 
-```c++
+```cpp
 cout << "Hello" << obj << "hhh";
 // (cout << "Hello") << obj << "hhh";
 // cout << obj << "hhh";
@@ -134,7 +134,7 @@ cout << "Hello" << obj << "hhh";
 
 所以重载函数的返回值也应当是 `ostream` 对象，并且是一个引用：
 
-```c++
+```cpp
 friend ostream & operator<<(ostream &os, const T &t) {
     os << t.xxx;
     return os;
@@ -143,7 +143,7 @@ friend ostream & operator<<(ostream &os, const T &t) {
 
 这样就可以实现如下的效果：
 
-```c++
+```cpp
 cout << "Hello" << obj << "hhh";
 // (cout << "Hello") << obj << "hhh";
 // cout << obj << "hhh";
@@ -154,13 +154,13 @@ cout << "Hello" << obj << "hhh";
 
 由于 STL 中的容器基本实现了泛型，因此用户可以将自定义类型的对象放进 STL 容器中。在对 STL 容器内元素进行排序时，算法默认使用 `<` 运算符。因此，如果要对自定义类型的对象进行排序，需要为类重载 `<` 运算符。函数原型如下：
 
-```c++
+```cpp
 bool operator<(const T &t) const;
 ```
 
 这里为什么要使用 `const` 呢？STL 底层的比较函数实现类似如下：
 
-```c++
+```cpp
 bool operator<(const T &__x, const T &__y) {
     return __x < __y;
 }

@@ -84,7 +84,7 @@ GCC 无法以库的形式被重用
 
 [LLVM Official](http://llvm.org/):
 
-> The **LLVM Core** libraries provide a modern source- and target-independent **optimizer**, along with **code generation** support for many popular CPUs (as well as some less common ones!) 
+> The **LLVM Core** libraries provide a modern source- and target-independent **optimizer**, along with **code generation** support for many popular CPUs (as well as some less common ones!)
 >
 > These libraries are built around a well specified code representation known as the **LLVM intermediate representation ("LLVM IR")**.
 >
@@ -211,7 +211,7 @@ LLVM IR 形式：
 
 LLVM 向高层语言提供指令简化接口进行转换：
 
-```c++
+```cpp
 // X - 0 -> X
 if (match(Op1, m_Zero()))
     return Op0;
@@ -229,7 +229,7 @@ return 0; // Nothing matched, return null to indicate no transformation.
 
 其中，`Op0` 和 `Op1` 分别为左右操作数，`match()` 和 `m_()` 函数都可以进行模式匹配。于是，实现了一个减法优化的 `SimplifySubInst()` 函数。该函数的调用者是一个分发器，根据指令的操作码，分发对应指令的每一个优化函数。
 
-```c++
+```cpp
 for (BasicBlock::iterator I = BB->begin(), E = BB->end(); I != E; ++I)
     if (Value *V = SimplifyInstruction(I))
         I->replaceAllUsesWith(V);
@@ -258,7 +258,7 @@ LLVM 被设计为一个库的集合，而不是像 GCC 或 JVM 那样整个的�
 
 每个 pass 被实现为 `Pass` 类的子类。每个类都在各自内部的匿名命名空间中，需要暴露一个实例化 pass 函数。
 
-```c++
+```cpp
 namespace {
     class Hello : public FunctionPass {
     public:

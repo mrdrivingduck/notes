@@ -10,9 +10,9 @@ Nanjing, Jiangsu, China
 
 ## Function Template
 
-现代 C++ 编译器实现了 C++ 新增的特性：函数模板。允许 **使用类型作为参数** 来定义函数，使得编译器自动生成该类型的函数。这一特性也被称为 *参数化类型 (parameterized types)*。一个最经典的例子：实现一个 `swap()` 函数交换两个变量。显然，需要对不同的数据类型实现不同的函数，而函数主体中的内容完全相同：
+现代 C++ 编译器实现了 C++ 新增的特性：函数模板。允许 **使用类型作为参数** 来定义函数，使得编译器自动生成该类型的函数。这一特性也被称为 _参数化类型 (parameterized types)_。一个最经典的例子：实现一个 `swap()` 函数交换两个变量。显然，需要对不同的数据类型实现不同的函数，而函数主体中的内容完全相同：
 
-```c++
+```cpp
 void swap(int &a, int &b) {
     int temp = a;
     a = b;
@@ -28,7 +28,7 @@ void swap(double &a, double &b) {
 
 模板提供了一种抽象，能够将 **数据类型** 作为参数。这样，只需要实现一个抽象的函数主体即可：
 
-```c++
+```cpp
 template <typename T>
 void swap(T &a, T &b) {
     T temp = a;
@@ -39,7 +39,7 @@ void swap(T &a, T &b) {
 
 有了这个模板，编译器在遇到对 `swap()` 的调用时，根据其 **实际参数类型**，自动生成一个相应类型的函数。比如：
 
-```c++
+```cpp
 int a = 3;
 int b = 5;
 swap(a, b);
@@ -51,12 +51,12 @@ swap(a, b);
 
 实例化的过程可被分为：
 
-* 隐式实例化：编译器根据实际参数的类型，隐式获得类型参数，并根据模板产生函数的实际定义
-* 显式实例化：编程人员直接显式指定要产生的函数定义
+- 隐式实例化：编译器根据实际参数的类型，隐式获得类型参数，并根据模板产生函数的实际定义
+- 显式实例化：编程人员直接显式指定要产生的函数定义
 
 同样以上述 `swap()` 模板为例。当编译器识别到 `swap(a, b)` 时，能够自动获知 `a` 和 `b` 的类型为 `int`。此时，不需要人为干预，编译器就可以自动生成 `swap(int, int)` 的函数定义，这就是隐式实例化。而如果代码中出现了显式指定的模板实例化：
 
-```c++
+```cpp
 template void swap<char>(char &, char &);
 ```
 
@@ -70,7 +70,7 @@ template void swap<char>(char &, char &);
 
 在类定义上使用 `template` 来声明模板，相应的类型名称可以在类内使用。类外的成员函数定义中也要使用泛型。
 
-```c++
+```cpp
 template <typename T>
 class stack
 {
@@ -109,7 +109,7 @@ bool stack<T>::push(const T &item)
 
 除了抽象的类型参数外，模板也支持具体的 **非类型参数** 或 **表达式参数**：
 
-```c++
+```cpp
 template <typename T, int n>
 class pair {
 
@@ -118,10 +118,10 @@ class pair {
 
 这样也是允许的。在实际程序中，可以使用 `pair<char, 12>` 或 `pair<string, 19>`，使编译器根据模板产生相应的类定义。注意，这里将会产生两个完全不同的类，因为类定义将会因为类型参数和非类型参数而完全不同。表达式参数只支持几种类型：
 
-* 整形
-* 枚举
-* 引用
-* 指针
+- 整形
+- 枚举
+- 引用
+- 指针
 
 并且用作表达式参数的值必须是 **常量表达式**，模板代码内不允许对表达式参数进行修改。
 
@@ -129,7 +129,7 @@ class pair {
 >
 > 另外，C++ 98 中使用 `class` 关键字来声明模板类型参数：
 >
-> ```c++
+> ```cpp
 > template <class T>
 > ```
 >
@@ -139,7 +139,7 @@ class pair {
 
 模板函数或模板类在满足了通用性的同时，也带来了一个问题：并不是所有数据类型都能完全符合模板内实现的程序语义。假设定义一个用于比较两个元素大小关系的模板，模板内使用 `<` 运算符进行比较：
 
-```c++
+```cpp
 template <typename T>
 bool compare(T &a, T &b)
 {
@@ -149,7 +149,7 @@ bool compare(T &a, T &b)
 
 对于 `int` 来说，实例化后的函数定义是符合语义的；对于 `string` 来说，由于其 `operator<` 已经被重载为比较两个字符串大小的语义，因此也是符合的；然而，对于 `const char *` (常量字符串) 来说，其语义就变成了比较两个指针的地址大小，而不是其指向的字符串的大小。显然，我们需要对 `const char *` 类型定制一套更具体的模板定义，避免使用默认模板：
 
-```c++
+```cpp
 template <>
 // bool compare(const char *a, const char *b) {
 bool compare<const char *>(const char *a, const char *b) {
@@ -161,20 +161,20 @@ bool compare<const char *>(const char *a, const char *b) {
 
 C++ 还允许限制部分模板的通用性，即 **部分具体化 (partial specialization)**。部分具体化可以给类型参数指定具体的类型：
 
-```c++
+```cpp
 template <typename T1, typename T2> class Pair {};
 template <typename T1> class Pair<T1, int> {};
 ```
 
 可以看出，`template <>` 内声明了所有的抽象类型参数，而之后的 `<>` 声明了具体类型参数。由此可见，显式具体化其实是部分具体化的一个特殊情况。如果在部分具体化中为所有的类型参数指定了具体类型，那么就成了显式具体化，`template <>` 中将没有任何抽象类型参数了：
 
-```c++
+```cpp
 template <> class Pair<string, int> {};
 ```
 
 ## Priority
 
-如果程序中的某个函数同时匹配多个模板，编译器将根据优先级选择相应函数。这个过程被称为 *重载解析 (overloading resolution)*。优先级为：
+如果程序中的某个函数同时匹配多个模板，编译器将根据优先级选择相应函数。这个过程被称为 _重载解析 (overloading resolution)_。优先级为：
 
 1. 常规函数 (非模板函数)
 2. 显式具体化模板函数
@@ -182,6 +182,3 @@ template <> class Pair<string, int> {};
 4. 抽象模板函数
 
 显而易见，越具体的函数定义越会被优先匹配。
-
----
-

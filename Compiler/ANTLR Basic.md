@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-**ANTLR (ANother Tool for Language Recognition)** 是一套计算机语言处理框架，可用于对特定语法的语言进行词法分析、语法分析、语法树构建。最新的 ANTLR v4 规定了一套 **g4** 语法。g4 语法可以针对对象语言进行类似 *巴克斯范式 (Backus-Naur From, BNF)* 的描述。ANTLR 可以将 g4 语法文件直接转换为词法分析和语法分析的 Java 代码 (或其它实现语言)，这样就可以得到一个 Java 实现的语言识别器，比如：
+**ANTLR (ANother Tool for Language Recognition)** 是一套计算机语言处理框架，可用于对特定语法的语言进行词法分析、语法分析、语法树构建。最新的 ANTLR v4 规定了一套 **g4** 语法。g4 语法可以针对对象语言进行类似 _巴克斯范式 (Backus-Naur From, BNF)_ 的描述。ANTLR 可以将 g4 语法文件直接转换为词法分析和语法分析的 Java 代码 (或其它实现语言)，这样就可以得到一个 Java 实现的语言识别器，比如：
 
 - SQL 识别器
 - JSON 识别器
@@ -19,7 +19,7 @@ Nanjing, Jiangsu, China
 
 ## Example
 
-以下是 *grammars-v4* 中提供的 JSON 语法文件 `JSON.g4`
+以下是 _grammars-v4_ 中提供的 JSON 语法文件 `JSON.g4`
 
 ```
 /** Taken from "The Definitive ANTLR 4 Reference" by Terence Parr */
@@ -121,7 +121,7 @@ public static void main(String[] args) {
 
 运行该程序，可以看到指定的输入是否可以被该识别器所接受。
 
-此外，插件还带有语法树预览的功能，在语法文件的 *top-level rule (顶层语法规则)* 右击 `Test Rule <rule_name>`：
+此外，插件还带有语法树预览的功能，在语法文件的 _top-level rule (顶层语法规则)_ 右击 `Test Rule <rule_name>`：
 
 <img src="../img/antlr-test-rule.png" alt="antlr-test-rule" style="zoom: 50%;" />
 
@@ -161,7 +161,7 @@ public interface JSONListener extends ParseTreeListener {
      * @param ctx the parse tree
      */
     void exitAnObject(JSONParser.AnObjectContext ctx);
-    
+
     // ...
 }
 ```
@@ -213,7 +213,7 @@ public interface JSONVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAnObject(JSONParser.AnObjectContext ctx);
-    
+
     // ...
 }
 ```
@@ -293,4 +293,3 @@ value
 这套工具由旧金山大学的 [Terence Parr](https://github.com/parrt) 教授开发。我本人很佩服这套框架的定位：类似于 LLVM 编译器的前后端解耦，ANTLR 实现了语法和应用逻辑的解耦，使我们在大部分应用场景下，不用太关心语法的具体细节，不再需要专门实现语法的解析逻辑，因为 ANTLR 帮我们完成了最复杂的 **语法 → 应用程序** 的自动转换。(实际上也就是词法、语法分析代码的自动生成)
 
 此外，具体的语法细节由相关方面的专家代为完成，有了这套框架，开发与语言相关的应用将更为容易。
-

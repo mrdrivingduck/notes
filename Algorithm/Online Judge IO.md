@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 最近需要参加一些在线笔试。OJ 平台有以下两种模式：
 
-- 核心代码模式 (以 *LeetCode* 为例)：只需要编写核心函数，无需自行处理输入输出
+- 核心代码模式 (以 _LeetCode_ 为例)：只需要编写核心函数，无需自行处理输入输出
 - ACM 模式：需要自行编写代码读取输入，打印输出
 
 对于 ACM 模式，特此记录各种处理输入的方式，防止笔试现场搞半天输入都处理不利索。
@@ -31,7 +31,7 @@ Nanjing, Jiangsu, China
 
 处理方法：
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -51,12 +51,12 @@ while (cin >> a >> b) {
 1 2
 3 4
 ... ...
-0 0 
+0 0
 ```
 
 处理方法：
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -79,7 +79,7 @@ while (cin >> a >> b && (a || b)) {
 
 对于这种输入，处理方式为：首先用一个 `while` 每次读取输入的完整一行，作为外层循环；在内层循环中，对每一行的数据根据分隔符进行进一步分割。为了方便分割，可以使用 `getline()` 与 `stringstream` 配合：
 
-```c++
+```cpp
 #include <sstream>
 
 string line;
@@ -100,9 +100,9 @@ while (getline(cin, line)) {
 
 ### 重定向输入
 
-每次重新运行程序进行测试时，都要手动输入数据，麻烦。将输入提前写在文件中，并将 *标准输入* 重定向到文件，就省得每次动手输入了。在程序中，仅需一行代码就可以实现输入重定向：
+每次重新运行程序进行测试时，都要手动输入数据，麻烦。将输入提前写在文件中，并将 _标准输入_ 重定向到文件，就省得每次动手输入了。在程序中，仅需一行代码就可以实现输入重定向：
 
-```c++
+```cpp
 freopen("input.txt", "r", stdin);
 ```
 
@@ -117,4 +117,3 @@ freopen("input.txt", "r", stdin);
 [牛客网 - OJ 在线编程常见输入输出练习](https://www.nowcoder.com/test/27976983/summary)
 
 [CSDN - ACM 题目中输入数据的处理 (C++版)](https://blog.csdn.net/sxhelijian/article/details/8978850)
-
