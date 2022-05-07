@@ -1,5 +1,6 @@
 # Operating System
 
+- [Cloud Storage](./Cloud%20Storage.md)
 - [Linux Kernel Compilation](./Linux%20Kernel%20Compilation.md)
 - [Linux Multi-OS](./Linux%20Multi-OS.md)
 - [Linux Mutex&Condition](./Linux%20Mutex&Condition.md)
