@@ -16,19 +16,19 @@ Docker 使用 namespace 来实现资源的隔离，构建出了一个相对封�
 
 cgroups 的特点如下：
 
-* API 以伪文件系统的方式实现，用户态程序可以通过文件操作实现 cgroups 的组织管理
-* cgroups 可以细粒度到线程级别
-* 所有资源管理功能都以子系统的方式实现
-* 子任务创建之初与父任务处于同一个资源组
+- API 以伪文件系统的方式实现，用户态程序可以通过文件操作实现 cgroups 的组织管理
+- cgroups 可以细粒度到线程级别
+- 所有资源管理功能都以子系统的方式实现
+- 子任务创建之初与父任务处于同一个资源组
 
 本质上，资源组是附加在程序上的一系列 hook，在程序运行时对资源进行调度时触发相应的资源追踪和限制。
 
 cgroups 的作用主要有如下几个：
 
-* 对任务使用的资源总和进行限制 (比如设定一个内存使用上限)
-* 控制任务运行的优先级
-* 统计资源使用量
-* 对任务执行挂起、恢复的操作
+- 对任务使用的资源总和进行限制 (比如设定一个内存使用上限)
+- 控制任务运行的优先级
+- 统计资源使用量
+- 对任务执行挂起、恢复的操作
 
 以一个场景为例，体现了 cgroups 的作用：
 
@@ -57,10 +57,10 @@ cgroups 中的资源控制以 cgroup 为单位实现，其中包含了受控的�
 
 cgroups 的组织有如下几个基本规则，但是依旧没看懂...：
 
-* 同一层级可以附加一个或多个子系统
-* 一个子系统可以附加到多个层级，当且仅当，目标层级只有唯一一个子系统
-* 新建一个层级时，系统中所有任务默认加入这个层级的 root cgroup
-* 任务被 fork/clone 时创建的子任务默认和原任务在同一个 cgroup 中
+- 同一层级可以附加一个或多个子系统
+- 一个子系统可以附加到多个层级，当且仅当，目标层级只有唯一一个子系统
+- 新建一个层级时，系统中所有任务默认加入这个层级的 root cgroup
+- 任务被 fork/clone 时创建的子任务默认和原任务在同一个 cgroup 中
 
 找了两张图大致示意：
 
@@ -72,15 +72,15 @@ cgroups 的组织有如下几个基本规则，但是依旧没看懂...：
 
 子系统实际上是 cgroups 的资源控制系统，每种子系统独立地控制一种资源：
 
-* blkio - 为块设备限制 I/O
-* cpu - 调度程序控制任务对 CPU 的使用
-* cpuacct - 自动生成任务对 CPU 资源使用情况的报告
-* cpuset - 为 cgroup 中的任务分配独立的 CPU 和内存
-* devices - 开启或关闭 cgroup 中任务对设备的访问
-* freezer - 挂起或恢复 cgroup 中的任务
-* memory - 设定 cgroup 中任务对内存的使用量，并自动生成使用报告
-* pref_event - 对 cgroup 中的任务进行统一的性能测试
-* net_cls - 使用等级识别符标记网络数据包
+- blkio - 为块设备限制 I/O
+- cpu - 调度程序控制任务对 CPU 的使用
+- cpuacct - 自动生成任务对 CPU 资源使用情况的报告
+- cpuset - 为 cgroup 中的任务分配独立的 CPU 和内存
+- devices - 开启或关闭 cgroup 中任务对设备的访问
+- freezer - 挂起或恢复 cgroup 中的任务
+- memory - 设定 cgroup 中任务对内存的使用量，并自动生成使用报告
+- pref_event - 对 cgroup 中的任务进行统一的性能测试
+- net_cls - 使用等级识别符标记网络数据包
 
 Linux 中以文件系统的形式实现了 cgroups。除了 VFS 接口外，内核没有为 cgroups 提供任何访问和操作的系统调用。首先需要 mount 这个文件系统：
 
@@ -111,10 +111,10 @@ cgroups 的本质是给任务挂上了钩子。当任务运行的过程中涉及
 
 在 cgroup 的目录中，以资源开头的文件 (如 `cpu.shares`) 都是用来限制这个 cgroup 下所有任务的配置文件。把相应信息写入这些配置文件，就可以生效 cgroup：
 
-* `tasks` - 包含所有在该 cgroup 中的任务 ID
-* `cgroup.procs` - 包含所有在该 cgroup 中的线程组 ID (即线程组中第一个进程的 PID)
-* `notify_on_release` - cgroup 中最后一个任务退出时通知运行 release_agent
-* `release_agent` - 指定 release agent 执行脚本的文件路径，该脚本用于自动化卸载无用的 cgroup
+- `tasks` - 包含所有在该 cgroup 中的任务 ID
+- `cgroup.procs` - 包含所有在该 cgroup 中的线程组 ID (即线程组中第一个进程的 PID)
+- `notify_on_release` - cgroup 中最后一个任务退出时通知运行 release_agent
+- `release_agent` - 指定 release agent 执行脚本的文件路径，该脚本用于自动化卸载无用的 cgroup
 
 ---
 
@@ -131,4 +131,3 @@ cgroups 的本质是给任务挂上了钩子。当任务运行的过程中涉及
 [LWN.net - Control groups, part 5: The cgroup hierarchy](https://lwn.net/Articles/606699/)
 
 ---
-

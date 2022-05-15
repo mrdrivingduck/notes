@@ -251,8 +251,8 @@ public boolean equals(Object obj) {
 
 总结，只需要搞清语义即可。语义有两种：
 
-* 变量位置比较
-* 变量内容比较
+- 变量位置比较
+- 变量内容比较
 
 `==` 比较变量的位置；默认来说，`equals()` 也比较变量的位置，但在经过 override 之后一般体现出比较变量内容的语义。当然也有例外，具体还是要看类型的 `equals()` 是如何实现的。
 
@@ -277,12 +277,12 @@ System.out.println(Arrays.equals(a.toArray(),b.toArray()));
 
 输出结果应为三个 `false`：
 
-* 由于 `a` 和 `b` 是两个不同的对象，显然内存地址不相等
-* 由于 `a` 和 `b` 是 ArrayList 对象，`equals()` 会调用其中的每一对元素的 `equals()`，即 `g` 与 `h`
-    * 由于 `g` 与 `h` 是 Java 原生数组对象，`g.equals(h)` 等价于 `g == h`，显然它们内存地址不相等
-* `a.toArray()` 会将 ArrayList 转换为一个 Java 原生的数组对象
-    * `Arrays.equals()` 比较的是数组对象中的每对元素 (`Integer []`) 是否 `equals()`
-    * 问题转化为 `g.equals(h)`，同上
+- 由于 `a` 和 `b` 是两个不同的对象，显然内存地址不相等
+- 由于 `a` 和 `b` 是 ArrayList 对象，`equals()` 会调用其中的每一对元素的 `equals()`，即 `g` 与 `h`
+  - 由于 `g` 与 `h` 是 Java 原生数组对象，`g.equals(h)` 等价于 `g == h`，显然它们内存地址不相等
+- `a.toArray()` 会将 ArrayList 转换为一个 Java 原生的数组对象
+  - `Arrays.equals()` 比较的是数组对象中的每对元素 (`Integer []`) 是否 `equals()`
+  - 问题转化为 `g.equals(h)`，同上
 
 ```java
 ArrayList<List> c = new ArrayList<>();
@@ -299,9 +299,9 @@ System.out.println(c.equals(d));
 
 输出结果为 `true`：
 
-* 由于 `c` 和 `d` 是 ArrayList，比较其中的每对元素是否 `equals()`，问题转化为 `e.equals(f)`
-* 由于 `e` 和 `f` 也是 ArrayList，比较其中的每对元素是否 `equals()`，问题转化为 `c.equals(d)`
-* 由于 `c` 和 `d` 都是 `Integer` 包装类，将会比较它们内部的值是否相同 - 显然，它们的值都等于 `1`
+- 由于 `c` 和 `d` 是 ArrayList，比较其中的每对元素是否 `equals()`，问题转化为 `e.equals(f)`
+- 由于 `e` 和 `f` 也是 ArrayList，比较其中的每对元素是否 `equals()`，问题转化为 `c.equals(d)`
+- 由于 `c` 和 `d` 都是 `Integer` 包装类，将会比较它们内部的值是否相同 - 显然，它们的值都等于 `1`
 
 ---
 
@@ -316,4 +316,3 @@ System.out.println(c.equals(d));
 [Wrapper Classes in Java](https://www.geeksforgeeks.org/wrapper-classes-java/)
 
 ---
-

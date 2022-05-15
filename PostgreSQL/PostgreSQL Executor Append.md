@@ -466,4 +466,3 @@ ExecEndAppend(AppendState *node)
 ## New Version Kernel
 
 新版内核提供了对 Append 节点的并行支持，后续有机会再详细了解。
-

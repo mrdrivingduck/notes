@@ -197,7 +197,7 @@ typedef enum PortalStrategy
 
 PostgreSQL 执行器中提供两个子模块处理不同类型的操作：
 
-- Executor 模块执行前两类策略 (DQL + DML)，统称为 *可优化语句*，查询编译器会为这类操作生成计划树
+- Executor 模块执行前两类策略 (DQL + DML)，统称为 _可优化语句_，查询编译器会为这类操作生成计划树
 - ProcessUtility 模块执行后两类策略 (DDL 及其它)，主要是一些功能性操作
 
 ## DDL Execution
@@ -247,7 +247,7 @@ switch (nodeTag(parsetree))
 
 ## Optimizable Statement Execution
 
-可优化语句由 Executor 模块处理。对查询计划树的处理，最终转换为 **对查询计划树上每一个节点** 的处理。每一种节点对应一种 *物理代数* 操作 (我理解的是每一种节点都对应一个算子：扫描算子/排序算子/连接算子等)，计划节点以二叉树的形式构成计划树。父节点从 (左右) 孩子节点获取元组作为输入，经过本节点的算子操作后，返回给更上层的节点。因此，实际执行将会从根节点开始层层向下递归，直到叶子节点。对计划树的遍历完成，也就意味着一次查询执行的完成。
+可优化语句由 Executor 模块处理。对查询计划树的处理，最终转换为 **对查询计划树上每一个节点** 的处理。每一种节点对应一种 _物理代数_ 操作 (我理解的是每一种节点都对应一个算子：扫描算子/排序算子/连接算子等)，计划节点以二叉树的形式构成计划树。父节点从 (左右) 孩子节点获取元组作为输入，经过本节点的算子操作后，返回给更上层的节点。因此，实际执行将会从根节点开始层层向下递归，直到叶子节点。对计划树的遍历完成，也就意味着一次查询执行的完成。
 
 Executor 模块的核心数据结构为 `QueryDesc`，是所有 Executor 模块接口函数的输入参数。它是在 `PortalStart()` 函数中通过 `CreateQueryDesc()` 创建出来的，该函数主要工作是将 `Portal` 结构中的 `stmts` 设置到了 `QueryDesc` 中。其结构定义如下：
 
@@ -291,7 +291,7 @@ typedef struct QueryDesc
 
 Executor 模块的三个核心入口分别在以下三个函数中被调用，是否被调用的依据是 `Portal` 结构体中的 `PortalStrategy`：
 
-- `ExecutorStart()`：从 `PortalStart()` 中对可优化语句调用 
+- `ExecutorStart()`：从 `PortalStart()` 中对可优化语句调用
   - 初始化执行器当前执行任务时的全局状态 `EState`，并设置到 `QueryDesc` 中
   - 调用 `InitPlan()`，内部调用 `ExecInitNode()` 从根节点开始递归创建每个计划节点对应的状态 `PlanState`
 - `ExecutorRun()`：从 `PortalRun()` 中对可优化语句调用
@@ -401,4 +401,3 @@ typedef struct PlanState
 ## More
 
 后续具体看看每种类型计划节点的结构定义 (以及其中继承关系)，以及各类节点分别如何实现 `ExecInitNode()` / `ExecProcNode()` / `ExecEndNode()`。
-

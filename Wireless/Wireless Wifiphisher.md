@@ -19,7 +19,7 @@ _wifiphisher_ 是一款安全工具，由希腊安全研究员 _George Chatzisof
 - 与传统的 Wi-Fi 攻击不同，不涉及任何 **handshake** 或 **brute-force**
 - 利用 **社会工程学（Social Engineering）** 技术，使用一种类似欺骗的方法，使受害者在不知不觉中供出密码
 
-    > 建立理论并通过利用自然的、社会的和制度上的途径来逐步地解决各种复杂的社会问题。
+  > 建立理论并通过利用自然的、社会的和制度上的途径来逐步地解决各种复杂的社会问题。
 
 ## Requirements
 
@@ -111,8 +111,8 @@ $ wifiphisher
 
 - MAC Address 的定制与网卡有关，有些网卡不支持指定 MAC Address
 - 在下面的例子中
-    - 伪造一个 SSID 为 `mrdk` 的 AP
-    - 试图指定 MAC 地址但失败了，因此该网卡不能发动 MAC 地址相同的 Evil Twin 攻击
+  - 伪造一个 SSID 为 `mrdk` 的 AP
+  - 试图指定 MAC 地址但失败了，因此该网卡不能发动 MAC 地址相同的 Evil Twin 攻击
 
 ![mrdk](../img/wifiphisher-custom.png)
 

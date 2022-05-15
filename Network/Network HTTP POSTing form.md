@@ -19,7 +19,7 @@ Content-Type: application/x-www-form-urlencoded;charset=utf-8
 title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3
 ```
 
-在 *Apache HTTP Components* 中的编程方式：
+在 _Apache HTTP Components_ 中的编程方式：
 
 ```java
 // 参数准备 key-value
@@ -39,7 +39,7 @@ CloseableHttpResponse response = httpClient.execute(httpPost);
 
 ## Multipart
 
-`<form>` 中的 `enctype` 为 `multipart/form-data`，将会产生一个 *boundary* 用于分割字段。可用于上传文件：
+`<form>` 中的 `enctype` 为 `multipart/form-data`，将会产生一个 _boundary_ 用于分割字段。可用于上传文件：
 
 ```
 POST http://www.example.com HTTP/1.1
@@ -58,4 +58,3 @@ PNG ... content of chrome.png ...
 ```
 
 ---
-

@@ -213,4 +213,3 @@ ExecEndUnique(UniqueState *node)
     ExecEndNode(outerPlanState(node));
 }
 ```
-

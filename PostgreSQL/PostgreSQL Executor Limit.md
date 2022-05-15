@@ -546,4 +546,3 @@ ExecEndLimit(LimitState *node)
     ExecEndNode(outerPlanState(node));
 }
 ```
-

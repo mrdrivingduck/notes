@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 ## About
 
-用 Git 的时候，有时候会遇到一些需要撤销更改，或者回退的情况。以前是自己一个人玩，基本不会遇到类似的问题。现在正在和一个牛b博士进行协作，动不动他就会把仓库弄乱 😑。今天花了点时间了解了一下 Git 的管理思维。
+用 Git 的时候，有时候会遇到一些需要撤销更改，或者回退的情况。以前是自己一个人玩，基本不会遇到类似的问题。现在正在和一个牛 b 博士进行协作，动不动他就会把仓库弄乱 😑。今天花了点时间了解了一下 Git 的管理思维。
 
 ## The Three Trees
 
@@ -33,9 +33,9 @@ Ningbo, Zhejiang, China
 
 Git 主要通过操作上述三棵树的状态来进行版本控制，直观上来看：
 
-* 将 `Working Directory` 中的变更提交到暂存区 `Index`
-* 将暂存区 `Index` 中的变更提交到 `HEAD`
-* 树之间可以进行状态转移、切换
+- 将 `Working Directory` 中的变更提交到暂存区 `Index`
+- 将暂存区 `Index` 中的变更提交到 `HEAD`
+- 树之间可以进行状态转移、切换
 
 <img src="../img/git-reset-workflow.png" alt="git-reset-workflow" style="zoom: 80%;" />
 
@@ -61,9 +61,9 @@ Git 主要通过操作上述三棵树的状态来进行版本控制，直观上�
 
 在切换分支时：
 
-* 修改 `HEAD` 指针指向对应分支
-* 将 `Index` 填充为该次提交的快照
-* 将 `Index` 中的内容复制到 `Working Directory` 中
+- 修改 `HEAD` 指针指向对应分支
+- 将 `Index` 填充为该次提交的快照
+- 将 `Index` 中的内容复制到 `Working Directory` 中
 
 ## Reset
 
@@ -95,9 +95,9 @@ Git 主要通过操作上述三棵树的状态来进行版本控制，直观上�
 
 Git 的 `reset` 命令以特定顺序重写三棵树：
 
-* 移动 `HEAD` 指针 - 指定 `--soft` 则到此停止
-* 恢复 `Index` - 指定 `--mixed` 或不指定（默认），则到此停止
-* 恢复 `Working Directory` - 指定 `--hard` 则到此停止
+- 移动 `HEAD` 指针 - 指定 `--soft` 则到此停止
+- 恢复 `Index` - 指定 `--mixed` 或不指定（默认），则到此停止
+- 恢复 `Working Directory` - 指定 `--hard` 则到此停止
 
 可以为 `reset` 提供一个作用路径，将作用范围限定为指定的文件或文件集合。由于 `HEAD` 是一个指针，无法同时指向两个提交，因此会跳过这一步；但 `Index` 和 `Working Directory` 可以部分更新。
 

@@ -65,17 +65,17 @@ public void conditionSignal() throws InterruptedException {
 
 两种等待 / 通知的实现方式有什么区别呢？
 
-| Items                              | Object Monitor | Condition                                                    |
-| ---------------------------------- | -------------- | ------------------------------------------------------------ |
+| Items                              | Object Monitor | Condition                                                                 |
+| ---------------------------------- | -------------- | ------------------------------------------------------------------------- |
 | 前置条件                           | 占据对象锁     | 调用 `Lock.newCondition()` 获取 Condition 对象；调用 `Lock.lock()` 获取锁 |
-| 调用方式                           | `obj.wait()`   | `condition.await()`                                          |
+| 调用方式                           | `obj.wait()`   | `condition.await()`                                                       |
 | 等待队列个数                       | 一个           | 多个 (一个 Condition 对象一个队列，一个 Lock 可以产生多个 Condition 对象) |
-| 线程释放锁并等待                   | 支持           | 支持                                                         |
-| 线程释放锁并等待，等待时不响应中断 | 不支持         | 支持                                                         |
-| 线程释放锁并超时等待               | 支持           | 支持                                                         |
-| 线程释放锁并等待到将来某个时间     | 不支持         | 支持                                                         |
-| 唤醒等待队列中的一个线程           | 支持           | 支持                                                         |
-| 唤醒等待队列中的全部线程           | 支持           | 支持                                                         |
+| 线程释放锁并等待                   | 支持           | 支持                                                                      |
+| 线程释放锁并等待，等待时不响应中断 | 不支持         | 支持                                                                      |
+| 线程释放锁并超时等待               | 支持           | 支持                                                                      |
+| 线程释放锁并等待到将来某个时间     | 不支持         | 支持                                                                      |
+| 唤醒等待队列中的一个线程           | 支持           | 支持                                                                      |
+| 唤醒等待队列中的全部线程           | 支持           | 支持                                                                      |
 
 ## Implementation
 
@@ -157,7 +157,7 @@ public final void signal() {
 2. 另一个线程对当前线程发出了中断信号
 3. 调用没理由地返回了 😓
 
-可以看到最终通过 `UNSAFE` 类将阻塞目标设置到了 *HotSpot* 中当前线程的 `parkBlocker` 域上。
+可以看到最终通过 `UNSAFE` 类将阻塞目标设置到了 _HotSpot_ 中当前线程的 `parkBlocker` 域上。
 
 ```java
 private static void setBlocker(Thread t, Object arg) {
@@ -307,4 +307,3 @@ public static void unpark(Thread thread) {
 ```
 
 ---
-

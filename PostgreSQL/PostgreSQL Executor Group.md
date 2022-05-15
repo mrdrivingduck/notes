@@ -284,4 +284,3 @@ ExecEndGroup(GroupState *node)
     ExecEndNode(outerPlan);
 }
 ```
-

@@ -58,8 +58,8 @@ scp [] host1:... host2:...
 
 想要使用 SCP，需要：
 
-* 远程服务器上运行 SSH 服务器
-* 本地机器上运行 SSH 客户端
+- 远程服务器上运行 SSH 服务器
+- 本地机器上运行 SSH 客户端
 
 换句话说，由于 SCP 基于 SSH。只有本地机器能够通过 SSH 连接到远程机器，才能使用 SCP
 
@@ -80,8 +80,8 @@ usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
 
 如果没有安装 SSH 服务器的话：
 
-* 安装 `openssh-server`
-* 启动 sshd 服务
+- 安装 `openssh-server`
+- 启动 sshd 服务
 
 ### Windows Configuration
 
@@ -99,9 +99,9 @@ Windows 10 的较新版本已经内置了 OpenSSH，但是默认只安装 OpenSS
 
 以上配置完成后：
 
-* Linux ⇔ Linux
-* Windows ⇔ Windows
-* Windows ⇔ Linux
+- Linux ⇔ Linux
+- Windows ⇔ Windows
+- Windows ⇔ Linux
 
 应当是全部可以实现互相 SSH 以及 SCP 了。
 
@@ -110,4 +110,3 @@ Windows 10 的较新版本已经内置了 OpenSSH，但是默认只安装 OpenSS
 SCP 可以轻松实现能够互相通过 SSH 连接的设备之间的文件传输。所以，可以借助远程服务器下载外网资源，再通过 SCP 传回本地；或者借助高速的局域网连接，实现同一局域网内设备之间的文件传递。比 U 盘来的高效多了...... 🤗
 
 ---
-

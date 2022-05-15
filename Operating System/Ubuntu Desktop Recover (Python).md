@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## Ubuntu Desktop & Python 3
 
-今天试图在本地运行华为的 *MindSpore* AI 工具集，要求使用 Python 3.7.5 以上版本。看了看 Ubuntu 本机的 Python 版本：
+今天试图在本地运行华为的 _MindSpore_ AI 工具集，要求使用 Python 3.7.5 以上版本。看了看 Ubuntu 本机的 Python 版本：
 
 ```console
 $ python3
@@ -50,4 +50,3 @@ ImportError: cannot import name '_gi' from 'gi' (/usr/lib/python3/dist-packages/
 暂时没有研究怎么解决问题。在用完 Python 3.7 之后，使用 `update-alternatives --config python3` 将 `python3` 指回 `python3.6` 即可。
 
 ---
-

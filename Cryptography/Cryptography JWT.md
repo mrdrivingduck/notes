@@ -6,11 +6,11 @@ Created by : Mr Dk.
 
 Ningbo, Zhejiang, China
 
-------
+---
 
 ## Introduction
 
-JWT 全名 *JSON Web Token*，是一个开放标准 (RFC 7519)。其定义了一种 **紧凑** 且 **自包含** 的模式，通过 JSON 对象，保证双方通信的安全。
+JWT 全名 _JSON Web Token_，是一个开放标准 (RFC 7519)。其定义了一种 **紧凑** 且 **自包含** 的模式，通过 JSON 对象，保证双方通信的安全。
 
 主要应用场景在于签发 token。本来，服务器需要通过会话 id 来区分用户；而使用 token 后，服务器将不再需要维护会话状态，而是根据 token 中的用户信息对用户进行区分。同时，在有效期内，token 是用户访问的凭据 - 用于替代账号密码，减少数据库的访问次数。
 
@@ -28,7 +28,7 @@ Token 分为两类：
 - 信息交换
   - 用于使用了公私钥签名，验证信息是否遭到篡改
 
-JWT 支持用一个密钥 + *HMAC* 算法的签名方式，也支持 *RSA* 或 *ECDSA* 的公私钥签名方式。
+JWT 支持用一个密钥 + _HMAC_ 算法的签名方式，也支持 _RSA_ 或 _ECDSA_ 的公私钥签名方式。
 
 ## Token Structure
 
@@ -95,9 +95,9 @@ HMACSHA256(
 
 签名结果被 Base64Url 编码后，成为 token 的第三部分。
 
-当使用 *HMAC* 的加密方式时，用于生成 token 和验证 token 的密钥是同一个。因此，token 产生过程和验证过程无法分开。如果分开，那就意味着相同的密钥分布了很多份，一旦泄露，就有灾难性的后果。这与对称加密的性质类似。
+当使用 _HMAC_ 的加密方式时，用于生成 token 和验证 token 的密钥是同一个。因此，token 产生过程和验证过程无法分开。如果分开，那就意味着相同的密钥分布了很多份，一旦泄露，就有灾难性的后果。这与对称加密的性质类似。
 
-而当使用 *RSA* 或 *ECDSA* 的加密方式时，生成 token 和验证 token 的过程就可以解耦了。生成 token 的过程可以由一个专门的认证服务器负责。认证服务器持有私钥，负责对 token 的前两部分进行签名；而普通的应用服务器只负责认证，任意多的应用服务器全部持有公钥也不会有什么问题 - 用公钥解密签名后，如果内容未经篡改，就说明一定是认证服务器签发的未经篡改的 token。
+而当使用 _RSA_ 或 _ECDSA_ 的加密方式时，生成 token 和验证 token 的过程就可以解耦了。生成 token 的过程可以由一个专门的认证服务器负责。认证服务器持有私钥，负责对 token 的前两部分进行签名；而普通的应用服务器只负责认证，任意多的应用服务器全部持有公钥也不会有什么问题 - 用公钥解密签名后，如果内容未经篡改，就说明一定是认证服务器签发的未经篡改的 token。
 
 这样一来，只有两种可能才会遭受攻击：
 
@@ -116,9 +116,8 @@ Authorization: Bearer <token>
 
 ## Compare
 
-类似的东西还有 *Simple Web Tokens (SWT)* 和 *Security Assertion Martup Language Tokens (SAML)*。
+类似的东西还有 _Simple Web Tokens (SWT)_ 和 _Security Assertion Martup Language Tokens (SAML)_。
 
 由于 JSON 比 XML 的冗余性小，因此 JWT 比 SAML 编码后更小，更适合 HTTP 环境下的传输。而 SWT 只能使用对称加密进行签名。
 
 ---
-

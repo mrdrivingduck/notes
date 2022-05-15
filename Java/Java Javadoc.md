@@ -1,4 +1,4 @@
-# Java - *Javadoc*
+# Java - _Javadoc_
 
 Created by : Mr Dk.
 
@@ -8,15 +8,15 @@ Ningbo, Zhejiang, China
 
 ---
 
-## What is *Javadoc* ?
+## What is _Javadoc_ ?
 
-[*Javadoc*](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) 是 *Sun* 开发的 Java 文档生成工具。该工具可以从 Java 源代码的注释中生成 HTML 格式的 API 文档。HTML 格式可以将相关文档通过超链接连接在一起。
+[_Javadoc_](https://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html) 是 _Sun_ 开发的 Java 文档生成工具。该工具可以从 Java 源代码的注释中生成 HTML 格式的 API 文档。HTML 格式可以将相关文档通过超链接连接在一起。
 
-*Javadoc* 中使用的 **doc comments** 格式是记录 Java 类的行业标准。以前，通常由专业的技术文档编写者来编写软件的独立文档，是这些文档与代码本身保持同步非常困难。*Javadoc* 使得文档可以直接内嵌在代码中，从而解决了代码与文档的同步问题。
+_Javadoc_ 中使用的 **doc comments** 格式是记录 Java 类的行业标准。以前，通常由专业的技术文档编写者来编写软件的独立文档，是这些文档与代码本身保持同步非常困难。_Javadoc_ 使得文档可以直接内嵌在代码中，从而解决了代码与文档的同步问题。
 
-*Javadoc* 不会影响 Java 代码执行的性能。在编译时，注释会被移除。
+_Javadoc_ 不会影响 Java 代码执行的性能。在编译时，注释会被移除。
 
-## *Javadoc* Structure
+## _Javadoc_ Structure
 
 通过标准的多行注释 `/*` 和 `*/` 在代码中编写注释 - 其中，起始标记具有额外的星号 `/**`。注释中：
 
@@ -33,25 +33,25 @@ Ningbo, Zhejiang, China
  */
 ```
 
-*Javadoc* 中支持的部分标签：
+_Javadoc_ 中支持的部分标签：
 
-| Tag & Parameter                                              | Usage                                  | Applies to                            |
-| ------------------------------------------------------------ | -------------------------------------- | ------------------------------------- |
-| `@author <name>`                                             | 作者                                   | Class, Interface, Enum                |
-| `@version <version>`                                         | 软件的当前版本                         | Class, Interface, Enum                |
-| `@since <since_version>`                                     | 该功能开始出现的第一个版本             | Class, Interface, Enum, Field, Method |
-| `@see <reference>`                                           | 指向其它元素或文档的链接               | Class, Interface, Enum, Field, Method |
-| `@param <name> <description>`                                | 描述函数的一个参数                     | Method                                |
-| `@return <description>`                                      | 描述函数的返回值                       | Method                                |
+| Tag & Parameter                                                                | Usage                                  | Applies to                            |
+| ------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------- |
+| `@author <name>`                                                               | 作者                                   | Class, Interface, Enum                |
+| `@version <version>`                                                           | 软件的当前版本                         | Class, Interface, Enum                |
+| `@since <since_version>`                                                       | 该功能开始出现的第一个版本             | Class, Interface, Enum, Field, Method |
+| `@see <reference>`                                                             | 指向其它元素或文档的链接               | Class, Interface, Enum, Field, Method |
+| `@param <name> <description>`                                                  | 描述函数的一个参数                     | Method                                |
+| `@return <description>`                                                        | 描述函数的返回值                       | Method                                |
 | `@exception <class_name> <description>` / `@throws <class_name> <description>` | 描述函数中会抛出的异常                 | Method                                |
-| `@deprecated <description>`                                  | 描述一个已经过时的函数                 | Class, Interface, Enum, Field, Method |
-| `{@link <reference>}`                                        | 链接到其它位置 (网页)                  | Class, Interface, Enum, Field, Method |
-| `{@linkplain <reference> <text>}`                            | 与前者相同，但是显示的文本可以不是链接 | Class, Interface, Enum, Field, Method |
-| `{@inheritDoc}`                                              | 拷贝被重写函数的描述                   | Overriding Method                     |
-| `{@value <STATIC_FIELD>}`                                    | 返回静态域的值                         | Static Field                          |
-| `{@code <code>}`                                             | 代码块，相当于 Markdown 中的 \`\`      | Class, Interface, Enum, Field, Method |
+| `@deprecated <description>`                                                    | 描述一个已经过时的函数                 | Class, Interface, Enum, Field, Method |
+| `{@link <reference>}`                                                          | 链接到其它位置 (网页)                  | Class, Interface, Enum, Field, Method |
+| `{@linkplain <reference> <text>}`                                              | 与前者相同，但是显示的文本可以不是链接 | Class, Interface, Enum, Field, Method |
+| `{@inheritDoc}`                                                                | 拷贝被重写函数的描述                   | Overriding Method                     |
+| `{@value <STATIC_FIELD>}`                                                      | 返回静态域的值                         | Static Field                          |
+| `{@code <code>}`                                                               | 代码块，相当于 Markdown 中的 \`\`      | Class, Interface, Enum, Field, Method |
 
-## Examples of *Javadoc* in JDK 8
+## Examples of _Javadoc_ in JDK 8
 
 ```java
 /**
@@ -116,16 +116,15 @@ public final int getAndAccumulate(int x,
 boolean offerLast(E e);
 ```
 
-## *Javadoc* Effect
+## _Javadoc_ Effect
 
 ![javadoc](../img/javadoc.png)
 
-## Issue: Include Reference to Unit Test Classes in *Javadoc*
+## Issue: Include Reference to Unit Test Classes in _Javadoc_
 
 试图在 Java 代码中使用 `@see` 指向对应的单元测试类，失败。Explanation on [StackOverflow](https://stackoverflow.com/questions/45160647/include-link-to-unit-test-classes-in-javadoc)。想来也有道理：
 
-* 单元测试是用于测试 Java 代码的，因此在单元测试中使用 `@see` 指向对应的 Java 代码合情合理
-* 而 Java 代码不是为单元测试而设计的，因此从 Java 代码中引用对应的测试类不合理
+- 单元测试是用于测试 Java 代码的，因此在单元测试中使用 `@see` 指向对应的 Java 代码合情合理
+- 而 Java 代码不是为单元测试而设计的，因此从 Java 代码中引用对应的测试类不合理
 
 ---
-

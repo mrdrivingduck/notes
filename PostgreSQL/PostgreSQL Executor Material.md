@@ -345,4 +345,3 @@ ExecEndMaterial(MaterialState *node)
     ExecEndNode(outerPlanState(node));
 }
 ```
-

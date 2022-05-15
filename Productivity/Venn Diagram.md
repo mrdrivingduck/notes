@@ -19,9 +19,9 @@ Nanjing, Jiangsu, China
 
 ### [Venny](https://bioinfogp.cnb.csic.es/tools/venny/index.html)
 
-* 最多支持四个集合的 Venn 图绘制
-* 带颜色 (但颜色不能自行修改)
-* 似乎只支持导出为 `.png` 格式
+- 最多支持四个集合的 Venn 图绘制
+- 带颜色 (但颜色不能自行修改)
+- 似乎只支持导出为 `.png` 格式
 
 效果如下：
 
@@ -31,11 +31,11 @@ Nanjing, Jiangsu, China
 
 强推这个网站，功能齐全：
 
-* 最多支持六个集合的 Venn 图
-* 两种显示模式 (经典 / Edwards 😥)
-* 是否基于输入数据显示相关图表
-* 自行定义每个集合的颜色
-* 支持导出 `.csv` / `.png` / `.svg`
+- 最多支持六个集合的 Venn 图
+- 两种显示模式 (经典 / Edwards 😥)
+- 是否基于输入数据显示相关图表
+- 自行定义每个集合的颜色
+- 支持导出 `.csv` / `.png` / `.svg`
 
 效果如下：
 
@@ -51,7 +51,7 @@ Nanjing, Jiangsu, China
 
 ## Format Conversion
 
-为了便于插入 *LaTeX* 中，一般选择 `.svg` 格式的矢量图。而我的论文模板里不支持插入 `.svg`，我也不想添加额外的 *LaTeX* 宏包了。所以找了 [一个国外的良心网站](https://cloudconvert.com/)，免费支持大量格式的在线转换。并且转换出的 `.pdf` 图片尺寸适宜，布局居中，可以直接插入论文中。
+为了便于插入 _LaTeX_ 中，一般选择 `.svg` 格式的矢量图。而我的论文模板里不支持插入 `.svg`，我也不想添加额外的 _LaTeX_ 宏包了。所以找了 [一个国外的良心网站](https://cloudconvert.com/)，免费支持大量格式的在线转换。并且转换出的 `.pdf` 图片尺寸适宜，布局居中，可以直接插入论文中。
 
 > 这里不吹不黑，还是单纯表扬一下这个网站吧，真的很良心，质量好不收费。国内的一些网站转换质量极差，还特么收钱...
 
@@ -60,4 +60,3 @@ Nanjing, Jiangsu, China
 ![venn-latex](../img/venn-latex.png)
 
 ---
-

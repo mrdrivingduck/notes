@@ -12,8 +12,8 @@ Nanjing, Jiangsu, China
 
 通过灵活运用 Docker 的卷、网络等特性，通过不同的镜像和容器共同构建应用服务。只记录思路。使用 Vue.js 开发一个博客网站，构建为静态资源后，部署到 Nginx 服务器上。在这个场景中，最起码需要用到两个镜像：
 
-* 一个镜像中包含 Node.js 环境，能够将 Vue.js 代码编译为静态资源
-* 一个镜像中运行 Nginx 服务器，使网站能够工作
+- 一个镜像中包含 Node.js 环境，能够将 Vue.js 代码编译为静态资源
+- 一个镜像中运行 Nginx 服务器，使网站能够工作
 
 对上述两个镜像进行构建 (只需要构建一次即可)。每当网站更新时，需要进行以下流程：
 
@@ -52,9 +52,9 @@ Nanjing, Jiangsu, China
 
 当担心不小心删除某个卷时，我们可以轻松备份它。简单来说，我们可以专门构建一个用于备份卷的容器：
 
-* 挂载一个将被备份的卷
-* 挂载一个存放备份卷的宿主机路径 (实际上这也是一个卷)
-* 在容器启动时，对将要备份的卷运行 `tar` 命令打包，并保存到存放备份卷的卷中
+- 挂载一个将被备份的卷
+- 挂载一个存放备份卷的宿主机路径 (实际上这也是一个卷)
+- 在容器启动时，对将要备份的卷运行 `tar` 命令打包，并保存到存放备份卷的卷中
 
 这里会使用到 `docker run` 命令的 `--rm` 标志 - 这个标志会使容器进程运行完毕后自动删除容器，因此专门用于那些 **只会被使用一次** 的容器。
 
@@ -64,14 +64,14 @@ Nanjing, Jiangsu, China
 
 当宿主机上运行着一个由多个容器组成的应用时，如何方便地聚合它们的日志？
 
-首先，所有的容器都会挂载一个卷，将日志存放到宿主机上。不同的容器肯定会对应着不同的日志文件 (比如一个 Node.js + Redis 构成的系统)。接下来，通过一个构建一个能够运行 *Logstash* 的镜像来聚合日志。
+首先，所有的容器都会挂载一个卷，将日志存放到宿主机上。不同的容器肯定会对应着不同的日志文件 (比如一个 Node.js + Redis 构成的系统)。接下来，通过一个构建一个能够运行 _Logstash_ 的镜像来聚合日志。
 
-在镜像中安装 *Logstash*，并将 *Logstash* 的配置文件通过 `ADD` 拷贝到容器内，配置文件中指定了两类信息：
+在镜像中安装 _Logstash_，并将 _Logstash_ 的配置文件通过 `ADD` 拷贝到容器内，配置文件中指定了两类信息：
 
-1. *Logstash* 将要监视的所有日志文件 (如 Node.js 容器的日志、Redis 主从结点的日志)
-2. *Logstash* 的输出方式 (比如输出到 STDOUT)
+1. _Logstash_ 将要监视的所有日志文件 (如 Node.js 容器的日志、Redis 主从结点的日志)
+2. _Logstash_ 的输出方式 (比如输出到 STDOUT)
 
-最后，将 *Logstash* 的启动命令 `/bin/logstash --config=/etc/logstash.conf` 作为镜像的 `ENTRYPOINT`。从这个镜像中启动容器，就能够在当前容器的 STDOUT 上聚合所有容器输出的日志。
+最后，将 _Logstash_ 的启动命令 `/bin/logstash --config=/etc/logstash.conf` 作为镜像的 `ENTRYPOINT`。从这个镜像中启动容器，就能够在当前容器的 STDOUT 上聚合所有容器输出的日志。
 
 ## 不使用 SSH 管理 Docker 容器
 
@@ -79,17 +79,17 @@ Nanjing, Jiangsu, China
 
 1. 使用卷，可以直接公开挂载到容器内的卷目录，甚至可以公开容器内的 socket
 2. 可以通过 `docker kill` 给容器发送信号
-3. 通过 *nsenter* 登入容器
+3. 通过 _nsenter_ 登入容器
 
-*Nsenter* 可以实现与 SSH 类似的功能，它可以让用户登入一个已经存在的容器的 shell，而不需要任何 `sshd` 等守护进程。*Nsenter* 的安装命令还让我的脑子有点没转过来：
+_Nsenter_ 可以实现与 SSH 类似的功能，它可以让用户登入一个已经存在的容器的 shell，而不需要任何 `sshd` 等守护进程。_Nsenter_ 的安装命令还让我的脑子有点没转过来：
 
 ```bash
 sudo docker run -v /usr/local/bin:/target jpetazzo/nsenter
 ```
 
-大致意思就是这个镜像会把 *nsenter* 安装到容器内的 `/target` 目录下。现在把宿主机的 `/usr/local/bin` 作为卷挂载到容器内的 `/target` 目录下，也就是容器内运行的命令会把 *nsenter* 安装到宿主机的 `/usr/local/bin` 目录下。
+大致意思就是这个镜像会把 _nsenter_ 安装到容器内的 `/target` 目录下。现在把宿主机的 `/usr/local/bin` 作为卷挂载到容器内的 `/target` 目录下，也就是容器内运行的命令会把 _nsenter_ 安装到宿主机的 `/usr/local/bin` 目录下。
 
-安装成功后，在宿主机上获取容器进程的 pid，然后使用 *nsenter* 登入容器：
+安装成功后，在宿主机上获取容器进程的 pid，然后使用 _nsenter_ 登入容器：
 
 ```bash
 sudo nsenter --target <pid> --mount --uts --ipc --net --pid
@@ -98,4 +98,3 @@ sudo nsenter --target <pid> --mount --uts --ipc --net --pid
 在上述命令的后面，还可以直接给出想要在容器内 shell 上执行的命令 (比如 `ls`)。
 
 ---
-

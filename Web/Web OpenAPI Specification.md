@@ -10,14 +10,14 @@ Nanjing, Jiangsu, China
 
 ## Background
 
-**OpenAPI Specification (OAS)**，以前叫做 *Swagger* 标准，是用于描述 RESTful Web 服务的接口文件。可以对接口进行描述、可视化等等。在 2016 年从 Swagger 项目中独立出来称为独立项目。
+**OpenAPI Specification (OAS)**，以前叫做 _Swagger_ 标准，是用于描述 RESTful Web 服务的接口文件。可以对接口进行描述、可视化等等。在 2016 年从 Swagger 项目中独立出来称为独立项目。
 
 版本：
 
-* 2017-07-26: OpenAPI 3.0.0+
-* 2014-09-08: Swagger 2.0
-* 2012-08-22: Swagger 1.1
-* ...
+- 2017-07-26: OpenAPI 3.0.0+
+- 2014-09-08: Swagger 2.0
+- 2012-08-22: Swagger 1.1
+- ...
 
 算是 RESTful 的世界标准？好吧，接触过的几个 RESTful 的应用一个都没有使用 OAS，但毕竟是 RESTful 领域中的官方标准了。最近又准备做一做 RESTful fuzzing，所以研究了一下 OAS 的文档并做一些梳理。
 
@@ -39,9 +39,9 @@ OpenAPI 文档中经常用到一些概念
 
 服从 RFC6838
 
-* `text/plain; charset=utf-8`
-* `application/json`
-* ...
+- `text/plain; charset=utf-8`
+- `application/json`
+- ...
 
 ### HTTP Status Code
 
@@ -59,7 +59,7 @@ JSON 格式或 YAML 格式
 
 大小写除非特殊说明，否则都是敏感的
 
-* 这个只要平时做事足够规范，取名足够合理，通常不会有什么问题
+- 这个只要平时做事足够规范，取名足够合理，通常不会有什么问题
 
 ### Documentation Structure
 
@@ -114,10 +114,7 @@ OpenAPI 文档的 root document：
           "description": "this value is assigned by the service provider, in this example `gigantic-server.com`"
         },
         "port": {
-          "enum": [
-            "8443",
-            "443"
-          ],
+          "enum": ["8443", "443"],
           "default": "8443"
         },
         "basePath": {
@@ -157,9 +154,7 @@ OpenAPI 文档的 root document：
 {
   "/pets": {
     "get": {},
-    "parameters": [
-      {}
-    ]
+    "parameters": [{}]
   }
 }
 ```
@@ -185,22 +180,15 @@ OpenAPI 文档的 root document：
 
 ```json
 {
-  "tags": [
-    "pet"
-  ],
+  "tags": ["pet"],
   "summary": "Updates a pet in the store with form data",
   "operationId": "updatePetWithForm",
-  "parameters": [
-      {}
-  ],
+  "parameters": [{}],
   "requestBody": {},
   "responses": {},
   "security": [
     {
-      "petstore_auth": [
-        "write:pets",
-        "read:pets"
-      ]
+      "petstore_auth": ["write:pets", "read:pets"]
     }
   ]
 }
@@ -208,11 +196,11 @@ OpenAPI 文档的 root document：
 
 ### Media Type Object
 
-| Field Name | Type                                            | Descirption                                                  |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| schema     | Schema Object \| Reference Object               | 定义 request, response, parameter 内容                       |
-| example    |                                                 |                                                              |
-| examples   | Map<string, Example Object \| Reference Object> |                                                              |
+| Field Name | Type                                            | Descirption                                                              |
+| ---------- | ----------------------------------------------- | ------------------------------------------------------------------------ |
+| schema     | Schema Object \| Reference Object               | 定义 request, response, parameter 内容                                   |
+| example    |                                                 |                                                                          |
+| examples   | Map<string, Example Object \| Reference Object> |                                                                          |
 | encoding   | Map<string, Encoding Object>                    | The key, being the property name, MUST exist in the schema as a property |
 
 ```json
@@ -316,25 +304,25 @@ OpenAPI 文档的 root document：
 
 定义某一个操作需要使用的参数，参数由 **name** 和 **location** 唯一确定。Location 是参数在请求中的位置：
 
-* path - 参数值是操作 URL 的一部分 - `/items/{itemId}`
-* query - 参数值是附加在 URL 尾部 - `/items?id=###`
-* header - 参数值位于请求头中
-* cookie - 参数位于 cookie 中
+- path - 参数值是操作 URL 的一部分 - `/items/{itemId}`
+- query - 参数值是附加在 URL 尾部 - `/items?id=###`
+- header - 参数值位于请求头中
+- cookie - 参数位于 cookie 中
 
-| Field Name          | Type                                            | Description                                                  |
-| ------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| name (**REQUIRED**) | string                                          | 参数名                                                       |
-| in (**REQUIRED**)   | string                                          | 参数的位置 (location)                                        |
-| description         | string                                          |                                                              |
-| required            | boolean                                         |                                                              |
-| deprecated          | boolean                                         |                                                              |
-| allEmptyValue       | boolean                                         |                                                              |
-| style               | string                                          | 决定参数如何被序列化                                         |
-| explode             | boolean                                         | 如果为 `true`，参数值会将 array 中的每一个值和对象中的每对 key-pair 分开 |
-| allowReserved       | boolean                                         | 决定参数中是否允许 RFC3986 中定义的保留字符                  |
-| schema              | Schema Object \| Reference Object               | 定义了参数的类型                                             |
-| example             |                                                 |                                                              |
-| examples            | Map<string, Example Object \| Reference Object> |                                                              |
+| Field Name          | Type                                            | Description                                                                                                               |
+| ------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| name (**REQUIRED**) | string                                          | 参数名                                                                                                                    |
+| in (**REQUIRED**)   | string                                          | 参数的位置 (location)                                                                                                     |
+| description         | string                                          |                                                                                                                           |
+| required            | boolean                                         |                                                                                                                           |
+| deprecated          | boolean                                         |                                                                                                                           |
+| allEmptyValue       | boolean                                         |                                                                                                                           |
+| style               | string                                          | 决定参数如何被序列化                                                                                                      |
+| explode             | boolean                                         | 如果为 `true`，参数值会将 array 中的每一个值和对象中的每对 key-pair 分开                                                  |
+| allowReserved       | boolean                                         | 决定参数中是否允许 RFC3986 中定义的保留字符                                                                               |
+| schema              | Schema Object \| Reference Object               | 定义了参数的类型                                                                                                          |
+| example             |                                                 |                                                                                                                           |
+| examples            | Map<string, Example Object \| Reference Object> |                                                                                                                           |
 | content             | Map<string, Media Type Object>                  | MUST only contain one entry && A parameter MUST contain either a `schema` property, or a `content` property, but not both |
 
 带 schema 的例子：
@@ -366,10 +354,7 @@ OpenAPI 文档的 root document：
     "application/json": {
       "schema": {
         "type": "object",
-        "required": [
-          "lat",
-          "long"
-        ],
+        "required": ["lat", "long"],
         "properties": {
           "lat": {
             "type": "number"
@@ -411,9 +396,7 @@ OpenAPI 文档的 root document：
       "type": "string"
     }
   },
-  "required": [
-    "name"
-  ],
+  "required": ["name"],
   "example": {
     "name": "Puma",
     "id": 1
@@ -531,4 +514,3 @@ OpenAPI 文档的 root document：
 https://swagger.io/specification/
 
 ---
-

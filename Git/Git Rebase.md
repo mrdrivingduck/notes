@@ -82,17 +82,17 @@ git rebase -i --root
 通过在交互式命令行中编辑每次 commit 之前的命令，就可以对每一次 commit 实现相应的动作。包括但不限于：
 
 - 合并几次 commit 为一次
-    ![git-rebase-interactive-squash](../img/git-rebase-interactive-squash.gif)
+  ![git-rebase-interactive-squash](../img/git-rebase-interactive-squash.gif)
 - 拆分一次 commit 为多次
 - 删除某次 commit
-    ![git-rebase-interactive-drop](../img/git-rebase-interactive-drop.gif)
+  ![git-rebase-interactive-drop](../img/git-rebase-interactive-drop.gif)
 - 编辑某次 commit 的 commit message
 - 在每次 commit 上修改 commit 邮箱地址
 - ...
 
 最近新学习到一条开发规范。从主分支拉出一条分支用于开发 feature 之后，在合入主分支之前，要把 feature 分支上的所有 commit 压缩为一个 commit，再合入。
 
-为什么要这样干？查了查 *ZhiHu*，总结了一下：
+为什么要这样干？查了查 _ZhiHu_，总结了一下：
 
 1. 很多 commit 只是带有实验性质或暂存性质，并没有必要真正成为一次 commit
 2. 将逻辑上相似的多个 commit 压缩到一次 commit 里，可以给它一个描述性很强的 commit message

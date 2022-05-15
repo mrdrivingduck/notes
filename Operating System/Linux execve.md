@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 Linux 中的 `execve()` 是一个系统调用，用于产生一个新进程，通常需要与 `fork()` 一起使用。进程通过调用 `fork()` 将当前进程完全复制一份 (只有 pid 不同)，然后再调用 `execve()` 将新进程的内存映像全部替换为想要执行的程序。
 
-在大三学习 *操作系统* 课程时自行实现过一个 [shell](https://github.com/mrdrivingduck/dksh)，但对于其中有一些细节还是没有太明白。
+在大三学习 _操作系统_ 课程时自行实现过一个 [shell](https://github.com/mrdrivingduck/dksh)，但对于其中有一些细节还是没有太明白。
 
 ## 关于 cd 和 pwd
 
@@ -114,7 +114,7 @@ int main()
 这个程序使用 shell 进程的内置环境变量。用 strace 执行这个程序。给出的程序名是 `ls`，看看 shell (或者说 `execvp()` 库函数) 替我们做了些啥：
 
 ```console
-$ strace ./test 
+$ strace ./test
 execve("./test", ["./test"], 0x7ffca90f0de0 /* 33 vars */) = 0
 brk(NULL)                               = 0x56142cb23000
 
@@ -160,7 +160,7 @@ int main()
 它的 strace 结果如下：
 
 ```console
-$ strace ./test 
+$ strace ./test
 execve("./test", ["./test"], 0x7ffdee5a50d0 /* 33 vars */) = 0
 brk(NULL)                               = 0x55882ca47000
 
@@ -177,8 +177,8 @@ exit_group(0)                           = ?
 
 另外提及一下环境变量的生命周期。环境变量分为：
 
-* 永久变量
-* 临时变量
+- 永久变量
+- 临时变量
 
 永久变量被记录在配置文件中。每当 shell 启动时，会将这些变量读取到进程环境变量中；而临时性变量只能在 shell 中通过 `export` 设置，设置完毕后会立即生效，但关闭 shell 后将会失效 (易失的)。
 
@@ -190,11 +190,10 @@ exit_group(0)                           = ?
 
 [Linux and Unix pwd command tutorial with examples](https://shapeshed.com/unix-pwd/)
 
-[Wikipedia - exec (system call)](https://en.wikipedia.org/wiki/Exec_(system_call))
+[Wikipedia - exec (system call)](<https://en.wikipedia.org/wiki/Exec_(system_call)>)
 
-[Wikipedia - cd (command)](https://en.wikipedia.org/wiki/Cd_(command))
+[Wikipedia - cd (command)](<https://en.wikipedia.org/wiki/Cd_(command)>)
 
 [Wikipedia - pwd](https://en.wikipedia.org/wiki/Pwd)
 
 ---
-

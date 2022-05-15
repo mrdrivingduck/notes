@@ -12,7 +12,7 @@ Nanjing, Jiangsu, China
 
 Reflection - 反射
 
-通过 `.class` 文件动态加载类，而不用通过类对象，就能获取类的所有信息，包括 *field*、*method*、*constructor* 等。不用通过类对象，就能调用类的函数。在运行时判断任意一个对象所属的类。
+通过 `.class` 文件动态加载类，而不用通过类对象，就能获取类的所有信息，包括 _field_、_method_、_constructor_ 等。不用通过类对象，就能调用类的函数。在运行时判断任意一个对象所属的类。
 
 ## Usage
 
@@ -28,11 +28,11 @@ Reflection - 反射
 
 ```java
 class Base {
-    
+
     // Fields
     private int a;
     private String b;
-    
+
     // Getters & Setters for fields
     public void setA(int a) {
         this.a = a;
@@ -46,7 +46,7 @@ class Base {
     public String getB() {
         return b;
     }
-    
+
     // Constructors
     public Base() {}
     public Base(int a) {this.a = a;}
@@ -55,7 +55,7 @@ class Base {
         this.a = a;
         this.b = b;
     }
-    
+
     // Methods
     public void Print(String msg) {
         System.out.println(msg);
@@ -85,25 +85,25 @@ Class clazz = Class.forName("package.Base");
 
 只能获取到当前类的信息，不能获取到父类的信息
 
-* 获取构造函数
+- 获取构造函数
 
   ```java
   /**
    * 获取所有的 public Constructor
    */
   Constructor[] constructors = clazz.getConstructors();
-  
+
   /**
    * 获取所有的 Constructor （包括 private、protected）
    */
   Constructor[] constructors = clazz.getConstructors();
-  
+
   /**
    * 获取某个特定的 public Constructor
    * 参数为对应的 Class 对象
    */
   Constructor constructor = clazz.getConstructor(int.class, String.class);
-  
+
   /**
    * 获取某个特定的 Constructor
    * 参数为对应的 Class 对象
@@ -111,49 +111,49 @@ Class clazz = Class.forName("package.Base");
   Constructor constructor = clazz.getDeclaredConstructor(int.class, String.class);
   ```
 
-* 获取成员变量
+- 获取成员变量
 
   ```java
   /**
    * 获取所有 field
    */
   Field[] fields = clazz.getDeclaredFields();
-  
+
   /**
    * 获取所有的 public field
    */
   Field[] fields = clazz.getFields();
-  
+
   /**
    * 获取某个特定 field
    */
   Field field = clazz.getDeclaredField("a");
-  
+
   /**
    * 获取某个特定的 public field
    */
   Field field = clazz.getField("a");
   ```
 
-* 获取函数
+- 获取函数
 
   ```java
   /**
    * 获取所有的 public method
    */
   Method[] methods = clazz.getMethods();
-  
+
   /**
    * 获取所有的 method
    */
   Method[] methods = clazz.getDeclaredMethods();
-  
+
   /**
    * 获取某个特定的 public method
    * 第一个参数为函数名，之后的参数为对应的参数列表的 class 对象
    */
   Method method = clazz.getMethod("Print", String.class);
-  
+
   /**
    * 获取某个特定的 method
    * 第一个参数为函数名，之后的参数为对应的参数列表的 class 对象“
@@ -163,7 +163,7 @@ Class clazz = Class.forName("package.Base");
 
 ## 对类的一些操作
 
-* 实例化
+- 实例化
 
   ```java
   /**
@@ -171,7 +171,7 @@ Class clazz = Class.forName("package.Base");
    * 调用无参数的 Constructor（必须定义并实现！！！）
    */
   Object obj = clazz.newInstance();
-  
+
   /**
    * 返回类型为 Object
    * 可以指定使用不同的构造函数
@@ -180,7 +180,7 @@ Class clazz = Class.forName("package.Base");
   Object obj = constructor.newInstance(50, "Mr Dk.");
   ```
 
-* 访问属性
+- 访问属性
 
   ```java
   Field field = clazz.getDeclaredField("a");
@@ -188,7 +188,7 @@ Class clazz = Class.forName("package.Base");
   int a = field.getInt(obj);
   ```
 
-* 获取父类属性
+- 获取父类属性
 
   ```java
   for (; !clazz.equals(Object.class); clazz = clazz.getSuperclass()) {
@@ -198,7 +198,7 @@ Class clazz = Class.forName("package.Base");
   }
   ```
 
-* 调用函数
+- 调用函数
 
   ```java
   Method method = clazz.getDeclaredMethod("Print", String.class);
@@ -215,15 +215,14 @@ Class clazz = Class.forName("package.Base");
 
 反射的效率比非反射低得多，所以避免在经常执行的代码中使用，避免在对性能要求较高的代码中使用。使用反射要求程序必须在一个没有安全限制的环境内运行，因为产生了内部暴露，允许一些正常情况下不被允许的操作：
 
-* 访问 `private` 属性
-* 访问 `private` 函数
+- 访问 `private` 属性
+- 访问 `private` 函数
 
 反射可能导致一些副作用，如：
 
-* 代码功能上的错误
-* 降低可移植性
-* 破坏代码的抽象性
-* 不同运行平台上的行为差异
+- 代码功能上的错误
+- 降低可移植性
+- 破坏代码的抽象性
+- 不同运行平台上的行为差异
 
 ---
-

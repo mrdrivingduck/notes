@@ -132,4 +132,3 @@ Solidity 使用状态回退来处理异常。异常将会导致当前调用及�
 如果在一个子调用中发生了异常，则遵循 _bubble up_ 原则 - 即自动向上抛出。例外情况就是 `send` 和低层调用函数 `call` `delegatecall` 和 `callnode` - 这些函数在发生异常时会返回 `false`。
 
 ---
-

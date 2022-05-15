@@ -10,7 +10,7 @@ Nanjing, Jiangsu, China
 
 ## Concept
 
-*WPS* stands for *Wi-Fi Protected Setup*. It is a wireless network security standard, created by Wi-Fi Alliance and introduced in 2006.
+_WPS_ stands for _Wi-Fi Protected Setup_. It is a wireless network security standard, created by Wi-Fi Alliance and introduced in 2006.
 
 ## Goal
 
@@ -48,17 +48,17 @@ The PIN is **insecure** and **easy to hack**:
 
 ## Cracking Tools
 
-- Kali Linux 中的 *reaver*
+- Kali Linux 中的 _reaver_
   - Reaver v1.6.5 WiFi Protected Setup Attack Tool; Copyright (c) 2011, Tactical Network Solutions, Craig Heffner
   - 用于攻击支持 WPS 的设备
-- Kali Linux 中的 *wash*
+- Kali Linux 中的 _wash_
   - Wash v1.6.5 WiFi Protected Setup Scan Tool; Copyright (c) 2011, Tactical Network Solutions, Craig Heffner
   - 用于扫描周围支持 WPS 的设备
-- Kali Linux 中的 *aircrack-ng*：用于将网卡设定为监控模式
+- Kali Linux 中的 _aircrack-ng_：用于将网卡设定为监控模式
 
 ## Theory
 
-支持 WPS 功能的无线路由器，只要获得它的 PIN，就可以获得它的 PSK，从而自动连入网络，简化路由器的连接配置过程。*Reaver* 通过穷举的方式暴力破解这个 PIN，从而获得无线网络的密码。
+支持 WPS 功能的无线路由器，只要获得它的 PIN，就可以获得它的 PSK，从而自动连入网络，简化路由器的连接配置过程。_Reaver_ 通过穷举的方式暴力破解这个 PIN，从而获得无线网络的密码。
 
 ## Procedure
 
@@ -70,7 +70,7 @@ $ ifconfig
 
 ![reaver-init](../img/reaver-init.png)
 
-*wlan0* is the wireless interface I have just inserted.
+_wlan0_ is the wireless interface I have just inserted.
 
 ### Turn the wireless-interface into monitor mode
 
@@ -88,7 +88,7 @@ $ ifconfig
 
 ![reaver-ifconfig](../img/reaver-ifconfig.png)
 
-*wlan0mon* is the wireless-interface which has been turned into monitor mode.
+_wlan0mon_ is the wireless-interface which has been turned into monitor mode.
 
 ### Search for the Routers which support WPS
 
@@ -116,7 +116,7 @@ $ wash -i wlan0mon
 $ reaver -i wlan0mon -b EC:88:8F:51:DD:A2 -vv
 ```
 
-由于 8 位的 PIN 是分为两个 4 位分开存放的，*reaver* 会先穷举前四位 PIN。在我的破解过程中，在进度大约到 15% 时，突然跳到了 90%。说明前四位已被破解，直接进入了后四位的破解，因此进度大大增加。
+由于 8 位的 PIN 是分为两个 4 位分开存放的，_reaver_ 会先穷举前四位 PIN。在我的破解过程中，在进度大约到 15% 时，突然跳到了 90%。说明前四位已被破解，直接进入了后四位的破解，因此进度大大增加。
 
 ![reaver-result](../img/reaver-result.png)
 
@@ -130,5 +130,4 @@ $ reaver -i wlan0mon -b EC:88:8F:51:DD:A2 -vv
 
 ## Summary
 
-这个破解太受条件限制了，在宿舍和实验室里找了好久，才找到这么一个唯一可以被破解的无线路由器。说明现在的路由器厂商已经非常注意防御此类破解了。令我比较郁闷的是，*kismet* 号称可以在检测到暴力破解 WPS 时发出警告，然而并没有警告啊。。。。。。
-
+这个破解太受条件限制了，在宿舍和实验室里找了好久，才找到这么一个唯一可以被破解的无线路由器。说明现在的路由器厂商已经非常注意防御此类破解了。令我比较郁闷的是，_kismet_ 号称可以在检测到暴力破解 WPS 时发出警告，然而并没有警告啊。。。。。。

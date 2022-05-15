@@ -39,7 +39,7 @@ syscallname "(" [arg ["," arg]*] ")" [type]
 open(...) fd
 ```
 
-* 系统调用名为 `open`，返回值类型为 `fd`
+- 系统调用名为 `open`，返回值类型为 `fd`
 
 ### Arguments
 
@@ -49,8 +49,8 @@ arg = argname type
 
 每个参数可以分为两部分：
 
-* 参数名
-* 参数类型
+- 参数名
+- 参数类型
 
 如：
 
@@ -58,8 +58,8 @@ arg = argname type
 open(file filename, ...) fd
 ```
 
-* 第一个参数名为 `file`
-* 参数类型为 `filename`
+- 第一个参数名为 `file`
+- 参数类型为 `filename`
 
 ### Argument Name
 
@@ -75,31 +75,31 @@ type = typename [ "[" type-options "]" ]
 
 类型包含两部分：
 
-* `typename` - 类型名
-  * `const`
-  * `intN`
-  * `intptr`
-  * `flags`
-  * `array`
-  * `ptr`
-  * `string`
-  * `strconst`
-  * `filename`
-  * `len`
-  * `bytesize`
-  * `bytesizeN`
-  * `bitsize`
-  * `vma`
-  * `proc`
-* `type-options` - 类型选项，在类型名后加 `[]` (可选)
+- `typename` - 类型名
+  - `const`
+  - `intN`
+  - `intptr`
+  - `flags`
+  - `array`
+  - `ptr`
+  - `string`
+  - `strconst`
+  - `filename`
+  - `len`
+  - `bytesize`
+  - `bytesizeN`
+  - `bitsize`
+  - `vma`
+  - `proc`
+- `type-options` - 类型选项，在类型名后加 `[]` (可选)
 
 ### Ints
 
-* `int8`
-* `int16`
-* `int32`
-* `int64`
-* `intptr` - 代表一个指针尺寸的整数，比如 C 中的 `long`
+- `int8`
+- `int16`
+- `int32`
+- `int64`
+- `intptr` - 代表一个指针尺寸的整数，比如 C 中的 `long`
 
 加入 `be` 后缀表示大端 - `int16be`
 
@@ -138,10 +138,10 @@ example_struct {
 } [ <attribute> ]
 ```
 
-| Attribute  | Description                                                  |
-| ---------- | ------------------------------------------------------------ |
+| Attribute  | Description                                                                             |
+| ---------- | --------------------------------------------------------------------------------------- |
 | `"varlen"` | union size is not maximum of all option but rather length of a particular chosen option |
-| `"size"`   | the union is padded up to the specified size                 |
+| `"size"`   | the union is padded up to the specified size                                            |
 
 ### Resources
 
@@ -163,12 +163,12 @@ accept(fd sock, ...) sock
 listen(fd sock, backlog int32)
 ```
 
-* "resource" 声明
-* resource 名称
-* resource 的类型
-  * `int8`、`int16`、`int32`、`int64` 、`intptr` 或另一个 resource (继承)
-* 冒号之后可以加其余选项
-  * resource 可以使用一些特殊值
+- "resource" 声明
+- resource 名称
+- resource 的类型
+  - `int8`、`int16`、`int32`、`int64` 、`intptr` 或另一个 resource (继承)
+- 冒号之后可以加其余选项
+  - resource 可以使用一些特殊值
 
 ### Type Aliases
 
@@ -206,4 +206,3 @@ type buffer[DIR] ptr[DIR, array[int8]]
 ### Proc
 
 ---
-

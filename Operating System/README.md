@@ -19,5 +19,5 @@
 - [Syzkaller Architecture](./Syzkaller%20Architecture.md)
 - [Syzkaller Description Syntax](./Syzkaller%20Description%20Syntax.md)
 - [Syzkaller Usage](./Syzkaller%20Usage.md)
-- [Ubuntu Desktop Recover (Python)](./Ubuntu%20Desktop%20Recover%20(Python).md)
+- [Ubuntu Desktop Recover (Python)](<./Ubuntu%20Desktop%20Recover%20(Python).md>)
 - [WSL CentOS8](./WSL%20CentOS8.md)

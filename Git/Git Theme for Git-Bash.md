@@ -8,11 +8,11 @@ Nanjing, Jiangsu, China
 
 ---
 
-记得大二第一次使用 [Atom](https://atom.io/) 便爱上了默认自带的 *One Dark* 配色。后来开始使用 Visual Studio Code 以后，依旧通过插件使用着 *One Dark* 配色。比较好用的是这款：https://github.com/Binaryify/OneDark-Pro。
+记得大二第一次使用 [Atom](https://atom.io/) 便爱上了默认自带的 _One Dark_ 配色。后来开始使用 Visual Studio Code 以后，依旧通过插件使用着 _One Dark_ 配色。比较好用的是这款：https://github.com/Binaryify/OneDark-Pro。
 
-后来为了消除不同软件间的切换导致视觉上的不适，在使用 Typora 进行 MarkDown 文本编辑时，也使用了官方提供的类似配色主题 - *LostKeys Dark*。
+后来为了消除不同软件间的切换导致视觉上的不适，在使用 Typora 进行 MarkDown 文本编辑时，也使用了官方提供的类似配色主题 - _LostKeys Dark_。
 
-然而对于 Git Bash，却一直用着默认的黑色 Terminal 主题。虽然在 Visual Studio Code 中内嵌了以现有配色启动 Git Bash 的功能，但 Git Bash 的主题我还是想调成 *One Dark* 的配色风格。
+然而对于 Git Bash，却一直用着默认的黑色 Terminal 主题。虽然在 Visual Studio Code 中内嵌了以现有配色启动 Git Bash 的功能，但 Git Bash 的主题我还是想调成 _One Dark_ 的配色风格。
 
 在 Git Bash 的设置中有设置主题的选项，但是没有我想要的 One Dark 主题。所以只能自己设定了。在 `C:\Users\<UserName>` 下能够找到 Git Bash 的配置文件 `.minttyrc`。
 
@@ -33,7 +33,7 @@ AllowBlinking=yes
 
 ## Background Color Style
 
-设定了背景色、前景色、Cursor 的颜色和样式。在 *One Dark Pro* 主题的[源代码](https://github.com/Binaryify/OneDark-Pro/blob/master/src/editor.json)中分别找到这几个选项的颜色：
+设定了背景色、前景色、Cursor 的颜色和样式。在 _One Dark Pro_ 主题的[源代码](https://github.com/Binaryify/OneDark-Pro/blob/master/src/editor.json)中分别找到这几个选项的颜色：
 
 ```javascript
 {
@@ -59,10 +59,10 @@ CursorType=block
 
 应该是覆盖了原有的颜色文字字符串对应的默认颜色
 
-* 比如说原来的 `green` 对应的颜色是 `#008000`
-* 现在可以通过显式将 `green` 声明为 `#98c379`，覆盖原有的原色
+- 比如说原来的 `green` 对应的颜色是 `#008000`
+- 现在可以通过显式将 `green` 声明为 `#98c379`，覆盖原有的原色
 
-在 *One Dark Pro* 主题的源代码中找到所有 Terminal 相关的颜色：
+在 _One Dark Pro_ 主题的源代码中找到所有 Terminal 相关的颜色：
 
 ```javascript
 {
@@ -117,7 +117,7 @@ BrightWhite=215,218,224
 
 ![git-bash-default](../img/git-bash-default.png)
 
-使用 *One Dark* 主题之后：
+使用 _One Dark_ 主题之后：
 
 ![git-bash-one-dark](../img/git-bash-one-dark.png)
 

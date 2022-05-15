@@ -43,7 +43,7 @@ template <class T,
 >
 > A binary predicate that takes two elements (of type `T`) as arguments and returns a `bool`.
 > The expression `comp(a,b)`, where comp is an object of this type and a and b are elements in the container, shall return `true` if a is considered to go before b in the _strict weak ordering_ the function defines.
-> The priority_queue uses this function to maintain the elements sorted in a way that preserves _heap properties_ (i.e., that the element popped is the last according to this _strict weak ordering_).
+> The priority*queue uses this function to maintain the elements sorted in a way that preserves \_heap properties* (i.e., that the element popped is the last according to this _strict weak ordering_).
 > This can be a function pointer or a function object, and defaults to `less<T>`, which returns the same as applying the _less-than operator_ (`a<b`).
 >
 > 另外，可以自行使用 `#include <algorithm>` 中的 `make_heap()` 等函数手动对 `vector` 等容器建堆，效果一致。

@@ -10,48 +10,48 @@ Nanjing, Jiangsu, China
 
 ## Concept
 
-* 请求报文 (request message) - Web 客户端 → Web 服务器
-* 应答报文 (response message) - Web 服务器 → Web 客户端
+- 请求报文 (request message) - Web 客户端 → Web 服务器
+- 应答报文 (response message) - Web 服务器 → Web 客户端
 
 ## Structure of message
 
-* 请求报文
-  * 请求行（request line）
-    * 方法（method） - `GET`、`POST`、...
-    * URL
-    * HTTP version
-  * 报头（header）
-  * 空白行（blank line） - 报头部分的结束标志
-  * 正文（body） - 可空
-* 应答报文
-  * 状态行（status line）
-    * HTTP version
-    * 状态码 - `404`、`200`、...
-    * 状态短语
-  * 报头（header）
-  * 空白行（blank line）
-  * 正文（body）
+- 请求报文
+  - 请求行（request line）
+    - 方法（method） - `GET`、`POST`、...
+    - URL
+    - HTTP version
+  - 报头（header）
+  - 空白行（blank line） - 报头部分的结束标志
+  - 正文（body） - 可空
+- 应答报文
+  - 状态行（status line）
+    - HTTP version
+    - 状态码 - `404`、`200`、...
+    - 状态短语
+  - 报头（header）
+  - 空白行（blank line）
+  - 正文（body）
 
 ## Structure of header
 
 四种类型：
 
-* 通用头部
-* 请求头部
-* 应答头部
-* 正文头部
+- 通用头部
+- 请求头部
+- 应答头部
+- 正文头部
 
 其中，请求报文中只含有：
 
-* 通用头部
-* 请求头部
-* 正文头部
+- 通用头部
+- 请求头部
+- 正文头部
 
 应答报文中只含有：
 
-* 通用头部
-* 应答头部
-* 正文头部
+- 通用头部
+- 应答头部
+- 正文头部
 
 ### 通用头部
 
@@ -116,4 +116,3 @@ Nanjing, Jiangsu, China
 | Location         | 被创建和被移动的文档位置 |
 
 ---
-

@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-理解并实验了 Java 中几种不同类型的引用及其特性。该问题来源于研究 JDK 源代码的 `ThreadLocal` 类时，其中的 `ThreadLocalMap` 使用的是所谓 *弱引用*。在 *马士兵* 老师的 *多线程与高并发* 书籍中找到了答案。
+理解并实验了 Java 中几种不同类型的引用及其特性。该问题来源于研究 JDK 源代码的 `ThreadLocal` 类时，其中的 `ThreadLocalMap` 使用的是所谓 _弱引用_。在 _马士兵_ 老师的 _多线程与高并发_ 书籍中找到了答案。
 
 ## Strong References
 
@@ -72,8 +72,8 @@ System.in.read(); // GC 在其它线程中进行，防止当前线程结束
 
 这一特性主要体现在 Java 的 `ThreadLocal` 类中。该类在当前线程对象内维护一个称为 `ThreadLocalMap` 的 map，里面的 key 是弱引用的 `ThreadLocal` 对象，value 是想要保存在线程内部保存的局部变量。当线程用强引用实例化一个 `ThreadLocal` 对象并作为某个局部变量的 key 放入线程 map 中时，此时堆上的 `ThreadLocal` 对象被引用两次：
 
-* 程序中的强引用
-* 线程内的 `ThreadLocalMap` 弱引用
+- 程序中的强引用
+- 线程内的 `ThreadLocalMap` 弱引用
 
 当程序中强引用所在的函数结束后，该引用作为函数内的局部变量 (栈上变量) 也消失了。此时，如果线程一直运行下去 (假设它是一个后台线程)，map 将一直对堆上的 `ThreadLocal` 对象保持引用。假设 map 持有的是强引用，那么 `ThreadLocal` 对象将一直不会被 GC，从而引发内存泄露；而如果这是个弱引用，那么堆上的 `ThreadLocal` 对象将会在原有强引用断开连接后被 GC。
 
@@ -158,4 +158,3 @@ Value object GC happened.
 [CSDN - ThreadLocalMap 里的弱引用](https://blog.csdn.net/vicoqi/article/details/79743112)
 
 ---
-

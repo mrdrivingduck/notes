@@ -16,19 +16,19 @@ Docker 镜像是一个只读版的 Docker 容器模板，含有启动 Docker 容
 
 rootfs 是 Docker 容器启动时，内部进程可见的文件系统，也就是 Docker 容器的根目录。通常包含一个 OS 运行所需的文件系统，比如 `/bin`、`/lib`、`/usr` 等。
 
-传统 Linux 内核启动时，会挂载一个只读的 rootfs，在系统检测其完整性后，再将其切换为可读写模式。在 Docker 中，Docker daemon 为 Docker 容器挂载 rootfs 时，也会将其设置为只读模式。挂载完毕后，利用 *联合挂载 (union mount)* 技术在 rootfs 的挂载点上再挂载一个空的读写文件系统。当 Docker 容器运行过程中，文件系统发生变化时，发生变化的内容将会写到读写文件系统，并隐藏只读文件系统中的旧版本文件。
+传统 Linux 内核启动时，会挂载一个只读的 rootfs，在系统检测其完整性后，再将其切换为可读写模式。在 Docker 中，Docker daemon 为 Docker 容器挂载 rootfs 时，也会将其设置为只读模式。挂载完毕后，利用 _联合挂载 (union mount)_ 技术在 rootfs 的挂载点上再挂载一个空的读写文件系统。当 Docker 容器运行过程中，文件系统发生变化时，发生变化的内容将会写到读写文件系统，并隐藏只读文件系统中的旧版本文件。
 
 ### Docker 镜像的特点
 
-* 分层
-  * 修改容器中的文件时，只对最上层读写文件系统进行变动，不覆盖下层已有文件系统的内容
-  * `docker commit` 提交修改后的文件系统时，只保存读写文件系统中的被更新过的文件
-* 写时复制
-  * 只有对只读文件系统中的文件修改时，才将其复制到读写文件系统中，并应用修改
-* 内容寻址
-  * 对镜像层的内容计算校验和，生成一个内容 hash 作为镜像层 (文件系统) 的唯一标志
-* 联合挂载
-  * 联合挂载技术可以在 **一个挂载点** 同时挂载多个文件系统，多个文件系统中的目录将被整合
+- 分层
+  - 修改容器中的文件时，只对最上层读写文件系统进行变动，不覆盖下层已有文件系统的内容
+  - `docker commit` 提交修改后的文件系统时，只保存读写文件系统中的被更新过的文件
+- 写时复制
+  - 只有对只读文件系统中的文件修改时，才将其复制到读写文件系统中，并应用修改
+- 内容寻址
+  - 对镜像层的内容计算校验和，生成一个内容 hash 作为镜像层 (文件系统) 的唯一标志
+- 联合挂载
+  - 联合挂载技术可以在 **一个挂载点** 同时挂载多个文件系统，多个文件系统中的目录将被整合
 
 <img src="../img/union-mount.png" alt="union-mount" style="zoom:50%;" />
 
@@ -79,14 +79,14 @@ $ sudo cat /var/lib/docker/image/overlay2/repositories.json | python -mjson.tool
 
 其中包含了镜像的一些元信息，如：
 
-* 镜像架构
-* OS
-* 镜像默认配置
-* 容器 ID 和配置
-* 创建时间
-* Docker 版本
-* 镜像构建历史
-* rootfs
+- 镜像架构
+- OS
+- 镜像默认配置
+- 容器 ID 和配置
+- 创建时间
+- Docker 版本
+- 镜像构建历史
+- rootfs
 
 将镜像与构建镜像的镜像层关联了起来。Docker 会根据 `diff_ids` 计算出镜像层的存储索引 chainID。
 
@@ -175,16 +175,16 @@ $ sudo cat /var/lib/docker/image/overlay2/imagedb/content/sha256/bf756fb1ae65adf
 
 Docker 定义了两种接口，分别用于描述只读镜像层和读写镜像层：
 
-* roLayer (`/var/lib/docker/image/[graph_driver]/layerdb/sha256/[chainID]/`)
-* mountedLayer (`/var/lib/docker/image/[graph_driver]/layerdb/mounts/[container_id]/`)
+- roLayer (`/var/lib/docker/image/[graph_driver]/layerdb/sha256/[chainID]/`)
+- mountedLayer (`/var/lib/docker/image/[graph_driver]/layerdb/mounts/[container_id]/`)
 
 只读镜像层的元数据包含：
 
-* chainID - 用于索引该镜像层，所以元数据的存储使用了这个 ID
-* diff - 镜像层校验码
-* parent - 父镜像层
-* cache-id
-* size - 镜像层大小
+- chainID - 用于索引该镜像层，所以元数据的存储使用了这个 ID
+- diff - 镜像层校验码
+- parent - 父镜像层
+- cache-id
+- size - 镜像层大小
 
 ```console
 $ sudo ls /var/lib/docker/image/overlay2/layerdb/sha256/9c27e219663c25e0f28493790cc0b88bc973ba3b1686355f221c38a36978ac63
@@ -195,9 +195,9 @@ cache-id  diff  size  tar-split.json.gz
 
 而读写镜像层的元数据有些不同：
 
-* init-id
-* mount-id
-* parent
+- init-id
+- mount-id
+- parent
 
 ```console
 $ sudo ls /var/lib/docker/image/overlay2/layerdb/mounts/2c5f1d785fd6f788caef17982901e898568ecfa4babb882d9487f9bc61a3a52b
@@ -210,21 +210,21 @@ init-id  mount-id  parent
 
 Docker 中管理文件系统的驱动为 GraphDriver，其中定义了一套统一的存储接口：
 
-* `String()` - 返回驱动名称字符串
-* `Create()` - 创建新的镜像层
-* `Remove()` - 删除一个镜像层 (根据指定的 ID)
-* `Get()` - 返回指定 ID 层挂载点的绝对路径
-* `Put()` - 释放一个层使用的资源
-* `Exists()` - 查询指定 ID 的层是否存在
-* `Status()` - 返回驱动的状态
-* `Cleanup()` - 释放由这个驱动管理的所有资源
+- `String()` - 返回驱动名称字符串
+- `Create()` - 创建新的镜像层
+- `Remove()` - 删除一个镜像层 (根据指定的 ID)
+- `Get()` - 返回指定 ID 层挂载点的绝对路径
+- `Put()` - 释放一个层使用的资源
+- `Exists()` - 查询指定 ID 的层是否存在
+- `Status()` - 返回驱动的状态
+- `Cleanup()` - 释放由这个驱动管理的所有资源
 
 另外，还有四个管理镜像层之间差异的接口：
 
-* `Diff()` - 将指定 ID 的层与其父镜像的改动文件打包返回
-* `Changes()` - 返回指定镜像层与父镜像层的差异列表
-* `ApplyDiff()` - 将差异应用到指定 ID 的层，返回新的镜像层大小
-* `DiffSize()` - 计算指定 ID 层与父镜像层的差异，返回相对于基础文件系统的差异大小
+- `Diff()` - 将指定 ID 的层与其父镜像的改动文件打包返回
+- `Changes()` - 返回指定镜像层与父镜像层的差异列表
+- `ApplyDiff()` - 将差异应用到指定 ID 的层，返回新的镜像层大小
+- `DiffSize()` - 计算指定 ID 层与父镜像层的差异，返回相对于基础文件系统的差异大小
 
 GraphDriver 中提供了一个实现上述四个函数的 `naiveDiffDriver` 结构。总之，在 Docker 中添加一个新的存储驱动时，要实现上述 12 个函数。
 
@@ -246,16 +246,16 @@ AUFS 的每一层都是一个普通文件系统。在读取一个文件 A 时，
 
 Docker 的工作目录位于 `/var/lib/docker`。在该目录下，如果使用了 AUFS 作为存储驱动，就会有一个 `aufs` 文件夹。该文件夹下会有三个目录：
 
-* `/mnt` - AUFS 的挂载目录
-* `/diff` - 所有的文件系统数据
-* `/layers` - 每一个层的层存储文件，记录层级关系
+- `/mnt` - AUFS 的挂载目录
+- `/diff` - 所有的文件系统数据
+- `/layers` - 每一个层的层存储文件，记录层级关系
 
 最初只有 `/diff` 目录不为空，包含了文件系统的实际数据来源。最终这些文件系统 (层) 一起被挂载到 `/mnt` 目录上。
 
 在 Docker 中，镜像管理部分和存储驱动部分的设计是分离的。在存储驱动中，镜像层或容器层拥有了新的标识 ID：
 
-* 在镜像层 (roLayer) 中称为 cache-id
-* 在容器曾 (mountedLayer) 中称为 mount-id
+- 在镜像层 (roLayer) 中称为 cache-id
+- 在容器曾 (mountedLayer) 中称为 mount-id
 
 新建一个镜像层的步骤如下：
 
@@ -265,23 +265,23 @@ Docker 的工作目录位于 `/var/lib/docker`。在该目录下，如果使用�
 
 随后 GraphDriver 将 `/diff` 下所有属于容器镜像的层以 **只读** 方式挂载到 `/mnt` 下，然后再挂载一个名为 `<mount-id>-init` 的文件系统作为最后一个只读层。`<mount_id>-init` 的文件系统主要重新生成了以下文件：
 
-* `/dev/pts`
-* `/dev/shm`
-* `/proc`
-* `/sys`
-* `/.dockerinit`
-* `/.dockerenv`
-* `/etc/resolv.conf`
-* `/etc/hosts`
-* `/etc/hostname`
-* `/etc/console`
-* `/etc/mtab`
+- `/dev/pts`
+- `/dev/shm`
+- `/proc`
+- `/sys`
+- `/.dockerinit`
+- `/.dockerenv`
+- `/etc/resolv.conf`
+- `/etc/hosts`
+- `/etc/hostname`
+- `/etc/console`
+- `/etc/mtab`
 
 这些文件与容器内的 **环境** 息息相关，但并不适合被打包作为镜像的文件内容，而又不适合直接在宿主机上修改。所以 Docker 专门设计了这一层，单独处理这些文件。这一层 **只会在容器启动时添加**。只有这些文件在容器运行过程中被改变并 `docker commit` 后，才会持久化这些变化。否则，**保存镜像时不会包含这些内容**。严格来说，Docker 容器的文件系统层次为：
 
-* 最上层的读写文件系统
-* Init 层
-* 只读层
+- 最上层的读写文件系统
+- Init 层
+- 只读层
 
 也就是说，所有文件系统的实际内容均保存在 `/diff` 下，包括可读写层目录。在容器启动时，这些文件系统会被联合挂载到 `/mnt` 下。`/mnt` 相当于是一个工作目录。当容器停止时，`/mnt` 目录下相应的 `<mount-id>` 目录被卸载，但是 `/diff` 目录下相应的文件夹依然存在。
 
@@ -295,9 +295,9 @@ Docker 的工作目录位于 `/var/lib/docker`。在该目录下，如果使用�
 
 OverlayFS 是一种新型的联合文件系统，允许用户将一个文件系统与另一个文件系统重叠，在上层文件系统中记录更改，而下层文件系统保持不变。与 AUFS 相比，OverlayFS 在设计上更简单，理论上性能更好。OverlayFS 中包含四类目录：
 
-* `lower` / `upper` - 被挂载的目录
-* `merged` - 目录联合挂载点
-* `work` - 辅助功能
+- `lower` / `upper` - 被挂载的目录
+- `merged` - 目录联合挂载点
+- `work` - 辅助功能
 
 当同一个路径的两个文件分别存在于两个目录中时，位于 `upper` 中的文件将会屏蔽 `lower` 中的文件；对于同一个路径的文件夹，位于 `lower` 中的文件和文件夹将会与 `upper` 中的合并。
 
@@ -309,11 +309,10 @@ OverlayFS 是一种新型的联合文件系统，允许用户将一个文件系�
 
 ## References
 
-[知乎 - Docker容器实战 (七) - 容器中进程视野下的文件系统](https://zhuanlan.zhihu.com/p/86890896)
+[知乎 - Docker 容器实战 (七) - 容器中进程视野下的文件系统](https://zhuanlan.zhihu.com/p/86890896)
 
 [Wikipedia - chroot](https://zh.wikipedia.org/wiki/Chroot)
 
-[腾讯云社区 - 干货 | Docker文件系统的分层与隔离](https://cloud.tencent.com/developer/article/1114569)
+[腾讯云社区 - 干货 | Docker 文件系统的分层与隔离](https://cloud.tencent.com/developer/article/1114569)
 
 ---
-

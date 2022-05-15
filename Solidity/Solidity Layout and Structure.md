@@ -24,8 +24,8 @@ pragma solidity ^0.5.2;
 
 用于开启一些编译器或语言中默认没有启动的特性。
 
-* ABIEncoderV2
-* SMTChecker
+- ABIEncoderV2
+- SMTChecker
 
 ---
 
@@ -86,7 +86,7 @@ import {symbol1 as alias, symbol2} from "filename";
 
 ## Structure
 
-Contract 与 OOP 语言的 __类__ 类似。另外，一个 contract 可以继承自其它 contract。此外，还有特殊种类的 contract - libraries 和 interfaces。
+Contract 与 OOP 语言的 **类** 类似。另外，一个 contract 可以继承自其它 contract。此外，还有特殊种类的 contract - libraries 和 interfaces。
 
 ### State Variables
 
@@ -184,4 +184,3 @@ contract Purchase {
 ```
 
 ---
-

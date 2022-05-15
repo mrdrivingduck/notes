@@ -10,8 +10,8 @@ Nanjing, Jiangsu, China
 
 ## Volatile 的基本功能
 
-* 线程可见性
-* 禁止指令重排序
+- 线程可见性
+- 禁止指令重排序
 
 ### 线程可见性
 
@@ -23,28 +23,28 @@ Java 的内存模型 (JMM) 规定，堆内存有主内存与线程私有内存�
 
 为什么会有指令重排序？当 CPU 在进行一些相对较慢的操作 (访问内存) 时，在等待内存响应的过程中，可以先执行之后的一些无关指令 (没有数据依赖)，从而提升效率。如果在某些场合下没有禁止指令重排序，可能会带来问题。JVM 规范中，有八种需要禁止指令重排序的场景 (happens-before)，除这八个场景外，指令可以重排序以优化性能：
 
-* Load-Load 重排序
-* Load-Store 重排序
-* Store-Store 重排序
-* Store-Load 重排序
+- Load-Load 重排序
+- Load-Store 重排序
+- Store-Store 重排序
+- Store-Load 重排序
 
 不同 CPU 对于重排序的支持不同，不过常用的 CPU 基本上都支持 Store-Load 重排序 (指令先写后读 → 内存先读后写)，不允许数据依赖重排序。
 
 > 现代 CPU 普遍使用 **写缓冲区** 临时保存向内存写入的数据：
 >
-> * 避免 CPU 停顿等待向内存写入数据
-> * 合并写缓冲区对同一内存地址的多次写，减少对内存总线的占用
+> - 避免 CPU 停顿等待向内存写入数据
+> - 合并写缓冲区对同一内存地址的多次写，减少对内存总线的占用
 >
 > 但是每个 CPU 核心的写缓冲区只对自身可见，其它核心不可见。因此执行写指令 + 读指令体现为写入写缓冲区 + 从内存中读取 + 写缓冲区写回内存，因此表现为先读后写，即重排序。
 
 为了保证内存的线程可见性，Java 编译器会在生成指令序列的适当位置插入 **内存屏障指令** 以禁止特定类型的指令重排序。JMM 规定的内存屏障包含四类：
 
-| Memory Barrier      | Description                                                  |
-| ------------------- | ------------------------------------------------------------ |
-| Load-Load Barrier   | 确保屏障前 load 指令的装载先于屏障后 load 指令的装载         |
+| Memory Barrier      | Description                                                            |
+| ------------------- | ---------------------------------------------------------------------- |
+| Load-Load Barrier   | 确保屏障前 load 指令的装载先于屏障后 load 指令的装载                   |
 | Store-Store Barrier | 确保屏障前 store 指令刷新到主内存后，屏障后的 store 指令才刷新到主内存 |
-| Load-Store Barrier  | 确保屏障前 load 指令先装载，然后屏障后的 store 指令才刷新到主内存 |
-| Store-Load Barrier  | 确保屏障前的 store 先刷新到主内存，然后屏障后的 load 指令才装载数据 |
+| Load-Store Barrier  | 确保屏障前 load 指令先装载，然后屏障后的 store 指令才刷新到主内存      |
+| Store-Load Barrier  | 确保屏障前的 store 先刷新到主内存，然后屏障后的 load 指令才装载数据    |
 
 其中，Store-Load 屏障同时具备其它三个屏障的效果，同时有着最昂贵的开销。现在的多核 CPU 基本都支持这个屏障。
 
@@ -54,40 +54,40 @@ Java 的内存模型 (JMM) 规定，堆内存有主内存与线程私有内存�
 
 一个对象的创建过程 (字节码)：
 
-* `new` (分配对象占用的内存) (**成员变量被赋值为默认值**)
-* `dup`
-* `invokespecial <T.<init>>` (调用对象构造函数) (**成员变量被赋值为指定值**)
-* `astore_1` (将对象的引用与对象的内存建立关系 (`Object o != null`))
-* `return`
+- `new` (分配对象占用的内存) (**成员变量被赋值为默认值**)
+- `dup`
+- `invokespecial <T.<init>>` (调用对象构造函数) (**成员变量被赋值为指定值**)
+- `astore_1` (将对象的引用与对象的内存建立关系 (`Object o != null`))
+- `return`
 
 单例模式的分类：
 
-* 饿汉式单例模式：(不管实例会不会被使用都会被实例化)
+- 饿汉式单例模式：(不管实例会不会被使用都会被实例化)
 
   ```java
   public class Single {
       private static final Single INSTANCE = new Single();
-  
+
       private Single() {}
-  
+
       public static Single getInstance() {
           return INSTANCE;
       }
-  
+
       /**
        * ......
        */
   }
   ```
 
-* 懒汉式单例模式：(实例不被使用就不会被实例化)
+- 懒汉式单例模式：(实例不被使用就不会被实例化)
 
   ```java
   public class Single {
       private static Single INSTANCE;
-  
+
       private Single() {}
-  
+
       public static Single getInstance() {
           if (INSTANCE == null) {
               INSTANCE = new Single();
@@ -166,8 +166,8 @@ public class Single {
 
 Volatile 底层通过 **内存屏障 (Memory Barrier)** 来实现，其内存语义为：
 
-* 写 volatile 变量时，JMM 将线程私有内存中的共享变量刷新到主内存
-* 读 volatile 变量时，JMM 将私有内存中的变量置为无效，重新从主内存中读取共享变量
+- 写 volatile 变量时，JMM 将线程私有内存中的共享变量刷新到主内存
+- 读 volatile 变量时，JMM 将私有内存中的变量置为无效，重新从主内存中读取共享变量
 
 对于 volatile 写操作来说，需要保证的是：
 
@@ -218,15 +218,15 @@ HotSpot JVM 使用 `lock addl` 指令实现了所有功能。因为这条指令�
 
 从实现上来说，维护共享变量的一致性可以有两种方式：
 
-* 锁总线 - 某个核心独占共享内存，其它核心的操作将被阻塞 - 开销较大，其它核心的无关操作也会被阻塞
-* 锁缓存 - 锁定共享内存对应的缓存，强令这块缓存写回内存，同时其它缓存副本无效
+- 锁总线 - 某个核心独占共享内存，其它核心的操作将被阻塞 - 开销较大，其它核心的无关操作也会被阻塞
+- 锁缓存 - 锁定共享内存对应的缓存，强令这块缓存写回内存，同时其它缓存副本无效
 
-锁缓存是由 **缓存一致性协议** 保证的。每个 CPU 核心通过嗅探总线上传播的数据，检查自己 cache 中的数据是否过期。这样，多个 CPU 核心不会同时修改由两个以上 CPU 缓存的内存数据。Intel 系列处理器使用 *MESI* 缓存一致性协议：
+锁缓存是由 **缓存一致性协议** 保证的。每个 CPU 核心通过嗅探总线上传播的数据，检查自己 cache 中的数据是否过期。这样，多个 CPU 核心不会同时修改由两个以上 CPU 缓存的内存数据。Intel 系列处理器使用 _MESI_ 缓存一致性协议：
 
-* Modified
-* Exclusive
-* Shared
-* Invalid
+- Modified
+- Exclusive
+- Shared
+- Invalid
 
 处理器使用总线嗅探技术保证核心内部缓存、系统内存、其它核心缓存保持一致。
 
@@ -256,4 +256,3 @@ protected long p9, p10, p11, p12, p13, p14, p15;
 2. 共享变量不会被频繁写 - 因为只有写操作才会锁缓存
 
 ---
-

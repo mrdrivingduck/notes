@@ -38,7 +38,7 @@ Ningbo, Zhejiang, China
 
 ### SSA
 
-这个概念在 LLVM 中也有，但是我暂时还是没有办法理解它的作用。从形式上看，就是将表达式转化为 __每个变量只能被赋值一次__ 的形式。这么做有利于分析，但是具体怎么个有利，以后再深入研究。
+这个概念在 LLVM 中也有，但是我暂时还是没有办法理解它的作用。从形式上看，就是将表达式转化为 **每个变量只能被赋值一次** 的形式。这么做有利于分析，但是具体怎么个有利，以后再深入研究。
 
 ## Python API
 
@@ -52,41 +52,41 @@ slither = Slither('file.sol')
 
 首先，通过这个 Slither 对象，可以获得所有的 Contract 对象：
 
-* `contracts()` - 源文件中所有的 contract
-* `contracts_derived()` - 源文件中所有非继承 contract
-* `get_contract_from_name()` - 返回指定名称的 contract
+- `contracts()` - 源文件中所有的 contract
+- `contracts_derived()` - 源文件中所有非继承 contract
+- `get_contract_from_name()` - 返回指定名称的 contract
 
 对于每一个 Contract 对象：
 
-* `name()` - 得到 contract 的名称
-* `functions()` - 得到 contract 中所有的函数 (Function 对象)
-* `modifiers()` - 得到 contract 中所有的 modifier
-* `inheritance()` - 所有继承的 contract
-* `get_xxx()` - 取得 Function 对象、StateVariable 对象等
+- `name()` - 得到 contract 的名称
+- `functions()` - 得到 contract 中所有的函数 (Function 对象)
+- `modifiers()` - 得到 contract 中所有的 modifier
+- `inheritance()` - 所有继承的 contract
+- `get_xxx()` - 取得 Function 对象、StateVariable 对象等
 
 对于每一个 Function 对象或 Modifier 对象：
 
-* `name()` - 函数名
-* `nodes()` - 得到函数中所有的 CFG 结点对象 (Node)
-* `entry_point()` - CFG 的入口结点
-* `variables_read()` / `variables_written()` - 被读取或写入的变量列表
-* `state_variables_read()` / `state_variables_written()` - 被读取或写入的状态变量列表
+- `name()` - 函数名
+- `nodes()` - 得到函数中所有的 CFG 结点对象 (Node)
+- `entry_point()` - CFG 的入口结点
+- `variables_read()` / `variables_written()` - 被读取或写入的变量列表
+- `state_variables_read()` / `state_variables_written()` - 被读取或写入的状态变量列表
 
 对于变量，则有很多不同的类型 - 状态变量、局部变量等，具有属性如变量名、是否被初始化等。
 
 对于 CFG 结点对象 Node，其中包含：
 
-* `type()` - 返回结点的类型
-* `expression()` - 与该结点相关的表达式 (Expression)
-* 读取/写入 的 变量/状态变量
+- `type()` - 返回结点的类型
+- `expression()` - 与该结点相关的表达式 (Expression)
+- 读取/写入 的 变量/状态变量
 
 而一个 Expression 对象则是一个基于 AST 的代码表示。
 
 基于这些 API，就可以根据不同威胁种类的特定模式，实现对应的检测逻辑。已经内置的代码分析有：
 
-* read/write - 识别对于变量的读写
-* protected functions - 只有 contract owner 有权限执行的函数
-* data dependency analysis - 对于数据依赖进行的分析 (某个变量是否依赖于另一个变量)
+- read/write - 识别对于变量的读写
+- protected functions - 只有 contract owner 有权限执行的函数
+- data dependency analysis - 对于数据依赖进行的分析 (某个变量是否依赖于另一个变量)
 
 ## Detectors
 
@@ -209,7 +209,7 @@ class UnusedStateVars(AbstractDetector):
 
 ## Example
 
-举一个 __重入__ (Reentrancy) 威胁的例子。想象如下的场景：
+举一个 **重入** (Reentrancy) 威胁的例子。想象如下的场景：
 
 ```solidity
 function withdrawBalance() public{
@@ -246,11 +246,10 @@ $ pip3 install slither-analyzer
 
 根据 _slither_ 的论文，从三个角度与其它的静态分析工具进行了对比：
 
-* 性能 - 分析是否快速
-* 鲁棒性 - 分析是否经常失败
-* 准确率 - 分析是否出现误报
+- 性能 - 分析是否快速
+- 鲁棒性 - 分析是否经常失败
+- 准确率 - 分析是否出现误报
 
 在这三个方面，_slither_ 都优于其它的工具。
 
 ---
-

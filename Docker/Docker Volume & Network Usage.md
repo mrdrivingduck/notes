@@ -173,9 +173,9 @@ $ curl localhost:32770
 
 如果不想把应用或者代码构建到镜像中时 (比如只想在镜像中营造一个生产环境，但是开发中的代码位于宿主机上)，就体现出了卷的价值：
 
-* 同时对代码开发和测试
-* 代码改动频繁，不想在开发过程中反复构建镜像
-* 在多个容器之间共享代码
+- 同时对代码开发和测试
+- 代码改动频繁，不想在开发过程中反复构建镜像
+- 在多个容器之间共享代码
 
 在 `docker run` 命令中，通过 `-v source:target:ro` 指定卷的映射。如果容器内目录 `target` 不存在，Docker 会自动创建一个。在最后加上 `rw` 或 `ro` 来指定 **容器内目录** (`target`) 的读写权限。
 
@@ -207,7 +207,7 @@ docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 42554  bytes 63422188 (63.4 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-        
+
 veth0f97e6d: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet6 fe80::6ca3:8bff:fe50:3210  prefixlen 64  scopeid 0x20<link>
         ether 6e:a3:8b:50:32:10  txqueuelen 0  (Ethernet)
@@ -404,4 +404,3 @@ Docker 在建立容器间的链接时，会在自动创建一些以 **链接别�
 2. 利用 `/etc/hosts` 中的 DNS 映射信息
 
 ---
-

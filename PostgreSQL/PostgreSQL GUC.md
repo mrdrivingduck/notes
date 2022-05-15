@@ -10,7 +10,7 @@ Hangzhou, Zhejiang, China
 
 ## About
 
-*GUC (Grand Unified Configuration)* 是 *PostgreSQL* 的配置系统。负责在不同时机从多个来源、以多种方式控制数据库的所有配置项。
+_GUC (Grand Unified Configuration)_ 是 _PostgreSQL_ 的配置系统。负责在不同时机从多个来源、以多种方式控制数据库的所有配置项。
 
 ## Time
 
@@ -249,4 +249,3 @@ select pg_reload_conf();
 [阿里云开发者社区 - PostgreSQL GUC 参数级别介绍](https://developer.aliyun.com/article/215287)
 
 [PostgreSQL 中文社区 - PostgreSQL 数据库参数生效规则](http://www.postgres.cn/news/viewone/1/262)
-

@@ -70,11 +70,11 @@ module.exports = {
     navbar: [
       // NavbarItem
       {
-        text: 'Contributing',
-        link: '/contributing/',
+        text: "Contributing",
+        link: "/contributing/",
       },
       // Page file
-      '/README.md',
+      "/README.md",
     ],
   },
 };
@@ -144,53 +144,53 @@ module.exports = {
   locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
-    '/': {
-      lang: 'en-US',
-      title: 'VuePress',
-      description: 'Vue-powered Static Site Generator',
+    "/": {
+      lang: "en-US",
+      title: "VuePress",
+      description: "Vue-powered Static Site Generator",
     },
-    '/zh/': {
-      lang: 'zh-CN',
-      title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器',
+    "/zh/": {
+      lang: "zh-CN",
+      title: "VuePress",
+      description: "Vue 驱动的静态网站生成器",
     },
   },
 
   themeConfig: {
     locales: {
-      '/': {
-        selectLanguageName: 'English',
+      "/": {
+        selectLanguageName: "English",
         // navbar
         navbar: navbar.en,
         // sidebar
         sidebar: sidebar.en,
         // page meta
-        editLinkText: 'Edit this page on GitHub',
+        editLinkText: "Edit this page on GitHub",
       },
-      '/zh/': {
-        selectLanguageName: '简体中文',
+      "/zh/": {
+        selectLanguageName: "简体中文",
         // navbar
         navbar: navbar.zh,
-        selectLanguageName: '简体中文',
-        selectLanguageText: '选择语言',
-        selectLanguageAriaLabel: '选择语言',
+        selectLanguageName: "简体中文",
+        selectLanguageText: "选择语言",
+        selectLanguageAriaLabel: "选择语言",
 
         // sidebar
         sidebar: sidebar.zh,
 
         // page meta
-        editLinkText: '在 GitHub 上编辑此页',
-        lastUpdatedText: '上次更新',
-        contributorsText: '贡献者',
+        editLinkText: "在 GitHub 上编辑此页",
+        lastUpdatedText: "上次更新",
+        contributorsText: "贡献者",
 
         // custom containers
-        tip: '提示',
-        warning: '注意',
-        danger: '警告',
+        tip: "提示",
+        warning: "注意",
+        danger: "警告",
       },
     },
   },
-}
+};
 ```
 
 如果使用默认主题，那么在 **主题配置** 中提供多语言支持的方式与站点配置一致，可以使用一种新语言覆盖控件上出现的文字，如上述主题配置所示。

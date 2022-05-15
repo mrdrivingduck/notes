@@ -25,8 +25,8 @@ V2Ray 支持以下协议：
 
 Link:
 
-* https://www.v2ray.com/
-* https://github.com/v2ray/v2ray-core
+- https://www.v2ray.com/
+- https://github.com/v2ray/v2ray-core
 
 ---
 
@@ -34,8 +34,8 @@ Link:
 
 **VMess** 是 V2Ray 原创的加密通讯协议：
 
-* 基于 TCP，所有数据使用 TCP 传输
-* 用户 ID —— UUID 作为令牌
+- 基于 TCP，所有数据使用 TCP 传输
+- 用户 ID —— UUID 作为令牌
 
 ---
 
@@ -73,27 +73,32 @@ $ sudo systemctl restart v2ray
 
 ```json
 {
-  "inbounds": [{
-    "port": 15875,
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
-        {
-          "id": "e2edb465-a814-4124-bb33-1fb4991194df",
-          "level": 1,
-          "alterId": 64
-        }
-      ]
+  "inbounds": [
+    {
+      "port": 15875,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "e2edb465-a814-4124-bb33-1fb4991194df",
+            "level": 1,
+            "alterId": 64
+          }
+        ]
+      }
     }
-  }],
-  "outbounds": [{
-    "protocol": "freedom",
-    "settings": {}
-  },{
-    "protocol": "blackhole",
-    "settings": {},
-    "tag": "blocked"
-  }],
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
   "routing": {
     "rules": [
       {
@@ -112,10 +117,10 @@ $ sudo systemctl restart v2ray
 
 除了上述脚本，实现伪装需要以下额外需求：
 
-* 一台境外服务器
-* 一个域名
+- 一台境外服务器
+- 一个域名
 
-只要能满足上述需求，直接按照脚本傻瓜式安装即可。大致过程是在服务器上运行一个 Web server (如 [*Caddy*](https://caddyserver.com/))，并指定一个路由用于 V2Ray 的加密通信。使用域名到 [Let's Encrypt](https://letsencrypt.org/) 上申请一个 SSL/TLS 证书 - 这样，境内客户端与境外服务器之间的通信被伪装为 websocket，并由 TLS 进行加密。然后 *Caddy* 将指定路由上的流量转到 V2Ray 的端口。*Caddy* 的配置文件看起来是这样的：
+只要能满足上述需求，直接按照脚本傻瓜式安装即可。大致过程是在服务器上运行一个 Web server (如 [_Caddy_](https://caddyserver.com/))，并指定一个路由用于 V2Ray 的加密通信。使用域名到 [Let's Encrypt](https://letsencrypt.org/) 上申请一个 SSL/TLS 证书 - 这样，境内客户端与境外服务器之间的通信被伪装为 websocket，并由 TLS 进行加密。然后 _Caddy_ 将指定路由上的流量转到 V2Ray 的端口。_Caddy_ 的配置文件看起来是这样的：
 
 ```
 <xxxdomain.cn> {
@@ -141,13 +146,13 @@ timeouts none
 
 下载 [v2rayN-Core](https://github.com/2dust/v2rayN) (图形界面，且带有 V2Ray 核心程序)，解压到上述目录.打开 GUI，进行服务器的配置 (需要与 V2Ray Server 的配置匹配)：
 
-* IP Address
-* port
-* UUID
-* alter ID
-* 加密方式
-* 传输协议（默认 TCP）
-* 伪装类型（不清楚可保持默认）
+- IP Address
+- port
+- UUID
+- alter ID
+- 加密方式
+- 传输协议（默认 TCP）
+- 伪装类型（不清楚可保持默认）
 
 接下来点击 `启用系统代理` 或 `Enable HTTP Proxy`。在 `系统代理模式` 或 `HTTP Proxy Mode` 中选择 `PAC 模式` / `PAC Mode` (可能需要重启客户端服务) 即可。
 
@@ -159,28 +164,27 @@ timeouts none
 
 得到一个 [美区 App Store 账户](https://shadowsockshelp.github.io/ios/)。在个人设置的 `iTunes & App Store` 中，注销个人 Apple ID，并使用网页上给定的 Apple ID 登录，切换到 App Store 美国区 (中国区已下架类似功能 APP)。
 
-在 App Store 中搜索 *Shadowrocket*，由于该账号已购买过该 APP，再次下载不需付费。下载完成后，打开 Shadowrocket，确保安装成功。然后退出该 Apple ID，登录回个人的 Apple ID。
+在 App Store 中搜索 _Shadowrocket_，由于该账号已购买过该 APP，再次下载不需付费。下载完成后，打开 Shadowrocket，确保安装成功。然后退出该 Apple ID，登录回个人的 Apple ID。
 
 在 Shadowrocket 中：
 
-* 可以直接扫二维码 / URL 添加 Server 配置
-* 也可以手动添加 Server 配置 (需要与 Server 的配置相匹配)
+- 可以直接扫二维码 / URL 添加 Server 配置
+- 也可以手动添加 Server 配置 (需要与 Server 的配置相匹配)
 
 Shadowrocket 支持的协议有：
 
-* Shadowsocks
-* ShadowsocksR
-* VMess (暂不支持 KCP)
-* Subscribe (用 URL 自动导入所有 Server 配置​)
-* Socks5
-* Socks5 Over TLS
-* HTTP
-* HTTPS
-* Lua
+- Shadowsocks
+- ShadowsocksR
+- VMess (暂不支持 KCP)
+- Subscribe (用 URL 自动导入所有 Server 配置 ​)
+- Socks5
+- Socks5 Over TLS
+- HTTP
+- HTTPS
+- Lua
 
 ### Linux (Ubuntu)
 
 使用 [V2RayL](https://github.com/jiangxufeng/v2rayL)。
 
 ---
-

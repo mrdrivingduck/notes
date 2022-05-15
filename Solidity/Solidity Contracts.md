@@ -18,10 +18,10 @@ Solidity 识别两种类型的函数调用 - 一种使用 EVM call (message call
 
 函数可被声明为 `external` `public` `internal` `private` - 默认的是 `public`；而状态变量中 `external` 是不可能的，默认的是 `internal`。
 
-* `external` - 函数只能在外部被调用，不能在内部被调用 (但是 `this.f()` 可以，因为这是外部调用)
-* `public` - 函数可以在外部或内部被调用；对于变量，一个 getter 函数将会自动生成
-* `internal` - 函数或变量只能在当前 contract 中或从当前 contract 中衍生的 contract 中访问
-* `private` - 只能从当前 contract 中访问
+- `external` - 函数只能在外部被调用，不能在内部被调用 (但是 `this.f()` 可以，因为这是外部调用)
+- `public` - 函数可以在外部或内部被调用；对于变量，一个 getter 函数将会自动生成
+- `internal` - 函数或变量只能在当前 contract 中或从当前 contract 中衍生的 contract 中访问
+- `private` - 只能从当前 contract 中访问
 
 ### Getter Functions
 
@@ -137,11 +137,11 @@ contract C {
 
 会修改状态的函数包含：
 
-* 对状态变量进行写操作
-* 创建其它 contract
-* 转账
-* 调用其它不是 `view` 或 `pure` 函数
-* ......
+- 对状态变量进行写操作
+- 创建其它 contract
+- 转账
+- 调用其它不是 `view` 或 `pure` 函数
+- ......
 
 ```solidity
 pragma solidity ^0.4.16;
@@ -221,4 +221,3 @@ contract ClientReceipt {
 在 EVM 实现中，库中所有被调用的函数将会被 pull 到调用库的 contract 中，然后就开始使用 `JUMP` 指令对这些代码进行访问。
 
 ---
-

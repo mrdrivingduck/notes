@@ -75,7 +75,7 @@ select * from emp where 2 > 1
 
 ## Plan Node
 
-Result 的计划节点定义如下。其中，扩展出的 `resconstantqual` 是只需要被计算一次的常量表达式。因为表达式的结果不被 *outer plan* (当前节点的左子树) 影响，所以只需要被计算一次即可。
+Result 的计划节点定义如下。其中，扩展出的 `resconstantqual` 是只需要被计算一次的常量表达式。因为表达式的结果不被 _outer plan_ (当前节点的左子树) 影响，所以只需要被计算一次即可。
 
 ```c
 /* ----------------
@@ -310,4 +310,3 @@ ExecEndResult(ResultState *node)
     ExecEndNode(outerPlanState(node));
 }
 ```
-

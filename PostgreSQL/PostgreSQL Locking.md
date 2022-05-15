@@ -19,7 +19,7 @@ PostgreSQL 中使用各种各样的 **锁** 对表的并发访问进行控制。
 - 执行某些特定的 SQL 命令，会自动获取相应的表级锁
 - 使用 `LOCK` 命令显式获取表级锁
 
-> 虽然这些锁里有些名字中带有 *row*，但是实际上都是表级锁。这是命名上的历史遗留问题。
+> 虽然这些锁里有些名字中带有 _row_，但是实际上都是表级锁。这是命名上的历史遗留问题。
 
 锁之间实际差别是，相互之间是否冲突：
 
@@ -161,4 +161,3 @@ FOR SHARE [ OF table_name [, ...] ] [ NOWAIT ]
 [PostgreSQL Documentation 11 - 52.73. pg_locks](https://www.postgresql.org/docs/11/view-pg-locks.html)
 
 [PostgreSQL Documentation 11 - LOCK](https://www.postgresql.org/docs/11/sql-lock.html)
-

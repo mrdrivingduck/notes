@@ -99,4 +99,3 @@ Linux 支持的信号类型：
 [Ask Ubuntu - What is the difference between Ctrl-z and Ctrl-c in the terminal?](https://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-terminal)
 
 ---
-

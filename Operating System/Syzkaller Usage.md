@@ -25,11 +25,11 @@ Nanjing, Jiangsu, China
 
 接下来是我的配置和运行过程：
 
-* host - Ubuntu 18.04
-* GCC - gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)
-* kernel - Linux-5.1.16
-* Image - Debian-stretch
-* QEMU - QEMU emulator version 2.11.1(Debian 1:2.11+dfsg-1ubuntu7.15)
+- host - Ubuntu 18.04
+- GCC - gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)
+- kernel - Linux-5.1.16
+- Image - Debian-stretch
+- QEMU - QEMU emulator version 2.11.1(Debian 1:2.11+dfsg-1ubuntu7.15)
 
 基本参考 syzkaller 官方文档中的配置过程： [Setup: Ubuntu host, QEMU vm, x86-64 kernel](https://github.com/google/syzkaller/blob/master/docs/linux/setup_ubuntu-host_qemu-vm_x86-64-kernel.md)
 
@@ -93,15 +93,15 @@ $ make CC="$GCC/bin/gcc" -j64
 
 在编译中如果出现错误，可能的原因如下：
 
-* 编译器版本不适合 (太高)
-* 少了一些库
-  * 上网搜一下对应错误是因为缺了哪个库导致的
-  * 然后 `apt` 补一下对应的库
+- 编译器版本不适合 (太高)
+- 少了一些库
+  - 上网搜一下对应错误是因为缺了哪个库导致的
+  - 然后 `apt` 补一下对应的库
 
 在编译结束后 (不知道用了多久...中途出去吃了个渝合重庆老火锅 😅，回来已经编完了)，在内核源码目录下，生成了内核二进制文件和启动映像：
 
-* `$KERNEL/vmlinux` - kernel binary
-* `$KERNEL/arch/x86/boot/bzImage` - packed kernel image
+- `$KERNEL/vmlinux` - kernel binary
+- `$KERNEL/arch/x86/boot/bzImage` - packed kernel image
 
 ---
 
@@ -109,17 +109,17 @@ $ make CC="$GCC/bin/gcc" -j64
 
 为了能够运行一个 OS，还需要有用户空间的硬盘映像 (不可能直接使用一个内核)。另外，由于这个虚拟机会被 host 上的 syzkaller 守护进程通过 SSH 远程连接，因此也需要将一些密钥之类的提前保存在虚拟机中。
 
-首先在 host 中安装 *debootstrap*，用于制作虚拟机使用的硬盘映像：
+首先在 host 中安装 _debootstrap_，用于制作虚拟机使用的硬盘映像：
 
 ```console
 $ sudo apt install debootstrap
 ```
 
-[Debian Wiki](https://wiki.debian.org/Debootstrap) - 
+[Debian Wiki](https://wiki.debian.org/Debootstrap) -
 
 > debootstrap is a tool which will install a Debian base system into a subdirectory of another, already installed system. It doesn't require an installation CD, just access to a Debian repository. It can also be installed and run from another operating system, so, for instance, you can use debootstrap to install Debian onto an unused partition from a running Gentoo system. It can also be used to create a rootfs for a machine of a different architecture, which is known as "cross-debootstrapping". There is also a largely equivalent version written in C: cdebootstrap, which is smaller.
 
-*Debootstrap* 只需要通过网络，就能在一个已经运行的系统 (host) 中安装 (给虚拟机使用的) *Debian* 系统。
+_Debootstrap_ 只需要通过网络，就能在一个已经运行的系统 (host) 中安装 (给虚拟机使用的) _Debian_ 系统。
 
 Syzkaller 官方给出了一个自动创建一个映像工作目录的脚本。首先创建一个目录 `$IMAGE` 用于存放映像，然后下载脚本并执行，生成 Linux 发布版的映像：
 
@@ -144,10 +144,10 @@ $ ./create-image.sh --feature full
 
 其中的坑：
 
-* 很显然，这个 `.sh` 脚本中的某一行会使用到 debootstrap
-* debootstrap 需要通过网络下载 Debian 的相关文件
-* 根据 Debian Wiki，debootstrap 默认从中央仓库下载 - http://deb.debian.org/debian/
-* 好了 🙂，这又 tm 慢得要死了，然后等了 20 min 之后来了句网络错误，曰
+- 很显然，这个 `.sh` 脚本中的某一行会使用到 debootstrap
+- debootstrap 需要通过网络下载 Debian 的相关文件
+- 根据 Debian Wiki，debootstrap 默认从中央仓库下载 - http://deb.debian.org/debian/
+- 好了 🙂，这又 tm 慢得要死了，然后等了 20 min 之后来了句网络错误，曰
 
 查阅 debootstrap 文档，发现命令之后可以带参数指定镜像：
 
@@ -229,28 +229,28 @@ $ make
 
 ```json
 {
-    "target": "linux/amd64",
-    "http": "127.0.0.1:56741",
-    "workdir": "$GOPATH/src/github.com/google/syzkaller/workdir",
-    "kernel_obj": "$KERNEL",
-    "image": "$IMAGE/stretch.img",
-    "sshkey": "$IMAGE/stretch.id_rsa",
-    "syzkaller": "$GOPATH/src/github.com/google/syzkaller",
-    "procs": 8,
-    "type": "qemu",
-    "vm": {
-        "count": 4,
-        "kernel": "$KERNEL/arch/x86/boot/bzImage",
-        "cpu": 2,
-        "mem": 2048
-    }
+  "target": "linux/amd64",
+  "http": "127.0.0.1:56741",
+  "workdir": "$GOPATH/src/github.com/google/syzkaller/workdir",
+  "kernel_obj": "$KERNEL",
+  "image": "$IMAGE/stretch.img",
+  "sshkey": "$IMAGE/stretch.id_rsa",
+  "syzkaller": "$GOPATH/src/github.com/google/syzkaller",
+  "procs": 8,
+  "type": "qemu",
+  "vm": {
+    "count": 4,
+    "kernel": "$KERNEL/arch/x86/boot/bzImage",
+    "cpu": 2,
+    "mem": 2048
+  }
 }
 ```
 
-* `http` 指的是 syzkaller 运行时，可以通过浏览器从该地址查看 fuzzing 状态
-* `workdir` - 工作目录，需要创建
-* 其它显然是一些虚拟机配置
-* `$GOPATH`、`$KERNEL`、`$IMAGE` 需要被替换为实际上相应的路径
+- `http` 指的是 syzkaller 运行时，可以通过浏览器从该地址查看 fuzzing 状态
+- `workdir` - 工作目录，需要创建
+- 其它显然是一些虚拟机配置
+- `$GOPATH`、`$KERNEL`、`$IMAGE` 需要被替换为实际上相应的路径
 
 在 syzkaller 的源码目录下，创建工作目录，并使用该配置文件启动 `syz-manager`：
 
@@ -292,4 +292,3 @@ Fuzzing 开始了，访问上述 HTTP 地址可以实时查看 fuzzing 状态。
 可能我下载的内核代码是最新版本的缘故，Fuzzing 了三个小时，一次 crash 也没有，佛了 😑。
 
 ---
-

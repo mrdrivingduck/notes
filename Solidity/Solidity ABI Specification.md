@@ -16,9 +16,9 @@ _Application Binary Interface (ABI)_ 是与 contract 进行交互的标准方式
 
 ## Function Selector
 
-函数选择符用于定位特定地址的 contract 中的一个唯一的函数。其计算方法是 __函数签名__ 的 _Keccak-256 (SHA-3)_ hash 的前四个字节。
+函数选择符用于定位特定地址的 contract 中的一个唯一的函数。其计算方法是 **函数签名** 的 _Keccak-256 (SHA-3)_ hash 的前四个字节。
 
-其中，__函数签名__ 被定义为函数名 + 函数参数的类型列表。其中，参数类型用逗号隔开，函数签名中没有任何空格。注意函数的返回值不是签名的一部分。
+其中，**函数签名** 被定义为函数名 + 函数参数的类型列表。其中，参数类型用逗号隔开，函数签名中没有任何空格。注意函数的返回值不是签名的一部分。
 
 ```solidity
 pragma solidity >=0.4.16 <0.7.0;
@@ -38,34 +38,34 @@ contract Foo {
 
 可被编码的数据类型：
 
-* `uint<M>` - 其中 `0 < M <= 256`，`M % 8 == 0`
-* `int<M>`
-* `address` - 等价于 `uint160` (20 Bytes)
-* `uint` / `int` - 等价于 256-bit 的对应形式
-* `bool` - 等价于 `uint8`
-* `fixed<M>x<N>` - 带符号的定点数，`v = v / (10 ** n)`
-* `ufixed<M>x<N>` - 无符号的定点数
-* `fixed` / `ufixed` - 等价于 `fixed128x18` / `ufixed128x18`
-* `bytes<M>` - M 个字节的二进制数据 (32 Bytes 以下)
-* `function` - 20 Bytes 的地址 + 4 Bytes 的 function selector
+- `uint<M>` - 其中 `0 < M <= 256`，`M % 8 == 0`
+- `int<M>`
+- `address` - 等价于 `uint160` (20 Bytes)
+- `uint` / `int` - 等价于 256-bit 的对应形式
+- `bool` - 等价于 `uint8`
+- `fixed<M>x<N>` - 带符号的定点数，`v = v / (10 ** n)`
+- `ufixed<M>x<N>` - 无符号的定点数
+- `fixed` / `ufixed` - 等价于 `fixed128x18` / `ufixed128x18`
+- `bytes<M>` - M 个字节的二进制数据 (32 Bytes 以下)
+- `function` - 20 Bytes 的地址 + 4 Bytes 的 function selector
 
 定长数组：
 
-* `<type>[M]`
+- `<type>[M]`
 
 不定长类型:
 
-* `bytes`
-* `string`
-* `<type>[]`
+- `bytes`
+- `string`
+- `<type>[]`
 
 所有的类型都可以被组合为 tuple - `(T1,T2,...,Tn)`。
 
 以上所有类型，都会被按照特定的格式进行编码。比如，以参数 `(69, true)` 调用上述 `baz()` 时，会被编码为：
 
-* `0xcdcd77c0` - `sha3("baz(uint32,bool)")`
-* `0x0000000000000000000000000000000000000000000000000000000000000045` - 69
-* `0x0000000000000000000000000000000000000000000000000000000000000001` - true
+- `0xcdcd77c0` - `sha3("baz(uint32,bool)")`
+- `0x0000000000000000000000000000000000000000000000000000000000000045` - 69
+- `0x0000000000000000000000000000000000000000000000000000000000000001` - true
 
 然后拼接起来。
 
@@ -73,43 +73,42 @@ contract Foo {
 
 上述编码形式用于 contract-contract 之间的交互。对于 contract 与区块链以外 (比如应用程序) 的交互，contract 提供了接口的 JSON 格式描述，实际上一个 contract 对应了一个 JSON Array。其中，每个 JSON 对象描述一个函数或 event。JSON 对象中包含的域：
 
-* `type` - 函数类型：`"function"` / `"constructor"` / `"receive"` / `"fallback"`
-* `name` - 函数名
-* `inputs` - 函数输入 (参数)
-    * `name` - 参数名
-    * `type` - 参数类型
-    * `components` (给结构体使用)
-* `outputs` - 函数输出
-* `stateMutability` - 函数描述：`pure` / `view` / `nonpayable` / `payable`
+- `type` - 函数类型：`"function"` / `"constructor"` / `"receive"` / `"fallback"`
+- `name` - 函数名
+- `inputs` - 函数输入 (参数)
+  - `name` - 参数名
+  - `type` - 参数类型
+  - `components` (给结构体使用)
+- `outputs` - 函数输出
+- `stateMutability` - 函数描述：`pure` / `view` / `nonpayable` / `payable`
 
 ```json
 [
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "donate",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "get",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "donate",
+    "outputs": [],
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "get",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ]
 ```
 
 ---
-

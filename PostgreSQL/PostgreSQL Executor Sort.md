@@ -331,4 +331,3 @@ ExecEndSort(SortState *node)
                "sort node shutdown");
 }
 ```
-

@@ -10,9 +10,9 @@ Ningbo, Zhejiang, China
 
 ## How to develop an Office application?
 
-* Visual Studio
-* Visual Studio Tools for Office
-* Microsoft Office
+- Visual Studio
+- Visual Studio Tools for Office
+- Microsoft Office
 
 ## Visual Studio Tools
 
@@ -45,4 +45,3 @@ using Excel = Microsoft.Office.Interop.Excel;
 当然学习是需要点时间的。早知道就不用手动帮我爹解锁那么多的 Excel 表格了。
 
 ---
-

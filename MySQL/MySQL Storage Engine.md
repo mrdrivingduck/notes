@@ -12,27 +12,27 @@ Nanjing, Jiangsu, China
 
 在 MySQL 5.5.8 之前是 MySQL 的默认存储引擎，主要面向一些 OLAP 应用。
 
-* 不支持事务
-* 支持表级锁
-* 支持全文索引
-* 缓冲池只缓存索引，数据的缓存由 OS 本身完成 (不使用 LRU)
+- 不支持事务
+- 支持表级锁
+- 支持全文索引
+- 缓冲池只缓存索引，数据的缓存由 OS 本身完成 (不使用 LRU)
 
 ## InnoDB
 
 MySQL 5.5.8 之后成为默认的存储引擎，主要面向 OLTP 应用。
 
-* 支持行锁
-* 支持外键
-* 通过 MVCC 获得高并发性
-* 支持事务，实现了 SQL 标准的四种事务隔离级别
-* 按主键顺序存放，主键是聚簇索引
+- 支持行锁
+- 支持外键
+- 通过 MVCC 获得高并发性
+- 支持事务，实现了 SQL 标准的四种事务隔离级别
+- 按主键顺序存放，主键是聚簇索引
 
 新特性：
 
-* 插入缓冲 (Insert Buffer)
-* 二次写 (Double Write)
-* 自适应哈希索引 (Adaptive Hash Index)
-* 预读 (Read Ahead)
+- 插入缓冲 (Insert Buffer)
+- 二次写 (Double Write)
+- 自适应哈希索引 (Adaptive Hash Index)
+- 预读 (Read Ahead)
 
 ## NDB
 
@@ -57,4 +57,3 @@ MySQL 5.5.8 之后成为默认的存储引擎，主要面向 OLTP 应用。
 目标是取代原有的 MyISAM 存储引擎。
 
 ---
-

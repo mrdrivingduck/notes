@@ -28,7 +28,7 @@ Ningbo, Zhejiang, China
 
 ### Digital Signature Generation
 
-使用安全的 hash 算法，如 *SHA-256* / *SHA-384* / *SHA-512* 计算输入文件或信息的 hash，即 **摘要**。计算出的 hash 被私钥加密，并与被签名的文件一起被发送给接收方进行认证。
+使用安全的 hash 算法，如 _SHA-256_ / _SHA-384_ / _SHA-512_ 计算输入文件或信息的 hash，即 **摘要**。计算出的 hash 被私钥加密，并与被签名的文件一起被发送给接收方进行认证。
 
 ### Digital Signature Verification
 
@@ -36,26 +36,26 @@ Ningbo, Zhejiang, China
 
 ## PKCS \#7 Standard
 
-PKCS (Public Key Cryptography Standards) \#7 被命名为 CMS (Cryptographic Message Syntax Standard)，是 *RSA* 公司提出的最著名的标准。这一标准也是 S/MIME (Secure/Multipurpose Internet Mail Extensions) 的基础。
+PKCS (Public Key Cryptography Standards) \#7 被命名为 CMS (Cryptographic Message Syntax Standard)，是 _RSA_ 公司提出的最著名的标准。这一标准也是 S/MIME (Secure/Multipurpose Internet Mail Extensions) 的基础。
 
 PKCS \#7 提供了一种用途广泛的创建数字签名的语法和格式。其中，包含了六种类型的数据：
 
-* Data
-* Signed Data
-* Enveloped Data
-* Signed-and-enveloped Data
-* Digested Data
-* Encrypted Data
+- Data
+- Signed Data
+- Enveloped Data
+- Signed-and-enveloped Data
+- Digested Data
+- Encrypted Data
 
 这个标准支持对不具备存放签名结构的格式也适用。比如，对于 PDF 文件来说，其结构中有专门用于存储签名的位置；而对于一个普通文本来说，并没有专门存储签名的结构。PKCS \#7 包含了 attached 和 detached 格式：
 
-* Attached 格式中，被签名的数据被内嵌在签名中
-* Detached 格式中，被签名的数据与签名分开存放
+- Attached 格式中，被签名的数据被内嵌在签名中
+- Detached 格式中，被签名的数据与签名分开存放
 
 另外，还有两种类型的签名数据：
 
-* Independent Signatures - 所有的签名者对同样的数据进行签名
-* Counter Signatures - 后一个签名者对前一个签名者的签名进行签名
+- Independent Signatures - 所有的签名者对同样的数据进行签名
+- Counter Signatures - 后一个签名者对前一个签名者的签名进行签名
 
 在签名数据中包含的信息：
 
@@ -75,4 +75,3 @@ https://www.cryptomathic.com/news-events/blog/introduction-to-digital-signatures
 http://www.pkiglobe.org/pkcs7.html
 
 ---
-

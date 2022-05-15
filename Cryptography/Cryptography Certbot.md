@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 最近在开发一个微信小程序的后端，服务器需要支持 HTTPS 并备案。既要支持 HTTPS，那么就一定要有一个被签发的证书。找正规的 CA 机构签发证书是要时间要钱的。而 [Let's Encrypt](https://letsencrypt.org/) 是一个非盈利性组织提供的免费、开放的证书颁发机构 (CA)，可以用它来免费签发证书。
 
-## *Certbot*
+## _Certbot_
 
 目前，官方推荐的签发工具是 [certbot](https://certbot.eff.org/)，在其 [GitHub](https://github.com/certbot/certbot) 仓库上也有代码。关于这个工具的原理我没有研究，只能根据运行过程大致猜测。
 
@@ -21,20 +21,20 @@ Ningbo, Zhejiang, China
 
 ![certbot-requirement](../img/certbot-requirement.png)
 
-然后，根据你使用的 **OS** 和 **Web Server** ，*certbot* 分别提供了相应的步骤和自动化工具。根据步骤，可以一步一步地产生证书，并自动将证书添加到 Web server 的配置文件中。比如想为一台 *Ubuntu 16.04* 服务器签发证书，这个证书由 *nginx* 使用，就按如下方式选择：
+然后，根据你使用的 **OS** 和 **Web Server** ，_certbot_ 分别提供了相应的步骤和自动化工具。根据步骤，可以一步一步地产生证书，并自动将证书添加到 Web server 的配置文件中。比如想为一台 _Ubuntu 16.04_ 服务器签发证书，这个证书由 _nginx_ 使用，就按如下方式选择：
 
 ![certbot-environment](../img/certbot-environment.png)
 
 然后该网站会告诉你接下来的步骤：
 
-1. 将 *certbot* 加入到 PPA 中
-2. 用 `apt` 从 PPA 中安装 *certbot*
-3. 以 `--nginx` 选项运行 *certbot*，签发证书并自动配置到 *nginx* 上
-4. 证书有效期为 90 天，*certbot* 会产生一个 *cron* 任务 (定时任务) 自动刷新证书
+1. 将 _certbot_ 加入到 PPA 中
+2. 用 `apt` 从 PPA 中安装 _certbot_
+3. 以 `--nginx` 选项运行 _certbot_，签发证书并自动配置到 _nginx_ 上
+4. 证书有效期为 90 天，_certbot_ 会产生一个 _cron_ 任务 (定时任务) 自动刷新证书
 
-## *Nginx* Configuration
+## _Nginx_ Configuration
 
-证书生成完毕后，*cerbot* 自动修改了我的 nginx 配置文件 (作为前提条件的 HTTP 网站已经运行在 nginx 上)。其中 `<hostname>` 为自己申请的域名，并需要将该域名通过 DNS 解析到这台服务器上。
+证书生成完毕后，_cerbot_ 自动修改了我的 nginx 配置文件 (作为前提条件的 HTTP 网站已经运行在 nginx 上)。其中 `<hostname>` 为自己申请的域名，并需要将该域名通过 DNS 解析到这台服务器上。
 
 ```nginx
 server {
@@ -70,7 +70,7 @@ server {
 其中，`privkey.pem` 保存了私钥；`cert.pem` 是签发的最终证书，保存了公钥。可以使用 `openssl` 查看证书：
 
 ```console
-$ openssl x509 -in cert.pem -noout -text 
+$ openssl x509 -in cert.pem -noout -text
 Certificate:
     Data:
         Version: 3 (0x2)
@@ -193,11 +193,10 @@ public void init(final Vertx vertx) {
 
 然后微信小程序前端就出了问题：测试时都是 OK 的，真机调试时，iOS OK，Android 的请求无法发出去。虽然用了一些在线测试网站都正常，但还是没解决问题。Baidu 上搜索没有一个有效答案 (顺便真心吐槽一下国内的技术氛围)，反正大致意思都是说证书有问题。
 
-后来从上面的 *nginx* 配置文件中受到启发。在 *nginx* 的配置中，私钥用的是 `privkey.pem`，证书用的是 `fullchain.pem`。看来，如果缺少了中间的证书链，HTTPS 的认证不能成功。另外还在 [StackOverflow](https://stackoverflow.com/questions/54305577/lets-encrypt-with-vert-x) 上找到了一个相关的具体问题。于是按照答案，将证书的路径由 `cert.pem` 换为 `fullchain.pem`。一开始 Android 前端好像说还是不行，我还正郁闷着呢 😓，突然就看到屏幕上打出来日志，访问来源是 *MI 6*，成功啦！😆
+后来从上面的 _nginx_ 配置文件中受到启发。在 _nginx_ 的配置中，私钥用的是 `privkey.pem`，证书用的是 `fullchain.pem`。看来，如果缺少了中间的证书链，HTTPS 的认证不能成功。另外还在 [StackOverflow](https://stackoverflow.com/questions/54305577/lets-encrypt-with-vert-x) 上找到了一个相关的具体问题。于是按照答案，将证书的路径由 `cert.pem` 换为 `fullchain.pem`。一开始 Android 前端好像说还是不行，我还正郁闷着呢 😓，突然就看到屏幕上打出来日志，访问来源是 _MI 6_，成功啦！😆
 
 ## References
 
 [简书 - Let's Encrypt 证书申请及配置](https://www.jianshu.com/p/1a792f87b6fe)
 
 [Certbot](https://certbot.eff.org/)
-

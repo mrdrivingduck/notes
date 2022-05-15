@@ -10,7 +10,7 @@ Ningbo, Zhejiang, China
 
 ## About _Remix_
 
-_Remix_ 是一款 __基于浏览器__ 的 Solidity IDE，其中内置了 Solidity 编译器、代码静态分析，以及一个虚拟测试运行环境。
+_Remix_ 是一款 **基于浏览器** 的 Solidity IDE，其中内置了 Solidity 编译器、代码静态分析，以及一个虚拟测试运行环境。
 
 可以通过访问 [官方站点](https://remix.ethereum.org) 在线使用这个 IDE，也可以自己克隆代码到本地进行离线使用。个人感觉这个 IDE 无论是 UI 还是测试虚拟环境，都是比较 🉑 的。下面记录一些简单的使用方式。
 
@@ -55,4 +55,3 @@ Remix 提供了可以用于直接测试 contract 的环境。里面已经内置�
 这款 IDE 的 [官方文档](https://remix-ide.readthedocs.io/en/latest/) 详细说明了 IDE 的使用方法。对于初学者来说，省去了搭环境的步骤。
 
 ---
-

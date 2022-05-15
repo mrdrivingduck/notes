@@ -13,11 +13,11 @@ Nanjing, Jiangsu, China
 Servlet 容器是一个复杂的系统。要为一个 Servlet 请求提供服务，通常要做三件事：
 
 1. 创建一个 request 对象，并填充其中的信息：
-   * 参数
-   * 请求头
-   * Cookies
-   * Query string
-   * URI
+   - 参数
+   - 请求头
+   - Cookies
+   - Query string
+   - URI
 2. 创建一个 response 对象，Servlet 使用该对象向客户端发送响应
 3. 调用 Servlet 的 `service()` 函数，并传入 request 和 response 对象，从 request 中取值，从 response 中写值
 
@@ -25,8 +25,8 @@ Servlet 容器是一个复杂的系统。要为一个 Servlet 请求提供服务
 
 Catalina 由两个主要模块组成：
 
-* 连接器 (Connector) - 接收 HTTP 请求，并构造 request 和 response 对象
-* 容器 (Container) - 接收 request 和 response 对象，并调用 Servlet 的 `service()` 函数
+- 连接器 (Connector) - 接收 HTTP 请求，并构造 request 和 response 对象
+- 容器 (Container) - 接收 request 和 response 对象，并调用 Servlet 的 `service()` 函数
 
 ### 连接器
 
@@ -46,10 +46,10 @@ public void invoke(org.apache.catalina.Request request, org.apache.catalina.Resp
 
 连接器必须实现 `org.apache.catalina.Connector` 接口，包含以下重要函数：
 
-* `setContainer()` - 关联连接器和容器
-* `getContainer()`
-* `createRequest()`
-* `createResponse()`
+- `setContainer()` - 关联连接器和容器
+- `getContainer()`
+- `createRequest()`
+- `createResponse()`
 
 默认连接器运行在一个独立的线程中，且连接器拥有一个处理对象池，从而避免每次重复创建处理对象。每个处理对象也运行在一个独立的线程中，因此实际上每个连接器对应了一个线程池。
 
@@ -57,10 +57,10 @@ public void invoke(org.apache.catalina.Request request, org.apache.catalina.Resp
 
 容器需要实现 `org.apache.catalina.Container` 接口。容器被分为四种类型 (四个接口)，每种容器都有一个默认的标准实现：
 
-* Engine - 整个 Catalina Servlet 引擎
-* Host - 包含数个 Context 的虚拟主机
-* Context - 一个 Web 应用，包括一个或多个 Wrapper
-* Wrapper - 一个独立的 Servlet
+- Engine - 整个 Catalina Servlet 引擎
+- Host - 包含数个 Context 的虚拟主机
+- Context - 一个 Web 应用，包括一个或多个 Wrapper
+- Wrapper - 一个独立的 Servlet
 
 一个容器可以有一个或多个更低层次的子容器，Wrapper 是层次最低的子容器类型。每一个容器内部会有一个 **流水线任务** 实例，流水线中包含了容器被唤醒后要处理的所有任务。每个流水线中包含了一个或多个 **阀门**，请求将依次通过阀门，每个阀门都可以操作传递给它的 `request` 和 `response` 实例。处理完毕后，流水线的 **基本阀门** 被调用，负责加载相关的 Servlet 类。
 
@@ -72,15 +72,15 @@ public void invoke(org.apache.catalina.Request request, org.apache.catalina.Resp
 
 `org.apache.cataline.Server` 接口描述了整个 Catalina Servlet 容器及其组件，并提供了优雅的机制启动和停止系统。其中实现了四个生命周期函数：
 
-* `initialize()` - 初始化组件
-* `start()` - 启动组件
-* `await()` - 等待关闭指令
-* `stop()` - 停止所有组件
+- `initialize()` - 初始化组件
+- `start()` - 启动组件
+- `await()` - 等待关闭指令
+- `stop()` - 停止所有组件
 
 Server 内部维护了零个或多个 **服务**，服务实现了 `org.apache.catalina.Service` 接口，用于持有组件。一个服务可以有 **一个容器** 和 **多个连接器**：
 
-* 容器使得服务可以响应 Servlet 请求
-* 多个连接器使得 Tomcat 可以服务多个 **协议** (HTTP / HTTPS / ...)
+- 容器使得服务可以响应 Servlet 请求
+- 多个连接器使得 Tomcat 可以服务多个 **协议** (HTTP / HTTPS / ...)
 
 ## Servlet 接口
 
@@ -92,7 +92,7 @@ Server 内部维护了零个或多个 **服务**，服务实现了 `org.apache.c
  *
  * <p>A servlet is a small Java program that runs within a Web server.
  * Servlets receive and respond to requests from Web clients,
- * usually across HTTP, the HyperText Transfer Protocol. 
+ * usually across HTTP, the HyperText Transfer Protocol.
  *
  * <p>To implement this interface, you can write a generic servlet
  * that extends
@@ -106,12 +106,12 @@ Server 内部维护了零个或多个 **服务**，服务实现了 `org.apache.c
  * <ol>
  * <li>The servlet is constructed, then initialized with the <code>init</code> method.
  * <li>Any calls from clients to the <code>service</code> method are handled.
- * <li>The servlet is taken out of service, then destroyed with the 
+ * <li>The servlet is taken out of service, then destroyed with the
  * <code>destroy</code> method, then garbage collected and finalized.
  * </ol>
  *
  * <p>In addition to the life-cycle methods, this interface
- * provides the <code>getServletConfig</code> method, which the servlet 
+ * provides the <code>getServletConfig</code> method, which the servlet
  * can use to get any startup information, and the <code>getServletInfo</code>
  * method, which allows the servlet to return basic information about itself,
  * such as author, version, and copyright.
@@ -134,9 +134,9 @@ public interface Servlet {
 
 其中，以下三个函数是 Servlet 的生命周期函数：
 
-* `init()` - 只在 Servlet 类被加载时调用一次，必须在 Servlet 可以接受任何请求之前运行完毕
-* `service()` - 在生命周期中会被多次调用，由 Servlet 容器将 request 和 response 对象传递给该函数
-* `destroy()` - 在 Servlet 容器移除 Servlet 实例时被调用一次 (比如容器关闭，或容器需要一些空闲内存)
+- `init()` - 只在 Servlet 类被加载时调用一次，必须在 Servlet 可以接受任何请求之前运行完毕
+- `service()` - 在生命周期中会被多次调用，由 Servlet 容器将 request 和 response 对象传递给该函数
+- `destroy()` - 在 Servlet 容器移除 Servlet 实例时被调用一次 (比如容器关闭，或容器需要一些空闲内存)
 
 ## 一个简单的 Servlet 容器
 
@@ -147,7 +147,7 @@ Servlet 容器会为 Servlet 的每个 HTTP 请求做如下工作：
 3. 调用 Servlet 的 `service()` 函数，并传递 `ServletRequest` 和 `ServletResponse` 实例
 4. 当 Servlet 类被关闭时，调用 Servlet 的 `destroy()` 函数，卸载该类
 
-可以基于最经典的 ServerSocket 程序，实现一个简单的 Servlet 容器。该容器能够根据路由区分 **静态资源** 的调用和 **Servlet** 的调用。对于 Servlet 的调用，通过 *类加载器* 加载 Servlet 类，实例化并调用 `service()` 函数。
+可以基于最经典的 ServerSocket 程序，实现一个简单的 Servlet 容器。该容器能够根据路由区分 **静态资源** 的调用和 **Servlet** 的调用。对于 Servlet 的调用，通过 _类加载器_ 加载 Servlet 类，实例化并调用 `service()` 函数。
 
 ### Request && Response
 
@@ -178,9 +178,9 @@ if (request.getUri().startsWith("/servlet/")) {
 
 其中，`parse()` 函数需要解析接收到的 HTTP 请求。HTTP 请求包含三部分：
 
-* 请求行
-* 请求头
-* 请求体
+- 请求行
+- 请求头
+- 请求体
 
 为了提升性能，具体的实现可以根据需要，选择性地解析一些字段；其它字段可以推迟到需要使用时再解析。
 
@@ -192,7 +192,7 @@ if (request.getUri().startsWith("/servlet/")) {
 GET /servlet/servletName
 ```
 
-其中，`servletName` 是 Servlet 的类名。在 Servlet 容器中，类加载器可以找到 Servlet 类的地方称为 *资源库 (repository)*，因此需要指定一个资源库路径。这里，使用 `java.net.URLClassLoader` 类加载器，它接收一个 `URL` 对象数组。核心代码：
+其中，`servletName` 是 Servlet 的类名。在 Servlet 容器中，类加载器可以找到 Servlet 类的地方称为 _资源库 (repository)_，因此需要指定一个资源库路径。这里，使用 `java.net.URLClassLoader` 类加载器，它接收一个 `URL` 对象数组。核心代码：
 
 ```java
 String uri = request.getUri();
@@ -204,7 +204,7 @@ try {
     URLStreamHandler streamHandler = null;
     String repo = (new URL(
         			"file",
-        			null, 
+        			null,
                      new File("WEB_ROOT").getCanonicalPath() + File.saparator)
                   ).toString();
     urls[0] = new URL(null, repo, streamHandler);
@@ -240,11 +240,11 @@ try {
 ```java
 public class RequestFacade implements ServletRequest {
     private ServletRequest request = null;
-    
+
     public RequestFacade(Request request) {
         this.request = request;
     }
-    
+
     // 实现 ServletRequest 接口的所有函数
     // 直接调用传入的 request 的实现函数
     public Object getAttribute(String attribute) {
@@ -289,27 +289,27 @@ try {
 public class StandardWrapper
     extends ContainerBase
     implements ServletConfig, Wrapper, NotificationEmitter {
- 
+
     // ...
-    
+
     /**
      * The (single) initialized instance of this servlet.
      */
     private Servlet instance = null;
-    
+
     /**
      * Stack containing the STM instances.
      */
     private Stack instancePool = null;
-    
+
     // ...
 }
 ```
 
 其中，类内部的 `allocate()` 根据 Servlet 是否实现了 STM 来决定如何对上述两个变量进行赋值：
 
-* 要么将 `instance` 赋值为一个 Servlet 实例
-* 要么将 `instancePool` 初始化并放入实例
+- 要么将 `instance` 赋值为一个 Servlet 实例
+- 要么将 `instancePool` 初始化并放入实例
 
 ```java
 /**
@@ -547,4 +547,3 @@ public synchronized Servlet loadServlet() throws ServletException {
 一个上下文容器代表一个 Web 应用，包含一个或多个 wrapper，每个 wrapper 代表一个 Servlet。上下文容器内部维护了请求 URI 与每个 wrapper (即每个 Servlet) 的映射。对于每个请求，上下文容器内流水线的基本阀门 `StandardContextValve` 会查找容器内维护的所有 wrapper，并选择一个与要处理的请求匹配的 wrapper，调用其 `invoke()` 函数。
 
 ---
-

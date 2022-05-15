@@ -10,10 +10,10 @@ Nanjing, Jiangsu, China
 
 ## Concept
 
-有线等效加密 (*Wired Equivalent Privacy, WEP*) 又称无线加密协议 (*Wireless Encryption Protocol, WEP*) 是用于保护无线网络信息安全的一种体制，是 IEEE 802.11 标准的一部分：
+有线等效加密 (_Wired Equivalent Privacy, WEP_) 又称无线加密协议 (_Wireless Encryption Protocol, WEP_) 是用于保护无线网络信息安全的一种体制，是 IEEE 802.11 标准的一部分：
 
-- 使用 *RC4* 加密技术保证 **机密性**
-- 使用 *CRC-32* 校验技术保证 **完整性**
+- 使用 _RC4_ 加密技术保证 **机密性**
+- 使用 _CRC-32_ 校验技术保证 **完整性**
 
 ## Theory
 
@@ -42,7 +42,7 @@ Nanjing, Jiangsu, China
 
 ## Tools
 
-*Aircrack-ng* on *Kali Linux x64*。Aircrack-ng 是一个分析 IEEE 802.11 标准网络的安全软件，主要功能包括：
+_Aircrack-ng_ on _Kali Linux x64_。Aircrack-ng 是一个分析 IEEE 802.11 标准网络的安全软件，主要功能包括：
 
 - 网络侦测
 - 数据包嗅探
@@ -145,5 +145,4 @@ $ aircrack-ng -a 1 test-01.cap
 
 ## Summary
 
-亲身体验了一次当黑客的感觉。WEP 确实是一个很弱的加密方式，在嗅探到的所有设备里，除了我自己人为设定为 WEP 加密的 AP，其余设备都使用 WPA2 加密。但是这款软件可以将网卡设置为监控模式，还可以发起解除认证洪泛攻击，我认为可以用来测试 *kismet* 的攻击报警模块，待实验验证。
-
+亲身体验了一次当黑客的感觉。WEP 确实是一个很弱的加密方式，在嗅探到的所有设备里，除了我自己人为设定为 WEP 加密的 AP，其余设备都使用 WPA2 加密。但是这款软件可以将网卡设置为监控模式，还可以发起解除认证洪泛攻击，我认为可以用来测试 _kismet_ 的攻击报警模块，待实验验证。

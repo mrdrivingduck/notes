@@ -8,7 +8,7 @@ Ningbo, Zhejiang, China
 
 ---
 
-*Diff* 是一个 Unix 上的很古老的工具，用于比较两个文本文件的差异。在其一路演变的过程中，共产生了三种输出格式：
+_Diff_ 是一个 Unix 上的很古老的工具，用于比较两个文本文件的差异。在其一路演变的过程中，共产生了三种输出格式：
 
 1. Normal diff
 2. Context diff
@@ -31,9 +31,9 @@ $ diff f1 f2
 
 输出分为两部分。第一部分是两对数字和中间的字母。中间的字母表示动作，包括：
 
-* `c` - change - 内容改变
-* `a` - addition - 内容增加
-* `d` - deletion - 内容删除
+- `c` - change - 内容改变
+- `a` - addition - 内容增加
+- `d` - deletion - 内容删除
 
 ```console
 $ diff f1 f2
@@ -56,7 +56,7 @@ $ diff f1 f2
 
 ## Context Diff
 
-在 *UC Berkeley* 开发的 BSD 推出时，提出 diff 的显示过于简单，最好能显示修改位置的前后信息，即上下文，以便于理解发生的修改。
+在 _UC Berkeley_ 开发的 BSD 推出时，提出 diff 的显示过于简单，最好能显示修改位置的前后信息，即上下文，以便于理解发生的修改。
 
 ```console
 $ diff -c f1 f2
@@ -78,7 +78,7 @@ $ diff -c f1 f2
               System.out.println(hunk.getFromFileRange().getLineCount());
 +             System.out.println(hunk.getToFileRange().getLineStart());
               System.out.println(hunk.getToFileRange().getLineCount());
-  
+
               System.out.println(hunk.getLines().size());
           }
 ```

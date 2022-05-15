@@ -10,10 +10,10 @@ Nanjing, Jiangsu, China
 
 ## Servlet 加载器
 
-Tomcat 中的 *标准网络应用加载器 (Standard Web Application Loader)* 用于加载 Servlet 类。Tomcat 需要实现自己的类加载器的原因在于，Servlet 只被允许访问：
+Tomcat 中的 _标准网络应用加载器 (Standard Web Application Loader)_ 用于加载 Servlet 类。Tomcat 需要实现自己的类加载器的原因在于，Servlet 只被允许访问：
 
-* `WEB-INF/` 目录及其子目录下的类
-* `WEB-INF/lib` 目录下的类库
+- `WEB-INF/` 目录及其子目录下的类
+- `WEB-INF/lib` 目录下的类库
 
 从而使得 Tomcat 的类加载器能够 **遵守特定的规则** 来加载类。而使用系统加载器，Servlet 就可以访问 JVM `CLASSPATH` 环境下的任何类和类库，从而带来安全隐患。
 
@@ -27,9 +27,9 @@ Tomcat 中的 *标准网络应用加载器 (Standard Web Application Loader)* �
 
 在创建 Java 类实例时，JVM 将会使用类加载器到 Java 核心类库和 `CLASSPATH` 环境变量中查找类；如果需要的类没有找到，那么则会抛出 `java.lang.ClassNotFoundException`。JVM 使用的类加载器包含：
 
-* Bootstrap 类加载器 - 引导 JVM，由 native code 实现，负责加载所有 Java 核心类
-* Extension 类加载器 - 负责加载标准扩展目录下的类
-* System 类加载器 - 默认加载器，在 `CLASSPATH` 环境变量下查找类
+- Bootstrap 类加载器 - 引导 JVM，由 native code 实现，负责加载所有 Java 核心类
+- Extension 类加载器 - 负责加载标准扩展目录下的类
+- System 类加载器 - 默认加载器，在 `CLASSPATH` 环境变量下查找类
 
 JVM 出于安全原因使用 **委派模型** 来选择加载器。首先 system 类加载器被调用，它会首先向父加载器 extension 委派加载任务，当父加载器无法加载时，再自行尝试加载；extension 类加载器首先也会将加载任务委派给 bootstrap 加载器。因此，bootstrap 总是最先加载类，从而防止 Java 核心类被其它的同名类恶意覆盖。
 
@@ -214,14 +214,14 @@ Tomcat 提供了 `WebappLoader` 作为 Loader 接口的实现。该类实现了 
 
 public class WebappLoader
     implements Lifecycle, Loader, PropertyChangeListener, MBeanRegistration  {
-    
+
     // ...
-    
+
     /**
      * The class loader being managed by this Loader component.
      */
     private WebappClassLoader classLoader = null;
-    
+
     // ...
 }
 ```
@@ -232,22 +232,22 @@ public class WebappLoader
 /**
  * Specialized web application class loader.
  * <p>
- * This class loader is a full reimplementation of the 
+ * This class loader is a full reimplementation of the
  * <code>URLClassLoader</code> from the JDK. It is designed to be fully
  * compatible with a normal <code>URLClassLoader</code>, although its internal
  * behavior may be completely different.
  * <p>
- * <strong>IMPLEMENTATION NOTE</strong> - This class loader faithfully follows 
- * the delegation model recommended in the specification. The system class 
- * loader will be queried first, then the local repositories, and only then 
- * delegation to the parent class loader will occur. This allows the web 
+ * <strong>IMPLEMENTATION NOTE</strong> - This class loader faithfully follows
+ * the delegation model recommended in the specification. The system class
+ * loader will be queried first, then the local repositories, and only then
+ * delegation to the parent class loader will occur. This allows the web
  * application to override any shared class except the classes from J2SE.
  * Special handling is provided from the JAXP XML parser interfaces, the JNDI
- * interfaces, and the classes from the servlet API, which are never loaded 
+ * interfaces, and the classes from the servlet API, which are never loaded
  * from the webapp repository.
  * <p>
- * <strong>IMPLEMENTATION NOTE</strong> - Due to limitations in Jasper 
- * compilation technology, any repository which contains classes from 
+ * <strong>IMPLEMENTATION NOTE</strong> - Due to limitations in Jasper
+ * compilation technology, any repository which contains classes from
  * the servlet API will be ignored by the class loader.
  * <p>
  * <strong>IMPLEMENTATION NOTE</strong> - The class loader generates source
@@ -271,13 +271,13 @@ public class WebappClassLoader
     implements Reloader, Lifecycle
  {
     // ...
-    
+
     /**
      * The cache of ResourceEntry for classes and resources we have loaded,
      * keyed by resource name.
      */
     protected HashMap resourceEntries = new HashMap();
-    
+
     /**
      * The list of not found resources.
      */
@@ -288,7 +288,7 @@ public class WebappClassLoader
             return size() > 1000;
         }
     };
-    
+
     // ...
 }
 ```
@@ -487,7 +487,7 @@ public synchronized void reload() {
  */
 public synchronized void stop() throws LifecycleException {
     // ...
-    
+
     // Binding thread
     ClassLoader oldCCL = bindThread();
 
@@ -500,7 +500,7 @@ public synchronized void stop() throws LifecycleException {
         unbindThread(oldCCL);
 
     }
-    
+
     // ...
 }
 
@@ -576,4 +576,3 @@ public synchronized void start() throws LifecycleException {
 ```
 
 ---
-

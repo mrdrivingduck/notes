@@ -75,7 +75,7 @@ yum update
 
 [稀土掘金 - Linux 黑话解释：什么是包管理器？它是如何工作的？](https://juejin.cn/post/6884417656699486221)
 
-[Wikipedia - yum (software)](https://en.wikipedia.org/wiki/Yum_(software))
+[Wikipedia - yum (software)](<https://en.wikipedia.org/wiki/Yum_(software)>)
 
 [Find which package contains a specific file](https://www.garron.me/en/linux/find-which-package-library-belongs.html)
 

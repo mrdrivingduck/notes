@@ -14,8 +14,8 @@ MySQL 实例启动时，会到配置文件中读取一些初始化参数。MySQL
 
 数据库参数类似 key-value pair，主要分为以下两种类型：
 
-* 静态参数 - MySQL 实例运行时只读
-* 动态参数 - MySQL 实例运行时可以进行修改 (通过 `SET` 命令，但是不会对文件中的配置修改)
+- 静态参数 - MySQL 实例运行时只读
+- 动态参数 - MySQL 实例运行时可以进行修改 (通过 `SET` 命令，但是不会对文件中的配置修改)
 
 ## 日志文件
 
@@ -37,9 +37,9 @@ MySQL 实例启动时，会到配置文件中读取一些初始化参数。MySQL
 
 记录了对 MySQL 数据库 **执行更改** 的所有操作 (即不包括 `SELECT` 或 `SHOW` 等)，仅在事务提交前提交。主要用于：
 
-* 恢复
-* 复制 (主从实时同步)
-* 审计 (是否存在数据库注入攻击)
+- 恢复
+- 复制 (主从实时同步)
+- 审计 (是否存在数据库注入攻击)
 
 二进制日志文件在默认情况下不启动，需要手动指定参数来启动。MySQL 官方手册中的测试表明，开启二进制日志会使性能有 1% 的下降，是可以被接受的。
 
@@ -49,9 +49,9 @@ MySQL 实例启动时，会到配置文件中读取一些初始化参数。MySQL
 
 `binlog_format` 参数影响着记录二进制日志的格式，对表的存储引擎支持有限制。它是一个动态参数。
 
-* `STATEMENT` - 记录的是日志的逻辑 SQL 语句
-* `ROW` - 记录表的行更改情况 (占用磁盘空间多)
-* `MIXED` - 混合使用
+- `STATEMENT` - 记录的是日志的逻辑 SQL 语句
+- `ROW` - 记录表的行更改情况 (占用磁盘空间多)
+- `MIXED` - 混合使用
 
 查看二进制日志文件的内容必须使用 `mysqlbinlog`。
 
@@ -71,7 +71,7 @@ MySQL 数据的存储是根据表进行的，每个表都会有一个与之对�
 
 ### 表空间文件
 
-InnoDB 将存储的数据按 *表空间 (tablespace)* 进行存放。用户可以用多个文件组成一个表空间，若多个文件在不同的磁盘上，磁盘的负载可能被平均，从而可以提高数据库的整体性能。设置 `innodb_data_file_path` 后，所有基于 InnoDB 存储引擎的表数据都会记录到 **共享表空间** 中；而若设置了 `innodb_file_per_table`，则用户可以为每一个基于 InnoDB 存储引擎的表产生一个 **独立表空间**，命名规则为 `表名.ibd`。
+InnoDB 将存储的数据按 _表空间 (tablespace)_ 进行存放。用户可以用多个文件组成一个表空间，若多个文件在不同的磁盘上，磁盘的负载可能被平均，从而可以提高数据库的整体性能。设置 `innodb_data_file_path` 后，所有基于 InnoDB 存储引擎的表数据都会记录到 **共享表空间** 中；而若设置了 `innodb_file_per_table`，则用户可以为每一个基于 InnoDB 存储引擎的表产生一个 **独立表空间**，命名规则为 `表名.ibd`。
 
 单独的表空间仅存储该表的数据、索引、插入缓冲 bitmap 等信息，其余信息还是存放在默认的表空间中。
 
@@ -81,27 +81,26 @@ InnoDB 将存储的数据按 *表空间 (tablespace)* 进行存放。用户可�
 
 每个 InnoDB 存储引擎至少有一个 **redo log 文件组**，每个文件组下至少有两个 **redo log 文件**。为了提供 redo log 的高可用性，可以在不同磁盘上设置多个镜像文件组。文件组中的每个 redo log 文件大小一致，以循环写入的方式运行：先写文件 1，满了以后再写文件 2，满了以后再写文件 1。
 
-* `innodb_log_file_size` - 指定每个 redo log 文件的大小
-* `innodb_log_files_in_group` - 指定文件组中 redo log 文件的数量
-* `innodb_mirrored_log_groups` - 指定文件组的数量 (如果磁盘本身已经高可用，比如 RAID，那么无需使用镜像)
-* `innodb_log_group_home_dir` - 指定文件组所在的路径
+- `innodb_log_file_size` - 指定每个 redo log 文件的大小
+- `innodb_log_files_in_group` - 指定文件组中 redo log 文件的数量
+- `innodb_mirrored_log_groups` - 指定文件组的数量 (如果磁盘本身已经高可用，比如 RAID，那么无需使用镜像)
+- `innodb_log_group_home_dir` - 指定文件组所在的路径
 
 Redo log 文件大小的设置对 InnoDB 存储引擎的性能有着非常大的影响：
 
-* 如果太大，那么恢复将会耗费很长的时间
-* 如果太小，一个事务的日志可能需要多次切换 redo log 文件，或频繁发生 checkpoint
+- 如果太大，那么恢复将会耗费很长的时间
+- 如果太小，一个事务的日志可能需要多次切换 redo log 文件，或频繁发生 checkpoint
 
 MySQL 的二进制日志会记录所有与 MySQL 数据库有关的操作，包括其它存储引擎；而 InnoDB 的 redo log 显然只记录以 InnoDB 为存储引擎的表操作。另外，InnoDB redo log 记录的是每个页更改的物理情况，而不是逻辑情况。
 
 写入 redo log 时并不是直接写入磁盘，而是先写入一个 redo log buffer 中，然后按一定的条件顺序写入日志文件：
 
-* Master thread 每秒例程
-* 参数 `innodb_flush_log_at_trx_commit` 控制在事务提交时处理 redo log 的方式
-  * `0` - 不写入文件，等待 master thread 的每秒例程
-  * `1` - 将 redo log buffer 同步写回磁盘 (`fsync`)
-  * `2` - 将 redo log buffer 异步写回磁盘 (由 OS 文件系统负责，OS 不 crash 就没事)
+- Master thread 每秒例程
+- 参数 `innodb_flush_log_at_trx_commit` 控制在事务提交时处理 redo log 的方式
+  - `0` - 不写入文件，等待 master thread 的每秒例程
+  - `1` - 将 redo log buffer 同步写回磁盘 (`fsync`)
+  - `2` - 将 redo log buffer 异步写回磁盘 (由 OS 文件系统负责，OS 不 crash 就没事)
 
 如果要保证事务 ACID 特性中的 **持久性**，必须将上述参数设置为 `1`，保证事务提交时所有操作都已写入磁盘上的 redo log 文件。当数据库 crash 时，可以保证能够恢复已经提交的事务。
 
 ---
-

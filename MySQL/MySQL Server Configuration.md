@@ -8,7 +8,7 @@ Nanjing, Jiangsu, China
 
 ---
 
-在远程机器上新装了 Linux server 并安装了 MySQL，在开发机器上使用 [*MySQL Workbench*](https://www.mysql.com/products/workbench/) 来进行数据库的管理，所以要在 workbench 中配置数据库的信息。Linux server 上新安装的 MySQL 需要进行一定的配置后才能够被 MySQL Workbench 连接。
+在远程机器上新装了 Linux server 并安装了 MySQL，在开发机器上使用 [_MySQL Workbench_](https://www.mysql.com/products/workbench/) 来进行数据库的管理，所以要在 workbench 中配置数据库的信息。Linux server 上新安装的 MySQL 需要进行一定的配置后才能够被 MySQL Workbench 连接。
 
 ## Binding
 
@@ -84,4 +84,3 @@ GRANT ALL ON *.* TO 'username'@'host';
 之后，就可以使用用户名 + 密码通过 MySQL Workbench 进行登录了。
 
 ---
-

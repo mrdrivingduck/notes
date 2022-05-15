@@ -26,15 +26,15 @@ Docker Registry 是用来保存用户构建的镜像的地方，可以与 Git �
 
 Docker 的技术组件如下：
 
-* 原生的 Linux 容器格式 (`libcontainer`)
-* Linux 内核的 namespace，用于隔离文件系统、进程、网络
-  * 文件系统隔离 (每个容器都有自己的 `root` 文件系统)
-  * 进程隔离 (每个容器都运行在自己的进程环境中)
-  * 网络隔离 (容器间的虚拟网络接口和 IP 地址都是分开的)
-* 资源隔离和分组 (cgroups) - 分配硬件资源到每个 Docker 容器
-* 写时复制 (文件系统是分层的、快速的)
-* 容器产生的 `STDIN`、`STDOUT`、`STDERR` 这些 I/O 流都会被记入日志
-* 交互式 shell - 创建一个伪 tty 终端，并连接到 `STDIN`
+- 原生的 Linux 容器格式 (`libcontainer`)
+- Linux 内核的 namespace，用于隔离文件系统、进程、网络
+  - 文件系统隔离 (每个容器都有自己的 `root` 文件系统)
+  - 进程隔离 (每个容器都运行在自己的进程环境中)
+  - 网络隔离 (容器间的虚拟网络接口和 IP 地址都是分开的)
+- 资源隔离和分组 (cgroups) - 分配硬件资源到每个 Docker 容器
+- 写时复制 (文件系统是分层的、快速的)
+- 容器产生的 `STDIN`、`STDOUT`、`STDERR` 这些 I/O 流都会被记入日志
+- 交互式 shell - 创建一个伪 tty 终端，并连接到 `STDIN`
 
 ## 2. Docker 守护进程
 
@@ -124,8 +124,8 @@ WARNING: No swap limit support
 
 使用 `docker run` 来启动第一个 Docker 容器。首次启动时，Docker 会在本地检查是否存在镜像，如果没有，则会到 Registry 上拉取镜像。
 
-* `-i` 表示容器的 `STDIN` 开启
-* `-t` 表示 Docker 要为容器分配一个伪 tty 终端
+- `-i` 表示容器的 `STDIN` 开启
+- `-t` 表示 Docker 要为容器分配一个伪 tty 终端
 
 上述两个选项用于启动一个交互式的容器。`ubuntu` 是要启动的镜像，`/bin/bash` 是镜像启动后执行的命令。
 
@@ -203,4 +203,3 @@ sudo docker rm mycontainer
 ```
 
 ---
-

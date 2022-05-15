@@ -16,11 +16,11 @@ GNU Privacy Guard (GnuPG / GPG) 是一个密码学的自由软件，用于加解
 
 需要的信息包括：
 
-* 加密算法
-* 密钥长度
-* 有效时间
-* 名字 + 邮箱
-* 注释
+- 加密算法
+- 密钥长度
+- 有效时间
+- 名字 + 邮箱
+- 注释
 
 ```console
 $ gpg --full-generate-key
@@ -70,7 +70,7 @@ $ git config --global user.signingkey 8*******7
 在 commit 中使用 GPG key 来签名只需要加上 `-S` 参数：
 
 ```console
-$ git commit 
+$ git commit
 --gpg-sign             -S       -- GPG-sign the commit
 ```
 
@@ -230,4 +230,3 @@ gpg:  secret keys unchanged: 1
 [How to renew a (soon to be) expired GPG key](https://filipe.kiss.ink/renew-expired-gpg-key/)
 
 ---
-
