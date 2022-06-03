@@ -83,7 +83,7 @@ typedef struct Append
 } Append;
 ```
 
-对于 Append 节点对应的 PlanState，其中维护了链表的长度 (子计划的个数)，以及目前正在执行的子计划的状态信息 (哪一个 / 是否开始 / 是否完成)：
+对于 Append 节点对应的 PlanState，其中维护了链表的长度（子计划的个数），以及目前正在执行的子计划的状态信息（哪一个子计划 / 执行是否开始 / 执行是否完成）：
 
 ```c
 /* ----------------
@@ -136,7 +136,7 @@ struct AppendState
 
 ## Initialization
 
-该函数在 `ExecInitNode()` 生命周期中被调用，完成给 Assert 节点构造相应 AssertState 节点的工作。该函数内会为一次性为所有子计划分配好 `PlanState` 结构体的空间，然后为每一个子计划递归调用 `ExecInitNode()`。
+该函数在 `ExecInitNode()` 生命周期中被调用，完成给 Append 节点构造相应 AppendState 节点的工作。该函数内会为一次性为所有子计划分配好 `PlanState` 结构体的空间，然后为每一个子计划递归调用 `ExecInitNode()`。
 
 > 这里与一般节点有区别。其它节点都是对当前节点的左右孩子递归调用 `ExecInitNode()`；Append 节点没有左右孩子节点，是通过遍历子计划链表，分别调用 `ExecInitNode()` 来完成初始化的。
 
@@ -329,7 +329,7 @@ ExecInitAppend(Append *node, EState *estate, int eflags)
 
 ## Execution
 
-该函数在 `ExecProcNode()` 生命周期中被调用。如果这个函数被第一次调用，那么首先进行一些初始化工作 (比如在 `AppendState` 中标记开始执行第一个子计划)，然后进入一个死循环。在死循环中，定位到当前子计划并递归调用 `ExecProcNode()` 获取元组并返回；如果返回元组为空，则选择下一个子计划重复上述过程，直到没有更多子计划。
+该函数在 `ExecProcNode()` 生命周期中被调用。如果这个函数被第一次调用，那么首先进行一些初始化工作（比如在 `AppendState` 中标记开始执行第一个子计划），然后进入一个死循环。在死循环中，定位到当前子计划并递归调用 `ExecProcNode()` 获取元组并返回；如果返回元组为空，则选择下一个子计划重复上述过程，直到没有更多子计划。
 
 ```c
 /* ----------------------------------------------------------------
@@ -465,4 +465,4 @@ ExecEndAppend(AppendState *node)
 
 ## New Version Kernel
 
-新版内核提供了对 Append 节点的并行支持，后续有机会再详细了解。
+PostgreSQL 14 内核提供了对 Append 节点异步执行的支持，后续有机会再详细了解。
