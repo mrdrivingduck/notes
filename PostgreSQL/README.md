@@ -1,5 +1,6 @@
 # PostgreSQL
 
+- [PostgreSQL Analyze](./PostgreSQL%20Analyze.md)
 - [PostgreSQL Executor Append](./PostgreSQL%20Executor%20Append.md)
 - [PostgreSQL Executor Group](./PostgreSQL%20Executor%20Group.md)
 - [PostgreSQL Executor Limit](./PostgreSQL%20Executor%20Limit.md)
