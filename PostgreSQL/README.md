@@ -14,3 +14,4 @@
 - [PostgreSQL GUC](./PostgreSQL%20GUC.md)
 - [PostgreSQL Locking](./PostgreSQL%20Locking.md)
 - [PostgreSQL Query Execution](./PostgreSQL%20Query%20Execution.md)
+- [PostgreSQL Query Execution](./PostgreSQL%20VFD.md)
