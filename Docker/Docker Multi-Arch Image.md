@@ -119,6 +119,35 @@ $ docker buildx build \
 
 经过体验，native 指令集（对我的机器而言是 amd64）的镜像构建速度最快，远快于 QEMU 对其它指令集的模拟。但是这种方法只需要一台机器就可以构建能够运行于所有 CPU 平台上的镜像了。
 
+## 如何使 Dockerfile 与 ARCH 无关
+
+对于不同 arch 上的镜像构建，我们通常会使用 multi-arch 的基础镜像，这没什么问题。这样使用同一份 Dockerfile 就可以构建我们自己的 multi-arch 镜像。但有时，同一个软件包在不同 arch 上的版本不同，使不得不在 Dockerfile 的层面上去加以区别。如何避免为不同的 arch 写两份 Dockerfile 呢？
+
+使用镜像构建时自动传入的预定义 `ARG` 来判断构建的目标平台，然后使用 shell 的语法来对不同的平台执行不同的 `RUN` 指令。
+
+镜像构建时将会预定义如下的 `ARG`：
+
+- `TARGETPLATFORM`：`linux/amd64` / `linux/arm/v7` 等
+- `TARGETOS`：`linux` / `windows` 等
+- `TARGETARCH`：`amd64` / `arm64` 等
+
+在 Dockerfile 中使用 shell 语法判断这些 `ARG`：
+
+```dockerfile
+RUN if [ "$TARGETARCH" = "amd64" ]; then \
+        OCI_ARCH=x86_64; \
+        OCI_VERSION=19.14; \
+    elif [ "$TARGETARCH" = "arm64" ]; then \
+        OCI_ARCH=aarch64; \
+        OCI_VERSION=19.10; \
+    else \
+        OCI_ARCH=x86_64; \
+        OCI_VERSION=19.14; \
+    fi && \
+    wget --no-verbose \
+        https://xxx/${OCI_ARCH}/${OCI_VERSION}-basic-${OCI_VERSION}.${OCI_ARCH}.rpm
+```
+
 ---
 
 ## References
@@ -130,3 +159,9 @@ $ docker buildx build \
 [Docker Buildx](https://docs.docker.com/buildx/working-with-buildx/)
 
 [docker buildx build](https://docs.docker.com/engine/reference/commandline/buildx_build/)
+
+[Automatic platform ARGs in the global scope](https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope)
+
+[Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)
+
+[Making Dockerfiles architecture independent](https://nielscautaerts.xyz/making-dockerfiles-architecture-independent.html)
