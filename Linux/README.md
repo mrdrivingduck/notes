@@ -3,4 +3,5 @@
 每三天学一个 Linux 命令。（能坚持吗......）
 
 - [gzip](./gzip.md)
+- [head / tail](./head-tail.md)
 - [watch](./watch.md)
