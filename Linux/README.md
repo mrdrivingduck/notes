@@ -5,5 +5,6 @@
 - [find](./find.md)
 - [gzip](./gzip.md)
 - [head / tail](./head-tail.md)
+- [sort](./sort.md)
 - [uniq](./uniq.md)
 - [watch](./watch.md)
