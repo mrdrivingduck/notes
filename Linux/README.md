@@ -8,3 +8,4 @@
 - [sort](./sort.md)
 - [uniq](./uniq.md)
 - [watch](./watch.md)
+- [wc](./wc.md)
