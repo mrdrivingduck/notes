@@ -11,3 +11,4 @@
 - [uniq](./uniq.md)
 - [watch](./watch.md)
 - [wc](./wc.md)
+- [xargs](./xargs.md)
