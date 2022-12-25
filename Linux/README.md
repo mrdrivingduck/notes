@@ -3,6 +3,7 @@
 每三天学一个 Linux 命令。（能坚持吗......）
 
 - [cut](./cut.md)
+- [df](./df.md)
 - [find](./find.md)
 - [grep](./grep.md)
 - [gzip](./gzip.md)
