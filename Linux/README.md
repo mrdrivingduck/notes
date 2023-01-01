@@ -4,6 +4,7 @@
 
 - [cut](./cut.md)
 - [df](./df.md)
+- [du](./du.md)
 - [find](./find.md)
 - [grep](./grep.md)
 - [gzip](./gzip.md)
