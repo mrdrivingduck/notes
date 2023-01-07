@@ -9,6 +9,7 @@
 - [grep](./grep.md)
 - [gzip](./gzip.md)
 - [head / tail](./head-tail.md)
+- [ldd](./ldd.md)
 - [lsof](./lsof.md)
 - [netstat](./netstat.md)
 - [sort](./sort.md)
