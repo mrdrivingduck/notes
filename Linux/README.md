@@ -11,6 +11,7 @@
 - [head / tail](./head-tail.md)
 - [ldd](./ldd.md)
 - [lsof](./lsof.md)
+- [ltrace / strace](./ltrace-strace.md)
 - [netstat](./netstat.md)
 - [sort](./sort.md)
 - [uniq](./uniq.md)
