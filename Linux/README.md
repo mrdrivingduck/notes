@@ -15,6 +15,7 @@
 - [netstat](./netstat.md)
 - [sort](./sort.md)
 - [uniq](./uniq.md)
+- [usermod](./usermod.md)
 - [watch](./watch.md)
 - [wc](./wc.md)
 - [which](./which.md)
