@@ -10,6 +10,7 @@
 - [grep](./grep.md)
 - [gzip](./gzip.md)
 - [head / tail](./head-tail.md)
+- [kill](./kill.md)
 - [ldd](./ldd.md)
 - [lsof](./lsof.md)
 - [ltrace / strace](./ltrace-strace.md)
