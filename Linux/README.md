@@ -8,6 +8,7 @@
 - [du](./du.md)
 - [find](./find.md)
 - [grep](./grep.md)
+- [groupadd](./groupadd.md)
 - [gzip](./gzip.md)
 - [head / tail](./head-tail.md)
 - [kill](./kill.md)
