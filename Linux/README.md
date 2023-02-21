@@ -11,6 +11,7 @@
 - [groupadd](./groupadd.md)
 - [gzip](./gzip.md)
 - [head / tail](./head-tail.md)
+- [hexdump](./hexdump.md)
 - [iotop](./iotop.md)
 - [kill](./kill.md)
 - [ldd](./ldd.md)
