@@ -7,6 +7,7 @@
 - [df](./df.md)
 - [du](./du.md)
 - [find](./find.md)
+- [fio](./fio.md)
 - [grep](./grep.md)
 - [groupadd](./groupadd.md)
 - [gzip](./gzip.md)
