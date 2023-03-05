@@ -13,5 +13,6 @@
 - [PostgreSQL FDW Async Execution](./PostgreSQL%20FDW%20Async%20Execution.md)
 - [PostgreSQL GUC](./PostgreSQL%20GUC.md)
 - [PostgreSQL Locking](./PostgreSQL%20Locking.md)
+- [PostgreSQL Process Activity](./PostgreSQL%20Process%20Activity.md)
 - [PostgreSQL Query Execution](./PostgreSQL%20Query%20Execution.md)
-- [PostgreSQL Query Execution](./PostgreSQL%20VFD.md)
+- [PostgreSQL VFD](./PostgreSQL%20VFD.md)
