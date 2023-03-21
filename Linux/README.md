@@ -19,6 +19,7 @@
 - [lsof](./lsof.md)
 - [ltrace / strace](./ltrace-strace.md)
 - [netstat](./netstat.md)
+- [nm](./nm.md)
 - [sort](./sort.md)
 - [uniq](./uniq.md)
 - [useradd](./useradd.md)
