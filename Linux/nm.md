@@ -15,7 +15,7 @@ Hangzhou, Zhejiang, China
 ## Usage
 
 ```shell
-$ nm --help          
+$ nm --help
 Usage: nm [option(s)] [file(s)]
  List symbols in [file(s)] (a.out by default).
  The options are:
@@ -86,7 +86,7 @@ ChatGPT 给出的资料：
 - `-A` 参数表示打印每个符号所属的文件名
 
 ```shell
-$ nm -g -D -A libssl.so   
+$ nm -g -D -A libssl.so
 libssl.so:                 U ASN1_item_d2i@@OPENSSL_1_1_0
 libssl.so:                 U ASN1_item_free@@OPENSSL_1_1_0
 libssl.so:                 U ASN1_item_i2d@@OPENSSL_1_1_0

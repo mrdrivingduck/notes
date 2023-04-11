@@ -21,6 +21,7 @@
 - [netstat](./netstat.md)
 - [nm](./nm.md)
 - [sort](./sort.md)
+- [tee](./tee.md)
 - [uniq](./uniq.md)
 - [useradd](./useradd.md)
 - [usermod](./usermod.md)
