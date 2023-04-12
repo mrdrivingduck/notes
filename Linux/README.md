@@ -20,6 +20,7 @@
 - [ltrace / strace](./ltrace-strace.md)
 - [netstat](./netstat.md)
 - [nm](./nm.md)
+- [readlink](./readlink.md)
 - [sort](./sort.md)
 - [tee](./tee.md)
 - [uniq](./uniq.md)
