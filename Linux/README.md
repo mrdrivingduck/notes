@@ -21,6 +21,7 @@
 - [netstat](./netstat.md)
 - [nm](./nm.md)
 - [readlink](./readlink.md)
+- [realpath](./realpath.md)
 - [sort](./sort.md)
 - [tee](./tee.md)
 - [uniq](./uniq.md)
