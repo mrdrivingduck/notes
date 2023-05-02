@@ -6,6 +6,7 @@
 - [cut](./cut.md)
 - [df](./df.md)
 - [du](./du.md)
+- [fallocate](./fallocate.md)
 - [find](./find.md)
 - [fio](./fio.md)
 - [grep](./grep.md)
