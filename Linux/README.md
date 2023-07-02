@@ -14,6 +14,7 @@
 - [gzip](./gzip.md)
 - [head / tail](./head-tail.md)
 - [hexdump](./hexdump.md)
+- [iostat](./iostat.md)
 - [iotop](./iotop.md)
 - [kill](./kill.md)
 - [ldd](./ldd.md)
