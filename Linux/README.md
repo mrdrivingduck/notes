@@ -22,6 +22,7 @@
 - [ltrace / strace](./ltrace-strace.md)
 - [netstat](./netstat.md)
 - [nm](./nm.md)
+- [pmap](./pmap.md)
 - [readlink](./readlink.md)
 - [realpath](./realpath.md)
 - [sort](./sort.md)
