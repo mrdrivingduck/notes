@@ -25,6 +25,7 @@
 - [pmap](./pmap.md)
 - [readlink](./readlink.md)
 - [realpath](./realpath.md)
+- [rpm2cpio / rpm2archive](./rpm2cpio-rpm2archive.md)
 - [sort](./sort.md)
 - [tee](./tee.md)
 - [uniq](./uniq.md)
