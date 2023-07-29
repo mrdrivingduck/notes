@@ -70,11 +70,11 @@ Host github.com
 
 ### Linux
 
-Linux 下主要是 `ProxyCommand` 的不同：
+Linux 下主要是 `ProxyCommand` 的不同。如果正在使用 WSL，并且代理服务搭建在 Windows 上的话，`ProxyCommand` 中需要填写 `/etc/resolv.conf` 中的 `nameserver` IP 地址（也就是 Windows 的局域网地址）。
 
 ```ssh
 Host github.com
-    ProxyCommand nc -x 127.0.0.1:10808 %h %p
+    ProxyCommand nc -v -x 127.0.0.1:10808 %h %p
     IdentityFile "~/.ssh/id_rsa"
     TCPKeepAlive yes
     IdentitiesOnly yes
