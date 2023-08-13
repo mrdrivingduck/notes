@@ -296,6 +296,35 @@ exit_group(0)                           = ?
 +++ exited with 0 +++
 ```
 
+使用 pid attach 到一个已有的进程上，追踪其系统调用：
+
+```shell
+$ strace -p 3900870       
+strace: Process 3900870 attached
+select(13, [10 11 12], NULL, NULL, {tv_sec=6, tv_usec=425024}) = 0 (Timeout)
+rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS FPE SEGV CONT SYS RTMIN RT_1], NULL, 8) = 0
+open("postmaster.pid", O_RDWR)          = 14
+read(14, "59286\n/home/postgres/tmp_polardb"..., 8191) = 100
+close(14)                               = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+select(13, [10 11 12], NULL, NULL, {tv_sec=60, tv_usec=0}) = ? ERESTARTNOHAND (To be restarted if no handler)
+--- SIGUSR1 {si_signo=SIGUSR1, si_code=SI_USER, si_pid=59305, si_uid=1000} ---
+open("/dev/urandom", O_RDONLY)          = 14
+read(14, "\254\247\10\f", 4)            = 4
+close(14)                               = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f843dca1a50) = 1946938
+rt_sigreturn({mask=[]})                 = -1 EINTR (Interrupted system call)
+rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS FPE SEGV CONT SYS RTMIN RT_1], NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+select(13, [10 11 12], NULL, NULL, {tv_sec=60, tv_usec=0}) = ? ERESTARTNOHAND (To be restarted if no handler)
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1946938, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 1946938
+wait4(-1, 0x7ffedb48e798, WNOHANG, NULL) = 0
+rt_sigreturn({mask=[]})                 = -1 EINTR (Interrupted system call)
+rt_sigprocmask(SIG_SETMASK, ~[ILL TRAP ABRT BUS FPE SEGV CONT SYS RTMIN RT_1], NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+```
+
 ## Ltrace
 
 对系统自带的可执行文件使用 `ltrace` 时，却没有任何输出：
