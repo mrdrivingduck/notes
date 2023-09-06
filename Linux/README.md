@@ -20,6 +20,7 @@
 - [ldd](./ldd.md)
 - [lsof](./lsof.md)
 - [ltrace / strace](./ltrace-strace.md)
+- [mpstat](./mpstat.md)
 - [netstat](./netstat.md)
 - [nm](./nm.md)
 - [pidstat](./pidstat.md)
