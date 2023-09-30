@@ -10,7 +10,7 @@ Hangzhou, Zhejiang, China
 
 ## Background
 
-在 PostgreSQL 中，`COPY TO` 语法被用于将表数据导出到文件中。导出到 _文件_ 是 PG 官方文档的说法，我个人认为实际上是导出到各式各样的 **流** 中。因为导出的目标端可以是文件，也可以是标准输出，还可以是另一个进程（这意味着使用了管道）。在这个过程中，需要处理查询优化与执行、输出格式序列化、编码等很多复杂的问题。本文基于当前 PostgreSQL 主干开发分支源码（PostgreSQL 16 under devel）对这个过程进行分析：
+在 PostgreSQL 中，`COPY TO` 语法被用于将表数据导出到文件中。导出到 _文件_ 是 PG 官方文档的说法，我个人认为实际上是导出到各式各样的 **流** 中。因为导出的目标端可以是文件，也可以是标准输出，还可以是另一个进程（这意味着使用了管道）。在这个过程中，需要处理查询优化与执行、输出格式序列化、编码等很多复杂的问题。本文基于当前 PostgreSQL 主干开发分支源码（PostgreSQL 17 under devel）对这个过程进行分析：
 
 ```
 commit a2a6249cf1a4210caac534e8454a1614d0dd081a
@@ -40,7 +40,7 @@ Date:   Sat Aug 19 12:40:45 2023 -0700
     Backpatch: 15-, where CI was added
 ```
 
-## Copy Statement
+## COPY Statement
 
 从定义上来说，`COPY` 语法算是一种 DDL。所以是由执行器的 `standard_ProcessUtility` 函数进行处理的：
 
@@ -248,6 +248,8 @@ typedef struct CopyToStateData
     MemoryContext rowcontext;   /* per-row evaluation context */
     uint64      bytes_processed;    /* number of bytes processed so far */
 } CopyToStateData;
+
+typedef struct CopyToStateData *CopyToState;
 ```
 
 首先，拒绝掉除普通表以外的所有对象类型的 **直接导出**。诸如分区表、视图等其它类型的对象只能通过查询进行导出：
