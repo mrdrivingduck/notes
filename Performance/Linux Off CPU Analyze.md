@@ -81,6 +81,22 @@ On CPU 的采样如下图所示。Perf 相关工具的采样原理是，以固�
 
 比如，通过 [eBPF](https://ebpf.io/)/[BCC](https://github.com/iovisor/bcc) 工具 `offcputime`，可以直接得到 Flame Graph 工具能够接受的输入格式，生成 Off CPU 火焰图。当然用 Perf 也可以，就是开销大一点啦。
 
+## Off CPU Sampling
+
+使用 BCC 工具 `offcputime` 采样：
+
+```shell
+/usr/share/bcc/tools/offcputime -df -p PID 30 > out.stacks
+```
+
+采样完毕后，使用火焰图工具生成火焰图：
+
+```shell
+git clone https://github.com/brendangregg/FlameGraph
+cd FlameGraph
+./flamegraph.pl --color=io --title="Off-CPU Time Flame Graph" --countname=us < out.stacks > out.svg
+```
+
 ## References
 
 [Off-CPU Analysis](https://www.brendangregg.com/offcpuanalysis.html)
