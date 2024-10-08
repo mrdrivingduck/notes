@@ -23,3 +23,4 @@
 - [PostgreSQL Spinlock](./PostgreSQL%20Spinlock.md)
 - [PostgreSQL Storage Management](./PostgreSQL%20Storage%20Management.md)
 - [PostgreSQL VFD](./PostgreSQL%20VFD.md)
+- [PostgreSQL WAL Insert](./PostgreSQL%20WAL%20Insert.md)
