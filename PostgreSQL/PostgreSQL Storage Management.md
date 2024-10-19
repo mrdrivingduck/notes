@@ -684,7 +684,7 @@ smgrtruncate(SMgrRelation reln, ForkNumber *forknum, int nforks, BlockNumber *nb
 
 ### smgrreadv / smgrwritev
 
-在物理文件和内存 buffer 之间交换数据。其使用者为缓冲区管理模块。
+向量化地读取或写入一定范围的 buffer。其使用者为缓冲区管理模块，更上层使用者为需要一次读取多个 buffer 的场景，比如顺序扫描。
 
 ### smgrnblocks / smgrnblocks_cached
 
