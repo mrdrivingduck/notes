@@ -17,6 +17,7 @@
 - [PostgreSQL GUC](./PostgreSQL%20GUC.md)
 - [PostgreSQL Locking](./PostgreSQL%20Locking.md)
 - [PostgreSQL LWLock](./PostgreSQL%20LWLock.md)
+- [PostgreSQL Multi-Insert](./PostgreSQL%20Multi-Insert.md)
 - [PostgreSQL Plan Hint GUC](./PostgreSQL%20Plan%20Hint%20GUC.md)
 - [PostgreSQL Process Activity](./PostgreSQL%20Process%20Activity.md)
 - [PostgreSQL Query Execution](./PostgreSQL%20Query%20Execution.md)
