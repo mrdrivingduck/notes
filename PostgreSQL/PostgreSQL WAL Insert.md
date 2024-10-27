@@ -1,4 +1,4 @@
-# PostgreSQL: WAL Insert
+# PostgreSQL - WAL Insert
 
 Created by: Mr Dk.
 
