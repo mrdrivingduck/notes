@@ -2,7 +2,7 @@
 
 📝 Study notes in different aspects.
 
-Created by : Mr Dk.
+Created by: Mr Dk.
 
 2018 / 03 / 21 17:02
 
@@ -18,4 +18,4 @@ To record knowledge from learning. Some small points will be recorded in [issues
 
 ## License
 
-Copyright © 2018-2022, Jingtang Zhang. ([MIT License](./LICENSE))
+Copyright © 2018-2025, Jingtang Zhang. ([MIT License](./LICENSE))
