@@ -1,7 +1,8 @@
 # PostgreSQL
 
-- [PostgreSQL Analyze](./PostgreSQL%20Analyze.md)
+- [PostgreSQL ANALYZE](./PostgreSQL%20ANALYZE.md)
 - [PostgreSQL Atomics](./PostgreSQL%20Atomics.md)
+- [PostgreSQL CREATE INDEX CONCURRENTLY](./PostgreSQL%20CIC.md)
 - [PostgreSQL COPY FROM](./PostgreSQL%20COPY%20FROM.md)
 - [PostgreSQL COPY TO](./PostgreSQL%20COPY%20TO.md)
 - [PostgreSQL Executor Append](./PostgreSQL%20Executor%20Append.md)

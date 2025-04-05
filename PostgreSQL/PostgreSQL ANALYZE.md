@@ -1,4 +1,4 @@
-# PostgreSQL - Analyze
+# PostgreSQL - ANALYZE
 
 Created by : Mr Dk.
 
