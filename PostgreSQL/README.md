@@ -22,6 +22,7 @@
 - [PostgreSQL Plan Hint GUC](./PostgreSQL%20Plan%20Hint%20GUC.md)
 - [PostgreSQL Process Activity](./PostgreSQL%20Process%20Activity.md)
 - [PostgreSQL Query Execution](./PostgreSQL%20Query%20Execution.md)
+- [PostgreSQL Resource Owner](./PostgreSQL%20Resource%20Owner.md)
 - [PostgreSQL Spinlock](./PostgreSQL%20Spinlock.md)
 - [PostgreSQL Storage Management](./PostgreSQL%20Storage%20Management.md)
 - [PostgreSQL VFD](./PostgreSQL%20VFD.md)
