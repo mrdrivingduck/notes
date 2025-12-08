@@ -29,3 +29,4 @@
 - [PostgreSQL VFD](./PostgreSQL%20VFD.md)
 - [PostgreSQL WAL Insert](./PostgreSQL%20WAL%20Insert.md)
 - [PostgreSQL WAL Prefetch](./PostgreSQL%20WAL%20Prefetch.md)
+- [PostgreSQL WALBufMappingLock](./PostgreSQL%20WALBufMappingLock.md)
