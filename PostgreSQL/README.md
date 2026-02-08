@@ -14,6 +14,7 @@
 - [PostgreSQL Executor Sequential Scan](./PostgreSQL%20Executor%20Sequential%20Scan.md)
 - [PostgreSQL Executor Sort](./PostgreSQL%20Executor%20Sort.md)
 - [PostgreSQL Executor Unique](./PostgreSQL%20Executor%20Unique.md)
+- [PostgreSQL Extension pg_duckdb](./PostgreSQL%20Extension%20pg_duckdb.md)
 - [PostgreSQL FDW Async Execution](./PostgreSQL%20FDW%20Async%20Execution.md)
 - [PostgreSQL GUC](./PostgreSQL%20GUC.md)
 - [PostgreSQL Locking](./PostgreSQL%20Locking.md)
