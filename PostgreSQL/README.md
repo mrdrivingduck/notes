@@ -17,6 +17,7 @@
 - [PostgreSQL Extension pg_duckdb](./PostgreSQL%20Extension%20pg_duckdb.md)
 - [PostgreSQL Extension pg_mooncake](./PostgreSQL%20Extension%20pg_mooncake.md)
 - [PostgreSQL FDW Async Execution](./PostgreSQL%20FDW%20Async%20Execution.md)
+- [PostgreSQL Generic WAL Type](./PostgreSQL%20Generic%20WAL%20Type.md)
 - [PostgreSQL GUC](./PostgreSQL%20GUC.md)
 - [PostgreSQL Locking](./PostgreSQL%20Locking.md)
 - [PostgreSQL LWLock](./PostgreSQL%20LWLock.md)
