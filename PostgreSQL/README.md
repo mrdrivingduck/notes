@@ -29,6 +29,7 @@
 - [PostgreSQL Resource Owner](./PostgreSQL%20Resource%20Owner.md)
 - [PostgreSQL Spinlock](./PostgreSQL%20Spinlock.md)
 - [PostgreSQL Storage Management](./PostgreSQL%20Storage%20Management.md)
+- [PostgreSQL TidStore](./PostgreSQL%20TidStore.md)
 - [PostgreSQL VACUUM](./PostgreSQL%20VACUUM.md)
 - [PostgreSQL VFD](./PostgreSQL%20VFD.md)
 - [PostgreSQL WAL Insert](./PostgreSQL%20WAL%20Insert.md)
