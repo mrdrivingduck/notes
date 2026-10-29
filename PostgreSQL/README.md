@@ -32,6 +32,7 @@
 - [PostgreSQL TidStore](./PostgreSQL%20TidStore.md)
 - [PostgreSQL VACUUM](./PostgreSQL%20VACUUM.md)
 - [PostgreSQL VACUUM Eager Scan](./PostgreSQL%20VACUUM%20Eager%20Scan.md)
+- [PostgreSQL VACUUM Prioritization](./PostgreSQL%20VACUUM%20Prioritization.md)
 - [PostgreSQL VFD](./PostgreSQL%20VFD.md)
 - [PostgreSQL WAL Insert](./PostgreSQL%20WAL%20Insert.md)
 - [PostgreSQL WAL Prefetch](./PostgreSQL%20WAL%20Prefetch.md)
